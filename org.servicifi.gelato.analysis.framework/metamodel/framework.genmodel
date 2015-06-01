@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.servicifi.gelato.analysis.framework/src-gen"
+    modelPluginID="org.servicifi.gelato.analysis.framework" modelName="Framework"
+    modelPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.servicifi.gelato.language.kernel/metamodel/kernel.genmodel#//kernel"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>framework.ecore</foreignModel>
+  <genPackages prefix="Framework" basePackage="org.servicifi.gelato.analysis" disposableProviderFactory="true"
+      ecorePackage="framework.ecore#/">
+    <nestedGenPackages prefix="Flows" basePackage="org.servicifi.gelato.analysis.framework"
+        disposableProviderFactory="true" ecorePackage="framework.ecore#//flows">
+      <genClasses image="false" ecoreClass="framework.ecore#//flows/Flow">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference framework.ecore#//flows/Flow/to"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference framework.ecore#//flows/Flow/from"/>
+        <genOperations ecoreOperation="framework.ecore#//flows/Flow/reverse"/>
+      </genClasses>
+      <genClasses ecoreClass="framework.ecore#//flows/RegularFlow"/>
+      <genClasses ecoreClass="framework.ecore#//flows/ProcedureFlow"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Analyses" basePackage="org.servicifi.gelato.analysis.framework"
+        disposableProviderFactory="true" ecorePackage="framework.ecore#//analyses">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="framework.ecore#//analyses/AnalysisDirection">
+        <genEnumLiterals ecoreEnumLiteral="framework.ecore#//analyses/AnalysisDirection/forwards"/>
+        <genEnumLiterals ecoreEnumLiteral="framework.ecore#//analyses/AnalysisDirection/backwards"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="framework.ecore#//analyses/Analysis">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute framework.ecore#//analyses/Analysis/direction"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference framework.ecore#//analyses/Analysis/cfg"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute framework.ecore#//analyses/Analysis/result"/>
+        <genOperations ecoreOperation="framework.ecore#//analyses/Analysis/kill">
+          <genParameters ecoreParameter="framework.ecore#//analyses/Analysis/kill/e"/>
+        </genOperations>
+        <genOperations ecoreOperation="framework.ecore#//analyses/Analysis/gen">
+          <genParameters ecoreParameter="framework.ecore#//analyses/Analysis/gen/e"/>
+        </genOperations>
+        <genOperations ecoreOperation="framework.ecore#//analyses/Analysis/entry">
+          <genParameters ecoreParameter="framework.ecore#//analyses/Analysis/entry/e"/>
+          <genParameters ecoreParameter="framework.ecore#//analyses/Analysis/entry/iteration"/>
+        </genOperations>
+        <genOperations ecoreOperation="framework.ecore#//analyses/Analysis/exit">
+          <genParameters ecoreParameter="framework.ecore#//analyses/Analysis/exit/e"/>
+          <genParameters ecoreParameter="framework.ecore#//analyses/Analysis/exit/iteration"/>
+        </genOperations>
+        <genOperations ecoreOperation="framework.ecore#//analyses/Analysis/performAnalysis"/>
+      </genClasses>
+      <genClasses ecoreClass="framework.ecore#//analyses/ReachingDefinitionsAnalysis"/>
+      <genClasses image="false" ecoreClass="framework.ecore#//analyses/AnalysisResult">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute framework.ecore#//analyses/AnalysisResult/label"/>
+      </genClasses>
+      <genClasses ecoreClass="framework.ecore#//analyses/ReachingDefinitionsResult"/>
+      <genClasses ecoreClass="framework.ecore#//analyses/ExitEntryPair">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference framework.ecore#//analyses/ExitEntryPair/entry"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference framework.ecore#//analyses/ExitEntryPair/exit"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="framework.ecore#//analyses/Comparable"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated framework -->
+      <package
+            uri="http://www.servicifi.org/gelato/analysis/framework/flows"
+            class="org.servicifi.gelato.analysis.framework.flows.FlowsPackage"
+            genModel="metamodel/framework.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated framework -->
+      <package
+            uri="http://www.servicifi.org/gelato/analysis/framework/analyses"
+            class="org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage"
+            genModel="metamodel/framework.genmodel"/>
+   </extension>
+</plugin>
