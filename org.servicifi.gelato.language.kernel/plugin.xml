@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated kernel -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel"
+            class="org.servicifi.gelato.language.kernel.KernelPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/commons"
+            class="org.servicifi.gelato.language.kernel.commons.CommonsPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/statements"
+            class="org.servicifi.gelato.language.kernel.statements.StatementsPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/procedures"
+            class="org.servicifi.gelato.language.kernel.procedures.ProceduresPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/expressions"
+            class="org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/containers"
+            class="org.servicifi.gelato.language.kernel.containers.ContainersPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/members"
+            class="org.servicifi.gelato.language.kernel.members.MembersPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/variables"
+            class="org.servicifi.gelato.language.kernel.variables.VariablesPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/parameters"
+            class="org.servicifi.gelato.language.kernel.parameters.ParametersPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/references"
+            class="org.servicifi.gelato.language.kernel.references.ReferencesPackage"
+            genModel="metamodel/kernel.genmodel"/>
+   </extension>
+
+</plugin>
