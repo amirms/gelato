@@ -5,20 +5,22 @@ START containers.CompilationUnit
 
 IMPORTS {
 	commons : <http://www.servicifi.org/gelato/language/kernel/commons>
-	variables : <http://www.servicifi.org/gelato/language/kernel/variables>
+	dataitems : <http://www.servicifi.org/gelato/language/kernel/dataitems>
 	statements : <http://www.servicifi.org/gelato/language/kernel/statements>
 	expressions : <http://www.servicifi.org/gelato/language/kernel/expressions>
 	procedures : <http://www.servicifi.org/gelato/language/kernel/procedures>
 	parameters : <http://www.servicifi.org/gelato/language/kernel/parameters>
 	containers : <http://www.servicifi.org/gelato/language/kernel/containers>
+	references : <http://www.servicifi.org/gelato/language/kernel/references>
 }
 
 OPTIONS {
 	//disableTokenSorting = "true";
 	reloadGeneratorModel = "true";
-	defaultTokenName = "IDENTIFIER";
+	defaultTokenName = "CHARACTER_LITERAL";
 	usePredefinedTokens = "false";
 	memoize = "false";
+	backtracking = "true";
 	overrideScanner = "false";
 	
 }
@@ -31,10 +33,12 @@ TOKENS {
 	// simple token
 	DEFINE FRAGMENT DIGIT $('0'..'9')$;
 	
+	// character literal
+	DEFINE CHARACTER_LITERAL $($ + DIGIT + $)+$;
+	
 	// composed token
 	DEFINE IDENTIFIER CHAR + $($ + CHAR + $|$ + DIGIT + $)*$;
 
-	
 	//DEFINE IDENTIFIER $('a'..'Z'|'0'..'9')+$;
 	@SuppressWarnings(unusedToken)
 	DEFINE WHITESPACE $(' '|'\t'|'\f'|'\r'|'\n')+$;
@@ -42,8 +46,10 @@ TOKENS {
 
 TOKENSTYLES {
 	"SL_COMMENT" COLOR #000080, ITALIC;
-	"STRING_LITERAL" COLOR #2A00FF;
+	//"STRING_LITERAL" COLOR #2A00FF;
 	"IDENTIFIER" COLOR #000000;
+	"CHARACTER_LITERAL" COLOR #3CB300;
+	
 }
 
 
@@ -51,41 +57,46 @@ RULES {
 
 	//statements
 	
-	containers.CompilationUnit ::= (declarations:variables.Variable, procedures.Procedure)* 
-									mainProcedure;
+	containers.CompilationUnit ::= (declarations:dataitems.DataItem )* 
+									mainProcedure !0
+									(declarations:procedures.Procedure !0)* ;
 		
 	//variables
-	variables.Variable ::= "var" name[] ";" ;
+	dataitems.DataItem ::= "var" name[IDENTIFIER] ";" !0 ;
 		
 	//procedures
 	
-	procedures.Procedure ::= label[] ":" "Procedure" ( name[] )? "(" ( arguments ("," arguments)* )? ")" "{" 
+	procedures.Procedure ::= label[] ":" "Procedure" ( name[IDENTIFIER] )? "(" ( parameters ("," parameters)* )? ")" "{" 
         	(!1 members:procedures.Procedure, statements.Statement  )* !0
-        "}" ;
+        "}" !0 ;
+        
+   	procedures.MainProcedure ::= label[] ":" "Procedure" "main" "(" ( parameters ("," parameters)* )? ")" "{" 
+        	(!1 members:procedures.Procedure, statements.Statement  )* !0
+        "}" ;     
 	
 	//statements
 	
 	//condition has to point to expression statement
 	statements.WhileLoop ::= label[] ":" "while" "(" condition ")" "do" statement ";";
 	
-	statements.Condition ::= label[] ":" "if" "(" condition ")" "then" statement 
-		( "else" elseStatement )? ";";
+	statements.Condition ::= label[] ":" "if" "(" condition ")" "then" !1 statement 
+		(!0 "else" !1 elseStatement )? ";";
 	
-	statements.Goto ::= label[] ":" "goto" target[] ";";
+	statements.Goto ::= label[] ":" "goto" target[IDENTIFIER] ";";
 	
-	statements.Block ::= (label[] ":" )? "{" statements* "}";
+	statements.Block ::= label[] ":" "{"!1 statements* !0 "}";
 	
-	statements.ParallelBlock ::= "{*" "order" "=" order[l2r : "l2r", r2l : "r2l", interleaved : "interleaved"]
-									 statements+ "*}" ;
+	statements.ParallelBlock ::= "{*" "order" "=" order[l2r : "l2r", r2l : "r2l", interleaved : "interleaved"] !1
+									 statements+ !0 "*}" ;
 	
 	statements.NonDeterministicBlock::= ">""|" ( statements )+;
 	
 	//TODO may be I should make the assigned variable to expression
-	statements.AssignmentStatement ::=  label[] ":" target[] ":=" value ";";
+	statements.AssignmentStatement ::=  label[] ":" target[IDENTIFIER] ":=" value ";";
 	
 	statements.ExpressionStatement ::= label[] ":" expression ";";
 	
-	statements.StatementWithException ::= label[] ":" "try" statement "with" exceptionStatements+ ;
+	statements.StatementWithException ::= label[] ":" "try" statement !1 "with" exceptionStatements+ ;
 	
 	statements.ExceptionHandlerStatement ::= label[] ":" "exception" statement ;
 	
@@ -96,28 +107,32 @@ RULES {
 	
 	statements.Skip ::= label[] ":" "skip" ";";
 	
-	//target is to s
-	statements.ProcedureCall ::= label[] ":" "call" target[] "(" ( parameters ("," parameters)* )? ")" ";" ;
+	//target is to procedure
+	statements.ProcedureCall ::= label[] ":" "call" target[IDENTIFIER] "(" ( arguments ("," arguments)* )? ")" ";" ;
 	
-	//paramters
-	parameters.Parameter ::= byReference["ref" : "val"] target[];
+	//parameters
+	parameters.Parameter ::= name[IDENTIFIER];
+	
+	//references
+	references.Argument ::= byReference["ref" : "val"] target[IDENTIFIER];
 	
 	//expressions
 	
 	//An expression must have a label
 	expressions.Expression ::=  label[] ":" "[" ( children ( ";" children )* )? "]";
 	
-	expressions.Defines ::= "defines" "(" target[] ")";
+	//target is variables.Variable
+	expressions.Defines ::= "defines" "(" target[IDENTIFIER] ")";
 	
-	expressions.Uses ::= "uses" "(" target[] ")";
+	expressions.Uses ::= "uses" "(" target[IDENTIFIER] ")";
 	
-	expressions.Affects ::= "affects" "(" target[] ")";
+	expressions.Affects ::= "affects" "(" target[IDENTIFIER] ")";
 	
-	expressions.PostDefines ::= "postdefines" "(" target[] ")";
+	expressions.PostDefines ::= "postdefines" "(" target[IDENTIFIER] ")";
 	
-	expressions.PreUses ::= "preuses" "(" target[] ")";
+	expressions.PreUses ::= "preuses" "(" target[IDENTIFIER] ")";
 	
-	expressions.PostAffects ::= "postaffects" "(" target[] ")";
+	expressions.PostAffects ::= "postaffects" "(" target[IDENTIFIER] ")";
 	
 	
 }

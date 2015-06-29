@@ -6,17 +6,26 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.servicifi.gelato.language.kernel,
+ org.servicifi.gelato.language.kernel.analyses,
+ org.servicifi.gelato.language.kernel.analyses.impl,
+ org.servicifi.gelato.language.kernel.analyses.util,
  org.servicifi.gelato.language.kernel.commons,
  org.servicifi.gelato.language.kernel.commons.impl,
  org.servicifi.gelato.language.kernel.commons.util,
  org.servicifi.gelato.language.kernel.containers,
  org.servicifi.gelato.language.kernel.containers.impl,
  org.servicifi.gelato.language.kernel.containers.util,
+ org.servicifi.gelato.language.kernel.dataitems,
+ org.servicifi.gelato.language.kernel.dataitems.impl,
+ org.servicifi.gelato.language.kernel.dataitems.util,
  org.servicifi.gelato.language.kernel.expressions,
  org.servicifi.gelato.language.kernel.expressions.impl,
  org.servicifi.gelato.language.kernel.expressions.util,
+ org.servicifi.gelato.language.kernel.flows,
+ org.servicifi.gelato.language.kernel.flows.impl,
+ org.servicifi.gelato.language.kernel.flows.util,
  org.servicifi.gelato.language.kernel.impl,
  org.servicifi.gelato.language.kernel.members,
  org.servicifi.gelato.language.kernel.members.impl,
@@ -32,10 +41,8 @@ Export-Package: org.servicifi.gelato.language.kernel,
  org.servicifi.gelato.language.kernel.references.util,
  org.servicifi.gelato.language.kernel.statements,
  org.servicifi.gelato.language.kernel.statements.impl,
- org.servicifi.gelato.language.kernel.statements.util,
- org.servicifi.gelato.language.kernel.variables,
- org.servicifi.gelato.language.kernel.variables.impl,
- org.servicifi.gelato.language.kernel.variables.util
+ org.servicifi.gelato.language.kernel.statements.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.servicifi.gelato.language.kernel.mapping;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
