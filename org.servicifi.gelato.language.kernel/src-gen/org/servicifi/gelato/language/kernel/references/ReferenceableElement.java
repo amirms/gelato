@@ -4,7 +4,6 @@ package org.servicifi.gelato.language.kernel.references;
 
 import org.eclipse.emf.ecore.EObject;
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
-import org.servicifi.gelato.language.kernel.mapping.KernelElement;
 
 /**
  * <!-- begin-user-doc -->

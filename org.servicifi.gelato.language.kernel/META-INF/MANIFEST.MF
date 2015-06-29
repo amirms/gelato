@@ -43,6 +43,5 @@ Export-Package: org.servicifi.gelato.language.kernel,
  org.servicifi.gelato.language.kernel.statements.impl,
  org.servicifi.gelato.language.kernel.statements.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.servicifi.gelato.language.kernel.mapping;bundle-version="1.0.0";visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

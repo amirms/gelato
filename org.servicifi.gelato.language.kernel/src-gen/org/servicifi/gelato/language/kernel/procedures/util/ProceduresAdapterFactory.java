@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.servicifi.gelato.language.kernel.commons.LabellableElement;
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
 
-import org.servicifi.gelato.language.kernel.mapping.KernelElement;
 import org.servicifi.gelato.language.kernel.members.Member;
 
 import org.servicifi.gelato.language.kernel.procedures.*;

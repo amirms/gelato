@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
-import org.servicifi.gelato.language.kernel.mapping.KernelElement;
 import org.servicifi.gelato.language.kernel.references.*;
 
 /**

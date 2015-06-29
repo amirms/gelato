@@ -12,7 +12,6 @@ import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
 import org.servicifi.gelato.language.kernel.commons.LabellableElement;
 
 import org.servicifi.gelato.language.kernel.flows.Flow;
-import org.servicifi.gelato.language.kernel.mapping.KernelElement;
 import org.servicifi.gelato.language.kernel.members.Member;
 
 import org.servicifi.gelato.language.kernel.statements.ExecutionOrder;

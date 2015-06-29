@@ -9,8 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.emftext.commons.layout;bundle-version="1.0.0",
- org.servicifi.gelato.language.kernel.mapping;bundle-version="1.0.0";visibility:=reexport
+ org.emftext.commons.layout;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: org.servicifi.gelato.language.cobol,
  org.servicifi.gelato.language.cobol.arithmetics,

@@ -30,7 +30,6 @@ import org.servicifi.gelato.language.kernel.flows.FlowsPackage;
 import org.servicifi.gelato.language.kernel.flows.impl.FlowsPackageImpl;
 import org.servicifi.gelato.language.kernel.impl.KernelPackageImpl;
 
-import org.servicifi.gelato.language.kernel.mapping.MappingPackage;
 import org.servicifi.gelato.language.kernel.members.MembersPackage;
 
 import org.servicifi.gelato.language.kernel.members.impl.MembersPackageImpl;

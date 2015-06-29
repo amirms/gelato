@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
-import org.servicifi.gelato.language.kernel.mapping.KernelElement;
 import org.servicifi.gelato.language.kernel.members.Member;
 import org.servicifi.gelato.language.kernel.parameters.*;
 
