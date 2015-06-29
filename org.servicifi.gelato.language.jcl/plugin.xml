@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/commons"
+            class="org.servicifi.gelato.language.jcl.commons.CommonsPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/parameters"
+            class="org.servicifi.gelato.language.jcl.parameters.ParametersPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/statements"
+            class="org.servicifi.gelato.language.jcl.statements.StatementsPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/procedures"
+            class="org.servicifi.gelato.language.jcl.procedures.ProceduresPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/containers"
+            class="org.servicifi.gelato.language.jcl.containers.ContainersPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+</plugin>

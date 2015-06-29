@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="cobol">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="CopyTargetTargetDecoration"/>
+    <descriptors name="CompilationGroupFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="CompilationGroupFigure">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="CompilationGroupNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="CompilationUnitFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="CompilationUnitFigure">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="CompilationUnitNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="DataCopySentenceFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="DataCopySentenceFigure"/>
+    </descriptors>
+    <descriptors name="CopyTargetFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="CopyTargetFigure" targetDecoration="//@figures.0/@figures.0"/>
+    </descriptors>
+    <descriptors name="BehaviorCopybookFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="BehaviorCopybookFigure">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="BehaviorCopybookNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="DataCopybookFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="DataCopybookFigure">
+        <layout xsi:type="gmfgraph:FlowLayout"/>
+        <children xsi:type="gmfgraph:Label" name="DataCopybookNameFigure" text="&lt;...>"/>
+      </actualFigure>
+      <accessors figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+  </figures>
+  <nodes name="CompilationGroup" figure="CompilationGroupFigure"/>
+  <nodes name="CompilationUnit" figure="CompilationUnitFigure"/>
+  <nodes name="DataCopySentence" figure="DataCopySentenceFigure"/>
+  <nodes name="BehaviorCopybook" figure="BehaviorCopybookFigure"/>
+  <nodes name="DataCopybook" figure="DataCopybookFigure"/>
+  <connections name="CopyTarget" figure="CopyTargetFigure"/>
+  <labels name="CompilationGroupName" figure="CompilationGroupFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="CompilationUnitName" figure="CompilationUnitFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="BehaviorCopybookName" figure="BehaviorCopybookFigure" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="DataCopybookName" figure="DataCopybookFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+</gmfgraph:Canvas>

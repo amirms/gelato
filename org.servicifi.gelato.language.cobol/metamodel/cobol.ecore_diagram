@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <notation:Diagram xmi:id="_JR2s8BeBEeWZTZMmPQw3Pg" type="Ecore" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_JW3IwBeBEeWZTZMmPQw3Pg" type="2004" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW3v0BeBEeWZTZMmPQw3Pg" type="5004"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW3v0ReBEeWZTZMmPQw3Pg" type="7010">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW3v0heBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW3v0xeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <element xmi:type="ecore:EDataType" href="cobol.ecore#//Dummy"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW3IwReBEeWZTZMmPQw3Pg"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW3v1BeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW3v1xeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW3v2BeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW3v2ReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW3v2heBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW3v2xeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW3v3BeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW3v3ReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW3v3heBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW3v3xeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW3v4BeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW3v4ReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW3v4heBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW3v4xeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW3v5BeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW3v5ReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW3v5heBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW3v1ReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//commons"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW3v1heBEeWZTZMmPQw3Pg" x="164"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW3v5xeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW3v6heBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W4BeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W4ReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W4heBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W4xeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W5BeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W5ReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W5heBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W5xeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W6BeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W6ReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W6heBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W6xeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W7BeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W7ReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W7heBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW3v6BeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//conditions"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW3v6ReBEeWZTZMmPQw3Pg" x="448"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW4W7xeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW4W8heBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W8xeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W9BeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W9ReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W9heBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W9xeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W-BeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W-ReBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W-heBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W-xeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W_BeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W_ReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W_heBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4W_xeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4XABeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4XAReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW4W8BeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//arithmetics"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW4W8ReBEeWZTZMmPQw3Pg" x="1049"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW4XAheBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW498BeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW498ReBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW498heBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW498xeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW499BeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW499ReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW499heBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW499xeBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW49-BeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW49-ReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW49-heBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW49-xeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW49_BeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW49_ReBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW49_heBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW49_xeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW4XAxeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//containers"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW4XBBeBEeWZTZMmPQw3Pg" x="1560"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW4-ABeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW4-AxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4-BBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4-BReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4-BheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4-BxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4-CBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4-CReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4-CheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4-CxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4-DBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4-DReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4-DheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4-DxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW4-EBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW4-EReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4-EheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW4-AReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//divisions"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW4-AheBEeWZTZMmPQw3Pg" x="1846"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW4-ExeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW4-FheBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lABeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lAReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lAheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lAxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lBBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lBReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lBheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lBxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lCBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lCReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lCheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lCxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lDBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lDReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lDheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW4-FBeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//literals"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW4-FReBEeWZTZMmPQw3Pg" x="2160"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW5lDxeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW5lEheBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lExeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lFBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lFReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lFheBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lFxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lGBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lGReBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lGheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lGxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lHBeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lHReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lHheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW5lHxeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lIBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lIReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW5lEBeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//operators"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW5lEReBEeWZTZMmPQw3Pg" x="2600"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW5lIheBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW6MEBeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MEReBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MEheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MExeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MFBeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MFReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MFheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MFxeBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MGBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MGReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MGheBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MGxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MHBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MHReBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MHheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MHxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW5lIxeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//paragraphs"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW5lJBeBEeWZTZMmPQw3Pg" x="2929"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW6MIBeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW6MIxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MJBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MJReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MJheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MJxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MKBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MKReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MKheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MKxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MLBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MLReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MLheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MLxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6MMBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6MMReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6MMheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW6MIReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//references"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW6MIheBEeWZTZMmPQw3Pg" x="3351"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW6zIBeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW6zIxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zJBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zJReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zJheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zJxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zKBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zKReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zKheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zKxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zLBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zLReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zLheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zLxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zMBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zMReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zMheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW6zIReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//sections"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW6zIheBEeWZTZMmPQw3Pg" x="3865"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW6zMxeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW6zNheBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zNxeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zOBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zOReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zOheBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zOxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zPBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zPReBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zPheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zPxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zQBeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zQReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zQheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW6zQxeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW6zRBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW6zRReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW6zNBeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//sentences"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW6zNReBEeWZTZMmPQw3Pg" x="4254"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW7aMBeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW7aMxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aNBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aNReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aNheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aNxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aOBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aOReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aOheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aOxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aPBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aPReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aPheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aPxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aQBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aQReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aQheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW7aMReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//operands"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW7aMheBEeWZTZMmPQw3Pg" x="4558"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW7aQxeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW7aRheBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aRxeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aSBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aSReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aSheBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aSxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aTBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aTReBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aTheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aTxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aUBeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aUReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aUheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW7aUxeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aVBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aVReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW7aRBeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//statements"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW7aRReBEeWZTZMmPQw3Pg" x="4880"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW8BQBeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW8BQxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BRBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BRReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BRheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BRxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BSBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BSReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BSheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BSxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BTBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BTReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BTheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BTxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BUBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BUReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BUheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW8BQReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//identifiers"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW8BQheBEeWZTZMmPQw3Pg" x="5395"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW8BUxeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW8BVheBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BVxeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BWBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BWReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BWheBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BWxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BXBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BXReBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BXheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BXxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BYBeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BYReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BYheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8BYxeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8BZBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8BZReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW8BVBeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//ios"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW8BVReBEeWZTZMmPQw3Pg" x="5687"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW8oUBeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW8oUxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8oVBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8oVReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8oVheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8oVxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8oWBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8oWReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8oWheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8oWxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8oXBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8oXReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8oXheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8oXxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8oYBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8oYReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8oYheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW8oUReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//water"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW8oUheBEeWZTZMmPQw3Pg" x="5978"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW8oYxeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW8oZheBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8oZxeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8oaBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8oaReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8oaheBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8oaxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8obBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW8obReBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW8obheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW8obxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW9PYBeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW9PYReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW9PYheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW9PYxeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW9PZBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW9PZReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW8oZBeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//registers"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW8oZReBEeWZTZMmPQw3Pg" x="6415"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW9PZheBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW9PaReBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW9PaheBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW9PaxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW9PbBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW9PbReBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW9PbheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW9PbxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW9PcBeBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW9PcReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW9PcheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW9PcxeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW9PdBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW9PdReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW9PdheBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW9PdxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW9PeBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW9PZxeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//environments"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW9PaBeBEeWZTZMmPQw3Pg" x="6671"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW9PeReBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW92cBeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92cReBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92cheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92cxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92dBeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92dReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92dheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92dxeBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92eBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92eReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92eheBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92exeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92fBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92fReBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92fheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92fxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW9PeheBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//dataitems"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW9PexeBEeWZTZMmPQw3Pg" x="7042"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW92gBeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW92gxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92hBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92hReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92hheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92hxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92iBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92iReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92iheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92ixeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92jBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92jReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92jheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92jxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW92kBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW92kReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW92kheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW92gReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//specialnames"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW92gheBEeWZTZMmPQw3Pg" x="7379"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW-dgBeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW-dgxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW-dhBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW-dhReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW-dhheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW-dhxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW-diBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW-diReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW-diheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW-dixeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW-djBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW-djReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW-djheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW-djxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW-dkBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW-dkReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW-dkheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW-dgReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//tables"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW-dgheBEeWZTZMmPQw3Pg" x="7777"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW-dkxeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW-dlheBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW-dlxeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW-dmBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW-dmReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW-dmheBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW-dmxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW-dnBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW-dnReBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW-dnheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW-dnxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW-doBeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW-doReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW-doheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_EkBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_EkReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_EkheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW-dlBeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//files"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW-dlReBEeWZTZMmPQw3Pg" x="8097"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW_EkxeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW_ElheBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_ElxeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_EmBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_EmReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_EmheBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_EmxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_EnBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_EnReBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_EnheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_EnxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_EoBeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_EoReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_EoheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_EoxeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_EpBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_EpReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW_ElBeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//parameters"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW_ElReBEeWZTZMmPQw3Pg" x="8361"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW_EpheBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW_EqReBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_EqheBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_EqxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_ErBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_ErReBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_ErheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_ErxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_roBeBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_roReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_roheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_roxeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_rpBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_rpReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_rpheBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_rpxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_rqBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW_EpxeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//declaratives"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW_EqBeBEeWZTZMmPQw3Pg" x="8692"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW_rqReBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW_rrBeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_rrReBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_rrheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_rrxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_rsBeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_rsReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_rsheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_rsxeBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_rtBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_rtReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_rtheBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_rtxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_ruBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_ruReBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_ruheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_ruxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW_rqheBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//verbs"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW_rqxeBEeWZTZMmPQw3Pg" x="8910"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JW_rvBeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JW_rvxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JW_rwBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JW_rwReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JW_rwheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXASsBeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXASsReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXASsheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXASsxeBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXAStBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXAStReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXAStheBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXAStxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXASuBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXASuReBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXASuheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXASuxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW_rvReBEeWZTZMmPQw3Pg" diagramLink="_LTYf0BeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//labels"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW_rvheBEeWZTZMmPQw3Pg" x="9050"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JXASvBeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JXASvxeBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXASwBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXASwReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXASwheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXASwxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXASxBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXASxReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXASxheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXASxxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXASyBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXASyReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXASyheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXASyxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXASzBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXASzReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXASzheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JXASvReBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//functions"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JXASvheBEeWZTZMmPQw3Pg" x="9370"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JXASzxeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JXAS0heBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA5wBeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA5wReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA5wheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA5wxeBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA5xBeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA5xReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA5xheBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA5xxeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA5yBeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA5yReBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA5yheBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA5yxeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA5zBeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA5zReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA5zheBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JXAS0BeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//handlers"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JXAS0ReBEeWZTZMmPQw3Pg" x="9700"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JXA5zxeBEeWZTZMmPQw3Pg" type="2002" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_JXA50heBEeWZTZMmPQw3Pg" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA50xeBEeWZTZMmPQw3Pg" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA51BeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA51ReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA51heBEeWZTZMmPQw3Pg" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA51xeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA52BeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA52ReBEeWZTZMmPQw3Pg" type="7006">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA52heBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA52xeBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA53BeBEeWZTZMmPQw3Pg" type="7007">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA53ReBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA53heBEeWZTZMmPQw3Pg"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JXA53xeBEeWZTZMmPQw3Pg" type="7008">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_JXA54BeBEeWZTZMmPQw3Pg"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_JXA54ReBEeWZTZMmPQw3Pg"/>
+      </children>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JXA50BeBEeWZTZMmPQw3Pg"/>
+      <element xmi:type="ecore:EPackage" href="cobol.ecore#//strings"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JXA50ReBEeWZTZMmPQw3Pg" x="9970"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_JR2s8ReBEeWZTZMmPQw3Pg"/>
+    <element xmi:type="ecore:EPackage" href="cobol.ecore#/"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_LTYf0BeBEeWZTZMmPQw3Pg" type="Ecore" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_LTYf0ReBEeWZTZMmPQw3Pg"/>
+    <element xmi:type="ecore:EPackage" href="cobol.ecore#//labels"/>
+  </notation:Diagram>
+</xmi:XMI>

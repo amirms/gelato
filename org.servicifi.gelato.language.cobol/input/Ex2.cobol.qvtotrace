@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.4"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.6"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.8"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.5"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.9"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.2/@sentences.0/@statements.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.3"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.0/@sentences.0/@statements.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.4/@sentences.0/@statements.2"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.4/@sentences.0/@statements.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.1/@sentences.0/@statements.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.7"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.4/@sentences.0/@statements.3"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.0/@sentences.0/@statements.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.2/@sentences.0/@statements.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.4/@sentences.0/@statements.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countStatements" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countStatements"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Statement">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.2"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.8/@label/@operands.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.2/@label/@operands.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.6/@label/@operands.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.2/@sentences.0/@statements.0/@label/@operands.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.4/@sentences.0/@statements.1/@operands.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.0/@label/@operands.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.4/@sentences.0/@statements.1/@operands.2"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.4/@sentences.0/@statements.0/@labels.0/@operands.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.2/@sentences.0/@statements.1/@label/@operands.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.4/@sentences.0/@statements.1/@operands.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="countIdentifiers" package="test1" module="test1">
+      <runtimeMappingOperation href="platform:/resource/org.servicifi.language.cobol/scripts/test1.qvtox#//countIdentifiers"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Identifier">
+        <value>
+          <modelElement href="platform:/resource/org.servicifi.language.cobol/input/Ex2.cobol#//@compilationUnits.0/@divisions.3/@paragraphs.3/@sentences.0/@statements.4/@label/@operands.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+</trace:Trace>

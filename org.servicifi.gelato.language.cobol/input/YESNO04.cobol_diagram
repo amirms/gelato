@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:containers="http://www.servicifi.org/language/cobol/containers" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_4Z86gfaeEeG6p6M4cUhaUQ" type="Cobol" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_5bIDoPaeEeG6p6M4cUhaUQ" type="2001" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_5bKf4PaeEeG6p6M4cUhaUQ" type="5001"/>
+    <element xmi:type="containers:CompilationUnit" href="YESNO04.cobol#//@compilationUnits.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5bIDofaeEeG6p6M4cUhaUQ" x="72" y="120"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_5bKf4faeEeG6p6M4cUhaUQ" type="2001" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_5bKf4_aeEeG6p6M4cUhaUQ" type="5001"/>
+    <element xmi:type="containers:CompilationUnit" href="YESNO04.cobol#//@compilationUnits.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5bKf4vaeEeG6p6M4cUhaUQ" x="252" y="108"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_4Z9hkPaeEeG6p6M4cUhaUQ"/>
+  <element xmi:type="containers:CompilationGroup" href="YESNO04.cobol#/"/>
+</notation:Diagram>

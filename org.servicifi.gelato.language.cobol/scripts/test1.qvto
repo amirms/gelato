@@ -1,0 +1,35 @@
+modeltype COBOL uses "http://www.servicifi.org/language/cobol";
+
+transformation test1(inout cobolModel : COBOL);
+
+
+mapping inout COBOL::statements::Statement::countStatements(){}
+
+mapping inout COBOL::_references::Identifier::countIdentifiers(){}
+
+main() {
+	cobolModel.objects()[COBOL::containers::CompilationUnit]->map countElements();
+}
+
+mapping in COBOL::containers::CompilationUnit::countElements()
+{
+	log("Number of statements: ", countStatements(self));
+	
+	log("Number of identifiers: ", countIdentifiers(self));
+}
+
+// this is only used to count the number of statements
+query countStatements(cu : COBOL::containers::CompilationUnit) : Integer
+{
+	var sts : Bag(COBOL::statements::Statement) := cu.allSubobjectsOfKind(COBOL::statements::Statement).oclAsType(COBOL::statements::Statement);
+	
+	return sts -> size();
+}
+
+// this is only used to count the number of identifiers
+query countIdentifiers(cu : COBOL::containers::CompilationUnit) : Integer
+{
+	var ids : Bag(COBOL::_references::Identifier) := cu.allSubobjectsOfKind(COBOL::_references::Identifier).oclAsType(COBOL::_references::Identifier);
+	
+	return ids -> size();
+}

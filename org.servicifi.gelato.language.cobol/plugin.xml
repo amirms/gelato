@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+   <extension-point id="cobol_classpath_initializer" name="Cobol Classpath Initializer" schema="schema/cobol_classpath_initializer.exsd"/>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.emftext.org/language/cobol"
+            class="org.servicifi.gelato.language.cobol.CobolPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/commons"
+            class="org.servicifi.gelato.language.cobol.commons.CommonsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/conditions"
+            class="org.servicifi.gelato.language.cobol.conditions.ConditionsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/arithmetics"
+            class="org.servicifi.gelato.language.cobol.arithmetics.ArithmeticsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/containers"
+            class="org.servicifi.gelato.language.cobol.containers.ContainersPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/divisions"
+            class="org.servicifi.gelato.language.cobol.divisions.DivisionsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/literals"
+            class="org.servicifi.gelato.language.cobol.literals.LiteralsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/operators"
+            class="org.servicifi.gelato.language.cobol.operators.OperatorsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/paragraphs"
+            class="org.servicifi.gelato.language.cobol.paragraphs.ParagraphsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/references"
+            class="org.servicifi.gelato.language.cobol.references.ReferencesPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/sections"
+            class="org.servicifi.gelato.language.cobol.sections.SectionsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/sentences"
+            class="org.servicifi.gelato.language.cobol.sentences.SentencesPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/operands"
+            class="org.servicifi.gelato.language.cobol.operands.OperandsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/statements"
+            class="org.servicifi.gelato.language.cobol.statements.StatementsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/identifiers"
+            class="org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/ios"
+            class="org.servicifi.gelato.language.cobol.ios.IosPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/water"
+            class="org.servicifi.gelato.language.cobol.water.WaterPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/registers"
+            class="org.servicifi.gelato.language.cobol.registers.RegistersPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/environments"
+            class="org.servicifi.gelato.language.cobol.environments.EnvironmentsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/dataitems"
+            class="org.servicifi.gelato.language.cobol.dataitems.DataitemsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/specialnames"
+            class="org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/tables"
+            class="org.servicifi.gelato.language.cobol.tables.TablesPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/files"
+            class="org.servicifi.gelato.language.cobol.files.FilesPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/parameters"
+            class="org.servicifi.gelato.language.cobol.parameters.ParametersPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/declaratives"
+            class="org.servicifi.gelato.language.cobol.declaratives.DeclarativesPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/verbs"
+            class="org.servicifi.gelato.language.cobol.verbs.VerbsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/labels"
+            class="org.servicifi.gelato.language.cobol.labels.LabelsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/functions"
+            class="org.servicifi.gelato.language.cobol.functions.FunctionsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/handlers"
+            class="org.servicifi.gelato.language.cobol.handlers.HandlersPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cobol -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/strings"
+            class="org.servicifi.gelato.language.cobol.strings.StringsPackage"
+            genModel="metamodel/cobol.genmodel"/>
+   </extension>
+
+</plugin>

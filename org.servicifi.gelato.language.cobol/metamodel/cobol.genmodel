@@ -1,0 +1,1424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.servicifi.gelato.language.cobol/src-gen" modelPluginID="org.servicifi.gelato.language.cobol"
+    modelName="Cobol" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>cobol.ecore</foreignModel>
+  <genPackages prefix="Cobol" basePackage="org.servicifi.gelato.language" disposableProviderFactory="true"
+      ecorePackage="cobol.ecore#/">
+    <genDataTypes ecoreDataType="cobol.ecore#//Dummy"/>
+    <nestedGenPackages prefix="Commons" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//commons">
+      <genClasses image="false" ecoreClass="cobol.ecore#//commons/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//commons/NamedElement/name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//commons/Commentable"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//commons/LabellableElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//commons/LabellableElement/label"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//commons/URIableElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//commons/URIableElement/uri"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Conditions" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//conditions">
+      <genClasses image="false" ecoreClass="cobol.ecore#//conditions/Condition"/>
+      <genClasses ecoreClass="cobol.ecore#//conditions/ConditionalOrExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/ConditionalOrExpression/children"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/ConditionalOrExpression/logicalOperators"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//conditions/ConditionalOrExpressionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//conditions/NegatedConditionalExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/NegatedConditionalExpression/child"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/NegatedConditionalExpression/negateOperator"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//conditions/NegatedConditionalExpressionChild"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//conditions/SimpleConditionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//conditions/RelationalExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/RelationalExpression/children"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/RelationalExpression/relationalOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/RelationalExpression/negateOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/RelationalExpression/is"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//conditions/ExpressionList">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/ExpressionList/expressions"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//conditions/ConditionalAndExpressionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//conditions/ConditionalAndExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/ConditionalAndExpression/children"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//conditions/AbbreviatedConditionalExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/AbbreviatedConditionalExpression/children"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//conditions/AbbreviatedConditionalExpressionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//conditions/NegatedAbbreviatedConditionalExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/NegatedAbbreviatedConditionalExpression/child"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/NegatedAbbreviatedConditionalExpression/negateOperator"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//conditions/NegatedAbbreviatedConditionalExpressionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//conditions/AbbreviatedRelationalExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/AbbreviatedRelationalExpression/relationalOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/AbbreviatedRelationalExpression/child"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/AbbreviatedRelationalExpression/negateOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/AbbreviatedRelationalExpression/is"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//conditions/NestedAbbreviatedConditionalExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/NestedAbbreviatedConditionalExpression/expression"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/NestedAbbreviatedConditionalExpression/rest"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//conditions/SignCondition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/SignCondition/child"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/SignCondition/signOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/SignCondition/negateOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/SignCondition/is"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//conditions/ClassCondition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/ClassCondition/child"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/ClassCondition/classOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/ClassCondition/negateOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/ClassCondition/is"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//conditions/AbbreviatedRelationalExpressionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//conditions/NestedCondition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//conditions/NestedCondition/condition"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Arithmetics" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//arithmetics">
+      <genClasses ecoreClass="cobol.ecore#//arithmetics/AdditiveArithmeticExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/AdditiveArithmeticExpression/children"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/AdditiveArithmeticExpression/additiveOperators"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//arithmetics/AdditiveArithmeticExpressionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//arithmetics/MultiplicativeArithmeticExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/MultiplicativeArithmeticExpression/children"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/MultiplicativeArithmeticExpression/multiplicativeOperators"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//arithmetics/MultiplicativeArithmeticExpressionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//arithmetics/PowerArithmeticExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/PowerArithmeticExpression/children"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//arithmetics/PowerArithmeticExpressionChild"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//arithmetics/UnaryArithmeticExpressionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//arithmetics/UnaryArithmeticExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/UnaryArithmeticExpression/child"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/UnaryArithmeticExpression/unaryOperator"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//arithmetics/PrimaryExpression"/>
+      <genClasses ecoreClass="cobol.ecore#//arithmetics/AssignmentExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/AssignmentExpression/assignmentOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/AssignmentExpression/children"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/AssignmentExpression/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//arithmetics/RangeExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/RangeExpression/children"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/RangeExpression/throughOperator"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//arithmetics/RangeExpressionChild"/>
+      <genClasses ecoreClass="cobol.ecore#//arithmetics/NestedArithmeticExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//arithmetics/NestedArithmeticExpression/expression"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//arithmetics/ArithmeticExpression"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Containers" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//containers">
+      <genClasses ecoreClass="cobol.ecore#//containers/CompilationGroup">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//containers/CompilationGroup/compilationUnits"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//containers/CompilationUnit">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//containers/CompilationUnit/identificationDivision"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//containers/CompilationUnit/environmentDivision"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//containers/CompilationUnit/dataDivision"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//containers/CompilationUnit/procedureDivision"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//containers/CompilationUnit/nestedCompilationUnits"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//containers/CobolRoot"/>
+      <genClasses ecoreClass="cobol.ecore#//containers/EmptyModel"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Divisions" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//divisions">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//divisions/Properties">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//divisions/Properties/initial"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//divisions/Properties/common"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//divisions/Properties/recursive"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="cobol.ecore#//divisions/Division">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//divisions/Division/sections"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//divisions/Division/paragraphs"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//divisions/Division/sentences"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//divisions/DataDivision"/>
+      <genClasses ecoreClass="cobol.ecore#//divisions/EnvironmentDivision"/>
+      <genClasses ecoreClass="cobol.ecore#//divisions/IdentificationDivision">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//divisions/IdentificationDivision/properties"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//divisions/ProcedureDivision">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//divisions/ProcedureDivision/declaratives"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Literals" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//literals">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//literals/Nulls">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/Nulls/null"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/Nulls/nulls"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//literals/Zeroes">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/Zeroes/zero"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/Zeroes/zeros"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/Zeroes/zeroes"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//literals/Quotes">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/Quotes/quote"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/Quotes/quotes"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//literals/LowValues">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/LowValues/lowValue"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/LowValues/lowValues"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//literals/HighValues">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/HighValues/highValue"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/HighValues/highValues"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//literals/Spaces">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/Spaces/space"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//literals/Spaces/spaces"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="cobol.ecore#//literals/Literal"/>
+      <genClasses ecoreClass="cobol.ecore#//literals/AlphanumericLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/AlphanumericLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/IntegerLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/IntegerLiteral/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//literals/DecimalLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/DecimalLiteral/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//literals/FigurativeConstantLiteral"/>
+      <genClasses ecoreClass="cobol.ecore#//literals/BooleanLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/BooleanLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/FloatingDecimalLiteral"/>
+      <genClasses ecoreClass="cobol.ecore#//literals/AllLiteral">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//literals/AllLiteral/constant"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//literals/NumericLiteral"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//literals/ConstantLiteral"/>
+      <genClasses ecoreClass="cobol.ecore#//literals/PseudoLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/PseudoLiteral/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//literals/DBCSLiteral"/>
+      <genClasses ecoreClass="cobol.ecore#//literals/NationalLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/NationalLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/FixedDecimalLiteral"/>
+      <genClasses ecoreClass="cobol.ecore#//literals/NationalHexLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/NationalHexLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/Null">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/Null/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/Zero">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/Zero/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/Quote">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/Quote/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/LowValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/LowValue/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/HighValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/HighValue/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/Space">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//literals/Space/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//literals/Any"/>
+      <genClasses ecoreClass="cobol.ecore#//literals/Characters"/>
+      <genClasses ecoreClass="cobol.ecore#//literals/AlphanumericHexaDecimalLiteral"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Operators" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//operators">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//operators/ThroughPhrase">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operators/ThroughPhrase/through"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operators/ThroughPhrase/thru"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/Operator"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/AdditiveOperator"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/MultiplicativeOperator"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/UnaryOperator"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/LogicalOperator"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/RelationalOperator"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/ConditionOr"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/ConditionAnd"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Multiplication"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/SignOperator"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Positive"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Negative"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Division"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Addition"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Subtraction"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/GreaterThanOrEqual">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//operators/GreaterThanOrEqual/than"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//operators/GreaterThanOrEqual/to"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/GreaterThan">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//operators/GreaterThan/than"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/LessThan">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//operators/LessThan/than"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/LessThanOrEqual">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//operators/LessThanOrEqual/than"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//operators/LessThanOrEqual/to"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/Equal">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//operators/Equal/to"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//operators/Power"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Negate"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Through">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//operators/Through/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operators/ClassOperator"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Zero"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/ClassName"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Alphabetic"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/DBCS"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Numeric"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/AlphabeticUpper"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/AlphabeticLower"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/Kanji"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/EqualPhrase"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/EqualSign"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/LTPhrase"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/LTSign"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/LTEQPhrase"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/LTEQSign"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/GTPhrase"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/GTSign"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/GTEQPhrase"/>
+      <genClasses ecoreClass="cobol.ecore#//operators/GTEQSign"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Paragraphs" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//paragraphs">
+      <genClasses ecoreClass="cobol.ecore#//paragraphs/Paragraph">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//paragraphs/Paragraph/sentences"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//paragraphs/SourceComputerParagraph">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//paragraphs/SourceComputerParagraph/withDebuggingMode"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//paragraphs/ObjectComputerParagraph"/>
+      <genClasses ecoreClass="cobol.ecore#//paragraphs/FileControlParagraph">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//paragraphs/FileControlParagraph/selectStatements"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//paragraphs/IOControlParagraph"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//paragraphs/ConfigurationSectionParagraph"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//paragraphs/IOSectionParagraph"/>
+      <genClasses ecoreClass="cobol.ecore#//paragraphs/SpecialNamesParagraph">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//paragraphs/SpecialNamesParagraph/specialNameStatements"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//paragraphs/SpecialNamesParagraph/water"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//paragraphs/RepositoryParagraph"/>
+      <genClasses ecoreClass="cobol.ecore#//paragraphs/DebuggingMode"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="References" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//references">
+      <genClasses image="false" ecoreClass="cobol.ecore#//references/Reference"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//references/ReferenceableElement">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cobol.ecore#//references/ReferenceableElement/aliasesTo"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cobol.ecore#//references/ReferenceableElement/aliasesFrom"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//references/ElementReference">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cobol.ecore#//references/ElementReference/target"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//references/SpecialNamesConditionNameReference"/>
+      <genClasses ecoreClass="cobol.ecore#//references/FileNameReference"/>
+      <genClasses ecoreClass="cobol.ecore#//references/IndexNameReference"/>
+      <genClasses ecoreClass="cobol.ecore#//references/MnemonicNameReference"/>
+      <genClasses ecoreClass="cobol.ecore#//references/AlphabetNameReference"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//references/ConditionName"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//references/Qualifiable">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//references/Qualifiable/qualifier"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//references/ConditionNameReference"/>
+      <genClasses ecoreClass="cobol.ecore#//references/DataNameReference"/>
+      <genClasses ecoreClass="cobol.ecore#//references/IdentifierReferenceQualifier"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Sections" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//sections">
+      <genClasses ecoreClass="cobol.ecore#//sections/Section">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//sections/Section/sentences"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//sections/Section/paragraphs"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//sections/Section/segmentNumber"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//sections/WorkingStorageSection"/>
+      <genClasses ecoreClass="cobol.ecore#//sections/LocalStorageSection"/>
+      <genClasses ecoreClass="cobol.ecore#//sections/LinkageStorageSection"/>
+      <genClasses ecoreClass="cobol.ecore#//sections/IOSection"/>
+      <genClasses ecoreClass="cobol.ecore#//sections/ConfigurationSection"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//sections/EnvironmentDivisionSection"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//sections/DataDivisionSection">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//sections/DataDivisionSection/statements"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//sections/DataDivisionSection/records"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//sections/FileSection">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//sections/FileSection/fileDescriptors"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//sections/DeclarativeSection"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Sentences" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//sentences">
+      <genClasses image="false" ecoreClass="cobol.ecore#//sentences/StatementContainer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//sentences/StatementContainer/statements"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//sentences/EmptySentence"/>
+      <genClasses ecoreClass="cobol.ecore#//sentences/UseSentence"/>
+      <genClasses ecoreClass="cobol.ecore#//sentences/AlteredGoTo"/>
+      <genClasses ecoreClass="cobol.ecore#//sentences/ExitProcedure"/>
+      <genClasses ecoreClass="cobol.ecore#//sentences/EntrySentence"/>
+      <genClasses ecoreClass="cobol.ecore#//sentences/ExecuteSentence"/>
+      <genClasses ecoreClass="cobol.ecore#//sentences/Sentence">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cobol.ecore#//sentences/Sentence/next"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Operands" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//operands">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//operands/EncodingTypes">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operands/EncodingTypes/alphabetic"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operands/EncodingTypes/alphanumeric"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operands/EncodingTypes/alphanumericEdited"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operands/EncodingTypes/national"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operands/EncodingTypes/nationalEdited"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operands/EncodingTypes/numeric"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operands/EncodingTypes/numericEdited"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operands/EncodingTypes/dbcs"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//operands/EncodingTypes/egcs"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operands/PrimaryOperand"/>
+      <genClasses ecoreClass="cobol.ecore#//operands/RoundedIdentifier">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//operands/RoundedIdentifier/identifier"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operands/ReplacementOperand"/>
+      <genClasses ecoreClass="cobol.ecore#//operands/Encoding">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//operands/Encoding/type"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operands/Operand"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//operands/ArithmeticOperand"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Statements" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//statements">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//statements/ExitLabels">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/ExitLabels/program"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/ExitLabels/paragraph"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/ExitLabels/method"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//statements/Adjustings">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/Adjustings/up"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/Adjustings/down"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//statements/Status">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/Status/on"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/Status/off"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//statements/EOP">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/EOP/eop"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/EOP/endOfPage"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//statements/IOTypes">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/IOTypes/input"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/IOTypes/output"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/IOTypes/io"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/IOTypes/extend"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//statements/Orders">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/Orders/asc"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/Orders/dsc"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//statements/Corresponding">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/Corresponding/corr"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//statements/Corresponding/corresponding"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/Statement">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cobol.ecore#//statements/Statement/next"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/Statement/endVerb"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/ArithmeticStatement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/ArithmeticStatement/corresponding"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/ArithmeticStatement/operands"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/ArithmeticStatement/givings"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Add">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Add/tos"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Subtract">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Subtract/froms"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Multiply">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Multiply/bys"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Divide">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Divide/intos"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Divide/remainders"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/Perform"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/PerformNestedStatement"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/PerformProcedure">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/PerformProcedure/label"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/Jump">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Jump/labels"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/NextSentence"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/GoTo">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/GoTo/dependsOn"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/GoBack"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/NestedStatement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/NestedStatement/statements"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Move">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Move/receivers"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/Move/corresponding"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Move/sender"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Exit">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/Exit/exitLabel"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Condition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Condition/elseStatements"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/Conditional">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Conditional/condition"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Stop">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Stop/label"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Display">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Display/operands"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Display/output"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Compute">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Compute/expression"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Accept">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Accept/receiver"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Execute">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/Execute/water"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/ErrorHandled">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/ErrorHandled/handlers"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Return">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Return/fileName"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Return/output"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/SetStatement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/SetStatement/sender"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/SetSwitches">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/SetSwitches/switches"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/SetIndexName">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/SetIndexName/adjust"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/SetIndexName/receivers"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/String">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/String/pointer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/String/receiver"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/String/senders"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Close"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/Cancel">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Cancel/subprograms"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Call">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Call/subprogram"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Initialize">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Initialize/subprograms"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Initialize/replacements"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Open"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/SearchStatement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/SearchStatement/cases"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/SearchStatement/table"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/SerialSearch">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/SerialSearch/variable"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/BinarySearch"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/Unstring">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Unstring/pointer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Unstring/tally"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Unstring/sender"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Unstring/receivers"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Unstring/delimiter"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Unstring/counter"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Evaluate">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Evaluate/cases"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Evaluate/subject"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/NormalEvaluateCase"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/OtherEvaluateCase"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/EvaluateCase">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/EvaluateCase/objects"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Replace">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/Replace/replaceSwitch"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Entry"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/Inspect">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Inspect/tallyingIns"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Inspect/replacements"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Inspect/conversions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Inspect/string"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Set">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Set/receivers"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Read">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Read/receiver"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Read/keyName"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Read/fileName"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Write">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Write/recordName"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Write/numLines"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Write/integer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Write/mnemonicName"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Write/sender"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Rewrite"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/SwitchStatus">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/SwitchStatus/status"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/SwitchStatus/mnemonicNames"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/PerformProcedureFixedTimes"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/PerformUntilCondition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/PerformUntilCondition/position"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/PerformUntilCondition/conditions"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/PerformFixedTimes">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/PerformFixedTimes/iterations"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/PerformProcedureUntilCondition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/PerformProcedureUntilCondition/afters"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/PerformNestedStatementFixedTimes"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/PerformNestedStatementUntilCondition"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/Continue"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/FileIOStatement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/FileIOStatement/fileName"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/FileIOStatement/input"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/FileIOStatement/output"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/FileIOStatement/keyDescriptors"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/Sort"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/Merge"/>
+      <genClasses ecoreClass="cobol.ecore#//statements/Release">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Release/recordName"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/Release/sender"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/KeyDescriptor">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/KeyDescriptor/order"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/KeyDescriptor/keyNames"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/IOStatement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/IOStatement/ioFileDescriptors"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/IOFileDescriptor">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/IOFileDescriptor/ioFiles"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//statements/IOFileDescriptor/type"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/IOFile">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/IOFile/fileName"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/TallyingIn">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/TallyingIn/occurrences"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/TallyingIn/counter"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//statements/VaryingUntilCondition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/VaryingUntilCondition/variable"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/VaryingUntilCondition/init"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//statements/VaryingUntilCondition/increment"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//statements/AfterUntilCondition"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Identifiers" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//identifiers">
+      <genClasses image="false" ecoreClass="cobol.ecore#//identifiers/Subscript">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//identifiers/Subscript/subscript"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//identifiers/Identifier">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//identifiers/Identifier/modifier"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//identifiers/IdentifierReference">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//identifiers/IdentifierReference/subscripts"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//identifiers/IdentifierReference/qualifiers"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//identifiers/All"/>
+      <genClasses ecoreClass="cobol.ecore#//identifiers/ReferenceModifier">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//identifiers/ReferenceModifier/start"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//identifiers/ReferenceModifier/length"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//identifiers/LinageCounter"/>
+      <genClasses ecoreClass="cobol.ecore#//identifiers/Qualifier"/>
+      <genClasses ecoreClass="cobol.ecore#//identifiers/RelativeSubscript">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//identifiers/RelativeSubscript/additiveOperator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//identifiers/RelativeSubscript/integer"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//identifiers/DirectSubscript"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Ios" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//ios">
+      <genClasses ecoreClass="cobol.ecore#//ios/InputProcedure"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//ios/InputDirective"/>
+      <genClasses ecoreClass="cobol.ecore#//ios/InputFile"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//ios/OutputDirective"/>
+      <genClasses ecoreClass="cobol.ecore#//ios/OutputProcedure"/>
+      <genClasses ecoreClass="cobol.ecore#//ios/OutputFile"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//ios/IODirectives"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//ios/FileDirective">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//ios/FileDirective/fileNames"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//ios/ProcedureDirective">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//ios/ProcedureDirective/label"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Water" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//water">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/ProgramDescriptionInfo">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ProgramDescriptionInfo/author"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ProgramDescriptionInfo/installation"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ProgramDescriptionInfo/dateWritten"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ProgramDescriptionInfo/dateCompleted"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ProgramDescriptionInfo/security"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/ObjectComputerDescriptionInfo">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/memory"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/size"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/words"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/characters"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/modules"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/segment"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/program"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/collating"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/sequence"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/ObjectComputerDescriptionInfo/segmentLimit"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/SelectStatementClauses">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/alternate"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/record"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/key"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/relative"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/delimiter"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/standard1"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/padding"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/character"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/reserve"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/area"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/areas"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/access"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/mode"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/is"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/sequential"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/random"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/with"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/dynamic"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/organization"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/duplicates"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SelectStatementClauses/indexed"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/SpecialNamesClauses">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SpecialNamesClauses/decimalPoint"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SpecialNamesClauses/is"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SpecialNamesClauses/comma"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SpecialNamesClauses/xmlSchema"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/FileDescriptionInfo">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/block"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/contains"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/to"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/characters"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/records"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/codeSet"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/is"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/data"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/record"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/are"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/label"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/omitted"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/standard"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/linage"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/lines"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/with"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/footing"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/at"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/top"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/bottom"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/varying"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/in"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/size"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/from"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/depending"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/on"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/mode"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/recording"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/f"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/v"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/u"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/s"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/value"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/of"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/identification"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/id"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/report"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/FileDescriptionInfo/reports"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/DataDescriptionInfo">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/blank"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/when"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/zero"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/zeros"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/zeroes"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/justified"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/just"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/right"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/sign"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/is"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/leading"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/trailing"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/separate"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/character"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/date"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/format"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/synchronized"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/sync"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/DataDescriptionInfo/left"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/IOControlDescriptionInfo">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/rerun"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/on"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/of"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/record"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/records"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/every"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/same"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/area"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/for"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/multiple"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/file"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/tape"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/contains"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/position"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/apply"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/writeOnly"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/sort"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/sortMerge"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/reel"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/IOControlDescriptionInfo/unit"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/RepositoryDescriptionInfo">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/RepositoryDescriptionInfo/class"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/RepositoryDescriptionInfo/is"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/CICSStatementTokens">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/ts"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/queue"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/qname"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/openpar"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/closepar"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/sysid"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/sys"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/set"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/into"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/length"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/item"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/next"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/numitems"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/td"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/writeq"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/from"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/rewrite"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/nosuspend"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/main"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/auxiliary"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/deleteq"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/read"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/file"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/dataset"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/ridfld"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/keylength"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/generic"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/gteq"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/equal"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/uncommitted"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/consistent"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/repeatable"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/update"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/token"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/rba"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/xrba"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/rrn"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/write"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/massinsert"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/program"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/commarea"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/datalength"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/synconreturn"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/transid"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/inputmsg"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/inputmsglen"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/channel"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/xctl"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/load"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/start"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CICSStatementTokens/tr"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/SQLStatementTokens">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SQLStatementTokens/include"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SQLStatementTokens/select"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SQLStatementTokens/declare"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SQLStatementTokens/from"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SQLStatementTokens/insert"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SQLStatementTokens/into"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SQLStatementTokens/update"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SQLStatementTokens/delete"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/AcceptStatementTokens">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/AcceptStatementTokens/from"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/AcceptStatementTokens/date"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/AcceptStatementTokens/day"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/AcceptStatementTokens/dow"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/AcceptStatementTokens/time"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/AcceptStatementTokens/dateformat1"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/AcceptStatementTokens/dateformat2"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/UseStatementTokens">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/global"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/after"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/standard"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/error"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/exception"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/procedure"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/on"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/input"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/output"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/extend"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/for"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/debugging"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/all"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/procedures"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/beginning"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/ending"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/file"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/reel"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/unit"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/label"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/UseStatementTokens/io"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/CloseStatementTokens">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CloseStatementTokens/with"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CloseStatementTokens/no"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CloseStatementTokens/rewind"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CloseStatementTokens/lock"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CloseStatementTokens/reel"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CloseStatementTokens/unit"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CloseStatementTokens/for"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/CloseStatementTokens/removal"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/InvokeStatementTokens">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/InvokeStatementTokens/self"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/InvokeStatementTokens/super"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/InvokeStatementTokens/new"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/InvokeStatementTokens/using"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/InvokeStatementTokens/by"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/InvokeStatementTokens/value"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/InvokeStatementTokens/length"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/InvokeStatementTokens/of"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/InvokeStatementTokens/returning"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/OpenStatementTokens">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/OpenStatementTokens/reversed"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/OpenStatementTokens/with"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/OpenStatementTokens/no"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/OpenStatementTokens/rewind"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//water/SortPhraseTokens">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SortPhraseTokens/with"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SortPhraseTokens/in"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SortPhraseTokens/order"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SortPhraseTokens/sequence"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SortPhraseTokens/duplicates"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SortPhraseTokens/collating"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//water/SortPhraseTokens/is"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/IncompleteElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//water/IncompleteElement/water"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/IdentificationDivisionWater"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/Water"/>
+      <genClasses ecoreClass="cobol.ecore#//water/ProgramDescription">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/ProgramDescription/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//water/Dot"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/ObjectComputerParagraphWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/ObjectComputerDescription">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/ObjectComputerDescription/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//water/PriorityNumber">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/PriorityNumber/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/SelectStatementWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/SelectStatementClause">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/SelectStatementClause/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/SpecialNamesParagraphWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/SpecialNamesClause">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/SpecialNamesClause/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/FileDescriptorWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/FileDescription">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/FileDescription/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/DataDescriptorWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/DataDescription">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/DataDescription/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/IOControlParagraphWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/IOControlDescription">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/IOControlDescription/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/RepositoryParagraphWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/RepositoryDescription">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/RepositoryDescription/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/SQLStatementWater"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/CICSStatementWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/SQLStatementToken">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/SQLStatementToken/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//water/CICSStatementToken">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/CICSStatementToken/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/AcceptStatementWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/AcceptStatementToken">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/AcceptStatementToken/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/UseStatementWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/UseStatementToken">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/UseStatementToken/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/CloseStatementWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/CloseStatementToken">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/CloseStatementToken/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/InvokeStatementWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/InvokeStatementToken">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/InvokeStatementToken/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/OpenStatementWater"/>
+      <genClasses ecoreClass="cobol.ecore#//water/OpenStatementToken">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/OpenStatementToken/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//water/SortPhraseToken">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//water/SortPhraseToken/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//water/SortPhraseWater"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Registers" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//registers">
+      <genClasses image="false" ecoreClass="cobol.ecore#//registers/Register">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//registers/Register/operand"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//registers/ShiftIn"/>
+      <genClasses ecoreClass="cobol.ecore#//registers/ShiftOut"/>
+      <genClasses ecoreClass="cobol.ecore#//registers/AddressOf"/>
+      <genClasses ecoreClass="cobol.ecore#//registers/LengthOf"/>
+      <genClasses ecoreClass="cobol.ecore#//registers/ReturnCode"/>
+      <genClasses ecoreClass="cobol.ecore#//registers/WhenCompiled"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Environments" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//environments">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//environments/UPSISwitches">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/UPSISwitches/upsi0"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/UPSISwitches/upsi1"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/UPSISwitches/upsi2"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/UPSISwitches/upsi3"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/UPSISwitches/upsi4"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/UPSISwitches/upsi5"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/UPSISwitches/upsi6"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/UPSISwitches/upsi7"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//environments/Channels">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c1"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c2"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c3"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c4"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c5"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c6"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c7"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c8"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c9"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c10"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c11"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Channels/c12"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//environments/SystemInputs">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/SystemInputs/sysin"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/SystemInputs/sysipt"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//environments/SystemOutputs">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/SystemOutputs/sysout"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/SystemOutputs/syslist"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/SystemOutputs/syslst"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//environments/SystemPunchDevices">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/SystemPunchDevices/syspunch"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/SystemPunchDevices/syspch"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//environments/Selects">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Selects/s1"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Selects/s2"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Selects/s3"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Selects/s4"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//environments/Selects/s5"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="cobol.ecore#//environments/SystemDevice"/>
+      <genClasses ecoreClass="cobol.ecore#//environments/SystemLogicalInput">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//environments/SystemLogicalInput/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//environments/UPSI">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//environments/UPSI/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//environments/SystemLogicalOutput">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//environments/SystemLogicalOutput/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//environments/SystemPunchDevice">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//environments/SystemPunchDevice/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//environments/Console"/>
+      <genClasses ecoreClass="cobol.ecore#//environments/Channel">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//environments/Channel/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//environments/AdvancedFunctionPrinting"/>
+      <genClasses ecoreClass="cobol.ecore#//environments/SuppressSpacing"/>
+      <genClasses ecoreClass="cobol.ecore#//environments/Pocket">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//environments/Pocket/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//environments/Environment"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Dataitems" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//dataitems">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//dataitems/Usages">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/binary"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/computational"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/comp"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/display"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/display1"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/index"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/packedDecimal"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/computational1"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/comp1"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/computational2"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/comp2"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/computational3"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/comp3"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/computational4"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/comp4"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/computational5"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/comp5"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/pointer"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/procedurePointer"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/functionPointer"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/Usages/national"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//dataitems/PictureStringCharacters">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/any"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/blank"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/sign"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/leadingZero"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/decimalPoint"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/numeric"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/assumedDecimalPoint"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/alphabetic"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/national"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/credit"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/debit"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/zero"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/plus"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/negative"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/exponent"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/period"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/comma"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/dollar"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/asterik"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/slash"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//dataitems/PictureStringCharacters/escape"/>
+      </genEnums>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/PictureString">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//dataitems/PictureString/picture"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/RenamingDataName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//dataitems/RenamingDataName/nameRange"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/ConditionName"/>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/Global"/>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/External"/>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/Value">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//dataitems/Value/values"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//dataitems/DataItemAttribute"/>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/Usage">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//dataitems/Usage/usage"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//dataitems/Usage/isNative"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/GroupUsage"/>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/DataItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//dataitems/DataItem/levelNumber"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//dataitems/DataItem/attributes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cobol.ecore#//dataitems/DataItem/subentries"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cobol.ecore#//dataitems/DataItem/superentry"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/RecordName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//dataitems/RecordName/elems"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/DataName"/>
+      <genClasses ecoreClass="cobol.ecore#//dataitems/Redefines">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//dataitems/Redefines/dataName"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Specialnames" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//specialnames">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//specialnames/PredefinedAlphabetTypes">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//specialnames/PredefinedAlphabetTypes/standard1"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//specialnames/PredefinedAlphabetTypes/standard2"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//specialnames/PredefinedAlphabetTypes/ebcdic"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//specialnames/PredefinedAlphabetTypes/native"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="cobol.ecore#//specialnames/SpecialName"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//specialnames/ConditionName"/>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/OnStatus"/>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/OffStatus"/>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/AlphabetName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//specialnames/AlphabetName/type"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/UPSISwitchIs">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//specialnames/UPSISwitchIs/conditionNames"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//specialnames/AlphabetType"/>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/PredefinedAlphabetType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//specialnames/PredefinedAlphabetType/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/ExplicitAlphabetType">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//specialnames/ExplicitAlphabetType/range"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/CodeNameAlphabetType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//specialnames/CodeNameAlphabetType/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/CurrencySign">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//specialnames/CurrencySign/pictureSymbol"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//specialnames/CurrencySign/currency"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/ClassName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//specialnames/ClassName/range"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//specialnames/MnemonicName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//specialnames/MnemonicName/environment"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/SystemDeviceIs"/>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/SymbolicCharacter">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//specialnames/SymbolicCharacter/integers"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//specialnames/SymbolicCharacterStatement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//specialnames/SymbolicCharacterStatement/symbolicCharacters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//specialnames/SymbolicCharacterStatement/alphabetNameReference"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//specialnames/SpecialNameStatement"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Tables" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//tables">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//tables/SortingOrder">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//tables/SortingOrder/asc"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//tables/SortingOrder/dsc"/>
+      </genEnums>
+      <genClasses ecoreClass="cobol.ecore#//tables/Table">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//tables/Table/tableDimension"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//tables/Table/indexedBy"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//tables/Table/keysAre"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//tables/Table/maxTableDimension"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//tables/Table/dependsOn"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//tables/KeyName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//tables/KeyName/keys"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//tables/KeyName/keyOrder"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//tables/IndexName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//tables/IndexName/additionalIndexNames"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//tables/TableDimension">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//tables/TableDimension/value"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//tables/AdditionalIndexName"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Files" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//files">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//files/FileDescriptors">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//files/FileDescriptors/fd"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//files/FileDescriptors/sd"/>
+      </genEnums>
+      <genClasses ecoreClass="cobol.ecore#//files/FileName">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//files/FileName/fileDescriptor"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//files/FileName/records"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//files/FileName/attributes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//files/FileName/sentences"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//files/SelectStatement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//files/SelectStatement/fileStatus"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//files/SelectStatement/isOptional"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//files/SelectStatement/externalFileNames"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//files/SelectStatement/fileNameReference"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//files/FileStatus">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//files/FileStatus/fileStatus"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//files/FileStatus/vsamFileStatus"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Parameters" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//parameters">
+      <genClasses image="false" ecoreClass="cobol.ecore#//parameters/Parametrizable">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//parameters/Parametrizable/parameters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//parameters/Parametrizable/returning"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//parameters/Parameter"/>
+      <genClasses ecoreClass="cobol.ecore#//parameters/ByReferenceParameter"/>
+      <genClasses ecoreClass="cobol.ecore#//parameters/ByValueParameter"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Declaratives" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//declaratives">
+      <genClasses ecoreClass="cobol.ecore#//declaratives/Declaratives">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//declaratives/Declaratives/declarativeSections"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Verbs" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//verbs">
+      <genClasses ecoreClass="cobol.ecore#//verbs/Is"/>
+      <genClasses ecoreClass="cobol.ecore#//verbs/Verb"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Labels" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//labels">
+      <genClasses ecoreClass="cobol.ecore#//labels/ProcedureRange">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//labels/ProcedureRange/children"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//labels/ProcedureRange/throughOperator"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//labels/ProcedureRangeLabel"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//labels/ProcedureRangeChild">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cobol.ecore#//labels/ProcedureRangeChild/target"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//labels/ProcedureLabel">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cobol.ecore#//labels/ProcedureLabel/section"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//labels/Procedure"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//labels/Label"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//labels/StopLabel"/>
+      <genClasses ecoreClass="cobol.ecore#//labels/Run"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Functions" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//functions">
+      <genClasses ecoreClass="cobol.ecore#//functions/FunctionCall"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//functions/Argument">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//functions/Argument/operands"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//functions/ByReferenceArgument"/>
+      <genClasses ecoreClass="cobol.ecore#//functions/ByValueArgument"/>
+      <genClasses ecoreClass="cobol.ecore#//functions/ByContentArgument"/>
+      <genClasses ecoreClass="cobol.ecore#//functions/OmittedArgument"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//functions/Argumentable">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//functions/Argumentable/arguments"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//functions/Argumentable/returning"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Handlers" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//handlers">
+      <genClasses ecoreClass="cobol.ecore#//handlers/OnSizeError"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//handlers/Handler"/>
+      <genClasses ecoreClass="cobol.ecore#//handlers/NotOnSizeError"/>
+      <genClasses ecoreClass="cobol.ecore#//handlers/OnOverflow"/>
+      <genClasses ecoreClass="cobol.ecore#//handlers/OnException"/>
+      <genClasses ecoreClass="cobol.ecore#//handlers/NotOnException"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//handlers/NotErrorHandler">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//handlers/NotErrorHandler/handlerStatement"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//handlers/NotOnOverflow"/>
+      <genClasses ecoreClass="cobol.ecore#//handlers/NotAtEnd"/>
+      <genClasses ecoreClass="cobol.ecore#//handlers/AtEnd"/>
+      <genClasses ecoreClass="cobol.ecore#//handlers/AtEndOfPage">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//handlers/AtEndOfPage/eop"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//handlers/InvalidKey"/>
+      <genClasses ecoreClass="cobol.ecore#//handlers/NotAtEndOfPage"/>
+      <genClasses ecoreClass="cobol.ecore#//handlers/NotInvalidKey"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Strings" basePackage="org.servicifi.gelato.language.cobol"
+        disposableProviderFactory="true" ecorePackage="cobol.ecore#//strings">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//strings/Positions">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//strings/Positions/before"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//strings/Positions/after"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="cobol.ecore#//strings/Occurrences">
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//strings/Occurrences/all"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//strings/Occurrences/leading"/>
+        <genEnumLiterals ecoreEnumLiteral="cobol.ecore#//strings/Occurrences/first"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="cobol.ecore#//strings/Tallying"/>
+      <genClasses image="false" ecoreClass="cobol.ecore#//strings/StringManipulation">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/StringManipulation/locations"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//strings/ManipulatedStrings">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/ManipulatedStrings/strings"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/ManipulatedStrings/delimiter"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//strings/String"/>
+      <genClasses ecoreClass="cobol.ecore#//strings/ConcatenatingStrings"/>
+      <genClasses ecoreClass="cobol.ecore#//strings/SplittedString">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/SplittedString/counter"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//strings/Location">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//strings/Location/position"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//strings/Location/initial"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/Location/base"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//strings/Replacement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/Replacement/target"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cobol.ecore#//strings/Occurrence">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cobol.ecore#//strings/Occurrence/type"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//strings/TallyingOccurrence">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/TallyingOccurrence/occurrences"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//strings/ReplacementOccurrence">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/ReplacementOccurrence/occurrences"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//strings/AnyCharacter"/>
+      <genClasses ecoreClass="cobol.ecore#//strings/SpecificCharacter">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/SpecificCharacter/tallying"/>
+      </genClasses>
+      <genClasses ecoreClass="cobol.ecore#//strings/AnyCharacterBySpecificCharacter"/>
+      <genClasses ecoreClass="cobol.ecore#//strings/SpecificCharacterBySpecificCharacter">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cobol.ecore#//strings/SpecificCharacterBySpecificCharacter/source"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

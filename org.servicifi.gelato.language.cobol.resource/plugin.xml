@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="org.servicifi.language.cobol.resource.PreprocessedCobolSourceOrCopybookFileResourceFactoryImpl"
+            type="class">
+      </parser>
+   </extension>
+   <extension
+         point="org.servicifi.gelato.language.cobol.resource.cobol.additional_extension_parser">
+      <parser
+            class="org.servicifi.language.cobol.resource.PreprocessedCobolSourceOrCopybookFileResourceFactoryImpl">
+      </parser>
+   </extension>
+   <extension
+         point="org.servicifi.gelato.language.cobol.cobol_classpath_initializer">
+      <initializer
+            class="org.servicifi.language.cobol.resource.CobolInitializer">
+      </initializer>
+   </extension>
+
+</plugin>

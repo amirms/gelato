@@ -1,0 +1,8 @@
+#Tue May 14 14:03:02 CEST 2013
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/org.servicifi.gelato.language.cobol/metamodel/cobol.genmodel
+gmf_dashboard/domainModel=platform\:/resource/org.servicifi.gelato.language.cobol/metamodel/cobol.ecore
+gmf_dashboard/generationModel=platform\:/resource/org.servicifi.language.cobol/metamodel/cobol.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/org.servicifi.gelato.language.cobol/metamodel/cobol.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/org.servicifi.gelato.language.cobol/metamodel/cobol.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/org.servicifi.gelato.language.cobol/metamodel/cobol.gmftool

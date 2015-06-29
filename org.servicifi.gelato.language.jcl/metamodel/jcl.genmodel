@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.servicifi.gelato.language.jcl/src-gen" modelPluginID="org.servicifi.gelato.language.jcl"
+    modelName="Jcl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>jcl.ecore</foreignModel>
+  <genPackages prefix="Jcl" basePackage="org.servicifi.gelato.language" disposableProviderFactory="true"
+      ecorePackage="jcl.ecore#/">
+    <nestedGenPackages prefix="Commons" basePackage="org.servicifi.gelato.language.jcl"
+        disposableProviderFactory="true" ecorePackage="jcl.ecore#//commons">
+      <genClasses ecoreClass="jcl.ecore#//commons/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jcl.ecore#//commons/NamedElement/name"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Parameters" basePackage="org.servicifi.gelato.language.jcl"
+        disposableProviderFactory="true" ecorePackage="jcl.ecore#//parameters">
+      <genClasses ecoreClass="jcl.ecore#//parameters/Parameter"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Statements" basePackage="org.servicifi.gelato.language.jcl"
+        disposableProviderFactory="true" ecorePackage="jcl.ecore#//statements">
+      <genClasses ecoreClass="jcl.ecore#//statements/Condition"/>
+      <genClasses image="false" ecoreClass="jcl.ecore#//statements/Statement"/>
+      <genClasses ecoreClass="jcl.ecore#//statements/Execute"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Procedures" basePackage="org.servicifi.gelato.language.jcl"
+        disposableProviderFactory="true" ecorePackage="jcl.ecore#//procedures">
+      <genClasses ecoreClass="jcl.ecore#//procedures/Procedure"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Containers" basePackage="org.servicifi.gelato.language.jcl"
+        disposableProviderFactory="true" ecorePackage="jcl.ecore#//containers">
+      <genClasses ecoreClass="jcl.ecore#//containers/JCLRoot"/>
+      <genClasses ecoreClass="jcl.ecore#//containers/JobUnit">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference jcl.ecore#//containers/JobUnit/statements"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

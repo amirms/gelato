@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jcl" nsURI="http://www.servicifi.org/gelato/language/jcl" nsPrefix="jcl">
+  <eSubpackages name="commons" nsURI="http://www.servicifi.org/gelato/language/jcl/commons"
+      nsPrefix="commons">
+    <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="parameters" nsURI="http://www.servicifi.org/gelato/language/jcl/parameters"
+      nsPrefix="parameters">
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter"/>
+  </eSubpackages>
+  <eSubpackages name="statements" nsURI="http://www.servicifi.org/gelato/language/jcl/statements"
+      nsPrefix="statements">
+    <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" eSuperTypes="#//commons/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Execute" eSuperTypes="#//statements/Statement"/>
+  </eSubpackages>
+  <eSubpackages name="procedures" nsURI="http://www.servicifi.org/gelato/language/jcl/procedures"
+      nsPrefix="procedures">
+    <eClassifiers xsi:type="ecore:EClass" name="Procedure"/>
+  </eSubpackages>
+  <eSubpackages name="containers" nsURI="http://www.servicifi.org/gelato/language/jcl/containers"
+      nsPrefix="containers">
+    <eClassifiers xsi:type="ecore:EClass" name="JCLRoot"/>
+    <eClassifiers xsi:type="ecore:EClass" name="JobUnit">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statements" lowerBound="1"
+          eType="#//statements/Statement" containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

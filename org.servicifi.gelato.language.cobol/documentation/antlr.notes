@@ -1,0 +1,12 @@
+Experimenting with Antlr
+
+1) Token explicilitly used as part of the syntactical rules have the highest priority 
+(This is probably the default setting)
+
+2) There are limitations inherent with classic parsers incld Antlr that 
+limits the expressiveness of priority grammars such as Island/Water grammar. 
+The water rules introduce ambigiuity that is handled by the backtracking of the parser. 
+Does the part of text captured by the water rules invalidated the generated AST?
+
+3) Any new rule will have to deal with tokens established by existing rules 
+and, worse, every existing rule will have to deal with any tokens established by new rule.
