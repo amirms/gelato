@@ -34,6 +34,8 @@ property REFERENCEABLE_ELEMENT_NAME_PREFIX : String = "var";
 property procNo : Integer = 0;
 property PROCEDURE_NAME_PREFIX : String = "proc";
 
+property x :  COBOL::_references::ElementReference;
+
 	
 main(in cobolCG: COBOL::containers::CompilationGroup, out kernelCU: KERNEL::containers::CompilationUnit) 
 {
@@ -45,27 +47,92 @@ main(in cobolCG: COBOL::containers::CompilationGroup, out kernelCU: KERNEL::cont
 	//		-> map transformReferenceableElement();
 	
 	
-	kernelCU.declarations  := cobolCG.allSubobjectsOfKind(COBOL::_references::ReferenceableElement).oclAsType(COBOL::_references::ReferenceableElement) 
-			-> map transformReferenceableElement();
+	log("Starting Transformation");
+	
+	//kernelCU.declarations  := cobolCG.allSubobjectsOfKind(COBOL::_references::ReferenceableElement).oclAsType(COBOL::_references::ReferenceableElement) 
+	//		-> map transformReferenceableElement();	
+			
+	//find all unresolved data names
+	
+	//var refs := cobolCG.allSubobjectsOfKind(COBOL::_references::ElementReference).oclAsType(COBOL::_references::ElementReference);
+	
+	var refElements := cobolCG.allSubobjectsOfKind(COBOL::_references::ElementReference).oclAsType(COBOL::_references::ElementReference).target -> asSet();
+
+	kernelCU.declarations  := refElements -> map transformReferenceableElement();	
+
+	//kernelCU.declarations  := cobolCG.allSubobjectsOfKind(COBOL::_references::ElementReference).oclAsType(COBOL::_references::ElementReference) 
+	//		-> map transformElementReference();	
+			
+	//kernelCU.declarations += cobolCG.allSubobjectsOfKind(COBOL::_references::ElementReference).oclAsType(COBOL::_references::ElementReference)
+	//		-> map transformMissingElementReference();		
+			
+	
+	log("Converted All Declarations!");		
 			
 	kernelCU.mainProcedure := object KERNEL::procedures::MainProcedure{
-		label:=getFreshLabel();
-		};	
+		label:=getFreshLabel();};
 	
 	kernelCU.declarations += cobolCG.compilationUnits-> map cobolCU2KernelProcedure();
 	
 	//FIX target of call procedures
 	
-	var procedureCalls := kernelCU.allSubobjects();
+	var procedureCalls := cobolCG.compilationUnits.allSubobjectsOfKind(COBOL::statements::Perform);
 	
 	log(procedureCalls->size().toString());
 	
-	//procedureCalls -> forEach(procedureCall){
-	//log(procedureCall.toString());
-	//	procedureCall.target := getTargetLabel(procedureCall.invresolveone(COBOL::_references::ElementReference).target)
-	//}	
+	procedureCalls -> forEach(procedureCall){
+	log(procedureCall.toString());
+		
+		switch {
+			case (procedureCall.oclIsKindOf(COBOL::statements::PerformProcedure)) {
+				var blockStatement := procedureCall.resolveone(KERNEL::statements::Block);
+			
+				blockStatement.statements 
+				:= procedureCall.oclAsType(COBOL::statements::PerformProcedure).label.oclAsType(COBOL::labels::ProcedureRange).transformProcedureRange();
+			}
+			case (procedureCall.oclIsKindOf(COBOL::statements::PerformProcedureFixedTimes)) {
+			log("got here in Peform Fixed Times");
+			
+				var blockStatement := procedureCall.resolveone(KERNEL::statements::WhileLoop).statement.oclAsType(KERNEL::statements::Block);
+				blockStatement.statements 
+				:= procedureCall.oclAsType(COBOL::statements::PerformProcedureFixedTimes).label.oclAsType(COBOL::labels::ProcedureRange).transformProcedureRange();
+			}
+			//TODO add perform until condition for procedure call
+			//case (self.oclIsKindOf(COBOL::statements::PerformUntilCondition)) {
+			//	result := self.oclAsType(COBOL::statements::PerformUntilCondition).transformPerformUntilCondition();
+			//}
+		};
+	};
+	
+	
+	log("Creating a call to the main entry point.");
+	//FIXME for each complation Unit, not all CUs 
+	
+	var firstProcedure := cobolCG.compilationUnits.allSubobjectsOfKind(COBOL::labels::ProcedureLabel)->first().oclAsType(COBOL::labels::ProcedureLabel);
+	
+
+		//var entryCall := object KERNEL::statements::ProcedureCall{label:=getFreshLabel()};
+		//entryCall.target := getTargetLabel(firstProcedure);
+	
+		//members := entryCall;
+		
+		//};	
+	
+
 	
 }
+
+mapping in COBOL::_references::ElementReference::transformMissingElementReference() 
+	: KERNEL::dataitems::DataItem {
+	
+	init{
+	
+		
+				result := object KERNEL::dataitems::DataItem{name := getFreshRefName()};
+	
+	}
+	
+	}
 
 
 //FIXME what about procedure parameters
@@ -104,17 +171,24 @@ mapping in COBOL::divisions::ProcedureDivision::cobolProcedure2KernelProcedure()
 		//if (self.name.<>(null))
 		//	name := self.name;
 		//};
-		name := getFreshProcName();}
+		name := getFreshProcName();};
+		
+		result.members := self.sections -> map cobolSection2KernelProcedure(); 
+
+		result.members += self.paragraphs -> map cobolParagraph2KernelProcedure(); 
+	
+		result.members += self.sentences -> map cobolStatementContainer2KernelBlock();
+		
+		
+		
 	}
+	
+
 	
 	//TODO set the parameters
 	//self.mapsTo += result;
 	
-	result.members := self.sections -> map cobolSection2KernelProcedure(); 
 
-	result.members += self.paragraphs -> map cobolParagraph2KernelProcedure(); 
-	
-	result.members += self.sentences -> map cobolStatementContainer2KernelBlock();
 }
 
 mapping in COBOL::sections::Section::cobolSection2KernelProcedure() : KERNEL::procedures::Procedure{
@@ -123,17 +197,22 @@ mapping in COBOL::sections::Section::cobolSection2KernelProcedure() : KERNEL::pr
 		result := object KERNEL::procedures::Procedure{
 		label:=getFreshLabel();
 		if (self.segmentNumber.<>(null))
-		//	name := self.segmentNumber;
-			name := getFreshProcName();
+			name := self.segmentNumber
+		else
+			name := getFreshProcName()
 		};
-	}
-	
-	
-	
-	//self.mapsTo += result;
+		
+			//self.mapsTo += result;
 	result.members += self.paragraphs -> map cobolParagraph2KernelProcedure(); 
 	
 	result.members += self.sentences -> map cobolStatementContainer2KernelBlock();
+		
+	}
+	
+		log("see if resolving works");
+	log(self.resolveone(KERNEL::procedures::Procedure).toString());
+	
+
 	
 }
 
@@ -146,12 +225,42 @@ mapping in COBOL::paragraphs::Paragraph::cobolParagraph2KernelProcedure() : KERN
 			//name := self.name;
 			name := getFreshProcName();
 		};
+			result.members += self.sentences.oclAsType(COBOL::sentences::Sentence) 
+							-> map cobolSentence2KernelStatement();
+		
 	}
 	
 	//self.mapsTo += result;
-	result.members += self.sentences -> map cobolStatementContainer2KernelBlock();
+
 }
 
+
+mapping in COBOL::sentences::Sentence::cobolSentence2KernelStatement() : KERNEL::statements::Statement{
+
+	init{
+		switch {
+					case (self.oclIsKindOf(COBOL::sentences::AlteredGoTo))
+						result := self.oclAsType(COBOL::sentences::AlteredGoTo).transformAlteredGoTo();
+						
+					case (self.oclIsKindOf(COBOL::sentences::ExitProcedure))
+						result := self.oclAsType(COBOL::sentences::ExitProcedure).transformExitProcedure();
+						
+					else
+						result := self.cobolStatementContainer2KernelBlock();
+		};
+	}
+}
+
+
+
+mapping in COBOL::sentences::AlteredGoTo::transformAlteredGoTo() : KERNEL::statements::Goto{
+
+	init{
+		result := object KERNEL::statements::Goto{label := getFreshLabel()}
+	}
+
+
+}
 
 mapping in COBOL::sentences::StatementContainer::cobolStatementContainer2KernelBlock() : KERNEL::statements::Block{
 	
@@ -174,9 +283,14 @@ mapping in COBOL::sentences::StatementContainer::cobolStatementContainer2KernelB
 			case (self.oclIsKindOf(COBOL::statements::Condition))
 				result := self.oclAsType(COBOL::statements::Condition).transformCondition();
 				
+			case (self.oclIsKindOf(COBOL::statements::Continue))
+				result := self.oclAsType(COBOL::statements::Continue).transformContinue();	
+				
 			case (self.oclIsKindOf(COBOL::statements::Move))	
 				result := self.oclAsType(COBOL::statements::Move).transformMove();
-				
+			
+			case (self.oclIsKindOf(COBOL::statements::Display))
+				result := self.oclAsType(COBOL::statements::Display).transformDisplay();
 			//case (self.oclIsKindOf(COBOL::statements::GoTo))
 			//	result := self.oclAsType(COBOL::statements::GoTo).transformUnconditionalGoto();
 			
@@ -211,11 +325,11 @@ mapping in COBOL::sentences::StatementContainer::cobolStatementContainer2KernelB
 			//case (self.oclIsKindOf(COBOL::statements::Sort))
 			//	result := self.oclAsType(COBOL::statements::Sort).transformSort();
 
-			//case (self.oclIsKindOf(COBOL::statements::String))
-			//	result := self.oclAsType(COBOL::statements::String).transformString();
+			case (self.oclIsKindOf(COBOL::statements::String))
+				result := self.oclAsType(COBOL::statements::_String).transformString();
 				
-			//TODO case (self.oclIsKindOf(COBOL::statements::Unstring))
-			//	result := self.oclAsType(COBOL::statements::Unstring).transformUnstring();
+			case (self.oclIsKindOf(COBOL::statements::Unstring))
+				result := self.oclAsType(COBOL::statements::Unstring).transformUnstring();
 				
 			case (self.oclIsKindOf(COBOL::statements::Read))
 				result := self.oclAsType(COBOL::statements::Read).transformRead();							
@@ -247,6 +361,9 @@ mapping in COBOL::sentences::StatementContainer::cobolStatementContainer2KernelB
 			case (self.oclIsKindOf(COBOL::statements::Compute))
 				result := self.oclAsType(COBOL::statements::Compute).transformCompute();
 				
+			case (self.oclIsKindOf(COBOL::statements::Call))
+				result := self.oclAsType(COBOL::statements::Call).transformCall();	
+				
 			case (self.oclIsKindOf(COBOL::statements::Open))
 				result := self.oclAsType(COBOL::statements::Open).transformOpen();
 				
@@ -256,16 +373,123 @@ mapping in COBOL::sentences::StatementContainer::cobolStatementContainer2KernelB
 			case (self.oclIsKindOf(COBOL::statements::Evaluate))
 				result := self.oclAsType(COBOL::statements::Evaluate).transformEvaluate();
 				
-			//TODO case (self.oclIsKindOf(COBOL::statements::Exit))
-			//	result := self.oclAsType(COBOL::statements::Exit).transformExit();
+			case (self.oclIsKindOf(COBOL::statements::Exit))
+				result := self.oclAsType(COBOL::statements::Exit).transformExit();
+				
+			case (self.oclIsKindOf(COBOL::statements::GoBack))
+				result := self.oclAsType(COBOL::statements::GoBack).transformGoBack();
 				
 			case (self.oclIsKindOf(COBOL::statements::PerformProcedure))
 				result := self.oclAsType(COBOL::statements::PerformProcedure).transformPerformProcedure();
+				
+			case (self.oclIsKindOf(COBOL::statements::Close))
+				result := self.oclAsType(COBOL::statements::Close).transformClose();
+				
+			case (self.oclIsKindOf(COBOL::statements::Open))
+				result := self.oclAsType(COBOL::statements::Open).transformOpen();
+				
+			case (self.oclIsKindOf(COBOL::statements::Inspect))
+				result := self.oclAsType(COBOL::statements::Inspect).transformInspect();
 		
 			};
 		}
 	
 	
+}
+
+mapping in COBOL::statements::Close::transformClose() 
+	: KERNEL::statements::ExpressionStatement{
+	
+	init{
+			result := object KERNEL::statements::ExpressionStatement{
+			label := getFreshLabel();}
+		}
+	
+	var expression := object KERNEL::expressions::Expression{label := getFreshLabel()};	
+		
+	self.ioFileDescriptors -> forEach(fd) {
+		
+		fd.ioFiles -> forEach(fn) {
+			
+			expression.children += fn.fileName.transformFileNameForUsage();
+		
+		
+		}
+	};
+	
+	result.expression := expression;
+	
+}
+
+
+mapping in COBOL::statements::Open::transformOpen() 
+	: KERNEL::statements::ExpressionStatement{
+	
+	init{
+			result := object KERNEL::statements::ExpressionStatement{
+			label := getFreshLabel();}
+		}
+	
+	var expression := object KERNEL::expressions::Expression{label := getFreshLabel()};	
+		
+	self.ioFileDescriptors -> forEach(fd) {
+		
+		fd.ioFiles -> forEach(fn) {
+			
+			expression.children += fn.fileName.transformFileNameForUsage();
+		
+		
+		}
+	};
+	
+	result.expression := expression;
+	
+}
+
+/*
+* Mapping Rules for Transforming FileName Reference
+*/
+mapping in COBOL::_references::FileNameReference::transformFileNameForUsage()
+	: KERNEL::expressions::SubExpression {
+	init{	
+		result := object KERNEL::expressions::Uses{};	
+		
+		result.target := getTargetReferenceableElement(self);
+	
+	}
+}
+
+mapping in COBOL::_references::FileNameReference::transformFileNameForDefinition()
+	: KERNEL::expressions::SubExpression {
+	init{	
+		result := object KERNEL::expressions::Defines{};	
+		
+		result.target := getTargetReferenceableElement(self);
+	
+	}
+}
+
+/*
+* Mapping Rules for Transforming MnemonicName Reference
+*/
+mapping in COBOL::_references::MnemonicNameReference::transformMnemonicNameForUsage()
+	: KERNEL::expressions::SubExpression {
+	init{	
+		result := object KERNEL::expressions::Uses{};	
+		
+		result.target := getTargetReferenceableElement(self);
+	
+	}
+}
+
+mapping in COBOL::_references::MnemonicNameReference::transformMnemonicNameForDefinition()
+	: KERNEL::expressions::SubExpression {
+	init{	
+		result := object KERNEL::expressions::Defines{};	
+		
+		result.target := getTargetReferenceableElement(self);
+	
+	}
 }
 
 
@@ -275,16 +499,14 @@ mapping in COBOL::statements::Accept::transformAccept()
 	{
 		init{
 			result := object KERNEL::statements::ExpressionStatement{
-			label = getFreshLabel();}
+			label := getFreshLabel();}
 		}
 		
 		//get the identifier
 		
-		var expression : KERNEL::expressions::Expression := object KERNEL::expressions::Expression{};
+		var expression := object KERNEL::expressions::Expression{label := getFreshLabel()};
 		
-		var operand : COBOL::operands::Operand := self.receiver;
-		
-		expression.children += operand.transformOperandForDefinition();
+		expression.children += self.receiver.transformOperandForDefinition();
 		
 		result.expression := expression;
 		
@@ -304,58 +526,35 @@ mapping in COBOL::statements::Execute::transformExecute()
 //Set statements comes in three variations: Set, Set Switches, Set Indexes
 mapping in COBOL::statements::_Set::transformSet()
 	: KERNEL::statements::ExpressionStatement {
-		init{
+	init{
 		result := object KERNEL::statements::ExpressionStatement{
 		label := getFreshLabel()};
-		}
-		
-		var expression : KERNEL::expressions::Expression 
-			:= object KERNEL::expressions::Expression{};
-		
-		var sender : COBOL::operands::PrimaryOperand := self.sender;
-		
-		expression.children += sender.transformOperandForUsage();
-
-//FIXME receivers
-		//var receivers : Sequence(COBOL::operands::PrimaryOperand) 
-		//	:= self.receivers;
-		
-		//receivers -> forEach(receiver) {
-			
-		//	expression.children += receiver.transformOperandForDefinition();
-		
-		//};
-		
-		result.expression := expression;
-		
 	}
+		
+	var expression : KERNEL::expressions::Expression 
+		:= object KERNEL::expressions::Expression{label := getFreshLabel()};
+		
+	expression.children += self.sender.transformOperandForUsage();
 
-
+	expression.children += self.receivers.transformOperandForDefinition();
+		
+	result.expression := expression;
+		
+}
 
 mapping in COBOL::statements::SetSwitches::transformSetSwitches()
 	: KERNEL::statements::ExpressionStatement {
 		
 		init{
-		result := object KERNEL::statements::ExpressionStatement{
-		label = getFreshLabel();}
+		result := object KERNEL::statements::ExpressionStatement{label := getFreshLabel()}
 		}
 		
 		var expression : KERNEL::expressions::Expression 
-			:= object KERNEL::expressions::Expression{};
+			:= object KERNEL::expressions::Expression{label:= getFreshLabel()};
 		
 		self.switches -> forEach(status) {
-			
-			var mnemonicNames := status.
-		
-			mnemonicNames -> forEach(mnemonicName) {
-			
-				var subexp : KERNEL::expressions::Defines := object KERNEL::expressions::Defines{};
-			
-				subexp.target := getTargetReferenceableElement(mnemonicName);
-			
-				expression.children += subexp;
-		
-			};
+				
+				expression.children += status.mnemonicNames.transformMnemonicNameForDefinition();
 			
 		};
 
@@ -371,19 +570,11 @@ mapping in COBOL::statements::SetIndexName::transformSetIndexName()
 		}
 	}
 		var expression : KERNEL::expressions::Expression 
-			:= object KERNEL::expressions::Expression{};
+			:= object KERNEL::expressions::Expression{label:=getFreshLabel()};
 			
-		expression.children += (self.sender).transformOperandForUsage();
+		expression.children += self.sender.transformOperandForUsage();
 		
-		self.receivers -> forEach(receiver) {
-			
-			var subexp : KERNEL::expressions::Defines := object KERNEL::expressions::Defines{};
-			
-			subexp.target := getTargetReferenceableElement(receiver);
-			
-			expression.children += subexp;
-		
-		};
+		expression.children += self.receivers.transformOperandForDefinition();
 		
 		result.expression := expression;
 		
@@ -398,22 +589,21 @@ mapping in COBOL::statements::SetIndexName::transformSetIndexName()
 mapping in COBOL::statements::Move::transformMove()
 	: KERNEL::statements::ExpressionStatement {
 
-		
-		init{
-			result := object KERNEL::statements::ExpressionStatement{
-				label := getFreshLabel();
-			}
+	init{
+		result := object KERNEL::statements::ExpressionStatement{
+			label := getFreshLabel();
 		}
+	}
 		
-		//write a transformation for operand to experssion
-		result.expression := object KERNEL::expressions::Expression{label=getFreshLabel()};
+	//write a transformation for operand to experssion
+	var expression := object KERNEL::expressions::Expression{label:=getFreshLabel()};
 		
-		result.expression.children := self.sender.transformOperandForUsage();
+	expression.children := self.sender.transformOperandForUsage();
 		
-		result.expression.children += self.receivers.transformOperandForDefinition();
-		
-		
-	}		
+	expression.children += self.receivers.transformOperandForDefinition();
+	
+	result.expression := expression;		
+}		
 	
 	
 //"RELEASE" operands:identifiers.Identifier
@@ -788,118 +978,83 @@ mapping in COBOL::statements::Release::transformRelease()
 
 //The STRING statement strings together the partial or complete contents of two or
 //more data items or literals into one single data item.
-
-//	: KERNEL::statements::StatementWithException {
-//	init{
-//		result := object KERNEL::statements::StatementWithException{
-//		label = getFreshLabel()};
-//	}	
-//	var expressionStatement : KERNEL::statements::ExpressionStatement
-//			::= object KERNEL::statements::ExpressionStatement{label = getFreshLabel()};
+mapping in COBOL::statements::_String::transformString()
+	: KERNEL::statements::StatementWithException {
+	init{
+		result := object KERNEL::statements::StatementWithException{label := getFreshLabel()};
+	}	
+	var expressionStatement	::= object KERNEL::statements::ExpressionStatement{label := getFreshLabel()};
 		
-//		var expression : KERNEL::expressions::Expression
-//			::= object KERNEL::expressions::Expression{};	
+	var expression 	::= object KERNEL::expressions::Expression{label := getFreshLabel()};	
 		
-//		var stringedOperands := self.operands.oclAsType(COBOL::operands::StringedOperand);
-		
-//		stringedOperands -> forEach(stringedOperand) {
+	self.senders -> forEach(stringedOperand) {
 			
-//			stringedOperand.operands -> forEach(operand) {
-//				
-//				expression.children += operand.transformOperandForUsage();	
-//			};
+		stringedOperand.strings -> forEach(operand) {			
+			expression.children += operand.transformOperandForUsage();	
+		};
 			
-//			var delimitedBy := stringedOperand.delimitedBy;	
-			
-			//delimiter:conditions.ConditionalOrExpression
-			
-//			var delimiterOperands := delimitedBy.delimiter.getOperands();
-			
-//			delimiterOperands -> forEach(delimiterOperand) {
-
-//				expression.children += delimiterOperand.transformOperandForUsage();
+		var delimiter := stringedOperand.delimiter;	
+		expression.children += delimiter.transformOperandForUsage();
 					
-//			}
-			
-//		};
+	};
 		
-		//pointer
-//		expression.children += self.pointer.transformOperandForUsage();
+	//pointer
+	expression.children += self.pointer.transformOperandForUsage();
 				
-		//into
-					
-//		expression.children += self.into.transformOperandForUsage();					
+	//Receiver
+	expression.children += self.receiver.transformOperandForDefinition();					
 		
-//		expressionStatement.expression := expression;
+	expressionStatement.expression := expression;
 		
-//		result.statement := expressionStatement;
+	result.statement := expressionStatement;
 		
-//		result.exceptionStatements := self.errors -> map transformStringAndUnstringExceptions();		
+	if (self.handlers -> notEmpty())
+		result.exceptionStatements := self.handlers -> map transformStringAndUnstringExceptions()
+	else
+		result.exceptionStatements := object KERNEL::statements::ExceptionHandlerStatement{
+				label := getFreshLabel();
+			}	
 				
-//}
+}
 
 //The UNSTRING statement causes contiguous data in a sending field to be
 //separated and placed into multiple receiving fields.
 //TODO The Unstring operation can be broken up into sub statements
 //*Look at Delimiter and Count clauses
-mapping in COBOL::statements::Unstring::transformUnString()
+mapping in COBOL::statements::Unstring::transformUnstring()
 	: KERNEL::statements::StatementWithException {
 
 init{
-	result := object KERNEL::statements::StatementWithException{};
-	}	
-	result.label := getFreshLabel();
-		
+	result := object KERNEL::statements::StatementWithException{label := getFreshLabel()};
+	}			
 	var expressionStatement : KERNEL::statements::ExpressionStatement
-		::= object KERNEL::statements::ExpressionStatement{};
-		
-	expressionStatement.label := getFreshLabel();
+		::= object KERNEL::statements::ExpressionStatement{label := getFreshLabel()};
 			
 	var expression : KERNEL::expressions::Expression
-		::= object KERNEL::expressions::Expression{};
+		::= object KERNEL::expressions::Expression{label := getFreshLabel()};
 
 	expression.children += self.sender.transformOperandForUsage();
-	
-	//Delimited By
-	expression.children += self.sender.transformOperandForUsage();
 
-	//intos
+	//delimiter
+	var delimiterOperands := self.delimiter.getOperands();
 	
-	self.receivers -> forEach(receiver) {
-						
-						
-					
-		expression.children += (receiver.strings -> first()).transformOperandForDefinition();			
+	delimiterOperands -> forEach(delimiterOperand) {
 	
+		expression.children += delimiterOperand.transformOperandForUsage();
 	};
 	
-	//phrases : OrderedSet(COBOL::phrases::Phrase)
-	//	:= self.phrases;
-	//FIXME
-//	phrases -> forEach(phrase) {
-//		if (phrase.oclIsKindOf(COBOL::phrases::Delimiter)) then
-//		{
-//			var delimiterPhrase : COBOL::phrases::Delimiter
-//				:= phrase.oclAsType(COBOL::phrases::Delimiter);
-				
-//			var delimiterOperand := delimiterPhrase.operands -> first();
-				
-//			expression.children += delimiterOperand.transformOperandForDefinition();
-							
-//		}
-//		else if (phrase.oclIsKindOf(COBOL::phrases::Count)) then
-//		{
-//			var countPhrase : COBOL::phrases::Count
-//				:= phrase.oclAsType(COBOL::phrases::Count);
-				
-//			var countOperand := countPhrase.operands -> first();
-				
-//			expression.children += countOperand.transformOperandForDefinition();	
-//		}endif
-		
-//		endif;
+	//into receivers
 	
-//	};	
+	self.receivers -> forEach(receiver) {						
+					
+		expression.children += (receiver.strings -> first()).transformOperandForDefinition();	
+		
+		expression.children += receiver.counter.transformOperandForDefinition();
+		
+		expression.children += receiver.delimiter.transformOperandForDefinition();
+			
+	
+	};
 			
 	//pointer
 	expression.children += self.pointer.transformOperandForDefinition();
@@ -912,8 +1067,15 @@ init{
 	expressionStatement.expression := expression;
 		
 	result.statement := expressionStatement;
+
 	
-	result.exceptionStatements := self.handlers -> map transformStringAndUnstringExceptions();
+	if (self.handlers -> notEmpty())
+		result.exceptionStatements := self.handlers -> map transformStringAndUnstringExceptions()
+	else
+		result.exceptionStatements := object KERNEL::statements::ExceptionHandlerStatement{
+				label := getFreshLabel();
+			}
+		
 }
 
 
@@ -923,108 +1085,71 @@ mapping in OrderedSet(COBOL::handlers::Handler)::transformStringAndUnstringExcep
  	init{
 	 	if (self -> notEmpty()) then 			
 			self -> forEach(handler) {
-				result	+= handler.oclAsType(COBOL::handlers::OnOverflow).transformHandlerStatement()
+				result	+= handler.oclAsType(COBOL::handlers::OnOverflow).transformHandlerStatement(null)
 			}
 				
 		else
 			result += object KERNEL::statements::ExceptionHandlerStatement{
-				label = getFreshLabel();
+				label := getFreshLabel();
 			}
 		endif;
 	}
 }
 
 //TODO need to add the declaratives
-//mapping in OrderedSet(COBOL::statements::ErrorStatement)::transformIOExceptions()
-// : OrderedSet(KERNEL::statements::ExceptionHandlerStatement) {
- 
-/// if (self -> notEmpty()) then {
-			
-//		self -> forEach(error) {
-//			if not (error.oclIsKindOf(COBOL::statements::NotErrorStatement)) then{ 
-//				var exceptionHandlerStatement  
-//					:= error.transformHandlerStatement();
-				
-//				var abort := object KERNEL::statements::Abort{};
-//		
-//				exceptionHandlerStatement.statements += abort;
-				
-//				result += exceptionHandlerStatement;
-				
-///				}
-//			else 
-//				result += error.transformHandlerStatement()
-//			endif
-//		}
-			
-//	}else{
-//		var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{}; 
-	
-//		var abort := object KERNEL::statements::Abort{};
-		
-//		exceptionHandlerStatement.statements += abort;
-		
-//		result += exceptionHandlerStatement;
-	
-//	}endif;
-//}
-
-mapping in OrderedSet(COBOL::handlers::Handler)::transformArithmeticExceptions()
- : OrderedSet(KERNEL::statements::ExceptionHandlerStatement) {
- init{
-	if (self -> notEmpty()) then {
-			
-		self -> forEach(handler) {
-			if not (handler.oclIsKindOf(COBOL::handlers::NotErrorHandler)) then{ 
-				var exceptionHandlerStatement  
-					:= handler.transformHandlerStatement();
-				
-				var abort := object KERNEL::statements::Abort{};
-		
-				exceptionHandlerStatement.statement := abort;
-				
-				result += exceptionHandlerStatement;
-				
-				}
-			else 
-				result := handler->transformHandlerStatement()->asOrderedSet()
-			endif
-		}
-			
-	}else{
-		var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{}; 
-	
-		var abort := object KERNEL::statements::Abort{label=getFreshLabel()};
-		
-		exceptionHandlerStatement.statement := abort;
-		
-		result += exceptionHandlerStatement;
-	
-	}endif;
+mapping in COBOL::handlers::Handler::transformIOExceptions()
+ : KERNEL::statements::ExceptionHandlerStatement {
+ 	init{
  	
- 	}
+	if not (self.oclIsKindOf(COBOL::handlers::NotErrorHandler)) then{ 
+				
+		var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+		//result.statement := abort;
+				
+		result :=  self.transformHandlerStatement(abort->asOrderedSet());
+				
+	}
+	else 
+		result := self.transformHandlerStatement(null)
+	endif
+}
 
 }
 
-mapping in COBOL::handlers::Handler::transformHandlerStatement() 
+mapping in COBOL::handlers::Handler::transformArithmeticExceptions()
+ : KERNEL::statements::ExceptionHandlerStatement {
+ init{
+		if not (self.oclIsKindOf(COBOL::handlers::NotErrorHandler)) then{ 
+				
+				var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+				
+				result := self.transformHandlerStatement(abort -> asOrderedSet());
+				
+				}
+			else 
+				result := self.transformHandlerStatement(null)
+			endif
+		}
+
+}
+
+mapping in COBOL::handlers::Handler::transformHandlerStatement(others : OrderedSet(KERNEL::statements::Statement)) 
 	: KERNEL::statements::ExceptionHandlerStatement {
 		init{	
-		//if (self.oclIsKindOf(COBOL::statements::NotErrorStatement)) then
-		//	result := object  KERNEL::statements::NotExceptionHandlerStatement{}
-		//else	
-			result := object  KERNEL::statements::ExceptionHandlerStatement{}
-		//endif;
-			
-		}		
-		result.label := getFreshLabel();
+			result := object  KERNEL::statements::ExceptionHandlerStatement{label := getFreshLabel()};
+				}
 				
-		var handlerBlockStatement : KERNEL::statements::Block
-			:= object KERNEL::statements::Block{};
+		var handlerBlockStatement
+			:= object KERNEL::statements::Block{label:= getFreshLabel()};
 										
 		handlerBlockStatement.statements
 			:= 	self.statements -> map cobolStatement2KernelStatement();
+			
+		handlerBlockStatement.statements += others;	
 					
-		result.statement = handlerBlockStatement; 	
+		result.statement := handlerBlockStatement; 	
+
 			
 	}
 
@@ -1041,60 +1166,54 @@ mapping in COBOL::statements::Read::transformRead()
 		label:=getFreshLabel();}
 		}
 	
-	result.resolve()->notEmpty();
+	var expressionStatement := object KERNEL::statements::ExpressionStatement{label:=getFreshLabel()};
 	
-	var expressionStatement := object KERNEL::statements::ExpressionStatement{};
-	
-	var expression := object KERNEL::expressions::Expression{};
+	var expression := object KERNEL::expressions::Expression{label:=getFreshLabel()};
 	
 	//keys first			
 	expression.children += self.keyName.transformOperandForUsage();
 	
 	//fileNameReference used
-	var fileName := self.fileName;
+	expression.children += self.fileName.transformFileNameForUsage();
 	
-	var fileNameSubexpression := object KERNEL::expressions::Uses{};
-					
-	fileNameSubexpression.target 
-		:= getTargetReferenceableElement(fileName);
-					
-	expression.children += fileNameSubexpression;
-	
-	//reading identifier
-			
-	expression.children += self.receiver.transformOperandForUsage();
+	//reading identifier			
+	expression.children += self.receiver.transformOperandForDefinition();
 	
 	expressionStatement.expression := expression;
 	
 	result.statement := expressionStatement;
 	
-	//result.exceptionStatements := self.handlers -> map transformIOExceptions();
-	 
+	if (self.handlers -> notEmpty())
+		result.exceptionStatements := self.handlers -> map transformIOExceptions()
+	 else
+	 	{		
+	 	var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{label:=getFreshLabel()}; 
+	
+		var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+		exceptionHandlerStatement.statement := abort;
+		
+		result.exceptionStatements := exceptionHandlerStatement;}
 }
 
 
 //The WRITE statement releases a logical record to an output or input/output file.
 mapping in COBOL::statements::Write::transformWrite()
 	: KERNEL::statements::StatementWithException {
-		init{
-	result := object KERNEL::statements::StatementWithException{
+	init{
+		result := object KERNEL::statements::StatementWithException{
 		label := getFreshLabel()};
 		}	
 	
-	var expressionStatement := object KERNEL::statements::ExpressionStatement{};
+	var expressionStatement := object KERNEL::statements::ExpressionStatement{label:=getFreshLabel()};
 	
-	var expression := object KERNEL::expressions::Expression{};
+	var expression := object KERNEL::expressions::Expression{label:=getFreshLabel()};
 	
 	//Use mnemonicName Reference and NumLines
 					
 	expression.children += self.numLines.transformOperandForUsage();
 	
-	var mnemonicNameSubexpression := object KERNEL::expressions::Uses{};
-	
-	mnemonicNameSubexpression.target 
-		:= getTargetReferenceableElement(self.mnemonicName);
-					
-	expression.children += mnemonicNameSubexpression;
+	expression.children += self.mnemonicName.transformMnemonicNameForUsage();
 	
 	// uses from identifier
 	expression.children += self.sender.transformOperandForUsage();
@@ -1106,7 +1225,17 @@ mapping in COBOL::statements::Write::transformWrite()
 	
 	result.statement := expressionStatement;
 	
-//	result.exceptionStatements := self.handlers -> map transformIOExceptions();	
+	if (self.handlers -> notEmpty())
+		result.exceptionStatements := self.handlers -> map transformIOExceptions()
+	 else
+	 	{		
+	 	var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{label:=getFreshLabel()}; 
+	
+		var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+		exceptionHandlerStatement.statement := abort;
+		
+		result.exceptionStatements := exceptionHandlerStatement;}
 }
 
 //The REWRITE statement logically replaces an existing record in a direct-access file.
@@ -1117,12 +1246,12 @@ mapping in COBOL::statements::Rewrite::transformReWrite()
 	
 	init{	
 		result := object KERNEL::statements::StatementWithException{
-			label = getFreshLabel();
+			label := getFreshLabel();
 		}
 	}
-	var expressionStatement := object KERNEL::statements::ExpressionStatement{};
+	var expressionStatement := object KERNEL::statements::ExpressionStatement{label:=getFreshLabel()};
 	
-	var expression := object KERNEL::expressions::Expression{};
+	var expression := object KERNEL::expressions::Expression{label:=getFreshLabel()};
 	
 	// uses from identifier
 	
@@ -1135,48 +1264,64 @@ mapping in COBOL::statements::Rewrite::transformReWrite()
 	
 	result.statement := expressionStatement;
 	
-//	result.exceptionStatements := self.handlers -> map transformIOExceptions();	
+	if (self.handlers -> notEmpty())
+		result.exceptionStatements := self.handlers -> map transformIOExceptions()
+	 else
+	 	{		
+	 	var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{label:=getFreshLabel()}; 
+	
+		var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+		exceptionHandlerStatement.statement := abort;
+		
+		result.exceptionStatements := exceptionHandlerStatement;}
 }
 
 //The SEARCH statement searches a table for an element that satisfies the specified
 //condition and adjusts the associated index to indicate that element.
+//statements.SerialSearch
+// ::= "SEARCH" 
+//    table:identifiers.IdentifierReference 
+//    ( "VARYING" variable )?
+//    ( handlers:handlers.AtEnd )?
+//    cases+
+//    endVerb["END-SEARCH" : ""]
+//  ; 
+
 mapping in COBOL::statements::SerialSearch::transformSerialSearch()
 	: KERNEL::statements::StatementWithException {
 	init{
 		result := object KERNEL::statements::StatementWithException{
 		label := getFreshLabel()};
-	}
 	
-	var whileLoop := object KERNEL::statements::WhileLoop{};
 	
-	whileLoop.label := getFreshLabel();
+	var whileLoop := object KERNEL::statements::WhileLoop{label := getFreshLabel()};
 	
-	var expression := object KERNEL::expressions::Expression{};
+	var expression := object KERNEL::expressions::Expression{label := getFreshLabel()};
 	
-	var tableIdentifierOperand := self.table;
-	
-	expression.children += tableIdentifierOperand.transformOperandForUsage();
+	expression.children := self.table.transformOperandForUsage();
 
 	whileLoop.condition := expression;
 	
+	
+	//FIXME is it null or self.table?
 	var nestedConditionStatement := self.cases  
-		-> map transformEvaluateCases(object OrderedSet(COBOL::operands::Operand){}); 
+		-> map transformEvaluateCases(null); 
 	
-	var loopBlockStatement := object KERNEL::statements::Block{};
+	var loopBlockStatement := object KERNEL::statements::Block{label:= getFreshLabel()};
 	
-	loopBlockStatement.statements += nestedConditionStatement;
+	loopBlockStatement.statements := nestedConditionStatement;
 	
 	//defining new indexes, the indexes corresponding with the identifier, using the old identifier	
 	
-	var expressionStatement := object KERNEL::statements::ExpressionStatement{};
+	//FIXME index expression
+	//var expressionStatement := object KERNEL::statements::ExpressionStatement{label := getFreshLabel()};
 	
-	expressionStatement.label := getFreshLabel();
+	//var indexExpression := object KERNEL::expressions::Expression{label := getFreshLabel()};
 	
-	var indexExpression := object KERNEL::expressions::Expression{};
+	//indexExpression.children := self.table.transformOperandForUsage();
 	
-	indexExpression.children += tableIdentifierOperand.transformOperandForUsage();
-	
-	indexExpression.children += tableIdentifierOperand.transformOperandForDefinition();
+	//indexExpression.children += self.table.transformOperandForDefinition();
 		
 	//TODO Varying phrase
 	//var varyingOperand := self.varying.operands->first();
@@ -1191,7 +1336,31 @@ mapping in COBOL::statements::SerialSearch::transformSerialSearch()
 	
 	result.statement := whileLoop;
 	
-	//result.exceptionStatements := self.errors -> map transformIOExceptions();	
+		
+	//var x := self.handlers -> map transformIOExceptions();
+	
+	//log("Number of handlers");
+	//log(x->size().toString());
+	
+	if (self.handlers ->notEmpty())
+		result.exceptionStatements := self.handlers.transformIOExceptions()
+	
+	else {
+	
+		var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{label:=getFreshLabel()}; 
+	
+		var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+		exceptionHandlerStatement.statement := abort;
+		
+		result.exceptionStatements := exceptionHandlerStatement;
+	
+	
+	};
+	}
+	log("Number of Exception Statements");
+	//log(result.exceptionStatements.toString())
+	
 	
 }
 
@@ -1254,11 +1423,12 @@ mapping in OrderedSet(COBOL::statements::EvaluateCase)::
 	transformEvaluateCases(subjectOperands : OrderedSet(COBOL::operands::Operand))
 	: KERNEL::statements::Condition
 	{
-		var conditionStatement := object KERNEL::statements::Condition{};
+	
+		init{
+		result := object KERNEL::statements::Condition{label:=getFreshLabel()};
+		}
 		
-		conditionStatement.label := getFreshLabel();
-		
-		var expression := object KERNEL::expressions::Expression{};	
+		var expression := object KERNEL::expressions::Expression{label:=getFreshLabel()};	
 		
 		subjectOperands ->forEach(subjectOperand) {
 		
@@ -1279,7 +1449,7 @@ mapping in OrderedSet(COBOL::statements::EvaluateCase)::
 				var objectOperands := obj.getOperands();
 				
 				objectOperands -> forEach(objectOperand) {
-					expression.children  += objectOperand.transformOperandForPreUsage();
+					expression.children  += objectOperand.transformOperandForUsage();
 				
 				}
 			
@@ -1287,13 +1457,13 @@ mapping in OrderedSet(COBOL::statements::EvaluateCase)::
 		
 		};
 		
-		conditionStatement.condition := expression;
+		result.condition := expression;
 		
-		var trueBlockStatement := object KERNEL::statements::Block{};
+		var trueBlockStatement := object KERNEL::statements::Block{label:=getFreshLabel()};
 		
 		trueBlockStatement.statements := headWhenCase.statements-> map cobolStatement2KernelStatement();
 		
-		conditionStatement.statement := trueBlockStatement;
+		result.statement := trueBlockStatement;
 		
 		//TODO Does this work?
 		var tailWhenCases : OrderedSet(COBOL::statements::EvaluateCase) := self ->excluding(self->first())->asOrderedSet();
@@ -1301,8 +1471,8 @@ mapping in OrderedSet(COBOL::statements::EvaluateCase)::
 		if (tailWhenCases -> notEmpty()) then
 		
 			//TODO check if this is correct
-			conditionStatement.elseStatement := tailWhenCases 
-				-> map transformEvaluateCases(object OrderedSet(COBOL::operands::Operand){})
+			result.elseStatement := tailWhenCases 
+				-> map transformEvaluateCases(subjectOperands)
 			
 		endif;	
 	}
@@ -1327,10 +1497,12 @@ mapping in COBOL::statements::GoTo::transformUnconditionalGoto()
 		
 		var targetLabel := labelRange.children->first(); 	
 		
-		result.target := getTargetLabel(targetLabel.target.oclAsType(COBOL::_references::ReferenceableElement));
+		result.target := getTargetLabel(targetLabel.oclAsType(COBOL::labels::ProcedureLabel));
 	
 	}
 	
+//Continue continues with the next verb while next sentence skips to the next sentence, 
+//the next verb after a period.	
 mapping in COBOL::statements::Continue::transformContinue()
 	: KERNEL::statements::Skip {
 		init{
@@ -1351,9 +1523,7 @@ mapping in COBOL::statements::Add::transformAdd()
 			compoundArithmetic := true
 		endif;
 		
-		result := object KERNEL::statements::StatementWithException{};
-		
-		result.label := getFreshLabel(); 
+		result := object KERNEL::statements::StatementWithException{label := getFreshLabel()};
 	
 	}
 	
@@ -1361,32 +1531,22 @@ mapping in COBOL::statements::Add::transformAdd()
 	
 	self.tos -> forEach(to) {
 		
-		var expressionStatement := object KERNEL::statements::ExpressionStatement{};
-		
-		expressionStatement.label :=  getFreshLabel();
-		
-		var expression := object KERNEL::expressions::Expression{};
-		
-		self.operands -> forEach(operand) {
+		var expressionStatement := object KERNEL::statements::ExpressionStatement{label :=  getFreshLabel()};
+				
+		var expression := object KERNEL::expressions::Expression{label :=  getFreshLabel()};
 
-			expression.children += operand.transformOperandForUsage();
-	
-		};
-		
+		expression.children += self.operands.transformOperandForUsage();
+
 		expression.children += to.transformOperandForUsage();
 
 		if (self.givings -> notEmpty()) then
-		{
+
+			expression.children += self.givings.transformOperandForDefinition()	
 		
-			self.givings -> forEach(givingOperand) {
-		
-				expression.children += givingOperand.transformOperandForDefinition();		
-		
-			}
-		} else {
-			expression.children += to.transformOperandForDefinition();	
+		else
+			expression.children += to.transformOperandForDefinition()
 			
-		}endif;
+		endif;
 		
 		expressionStatement.expression := expression;
 		
@@ -1396,7 +1556,7 @@ mapping in COBOL::statements::Add::transformAdd()
 	
 	if (compoundArithmetic) then
 	{
-		var parallelBlockStatement := statement.oclAsType(KERNEL::statements::ParallelBlock);
+		var parallelBlockStatement := object KERNEL::statements::ParallelBlock{label:=getFreshLabel()};
 		
 		parallelBlockStatement.order := KERNEL::statements::ExecutionOrder::l2r;
 	
@@ -1409,7 +1569,17 @@ mapping in COBOL::statements::Add::transformAdd()
 	
 	endif;
 	
-	result.exceptionStatements := self.handlers -> map transformArithmeticExceptions();	 
+	if (self.handlers -> notEmpty())
+		result.exceptionStatements := self.handlers -> map transformArithmeticExceptions()
+	else {
+		var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{label:=getFreshLabel()}; 
+	
+		var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+		exceptionHandlerStatement.statement := abort;
+		
+		result.exceptionStatements := exceptionHandlerStatement;
+	}	 
 }	
 
 mapping in COBOL::statements::Subtract::transformSubtract()
@@ -1421,9 +1591,7 @@ mapping in COBOL::statements::Subtract::transformSubtract()
 			compoundArithmetic := true
 		endif;
 		
-		result := object KERNEL::statements::StatementWithException{};
-		
-		result.label := getFreshLabel(); 
+		result := object KERNEL::statements::StatementWithException{label:= getFreshLabel()};
 	
 	}
 	
@@ -1433,31 +1601,20 @@ mapping in COBOL::statements::Subtract::transformSubtract()
 		
 		var expressionStatement := object KERNEL::statements::ExpressionStatement{label:=getFreshLabel()};
 		
-		expressionStatement.label :=  getFreshLabel();
-		
-		var expression := object KERNEL::expressions::Expression{};
-		
-		self.operands -> forEach(operand) {
-			
-			expression.children += operand.transformOperandForUsage();
-			
-		};
+		var expression := object KERNEL::expressions::Expression{label:=getFreshLabel()};
+
+		expression.children += self.operands.transformOperandForUsage();
 		
 		expression.children += fromOperand.transformOperandForUsage();
 		
 		if (self.givings -> notEmpty()) then
-		{
+
+			expression.children += self.givings.transformOperandForDefinition()	
 		
-			self.givings -> forEach(givingOperand) {
+		else
+			expression.children += fromOperand.transformOperandForDefinition()
 			
-				expression.children += givingOperand.transformOperandForDefinition();		
-		
-			}
-		} else {
-		
-			expression.children += fromOperand.transformOperandForDefinition();			
-			
-		}endif;
+		endif;
 		
 		expressionStatement.expression := expression;
 		
@@ -1467,20 +1624,30 @@ mapping in COBOL::statements::Subtract::transformSubtract()
 	
 	if (compoundArithmetic) then
 	{
-		var parallelBlockStatement := statement.oclAsType(KERNEL::statements::ParallelBlock);
+		var parallelBlockStatement := object KERNEL::statements::ParallelBlock{label:=getFreshLabel()};
 		
 		parallelBlockStatement.order := KERNEL::statements::ExecutionOrder::l2r;
 	
 		parallelBlockStatement.statements := expressionStatements;
 		
 		result.statement := parallelBlockStatement;
-	}	
+	}		
 	else
 		result.statement := expressionStatements->first()
 	
 	endif;
 	
-	result.exceptionStatements := self.handlers -> map transformArithmeticExceptions();	
+	if (self.handlers -> notEmpty())
+		result.exceptionStatements := self.handlers -> map transformArithmeticExceptions()
+	else {
+		var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{label:=getFreshLabel()}; 
+	
+		var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+		exceptionHandlerStatement.statement := abort;
+		
+		result.exceptionStatements := exceptionHandlerStatement;
+	}	
 }
 
 //The MULTIPLY statement multiplies numeric items and sets the values of data
@@ -1494,9 +1661,7 @@ mapping in COBOL::statements::Multiply::transformMultiply()
 			compoundArithmetic := true
 		endif;
 		
-		result := object KERNEL::statements::StatementWithException{};
-		
-		result.label := getFreshLabel(); 
+		result := object KERNEL::statements::StatementWithException{label := getFreshLabel()};
 	
 	}
 	
@@ -1504,33 +1669,23 @@ mapping in COBOL::statements::Multiply::transformMultiply()
 	
 	self.bys -> forEach(by) {
 		
-		var expressionStatement := object KERNEL::statements::ExpressionStatement{};
+		var expressionStatement := object KERNEL::statements::ExpressionStatement{label :=  getFreshLabel()};
 		
-		expressionStatement.label :=  getFreshLabel();
-		
-		var expression := object KERNEL::expressions::Expression{};
-		
-		self.operands -> forEach(operand) {
-		
-			expression.children += operand.transformOperandForUsage();
-			
-		};
-		
+		var expression := object KERNEL::expressions::Expression{label :=  getFreshLabel()};
+
+		expression.children += self.operands.transformOperandForUsage();
+
 		expression.children += by.transformOperandForUsage();
 		
 		if (self.givings -> notEmpty()) then
-		{
-		
-			self.givings -> forEach(givingOperand) {
 
-				expression.children += givingOperand.transformOperandForDefinition();		
-		
-			}
-		} else {
+			expression.children += self.givings .transformOperandForDefinition()		
 			
-			expression.children += by.transformOperandForDefinition();			
+		 else 
 			
-		}endif;
+			expression.children += by.transformOperandForDefinition()			
+			
+		endif;
 		
 		expressionStatement.expression := expression;
 		
@@ -1540,7 +1695,7 @@ mapping in COBOL::statements::Multiply::transformMultiply()
 	
 	if (compoundArithmetic) then
 	{
-		var parallelBlockStatement := statement.oclAsType(KERNEL::statements::ParallelBlock);
+		var parallelBlockStatement := object KERNEL::statements::ParallelBlock{label:=getFreshLabel()};
 		
 		parallelBlockStatement.order := KERNEL::statements::ExecutionOrder::l2r;
 	
@@ -1553,7 +1708,17 @@ mapping in COBOL::statements::Multiply::transformMultiply()
 	
 	endif;
 	
-	result.exceptionStatements := self.handlers -> map transformArithmeticExceptions();	
+	if (self.handlers -> notEmpty())
+		result.exceptionStatements := self.handlers -> map transformArithmeticExceptions()
+	else {
+		var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{label:=getFreshLabel()}; 
+	
+		var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+		exceptionHandlerStatement.statement := abort;
+		
+		result.exceptionStatements := exceptionHandlerStatement;
+	}	
 }
 
 //The DIVIDE statement divides one numeric data item into or by others and sets
@@ -1567,9 +1732,7 @@ mapping in COBOL::statements::Divide::transformDivide()
 			compoundArithmetic := true
 		endif;
 		
-		result := object KERNEL::statements::StatementWithException{};
-		
-		result.label := getFreshLabel(); 
+		result := object KERNEL::statements::StatementWithException{label := getFreshLabel()};
 	
 	}
 	
@@ -1577,43 +1740,26 @@ mapping in COBOL::statements::Divide::transformDivide()
 		
 	self.intos -> forEach(into) {
 		
-		var expressionStatement := object KERNEL::statements::ExpressionStatement{};
+		var expressionStatement := object KERNEL::statements::ExpressionStatement{label :=  getFreshLabel()};
 		
-		expressionStatement.label :=  getFreshLabel();
+		var expression := object KERNEL::expressions::Expression{label:=getFreshLabel()};	
 		
-		var expression := object KERNEL::expressions::Expression{};
-		
-		self.operands -> forEach(operand) {
-			
-			expression.children += operand.transformOperandForUsage();
-
-		};
+		expression.children += self.operands.transformOperandForUsage();
 		
 		expression.children += into.transformOperandForUsage();
 
 		if (self.givings -> notEmpty()) then
-		{
 		
-			self.givings -> forEach(givingOperand) {
+			expression.children += self.givings.transformOperandForDefinition()		
 		
-				expression.children += givingOperand.transformOperandForDefinition();		
-		
-			}
-		} else {
+		else
 
-			expression.children += into.transformOperandForDefinition();			
+			expression.children += into.transformOperandForDefinition()			
 			
-		}endif;
+		endif;
 		
-		if (self.remainders -> notEmpty()) then
-		{
-		
-			self.remainders -> forEach(remainderOperand) {
-		
-				expression.children += remainderOperand.transformOperandForDefinition();		
-		
-			}
-		}endif;
+
+		expression.children += self.remainders.transformOperandForDefinition();
 		
 		expressionStatement.expression := expression;
 		
@@ -1623,7 +1769,7 @@ mapping in COBOL::statements::Divide::transformDivide()
 	
 	if (compoundArithmetic) then
 	{
-		var parallelBlockStatement := statement.oclAsType(KERNEL::statements::ParallelBlock);
+		var parallelBlockStatement := object KERNEL::statements::ParallelBlock{label := getFreshLabel()};
 		
 		parallelBlockStatement.order := KERNEL::statements::ExecutionOrder::l2r;
 	
@@ -1636,17 +1782,27 @@ mapping in COBOL::statements::Divide::transformDivide()
 	
 	endif;
 	
-	result.exceptionStatements := self.handlers -> map transformArithmeticExceptions();	
+	if (self.handlers -> notEmpty())
+		result.exceptionStatements := self.handlers -> map transformArithmeticExceptions()
+	else {
+		var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{label:=getFreshLabel()}; 
+	
+		var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+		exceptionHandlerStatement.statement := abort;
+		
+		result.exceptionStatements := exceptionHandlerStatement;
+	}	
 }
 
 mapping in COBOL::statements::Condition::transformCondition()
 	: KERNEL::statements::Condition {
 	init{
 		result := object KERNEL::statements::Condition{
-		label=getFreshLabel()};	
+		label:=getFreshLabel()};	
 	}
 	
-	var expression := object KERNEL::expressions::Expression{};
+	var expression := object KERNEL::expressions::Expression{label := getFreshLabel()};
 	
 	var conditionOperands := self.condition.getOperands();
 	
@@ -1657,7 +1813,7 @@ mapping in COBOL::statements::Condition::transformCondition()
 
 	result.condition := expression;
 	
-	var trueBlockStatement := object KERNEL::statements::Block{};
+	var trueBlockStatement := object KERNEL::statements::Block{label:=getFreshLabel()};
 	
 	trueBlockStatement.statements := self.statements -> map cobolStatement2KernelStatement();
 	
@@ -1665,9 +1821,9 @@ mapping in COBOL::statements::Condition::transformCondition()
 	
 	if (self.elseStatements -> notEmpty()) then
 	{
-		var falseBlockStatement := object KERNEL::statements::Block{};
+		var falseBlockStatement := object KERNEL::statements::Block{label:=getFreshLabel()};
 	
-		falseBlockStatement.statements := self.statements -> map cobolStatement2KernelStatement();
+		falseBlockStatement.statements := self.elseStatements -> map cobolStatement2KernelStatement();
 	
 		result.elseStatement := falseBlockStatement;
 	
@@ -1676,30 +1832,101 @@ mapping in COBOL::statements::Condition::transformCondition()
 	
 }
 
+mapping in COBOL::statements::Display::transformDisplay()
+	: KERNEL::statements::ExpressionStatement 
+	{
+	init{
+		result := object KERNEL::statements::ExpressionStatement{label := getFreshLabel()}
+	}	
+	
+		var expression := object KERNEL::expressions::Expression{label := getFreshLabel()}; 
+	
+	expression.children := self.operands.transformOperandForUsage();
+	
+	result.expression := expression;
+	
+}
+
+mapping in COBOL::statements::Call::transformCall()
+	: KERNEL::statements::Statement {
+	
+	init{
+	
+		if (self.subprogram.oclIsKindOf(COBOL::literals::Literal))
+			result := self.transformStaticCall()
+		else //must be an idetifier
+			result := self.transformDynamicCall()		
+	
+	}
+	
+	//TODO handle the exception handlers
+	
+}
+
+//TODO gotta fix the destination
+mapping in COBOL::statements::Call::transformStaticCall()
+	: KERNEL::statements::ProcedureCall{
+	
+	init{
+		result := object KERNEL::statements::ProcedureCall{label := getFreshLabel();};	
+	}
+	
+	
+	
+	}
+	
+mapping in COBOL::statements::Call::transformDynamicCall()
+	: KERNEL::statements::ExpressionStatement {
+	
+	init{
+		result := object KERNEL::statements::ExpressionStatement{label := getFreshLabel()};
+	
+	}
+	
+	var expression := object KERNEL::expressions::Expression{label := getFreshLabel()}; 
+	
+	expression.children += self.subprogram.transformOperandForUsage();
+	
+	self.arguments -> forEach(argument){
+	
+		expression.children += argument.operands.transformOperandForUsage();
+	
+		if (argument.oclIsKindOf(COBOL::functions::ByReferenceArgument)){
+		
+			expression.children += argument.operands.transformOperandForDefinition();
+		
+		}
+	
+	};
+	
+	expression.children +=  self.returning.operands.transformOperandForDefinition();
+
+	
+	result.expression := expression;
+	
+	}	
+
 //The COMPUTE statement assigns the value of an arithmetic expression to one or
 //more data items.
 mapping in COBOL::statements::Compute::transformCompute()
 	: KERNEL::statements::StatementWithException {
 	
 	init{
-		result := object KERNEL::statements::StatementWithException{
-		label := getFreshLabel();};
+		result := object KERNEL::statements::StatementWithException{label := getFreshLabel()};
 		}
 		
-		var expressionStatement := object KERNEL::statements::ExpressionStatement{};
+		var expressionStatement := object KERNEL::statements::ExpressionStatement{label := getFreshLabel()};
 		
-		expressionStatement.label := getFreshLabel();
-		
-		var expression := object KERNEL::expressions::Expression{}; 
+		var expression := object KERNEL::expressions::Expression{label := getFreshLabel()}; 
 		
 		//usage part: value
 		
 		var valueOperands := self.expression.value.getOperands();
 		
-		valueOperands -> forEach(operand) {
+		//valueOperands -> forEach(operand) {
 		
-		 expression.children += operand.transformOperandForUsage();
-		};
+		 expression.children += valueOperands.transformOperandForUsage();
+		//};
 		
 		//definition part
 		var assignedChildren := self.expression.children;
@@ -1719,7 +1946,18 @@ mapping in COBOL::statements::Compute::transformCompute()
 		
 		result.statement := expressionStatement;
 		
-		result.exceptionStatements := self.handlers -> map transformArithmeticExceptions();	
+		if (self.handlers->notEmpty())		
+			result.exceptionStatements := self.handlers -> map transformArithmeticExceptions()
+		else {
+			var exceptionHandlerStatement := object KERNEL::statements::ExceptionHandlerStatement{label:=getFreshLabel()}; 
+	
+			var abort := object KERNEL::statements::Abort{label:=getFreshLabel()};
+		
+			exceptionHandlerStatement.statement := abort;
+		
+			result.exceptionStatements := exceptionHandlerStatement;
+		
+		}
 }
 
 mapping in COBOL::identifiers::Identifier::getIdentifierSubExpressions()
@@ -1729,6 +1967,7 @@ mapping in COBOL::identifiers::Identifier::getIdentifierSubExpressions()
 		
 		var identifierReference := self.oclAsType(COBOL::identifiers::IdentifierReference);
 		
+		log("getting Identifier subexpressions");
 		
 		if (identifierReference.modifier -> notEmpty()) then {
 				
@@ -1762,41 +2001,6 @@ mapping in COBOL::identifiers::Identifier::getIdentifierSubExpressions()
 	}
 }
 
-mapping in COBOL::statements::Open::transformOpen() 
-	: KERNEL::statements::ExpressionStatement{
-	
-	init{
-	result := object KERNEL::statements::ExpressionStatement{};
-	}
-	
-	result.label := getFreshLabel();
-	
-	var expression := object KERNEL::expressions::Expression{};
-	
-	self.ioFileDescriptors -> forEach(ioFileDescriptor) {
-		
-		//if (ioFileDescriptor.oclIsKindOf(COBOL::ios::IOMode)) then
-		//{
-		//	var ioMode := ioFIleDescriptor.oclAsType(COBOL::ios::IOMode);
-			
-		//	ioMode.ioFiles -> forEach(ioFile) {
-				
-		//		var subexpr := object KERNEL::expressions::Uses{};
-				
-		//		subexpr.target
-		//			:= getTargetReferenceableElement(ioFile.fileName);
-				 
-		//		expression.children += subexpr;
-			
-		//	}
-			
-		//}endif;
-	
-	};
-	
-	result.expression := expression;
-
-}
 
 //The INITIALIZE statement sets selected categories of data fields to predetermined
 //values. It is functionally equivalent to one or more MOVE statements.
@@ -1805,19 +2009,18 @@ mapping in COBOL::statements::Open::transformOpen()
 mapping in COBOL::statements::Initialize::transformInitialize()
 	:KERNEL::statements::ParallelBlock {
 	init{
-	result := object KERNEL::statements::ParallelBlock{};
+	result := object KERNEL::statements::ParallelBlock{label:=getFreshLabel()};
 	}
-	
-	result.label := getFreshLabel();
 	
 	result.order := KERNEL::statements::ExecutionOrder::l2r;
 	
 	self.subprograms -> forEach(subprogram) {
 	
-		var expressionStatement := object KERNEL::statements::ExpressionStatement{};
+		var expressionStatement := object KERNEL::statements::ExpressionStatement{label:=getFreshLabel()};
 		
-		var expression := object KERNEL::expressions::Expression{};
+		var expression := object KERNEL::expressions::Expression{label:=getFreshLabel()};
 		
+		log("transforming INITIALIZE identifier");
 		expression.children += subprogram.transformOperandForDefinition();
 	
 		expressionStatement.expression := expression;
@@ -1830,11 +2033,14 @@ mapping in COBOL::statements::Initialize::transformInitialize()
 mapping in COBOL::statements::Evaluate::transformEvaluate() 
 	: KERNEL::statements::Condition {
 		init{
-		var subjects := self.subject.expressions;
+		//result := object KERNEL::statements::Condition{label := getFreshLabel()};
+		
+		//}
+		
 		
 		var subjectOperands : OrderedSet(COBOL::operands::Operand);
 		
-		subjects -> forEach(subject) {
+		self.subject.expressions -> forEach(subject) {
 			subjectOperands += subject.getOperands();
 		
 		};
@@ -1896,27 +2102,25 @@ mapping in COBOL::sentences::ExitProcedure::transformExitProcedure()
 	: KERNEL::statements::Skip {
 		
 		init{
-			result := object KERNEL::statements::Skip{};
+			result := object KERNEL::statements::Skip{label := getFreshLabel()};
 		}
-		result.label := getFreshLabel();
 		
 	}
 	
 //The EXIT PROGRAM statement specifies the end of a called program and returns
 //control to the calling program.
 //You can specify EXIT PROGRAM only in the procedure division of a program.
-//mapping in COBOL::statements::Exit::transformExitProgram()
-//	: KERNEL::statements::Return {
-	
-//	if (self.exitLabel.=(COBOL::statements::ExitLabels::program)) then {
-//	result := object KERNEL::statements::Return{};
-//	
-//		result.label := getFreshLabel();
+mapping in COBOL::statements::Exit::transformExit()
+	: KERNEL::statements::Return {
+	init{
+		if (self.exitLabel.=(COBOL::statements::ExitLabels::program)) then {
+			result := object KERNEL::statements::Return{label := getFreshLabel()};
+			
+			result.returnValue := object KERNEL::expressions::Expression{label := getFreshLabel()};	
 		
-//		result.returns := getReturnExpressions();	
-//	
-//	}endif;
-//}
+		}endif;
+	}
+}
 
 
 //The GOBACK statement functions like the EXIT PROGRAM statement when it is
@@ -1924,15 +2128,16 @@ mapping in COBOL::sentences::ExitProcedure::transformExitProcedure()
 //GOBACK is coded as part of an invoked method) and like the STOP RUN
 //statement when coded in a main program.
 
-//mapping in COBOL::statements::GoBack::transformGoBack()
-//	: KERNEL::statements::Return {
-//		result := object KERNEL::statements::Return{};
+mapping in COBOL::statements::GoBack::transformGoBack()
+	: KERNEL::statements::Return {
+	init{
+		result := object KERNEL::statements::Return{label := getFreshLabel()};
+	}
 	
-//		result.label := getFreshLabel();
+	result.returnValue := object KERNEL::expressions::Expression{label := getFreshLabel()};
 		
-//		result.returns := getReturnExpressions();	
 	
-//	}
+	}
 
 //TODO here need to incorporate RETURN-CODE
 mapping in COBOL::operands::Operand::transformOperandForUsage()
@@ -1995,34 +2200,25 @@ mapping in COBOL::operands::Operand::transformOperandForDefinition()
 	: OrderedSet(KERNEL::expressions::SubExpression) {
 		
 	init{
-			//var operandSubobjects : Set(Element)
-			//	:= self.allSubobjectsOfType(COBOL::identifiers::Identifier);	
 
-			//operandSubobjects -> forEach(subobject) {
-
-			var subobject := self;
-
-				result += subobject.oclAsType(COBOL::identifiers::Identifier).getIdentifierSubExpressions();
+		result += self.oclAsType(COBOL::identifiers::Identifier).getIdentifierSubExpressions();
 	
 	
-				if (subobject.oclIsKindOf(COBOL::identifiers::IdentifierReference)) then
-				{
-					var subexpr : KERNEL::expressions::Defines 
-					:= object KERNEL::expressions::Defines{};	
-					
-					
-					subexpr.target 
-						:= getTargetReferenceableElement(subobject.oclAsType(COBOL::identifiers::IdentifierReference));
-							
-					result += subexpr;
-					
-				}endif;
-							
-			//};
+		if (self.oclIsKindOf(COBOL::identifiers::IdentifierReference)) then
+		{
 		
-		}
-	
+			var subexpr	:= object KERNEL::expressions::Defines{};
+						
+			subexpr.target 
+				:= getTargetReferenceableElement(self.oclAsType(COBOL::identifiers::IdentifierReference));
+							
+			result += subexpr;
+					
+		}endif;
+		
 	}
+	
+}
 
 //TODO need to have a look at this
 query COBOL::arithmetics::ArithmeticExpression::getOperands()
@@ -2041,35 +2237,51 @@ query COBOL::conditions::Condition::getOperands()
 
 // transforms the perform procedure to a subprocedure call statement in kernel 
 mapping in COBOL::statements::PerformProcedure::transformPerformProcedure() 
-		: KERNEL::statements::ProcedureCall {
+		: KERNEL::statements::Block {
 
 	init{
-		var labelRange := self.label.oclAsType(COBOL::labels::ProcedureRange);		
+		result := object KERNEL::statements::Block{label := getFreshLabel();};
 		
-		result := labelRange.transformProcedureRange();
+		//var labelRange := self.label.oclAsType(COBOL::labels::ProcedureRange);
+		
+
+		//result.statements := labelRange.transformProcedureRange();
 	}
 }
 
 //an auxiliary mapping for procedure call transformation
 //FIXME this needs to make a separate call to each procedure label in-between
 mapping in COBOL::labels::ProcedureRange::transformProcedureRange()
-	: KERNEL::statements::ProcedureCall{
+	: OrderedSet(KERNEL::statements::ProcedureCall){
 	init{
-		result := object KERNEL::statements::ProcedureCall{label:=getFreshLabel()};
-	}
-
-	var startLabel := self.children->first(); 	
+		var procLabels : OrderedSet(COBOL::labels::ProcedureLabel);
+		procLabels += self.children->first().oclAsType(COBOL::labels::ProcedureLabel); 	
 	
-	//TODO commented the target
-	result.target := getTargetLabel(startLabel.target.oclAsType(COBOL::_references::ReferenceableElement));
+		//get the through element, and add the labels for all thr procedures that come in between 
+		if (self.children->size() > 1){
+		
+			var label := self.children -> last();
+		
+			//TODO find all the procedures in between
+			//add them all to proceLabels
+		
+		
+			// At the end, add the last element
+			procLabels += label.oclAsType(COBOL::labels::ProcedureLabel); 
+		};
 
-//	if (self.children -> size() > 1) then 
-//		result._end := getTargetLabel(self.children -> last())
-//	else 
-//		result._end := getTargetLabel(startLabel)
-//	endif;
+		procLabels -> forEach(procLabel) {
 	
+			var procedureCall ::= object KERNEL::statements::ProcedureCall{label:=getFreshLabel()};
+			procedureCall.target := getTargetLabel(procLabel);
+			
+			log("logginf procedure cal target");
+			log(procedureCall.target.toString());
+			result += procedureCall;
+		};
 	}
+	
+}
 
 
 
@@ -2099,10 +2311,8 @@ mapping in COBOL::statements::NestedStatement::transformNestedStatement()
 mapping in COBOL::statements::PerformFixedTimes::transformPerformFixedTimes() 
 		: KERNEL::statements::WhileLoop {
 	init{
-		result := object KERNEL::statements::WhileLoop{};
+		result := object KERNEL::statements::WhileLoop{label := getFreshLabel();};
 	}
-	result.label := getFreshLabel();		
-	
 	var iterations:= self.iterations;
 	
 	var conditon := object KERNEL::expressions::Expression{};
@@ -2116,7 +2326,8 @@ mapping in COBOL::statements::PerformFixedTimes::transformPerformFixedTimes()
 			var labelRange 
 			:= self.oclAsType(COBOL::statements::PerformProcedureFixedTimes).label.oclAsType(COBOL::labels::ProcedureRange);		
 	
-			result.statement := labelRange.transformProcedureRange();
+			result.statement := object KERNEL::statements::Block{
+				label:=getFreshLabel(); }
 			
 			}
 		case (self.oclIsKindOf(COBOL::statements::PerformNestedStatementFixedTimes))
@@ -2144,10 +2355,9 @@ mapping in COBOL::statements::PerformUntilCondition::transformPerformUntilCondit
 		: KERNEL::statements::Block {
 	
 	init{
-		result := object KERNEL::statements::Block{};
+		result := object KERNEL::statements::Block{label := getFreshLabel();};
 	}
-	result.label := getFreshLabel();
-	
+
 	var afterTestPosition:= false;
 	
 	//if (self.position -> notEmpty()) then
@@ -2158,9 +2368,7 @@ mapping in COBOL::statements::PerformUntilCondition::transformPerformUntilCondit
 	
 	if (self._init -> notEmpty()) then {
 		
-		var setExpressionStatement := object KERNEL::statements::ExpressionStatement{};
-		
-		setExpressionStatement.label = getFreshLabel();
+		var setExpressionStatement := object KERNEL::statements::ExpressionStatement{label := getFreshLabel()};
 		
 		var setExpression := object KERNEL::expressions::Expression{};
 		
@@ -2183,9 +2391,7 @@ mapping in COBOL::statements::PerformUntilCondition::transformPerformUntilCondit
 		
 		afters -> forEach(after) {
 			
-		var setExpressionStatement := object KERNEL::statements::ExpressionStatement{};
-			
-			setExpressionStatement.label = getFreshLabel();
+			var setExpressionStatement := object KERNEL::statements::ExpressionStatement{label := getFreshLabel()};
 			
 			var setExpression := object KERNEL::expressions::Expression{};
 			
@@ -2220,10 +2426,8 @@ mapping in COBOL::statements::PerformUntilCondition::transformPerformUntilCondit
 	
 	}endif;
 	
-	var whileLoop := object KERNEL::statements::WhileLoop{};
+	var whileLoop := object KERNEL::statements::WhileLoop{label:= getFreshLabel()};
 	
-	whileLoop.label:= getFreshLabel();
-
 	var conditionExpression := object KERNEL::expressions::Expression{};
 	
 	var conditionOperands := self.condition.getOperands();
@@ -2243,6 +2447,7 @@ mapping in COBOL::statements::PerformUntilCondition::transformPerformUntilCondit
 			var labelRange 
 			:= self.oclAsType(COBOL::statements::PerformProcedureUntilCondition).label.oclAsType(COBOL::labels::ProcedureRange);		
 	
+			log("shouldnt have got here");
 			blockStatement.statements += labelRange.transformProcedureRange();
 			
 			}
@@ -2251,9 +2456,7 @@ mapping in COBOL::statements::PerformUntilCondition::transformPerformUntilCondit
 				+= self.oclAsType(COBOL::statements::PerformNestedStatementUntilCondition).statements -> map cobolStatement2KernelStatement();
 	};
 	
-	var augmentExpressionStatement := object KERNEL::statements::ExpressionStatement{};
-	
-	augmentExpressionStatement.label := getFreshLabel();
+	var augmentExpressionStatement := object KERNEL::statements::ExpressionStatement{label := getFreshLabel()};
 	
 	var augmentExpression := object KERNEL::expressions::Expression{};
 	
@@ -2278,92 +2481,71 @@ mapping in COBOL::statements::PerformUntilCondition::transformPerformUntilCondit
 		
 }
 
-//statements.Inspect
-//  ::= "INSPECT" operands:identifiers.Identifier, literals.Literal
-//   (phrases:phrases.Converting, phrases.Tallying, phrases.Replacing )+
-  
-//phrases.Tallying
-//  ::= "TALLYING"  (phrases:phrases.In)+
+//statements.Inspect  ::= "INSPECT" string:identifiers.Identifier, literals.Literal
+//   ("TALLYING" ( tallyingIns )+ )?
+//   ("REPLACING" ( replacements )+ )?
+//   ("CONVERTING" ( conversions )+)?
+//  ;
 
-//phrases.In  
-//  ::= ( "IN" )? operands:identifiers.Identifier (phrases:phrases.For)?
-
-//phrases.For  
-//    ::= "FOR" ( option[all:"ALL", leading:"LEADING"] )? ( phrases:phrases.Tallied )+ 
-    
-    
-//phrases.Tallied
-//	::= operands:identifiers.IdentifierReference, literals.Literal ( locations )*
+//statements.TallyingIn
+//  ::= counter "FOR" ( occurrences )+
+//  ;
  
-//phrases.Location 
-//	::= position[before: "BEFORE", after: "AFTER"]
-//		initial["INITIAL" : ""]
-//		operands:identifiers.Identifier, literals.Literal
+//
   
-  //TODO must have another look at this
+  //TODO needs to do replacement and conversion
   //Also make changes to the syntax of the Cobol  
-//mapping in COBOL::statements::Inspect::transformInspect() 
-//	: KERNEL::statements::ExpressionStatement {
-//	init{
-//		result := object KERNEL::statements::ExpressionStatement{};
-//	}
-//	result.label := getFreshLabel();
+mapping in COBOL::statements::Inspect::transformInspect() 
+	: KERNEL::statements::ExpressionStatement {
+	init{
+		result := object KERNEL::statements::ExpressionStatement{label := getFreshLabel()};
+	}
 	
-//	var expression := object KERNEL::expressions::Expression{};
+	var expression := object KERNEL::expressions::Expression{label := getFreshLabel()};
 	
-//	var operand := self.operands->first();
+	expression.children := self.string.transformOperandForUsage();
 	
-//	expression.children += operand.transformOperandForUsage();
+	self.tallyingIns -> forEach(tallyingIn){
 	
-//	self.phrases -> forEach(phrase) {
+		expression.children += tallyingIn.counter.transformOperandForDefinition();
 	
-//		if (phrase.oclIsKindOf(COBOL::phrases::Tallying)) then {
-		
-//				var tallyingInPhrases := phrase.oclAsType(COBOL::phrases::Tallying).phrases.oclAsType(COBOL::phrases::In);
-		
-//				tallyingInPhrases -> forEach(tallyingIn) {
-					
-//					var forPhrases := tallyingIn.phrases.oclAsType(COBOL::phrases::For);
-					
-//					forPhrases -> forEach(forPhrase) {
-//						var operandSubobjects : Set(Element)
-//							:= forPhrase.allSubobjectsOfType(COBOL::operands::Operand);	
-				
-//							operandSubobjects -> forEach(subobject) {
-								
-//								var subOperand := subobject.oclAsType(COBOL::operands::Operand);
-								
-//								expression.children += subOperand.transformOperandForUsage();
-//							};
-//					};				
-					
-//					expression.children += operand.transformOperandForUsage();
-					
-//					var inOperand := tallyingIn.operands->first();
-					
-//					expression.children += inOperand.transformOperandForDefinition();			
-				
-//				};
-		
-//		}else{
-		
-//			var operandSubobjects : Set(Element)
-//				:= phrase.allSubobjectsOfType(COBOL::operands::Operand);	
-				
-//			operandSubobjects -> forEach(subobject) {
-								
-//				var subOperand := subobject.oclAsType(COBOL::operands::Operand);
-								
-///			expression.children += subOperand.transformOperandForUsage();
-//			};
+		tallyingIn.occurrences -> forEach(occurrence){
+	
+			if (occurrence.oclIsTypeOf(COBOL::strings::SpecificCharacter)){
 			
-//			expression.children += operand.transformOperandForDefinition();
+			expression.children += occurrence.oclAsType(COBOL::strings::SpecificCharacter).tallying.transformOperandForUsage();
+			
+			};
 		
-//		}endif;
+			occurrence.locations-> forEach(location) {
+				
+				expression.children += location.base.transformOperandForUsage();
+			
+			
+			}
+		
+		}
+		
+	
+	};
+	
+	result.expression := expression;
+	
+	
+	//self.replacements -> forEach(replacement){
+	
+	
+	
+	
+	
+	
+	//};
+	
+	if (self.replacements -> notEmpty())
+		expression.children += self.string.transformOperandForDefinition();
+		
 
-//	};	
-
-//}		
+}		
 
 mapping in COBOL::statements::Perform::transformPerform() 
 	: KERNEL::statements::Statement {
@@ -2393,17 +2575,20 @@ mapping in COBOL::statements::Stop::transformStopRun()
 
 	init{
 		result:= object KERNEL::statements::Abort{
-		label = getFreshLabel();
+		label := getFreshLabel();
 		}
 	}
 }
 
 
 
-query getTargetLabel(in elementReference : COBOL::_references::ReferenceableElement) 
+query getTargetLabel(in procedureLabel : COBOL::labels::ProcedureLabel) 
 	: KERNEL::procedures::Procedure {
-	
-	return elementReference.resolveone(KERNEL::procedures::Procedure);
+	log("getting Target Label:");
+	log(procedureLabel.target.toString());
+	log(procedureLabel.target.resolveone(KERNEL::procedures::Procedure).toString());
+
+	return procedureLabel.target.resolveone(KERNEL::procedures::Procedure);
 	
 }
 
@@ -2411,10 +2596,31 @@ query getTargetLabel(in elementReference : COBOL::_references::ReferenceableElem
 query getTargetReferenceableElement(in elementReference : COBOL::_references::ElementReference) 
 	: KERNEL::_references::ReferenceableElement {
 	
-	return elementReference.target.resolveone(KERNEL::_references::ReferenceableElement);
+	var target := elementReference.target;
+	
+	log("printing Element Reference");
+	
+	log(elementReference.toString());
+	
+	log(target.resolveone(KERNEL::_references::ReferenceableElement).toString());
+	
+	
+	if (target -> notEmpty())
+		return target.resolveone(KERNEL::_references::ReferenceableElement);
+
+
+	
+	//else create a new variable!
+	log("printing missing target");
+	
+	log(elementReference.target.name);
+	
+	return elementReference.resolveone(KERNEL::_references::ReferenceableElement)
+	
 	
 }
-	
+
+
 
 helper getFreshRefName() : String {
 
