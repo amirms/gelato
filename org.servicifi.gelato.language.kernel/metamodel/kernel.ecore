@@ -76,6 +76,10 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Skip" eSuperTypes="#//statements/Statement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ReturnSite" eSuperTypes="#//commons/LabellableElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Return" eSuperTypes="#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="procedures" nsURI="http://www.servicifi.org/gelato/language/kernel/procedures"
       nsPrefix="procedures">
@@ -86,8 +90,18 @@
           eType="#//parameters/Parameter" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="callers" upperBound="-1"
           eType="#//statements/ProcedureCall"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1"
+          eType="#//containers/Start" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//containers/End"
+          containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MainProcedure" eSuperTypes="#//procedures/Procedure"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MainProcedure" eSuperTypes="#//commons/LabellableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+          eType="#//members/Member" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1"
+          eType="#//containers/Start" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//containers/End"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="expressions" nsURI="http://www.servicifi.org/gelato/language/kernel/expressions"
       nsPrefix="expressions">
@@ -119,8 +133,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
           eType="#//members/Member" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1"
-          eType="#//containers/Start"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//containers/End"/>
+          eType="#//containers/Start" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//containers/End"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//commons/LabellableElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//commons/LabellableElement"/>
@@ -163,7 +178,7 @@
   </eSubpackages>
   <eSubpackages name="flows" nsURI="http://www.servicifi.org/gelato/language/kernel/flows"
       nsPrefix="flows">
-    <eClassifiers xsi:type="ecore:EClass" name="Flow">
+    <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true">
       <eOperations name="reverse" eType="#//flows/Flow"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//commons/LabellableElement"
           unsettable="true"/>
@@ -209,7 +224,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
           eType="#//analyses/AnalysisDirection" defaultValueLiteral="FORWARDS"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="cfg" lowerBound="1" upperBound="-1"
-          eType="#//flows/Flow"/>
+          eType="#//flows/Flow" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" lowerBound="1"
           transient="true">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">

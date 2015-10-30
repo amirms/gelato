@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.language.kernel.flows.Flow;
 import org.servicifi.gelato.language.kernel.statements.Goto;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
 
@@ -58,6 +59,17 @@ public class GotoImpl extends JumpImpl implements Goto {
 		res.add(getTarget().first());
 		return res;
 
+	}
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	
+	@Override
+	public EList<Flow> internalFlow() {
+		return new BasicEList<>();
 	}
 
 } //GotoImpl

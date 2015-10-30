@@ -8912,15 +8912,15 @@ public class CobolLexer extends Lexer {
         try {
             int _type = SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80170:11: ( ( '#' (~ ( '\\n' | '\\r' | '\\uffff' ) )* ) )
-            // Cobol.g:80171:2: ( '#' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
+            // Cobol.g:80606:11: ( ( '#' (~ ( '\\n' | '\\r' | '\\uffff' ) )* ) )
+            // Cobol.g:80607:2: ( '#' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
             {
-            // Cobol.g:80171:2: ( '#' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
-            // Cobol.g:80171:3: '#' (~ ( '\\n' | '\\r' | '\\uffff' ) )*
+            // Cobol.g:80607:2: ( '#' (~ ( '\\n' | '\\r' | '\\uffff' ) )* )
+            // Cobol.g:80607:3: '#' (~ ( '\\n' | '\\r' | '\\uffff' ) )*
             {
             match('#'); 
 
-            // Cobol.g:80171:6: (~ ( '\\n' | '\\r' | '\\uffff' ) )*
+            // Cobol.g:80607:6: (~ ( '\\n' | '\\r' | '\\uffff' ) )*
             loop1:
             do {
                 int alt1=2;
@@ -8975,10 +8975,10 @@ public class CobolLexer extends Lexer {
         try {
             int _type = BOOLEAN_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80174:16: ( ( 'TRUE' | 'FALSE' ) )
-            // Cobol.g:80175:2: ( 'TRUE' | 'FALSE' )
+            // Cobol.g:80610:16: ( ( 'TRUE' | 'FALSE' ) )
+            // Cobol.g:80611:2: ( 'TRUE' | 'FALSE' )
             {
-            // Cobol.g:80175:2: ( 'TRUE' | 'FALSE' )
+            // Cobol.g:80611:2: ( 'TRUE' | 'FALSE' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -8997,7 +8997,7 @@ public class CobolLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // Cobol.g:80175:4: 'TRUE'
+                    // Cobol.g:80611:4: 'TRUE'
                     {
                     match("TRUE"); 
 
@@ -9006,7 +9006,7 @@ public class CobolLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // Cobol.g:80175:13: 'FALSE'
+                    // Cobol.g:80611:13: 'FALSE'
                     {
                     match("FALSE"); 
 
@@ -9034,10 +9034,10 @@ public class CobolLexer extends Lexer {
         try {
             int _type = ALPHANUMERIC_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80177:21: ( ( '\"' ( '\"' '\"' |~ ( '\"' ) )* '\"' | '\\'' ( '\\'' '\\'' |~ ( '\\'' ) )* '\\'' ) )
-            // Cobol.g:80178:2: ( '\"' ( '\"' '\"' |~ ( '\"' ) )* '\"' | '\\'' ( '\\'' '\\'' |~ ( '\\'' ) )* '\\'' )
+            // Cobol.g:80613:21: ( ( '\"' ( '\"' '\"' |~ ( '\"' ) )* '\"' | '\\'' ( '\\'' '\\'' |~ ( '\\'' ) )* '\\'' ) )
+            // Cobol.g:80614:2: ( '\"' ( '\"' '\"' |~ ( '\"' ) )* '\"' | '\\'' ( '\\'' '\\'' |~ ( '\\'' ) )* '\\'' )
             {
-            // Cobol.g:80178:2: ( '\"' ( '\"' '\"' |~ ( '\"' ) )* '\"' | '\\'' ( '\\'' '\\'' |~ ( '\\'' ) )* '\\'' )
+            // Cobol.g:80614:2: ( '\"' ( '\"' '\"' |~ ( '\"' ) )* '\"' | '\\'' ( '\\'' '\\'' |~ ( '\\'' ) )* '\\'' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -9056,11 +9056,11 @@ public class CobolLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // Cobol.g:80178:3: '\"' ( '\"' '\"' |~ ( '\"' ) )* '\"'
+                    // Cobol.g:80614:3: '\"' ( '\"' '\"' |~ ( '\"' ) )* '\"'
                     {
                     match('\"'); 
 
-                    // Cobol.g:80178:7: ( '\"' '\"' |~ ( '\"' ) )*
+                    // Cobol.g:80614:7: ( '\"' '\"' |~ ( '\"' ) )*
                     loop3:
                     do {
                         int alt3=3;
@@ -9082,7 +9082,7 @@ public class CobolLexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // Cobol.g:80178:8: '\"' '\"'
+                    	    // Cobol.g:80614:8: '\"' '\"'
                     	    {
                     	    match('\"'); 
 
@@ -9091,7 +9091,7 @@ public class CobolLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // Cobol.g:80178:16: ~ ( '\"' )
+                    	    // Cobol.g:80614:16: ~ ( '\"' )
                     	    {
                     	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '\uFFFF') ) {
                     	        input.consume();
@@ -9117,11 +9117,11 @@ public class CobolLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // Cobol.g:80178:30: '\\'' ( '\\'' '\\'' |~ ( '\\'' ) )* '\\''
+                    // Cobol.g:80614:30: '\\'' ( '\\'' '\\'' |~ ( '\\'' ) )* '\\''
                     {
                     match('\''); 
 
-                    // Cobol.g:80178:35: ( '\\'' '\\'' |~ ( '\\'' ) )*
+                    // Cobol.g:80614:35: ( '\\'' '\\'' |~ ( '\\'' ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -9143,7 +9143,7 @@ public class CobolLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // Cobol.g:80178:36: '\\'' '\\''
+                    	    // Cobol.g:80614:36: '\\'' '\\''
                     	    {
                     	    match('\''); 
 
@@ -9152,7 +9152,7 @@ public class CobolLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // Cobol.g:80178:46: ~ ( '\\'' )
+                    	    // Cobol.g:80614:46: ~ ( '\\'' )
                     	    {
                     	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '\uFFFF') ) {
                     	        input.consume();
@@ -9197,10 +9197,10 @@ public class CobolLexer extends Lexer {
         try {
             int _type = ALPHANUMERIC_HEX_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80180:25: ( ( ( 'x' | 'X' ) '\"' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\"' | ( 'x' | 'X' ) '\\'' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\\'' ) )
-            // Cobol.g:80181:2: ( ( 'x' | 'X' ) '\"' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\"' | ( 'x' | 'X' ) '\\'' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\\'' )
+            // Cobol.g:80616:25: ( ( ( 'x' | 'X' ) '\"' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\"' | ( 'x' | 'X' ) '\\'' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\\'' ) )
+            // Cobol.g:80617:2: ( ( 'x' | 'X' ) '\"' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\"' | ( 'x' | 'X' ) '\\'' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\\'' )
             {
-            // Cobol.g:80181:2: ( ( 'x' | 'X' ) '\"' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\"' | ( 'x' | 'X' ) '\\'' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\\'' )
+            // Cobol.g:80617:2: ( ( 'x' | 'X' ) '\"' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\"' | ( 'x' | 'X' ) '\\'' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -9230,7 +9230,7 @@ public class CobolLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // Cobol.g:80181:3: ( 'x' | 'X' ) '\"' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\"'
+                    // Cobol.g:80617:3: ( 'x' | 'X' ) '\"' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\"'
                     {
                     if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
                         input.consume();
@@ -9244,7 +9244,7 @@ public class CobolLexer extends Lexer {
 
                     match('\"'); 
 
-                    // Cobol.g:80181:16: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
+                    // Cobol.g:80617:16: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
                     int cnt6=0;
                     loop6:
                     do {
@@ -9288,7 +9288,7 @@ public class CobolLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // Cobol.g:80181:51: ( 'x' | 'X' ) '\\'' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\\''
+                    // Cobol.g:80617:51: ( 'x' | 'X' ) '\\'' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+ '\\''
                     {
                     if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
                         input.consume();
@@ -9302,7 +9302,7 @@ public class CobolLexer extends Lexer {
 
                     match('\''); 
 
-                    // Cobol.g:80181:65: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
+                    // Cobol.g:80617:65: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )+
                     int cnt7=0;
                     loop7:
                     do {
@@ -9365,13 +9365,13 @@ public class CobolLexer extends Lexer {
         try {
             int _type = DECIMAL_INTEGER_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80183:24: ( ( ( '+' | '-' )? ( '0' .. '9' ( '0' .. '9' )* ) ) )
-            // Cobol.g:80184:2: ( ( '+' | '-' )? ( '0' .. '9' ( '0' .. '9' )* ) )
+            // Cobol.g:80619:24: ( ( ( '+' | '-' )? ( '0' .. '9' ( '0' .. '9' )* ) ) )
+            // Cobol.g:80620:2: ( ( '+' | '-' )? ( '0' .. '9' ( '0' .. '9' )* ) )
             {
-            // Cobol.g:80184:2: ( ( '+' | '-' )? ( '0' .. '9' ( '0' .. '9' )* ) )
-            // Cobol.g:80184:3: ( '+' | '-' )? ( '0' .. '9' ( '0' .. '9' )* )
+            // Cobol.g:80620:2: ( ( '+' | '-' )? ( '0' .. '9' ( '0' .. '9' )* ) )
+            // Cobol.g:80620:3: ( '+' | '-' )? ( '0' .. '9' ( '0' .. '9' )* )
             {
-            // Cobol.g:80184:3: ( '+' | '-' )?
+            // Cobol.g:80620:3: ( '+' | '-' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -9398,12 +9398,12 @@ public class CobolLexer extends Lexer {
             }
 
 
-            // Cobol.g:80184:14: ( '0' .. '9' ( '0' .. '9' )* )
-            // Cobol.g:80184:15: '0' .. '9' ( '0' .. '9' )*
+            // Cobol.g:80620:14: ( '0' .. '9' ( '0' .. '9' )* )
+            // Cobol.g:80620:15: '0' .. '9' ( '0' .. '9' )*
             {
             matchRange('0','9'); 
 
-            // Cobol.g:80184:23: ( '0' .. '9' )*
+            // Cobol.g:80620:23: ( '0' .. '9' )*
             loop10:
             do {
                 int alt10=2;
@@ -9459,13 +9459,13 @@ public class CobolLexer extends Lexer {
         try {
             int _type = DECIMAL_FIXED_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80186:22: ( ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )+ ) )
-            // Cobol.g:80187:2: ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )+ )
+            // Cobol.g:80622:22: ( ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )+ ) )
+            // Cobol.g:80623:2: ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )+ )
             {
-            // Cobol.g:80187:2: ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )+ )
-            // Cobol.g:80187:3: ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )+
+            // Cobol.g:80623:2: ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )+ )
+            // Cobol.g:80623:3: ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )+
             {
-            // Cobol.g:80187:3: ( '+' | '-' )?
+            // Cobol.g:80623:3: ( '+' | '-' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -9492,7 +9492,7 @@ public class CobolLexer extends Lexer {
             }
 
 
-            // Cobol.g:80187:14: ( '0' .. '9' )+
+            // Cobol.g:80623:14: ( '0' .. '9' )+
             int cnt12=0;
             loop12:
             do {
@@ -9541,7 +9541,7 @@ public class CobolLexer extends Lexer {
             }
 
 
-            // Cobol.g:80187:36: ( '0' .. '9' )+
+            // Cobol.g:80623:36: ( '0' .. '9' )+
             int cnt13=0;
             loop13:
             do {
@@ -9599,13 +9599,13 @@ public class CobolLexer extends Lexer {
         try {
             int _type = DECIMAL_FLOAT_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80189:22: ( ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )* ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ ) )
-            // Cobol.g:80190:2: ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )* ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // Cobol.g:80625:22: ( ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )* ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ ) )
+            // Cobol.g:80626:2: ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )* ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
             {
-            // Cobol.g:80190:2: ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )* ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // Cobol.g:80190:3: ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )* ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // Cobol.g:80626:2: ( ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )* ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // Cobol.g:80626:3: ( '+' | '-' )? ( '0' .. '9' )+ ( '!' | '~' ) ( '0' .. '9' )* ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
-            // Cobol.g:80190:3: ( '+' | '-' )?
+            // Cobol.g:80626:3: ( '+' | '-' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -9632,7 +9632,7 @@ public class CobolLexer extends Lexer {
             }
 
 
-            // Cobol.g:80190:14: ( '0' .. '9' )+
+            // Cobol.g:80626:14: ( '0' .. '9' )+
             int cnt15=0;
             loop15:
             do {
@@ -9681,7 +9681,7 @@ public class CobolLexer extends Lexer {
             }
 
 
-            // Cobol.g:80190:36: ( '0' .. '9' )*
+            // Cobol.g:80626:36: ( '0' .. '9' )*
             loop16:
             do {
                 int alt16=2;
@@ -9725,7 +9725,7 @@ public class CobolLexer extends Lexer {
             }
 
 
-            // Cobol.g:80190:58: ( '+' | '-' )?
+            // Cobol.g:80626:58: ( '+' | '-' )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -9752,7 +9752,7 @@ public class CobolLexer extends Lexer {
             }
 
 
-            // Cobol.g:80190:69: ( '0' .. '9' )+
+            // Cobol.g:80626:69: ( '0' .. '9' )+
             int cnt18=0;
             loop18:
             do {
@@ -9810,13 +9810,13 @@ public class CobolLexer extends Lexer {
         try {
             int _type = COBOL_WORD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80192:11: ( ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+ ) )
-            // Cobol.g:80193:2: ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+ )
+            // Cobol.g:80628:11: ( ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+ ) )
+            // Cobol.g:80629:2: ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+ )
             {
-            // Cobol.g:80193:2: ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+ )
-            // Cobol.g:80193:3: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+
+            // Cobol.g:80629:2: ( ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+ )
+            // Cobol.g:80629:3: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+
             {
-            // Cobol.g:80193:3: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+
+            // Cobol.g:80629:3: ( ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )? )+
             int cnt21=0;
             loop21:
             do {
@@ -9830,7 +9830,7 @@ public class CobolLexer extends Lexer {
 
                 switch (alt21) {
             	case 1 :
-            	    // Cobol.g:80193:4: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )?
+            	    // Cobol.g:80629:4: ( 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '_' | '\\\\' | '+' | '-' | '*' | '!' | '/' | '~' ) ( '[' ( '0' .. '9' )+ ']' )?
             	    {
             	    if ( input.LA(1)=='!'||(input.LA(1) >= '*' && input.LA(1) <= '+')||input.LA(1)=='-'||(input.LA(1) >= '/' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='~' ) {
             	        input.consume();
@@ -9842,7 +9842,7 @@ public class CobolLexer extends Lexer {
             	    }
 
 
-            	    // Cobol.g:80194:7: ( '[' ( '0' .. '9' )+ ']' )?
+            	    // Cobol.g:80630:7: ( '[' ( '0' .. '9' )+ ']' )?
             	    int alt20=2;
             	    int LA20_0 = input.LA(1);
 
@@ -9851,11 +9851,11 @@ public class CobolLexer extends Lexer {
             	    }
             	    switch (alt20) {
             	        case 1 :
-            	            // Cobol.g:80194:8: '[' ( '0' .. '9' )+ ']'
+            	            // Cobol.g:80630:8: '[' ( '0' .. '9' )+ ']'
             	            {
             	            match('['); 
 
-            	            // Cobol.g:80194:11: ( '0' .. '9' )+
+            	            // Cobol.g:80630:11: ( '0' .. '9' )+
             	            int cnt19=0;
             	            loop19:
             	            do {
@@ -9934,20 +9934,20 @@ public class CobolLexer extends Lexer {
         try {
             int _type = WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80196:11: ( ( ( ' ' | ',' | ';' | '\\t' | '\\f' | '\\n' | '\\r' )+ ) )
-            // Cobol.g:80197:2: ( ( ' ' | ',' | ';' | '\\t' | '\\f' | '\\n' | '\\r' )+ )
+            // Cobol.g:80632:11: ( ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' | ',' )+ ) )
+            // Cobol.g:80633:2: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' | ',' )+ )
             {
-            // Cobol.g:80197:2: ( ( ' ' | ',' | ';' | '\\t' | '\\f' | '\\n' | '\\r' )+ )
-            // Cobol.g:80197:3: ( ' ' | ',' | ';' | '\\t' | '\\f' | '\\n' | '\\r' )+
+            // Cobol.g:80633:2: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' | ',' )+ )
+            // Cobol.g:80633:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' | ',' )+
             {
-            // Cobol.g:80197:3: ( ' ' | ',' | ';' | '\\t' | '\\f' | '\\n' | '\\r' )+
+            // Cobol.g:80633:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' | ',' )+
             int cnt22=0;
             loop22:
             do {
                 int alt22=2;
                 int LA22_0 = input.LA(1);
 
-                if ( ((LA22_0 >= '\t' && LA22_0 <= '\n')||(LA22_0 >= '\f' && LA22_0 <= '\r')||LA22_0==' '||LA22_0==','||LA22_0==';') ) {
+                if ( ((LA22_0 >= '\t' && LA22_0 <= '\n')||(LA22_0 >= '\f' && LA22_0 <= '\r')||LA22_0==' '||LA22_0==',') ) {
                     alt22=1;
                 }
 
@@ -9956,7 +9956,7 @@ public class CobolLexer extends Lexer {
             	case 1 :
             	    // Cobol.g:
             	    {
-            	    if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' '||input.LA(1)==','||input.LA(1)==';' ) {
+            	    if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' '||input.LA(1)==',' ) {
             	        input.consume();
             	    }
             	    else {
@@ -10000,14 +10000,14 @@ public class CobolLexer extends Lexer {
         try {
             int _type = QUOTED_69886967_6978684569886967;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // Cobol.g:80200:33: ( ( ( 'EXEC' ) (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )* ( 'END-EXEC' ) ) )
-            // Cobol.g:80201:2: ( ( 'EXEC' ) (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )* ( 'END-EXEC' ) )
+            // Cobol.g:80636:33: ( ( ( 'EXEC' ) (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )* ( 'END-EXEC' ) ) )
+            // Cobol.g:80637:2: ( ( 'EXEC' ) (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )* ( 'END-EXEC' ) )
             {
-            // Cobol.g:80201:2: ( ( 'EXEC' ) (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )* ( 'END-EXEC' ) )
-            // Cobol.g:80201:3: ( 'EXEC' ) (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )* ( 'END-EXEC' )
+            // Cobol.g:80637:2: ( ( 'EXEC' ) (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )* ( 'END-EXEC' ) )
+            // Cobol.g:80637:3: ( 'EXEC' ) (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )* ( 'END-EXEC' )
             {
-            // Cobol.g:80201:3: ( 'EXEC' )
-            // Cobol.g:80201:4: 'EXEC'
+            // Cobol.g:80637:3: ( 'EXEC' )
+            // Cobol.g:80637:4: 'EXEC'
             {
             match("EXEC"); 
 
@@ -10016,7 +10016,7 @@ public class CobolLexer extends Lexer {
             }
 
 
-            // Cobol.g:80201:11: (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )*
+            // Cobol.g:80637:11: (~ ( 'E' ) | 'E' ~ ( 'N' ) | 'E' 'N' ~ ( 'D' ) | 'E' 'N' 'D' ~ ( '-' ) | 'E' 'N' 'D' '-' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' ~ ( 'X' ) | 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' ) | 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' ) )*
             loop23:
             do {
                 int alt23=9;
@@ -10092,7 +10092,7 @@ public class CobolLexer extends Lexer {
 
                 switch (alt23) {
             	case 1 :
-            	    // Cobol.g:80201:12: ~ ( 'E' )
+            	    // Cobol.g:80637:12: ~ ( 'E' )
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= 'D')||(input.LA(1) >= 'F' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -10107,7 +10107,7 @@ public class CobolLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // Cobol.g:80201:19: 'E' ~ ( 'N' )
+            	    // Cobol.g:80637:19: 'E' ~ ( 'N' )
             	    {
             	    match('E'); 
 
@@ -10124,7 +10124,7 @@ public class CobolLexer extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // Cobol.g:80201:29: 'E' 'N' ~ ( 'D' )
+            	    // Cobol.g:80637:29: 'E' 'N' ~ ( 'D' )
             	    {
             	    match('E'); 
 
@@ -10143,7 +10143,7 @@ public class CobolLexer extends Lexer {
             	    }
             	    break;
             	case 4 :
-            	    // Cobol.g:80201:42: 'E' 'N' 'D' ~ ( '-' )
+            	    // Cobol.g:80637:42: 'E' 'N' 'D' ~ ( '-' )
             	    {
             	    match('E'); 
 
@@ -10164,7 +10164,7 @@ public class CobolLexer extends Lexer {
             	    }
             	    break;
             	case 5 :
-            	    // Cobol.g:80201:58: 'E' 'N' 'D' '-' ~ ( 'E' )
+            	    // Cobol.g:80637:58: 'E' 'N' 'D' '-' ~ ( 'E' )
             	    {
             	    match('E'); 
 
@@ -10187,7 +10187,7 @@ public class CobolLexer extends Lexer {
             	    }
             	    break;
             	case 6 :
-            	    // Cobol.g:80201:77: 'E' 'N' 'D' '-' 'E' ~ ( 'X' )
+            	    // Cobol.g:80637:77: 'E' 'N' 'D' '-' 'E' ~ ( 'X' )
             	    {
             	    match('E'); 
 
@@ -10212,7 +10212,7 @@ public class CobolLexer extends Lexer {
             	    }
             	    break;
             	case 7 :
-            	    // Cobol.g:80201:99: 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' )
+            	    // Cobol.g:80637:99: 'E' 'N' 'D' '-' 'E' 'X' ~ ( 'E' )
             	    {
             	    match('E'); 
 
@@ -10239,7 +10239,7 @@ public class CobolLexer extends Lexer {
             	    }
             	    break;
             	case 8 :
-            	    // Cobol.g:80201:124: 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' )
+            	    // Cobol.g:80637:124: 'E' 'N' 'D' '-' 'E' 'X' 'E' ~ ( 'C' )
             	    {
             	    match('E'); 
 
@@ -10274,8 +10274,8 @@ public class CobolLexer extends Lexer {
             } while (true);
 
 
-            // Cobol.g:80201:153: ( 'END-EXEC' )
-            // Cobol.g:80201:154: 'END-EXEC'
+            // Cobol.g:80637:153: ( 'END-EXEC' )
+            // Cobol.g:80637:154: 'END-EXEC'
             {
             match("END-EXEC"); 
 
@@ -13856,10 +13856,10 @@ public class CobolLexer extends Lexer {
     static final String[] DFA24_transitionS = {
             "\2\54\1\uffff\2\54\14\uffff\1\46\5\uffff\1\54\1\53\1\50\1\47"+
             "\3\uffff\1\50\1\1\1\2\1\3\1\4\1\54\1\5\1\6\1\7\12\52\1\10\1"+
-            "\54\1\11\1\12\1\13\2\uffff\1\14\1\15\1\16\1\17\1\20\1\21\1\22"+
-            "\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36"+
-            "\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\uffff\1\53\2\uffff\1\53"+
-            "\1\uffff\27\53\1\51\2\53\3\uffff\1\53",
+            "\uffff\1\11\1\12\1\13\2\uffff\1\14\1\15\1\16\1\17\1\20\1\21"+
+            "\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35"+
+            "\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\uffff\1\53\2\uffff"+
+            "\1\53\1\uffff\27\53\1\51\2\53\3\uffff\1\53",
             "",
             "",
             "\1\53\10\uffff\1\55\1\53\1\uffff\1\53\1\uffff\13\53\7\uffff"+

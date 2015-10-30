@@ -209,8 +209,53 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getProcedure_Start() {
+		return (EReference)procedureEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcedure_End() {
+		return (EReference)procedureEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMainProcedure() {
 		return mainProcedureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMainProcedure_Members() {
+		return (EReference)mainProcedureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMainProcedure_Start() {
+		return (EReference)mainProcedureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMainProcedure_End() {
+		return (EReference)mainProcedureEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -245,8 +290,13 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 		createEReference(procedureEClass, PROCEDURE__MEMBERS);
 		createEReference(procedureEClass, PROCEDURE__PARAMETERS);
 		createEReference(procedureEClass, PROCEDURE__CALLERS);
+		createEReference(procedureEClass, PROCEDURE__START);
+		createEReference(procedureEClass, PROCEDURE__END);
 
 		mainProcedureEClass = createEClass(MAIN_PROCEDURE);
+		createEReference(mainProcedureEClass, MAIN_PROCEDURE__MEMBERS);
+		createEReference(mainProcedureEClass, MAIN_PROCEDURE__START);
+		createEReference(mainProcedureEClass, MAIN_PROCEDURE__END);
 	}
 
 	/**
@@ -278,6 +328,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 		ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 		StatementsPackage theStatementsPackage = (StatementsPackage)EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		ContainersPackage theContainersPackage = (ContainersPackage)EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -287,15 +338,20 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 		procedureEClass.getESuperTypes().add(theCommonsPackage.getLabellableElement());
 		procedureEClass.getESuperTypes().add(theMembersPackage.getMember());
 		procedureEClass.getESuperTypes().add(theReferencesPackage.getReferenceableElement());
-		mainProcedureEClass.getESuperTypes().add(this.getProcedure());
+		mainProcedureEClass.getESuperTypes().add(theCommonsPackage.getLabellableElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(procedureEClass, Procedure.class, "Procedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProcedure_Members(), theMembersPackage.getMember(), null, "members", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcedure_Parameters(), theParametersPackage.getParameter(), null, "parameters", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcedure_Callers(), theStatementsPackage.getProcedureCall(), null, "callers", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcedure_Start(), theContainersPackage.getStart(), null, "start", null, 1, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcedure_End(), theContainersPackage.getEnd(), null, "end", null, 1, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mainProcedureEClass, MainProcedure.class, "MainProcedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMainProcedure_Members(), theMembersPackage.getMember(), null, "members", null, 0, -1, MainProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMainProcedure_Start(), theContainersPackage.getStart(), null, "start", null, 1, 1, MainProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMainProcedure_End(), theContainersPackage.getEnd(), null, "end", null, 1, 1, MainProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //ProceduresPackageImpl

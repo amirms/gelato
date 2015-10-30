@@ -111,13 +111,31 @@ public interface ProceduresPackage extends EPackage {
 	int PROCEDURE__CALLERS = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Start</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE__START = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE__END = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Procedure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 4;
+	int PROCEDURE_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 6;
 
 
 	/**
@@ -137,16 +155,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE__LABEL = PROCEDURE__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAIN_PROCEDURE__NAME = PROCEDURE__NAME;
+	int MAIN_PROCEDURE__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -155,25 +164,25 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE__MEMBERS = PROCEDURE__MEMBERS;
+	int MAIN_PROCEDURE__MEMBERS = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Start</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE__PARAMETERS = PROCEDURE__PARAMETERS;
+	int MAIN_PROCEDURE__START = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Callers</b></em>' reference list.
+	 * The feature id for the '<em><b>End</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE__CALLERS = PROCEDURE__CALLERS;
+	int MAIN_PROCEDURE__END = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Main Procedure</em>' class.
@@ -182,7 +191,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE_FEATURE_COUNT = PROCEDURE_FEATURE_COUNT + 0;
+	int MAIN_PROCEDURE_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 3;
 
 
 	/**
@@ -229,6 +238,28 @@ public interface ProceduresPackage extends EPackage {
 	EReference getProcedure_Callers();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.kernel.procedures.Procedure#getStart <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Start</em>'.
+	 * @see org.servicifi.gelato.language.kernel.procedures.Procedure#getStart()
+	 * @see #getProcedure()
+	 * @generated
+	 */
+	EReference getProcedure_Start();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.kernel.procedures.Procedure#getEnd <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>End</em>'.
+	 * @see org.servicifi.gelato.language.kernel.procedures.Procedure#getEnd()
+	 * @see #getProcedure()
+	 * @generated
+	 */
+	EReference getProcedure_End();
+
+	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.procedures.MainProcedure <em>Main Procedure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,6 +268,39 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMainProcedure();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.servicifi.gelato.language.kernel.procedures.MainProcedure#getMembers <em>Members</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Members</em>'.
+	 * @see org.servicifi.gelato.language.kernel.procedures.MainProcedure#getMembers()
+	 * @see #getMainProcedure()
+	 * @generated
+	 */
+	EReference getMainProcedure_Members();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.kernel.procedures.MainProcedure#getStart <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Start</em>'.
+	 * @see org.servicifi.gelato.language.kernel.procedures.MainProcedure#getStart()
+	 * @see #getMainProcedure()
+	 * @generated
+	 */
+	EReference getMainProcedure_Start();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.servicifi.gelato.language.kernel.procedures.MainProcedure#getEnd <em>End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>End</em>'.
+	 * @see org.servicifi.gelato.language.kernel.procedures.MainProcedure#getEnd()
+	 * @see #getMainProcedure()
+	 * @generated
+	 */
+	EReference getMainProcedure_End();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -295,6 +359,22 @@ public interface ProceduresPackage extends EPackage {
 		EReference PROCEDURE__CALLERS = eINSTANCE.getProcedure_Callers();
 
 		/**
+		 * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCEDURE__START = eINSTANCE.getProcedure_Start();
+
+		/**
+		 * The meta object literal for the '<em><b>End</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCEDURE__END = eINSTANCE.getProcedure_End();
+
+		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.procedures.impl.MainProcedureImpl <em>Main Procedure</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -303,6 +383,30 @@ public interface ProceduresPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MAIN_PROCEDURE = eINSTANCE.getMainProcedure();
+
+		/**
+		 * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAIN_PROCEDURE__MEMBERS = eINSTANCE.getMainProcedure_Members();
+
+		/**
+		 * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAIN_PROCEDURE__START = eINSTANCE.getMainProcedure_Start();
+
+		/**
+		 * The meta object literal for the '<em><b>End</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAIN_PROCEDURE__END = eINSTANCE.getMainProcedure_End();
 
 	}
 

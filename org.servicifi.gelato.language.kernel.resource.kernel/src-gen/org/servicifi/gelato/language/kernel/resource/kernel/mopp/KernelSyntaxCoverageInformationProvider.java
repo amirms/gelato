@@ -28,6 +28,7 @@ public class KernelSyntaxCoverageInformationProvider {
 			org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getExceptionHandlerStatement(),
 			org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getAbort(),
 			org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getSkip(),
+			org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn(),
 			org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(),
 			org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter(),
 			org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(),

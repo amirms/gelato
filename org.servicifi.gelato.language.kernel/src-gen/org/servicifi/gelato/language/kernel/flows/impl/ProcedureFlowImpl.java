@@ -4,6 +4,7 @@ package org.servicifi.gelato.language.kernel.flows.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.language.kernel.flows.Flow;
 import org.servicifi.gelato.language.kernel.flows.FlowsPackage;
 import org.servicifi.gelato.language.kernel.flows.ProcedureFlow;
 
@@ -43,6 +44,11 @@ public class ProcedureFlowImpl extends FlowImpl implements ProcedureFlow {
 	@Override
 	protected EClass eStaticClass() {
 		return FlowsPackage.Literals.PROCEDURE_FLOW;
+	}
+
+	@Override
+	public Flow reverse() {
+		return new ProcedureFlowImpl(to, from);
 	}
 
 } //ProcedureFlowImpl

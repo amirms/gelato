@@ -791,7 +791,6 @@ public class StringsPackageImpl extends EPackageImpl implements StringsPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		IdentifiersPackage theIdentifiersPackage = (IdentifiersPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifiersPackage.eNS_URI);
 		OperandsPackage theOperandsPackage = (OperandsPackage)EPackage.Registry.INSTANCE.getEPackage(OperandsPackage.eNS_URI);
 
 		// Create type parameters
@@ -821,7 +820,7 @@ public class StringsPackageImpl extends EPackageImpl implements StringsPackage {
 		initEReference(getStringManipulation_Locations(), this.getLocation(), null, "locations", null, 0, -1, StringManipulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(manipulatedStringsEClass, ManipulatedStrings.class, "ManipulatedStrings", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getManipulatedStrings_Strings(), theIdentifiersPackage.getIdentifierReference(), null, "strings", null, 1, -1, ManipulatedStrings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getManipulatedStrings_Strings(), theOperandsPackage.getPrimaryOperand(), null, "strings", null, 1, -1, ManipulatedStrings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getManipulatedStrings_Delimiter(), theOperandsPackage.getPrimaryOperand(), null, "delimiter", null, 0, 1, ManipulatedStrings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringEClass, org.servicifi.gelato.language.cobol.strings.String.class, "String", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

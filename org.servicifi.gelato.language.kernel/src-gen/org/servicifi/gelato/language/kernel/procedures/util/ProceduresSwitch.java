@@ -85,11 +85,7 @@ public class ProceduresSwitch<T> extends Switch<T> {
 			case ProceduresPackage.MAIN_PROCEDURE: {
 				MainProcedure mainProcedure = (MainProcedure)theEObject;
 				T result = caseMainProcedure(mainProcedure);
-				if (result == null) result = caseProcedure(mainProcedure);
 				if (result == null) result = caseLabellableElement(mainProcedure);
-				if (result == null) result = caseMember(mainProcedure);
-				if (result == null) result = caseReferenceableElement(mainProcedure);
-				if (result == null) result = caseNamedElement(mainProcedure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

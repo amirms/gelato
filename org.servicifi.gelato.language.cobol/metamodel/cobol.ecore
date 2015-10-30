@@ -1683,7 +1683,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ManipulatedStrings" abstract="true"
         eSuperTypes="#//strings/String">
       <eStructuralFeatures xsi:type="ecore:EReference" name="strings" lowerBound="1"
-          upperBound="-1" eType="#//identifiers/IdentifierReference" containment="true"/>
+          upperBound="-1" eType="#//operands/PrimaryOperand" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="delimiter" eType="#//operands/PrimaryOperand"
           containment="true"/>
     </eClassifiers>

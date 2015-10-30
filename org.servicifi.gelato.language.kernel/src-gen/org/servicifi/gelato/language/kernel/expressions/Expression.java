@@ -5,6 +5,7 @@ package org.servicifi.gelato.language.kernel.expressions;
 import org.eclipse.emf.common.util.EList;
 
 import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,13 +43,13 @@ public interface Expression extends LabellableElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	EList<org.servicifi.gelato.language.kernel.dataitems.DataItem> getDefinedVariables();
+	EList<DataItem> getDefinedVariables();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	EList<org.servicifi.gelato.language.kernel.dataitems.DataItem> getUsedVariables();
+	EList<DataItem> getUsedVariables();
 
 } // Expression

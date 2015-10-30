@@ -18,6 +18,9 @@ import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
 import org.servicifi.gelato.language.kernel.commons.LabellableElement;
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
 import org.servicifi.gelato.language.kernel.commons.impl.LabellableElementImpl;
+import org.servicifi.gelato.language.kernel.containers.ContainersFactory;
+import org.servicifi.gelato.language.kernel.containers.End;
+import org.servicifi.gelato.language.kernel.containers.Start;
 import org.servicifi.gelato.language.kernel.flows.Flow;
 import org.servicifi.gelato.language.kernel.flows.FlowsFactory;
 import org.servicifi.gelato.language.kernel.members.Member;
@@ -38,6 +41,8 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  *   <li>{@link org.servicifi.gelato.language.kernel.procedures.impl.ProcedureImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.procedures.impl.ProcedureImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.procedures.impl.ProcedureImpl#getCallers <em>Callers</em>}</li>
+ *   <li>{@link org.servicifi.gelato.language.kernel.procedures.impl.ProcedureImpl#getStart <em>Start</em>}</li>
+ *   <li>{@link org.servicifi.gelato.language.kernel.procedures.impl.ProcedureImpl#getEnd <em>End</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +98,26 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	 * @ordered
 	 */
 	protected EList<ProcedureCall> callers;
+
+	/**
+	 * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStart()
+	 * @generated
+	 * @ordered
+	 */
+	protected Start start;
+
+	/**
+	 * The cached value of the '{@link #getEnd() <em>End</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnd()
+	 * @generated
+	 * @ordered
+	 */
+	protected End end;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,6 +200,87 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Start getStart() {
+		return start;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStart(Start newStart, NotificationChain msgs) {
+		Start oldStart = start;
+		start = newStart;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProceduresPackage.PROCEDURE__START, oldStart, newStart);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStart(Start newStart) {
+		if (newStart != start) {
+			NotificationChain msgs = null;
+			if (start != null)
+				msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProceduresPackage.PROCEDURE__START, null, msgs);
+			if (newStart != null)
+				msgs = ((InternalEObject)newStart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProceduresPackage.PROCEDURE__START, null, msgs);
+			msgs = basicSetStart(newStart, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ProceduresPackage.PROCEDURE__START, newStart, newStart));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public End getEnd() {
+		if (end != null && end.eIsProxy()) {
+			InternalEObject oldEnd = (InternalEObject)end;
+			end = (End)eResolveProxy(oldEnd);
+			if (end != oldEnd) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProceduresPackage.PROCEDURE__END, oldEnd, end));
+			}
+		}
+		return end;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public End basicGetEnd() {
+		return end;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnd(End newEnd) {
+		End oldEnd = end;
+		end = newEnd;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ProceduresPackage.PROCEDURE__END, oldEnd, end));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -182,6 +288,8 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 				return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
 			case ProceduresPackage.PROCEDURE__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case ProceduresPackage.PROCEDURE__START:
+				return basicSetStart(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,6 +310,11 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 				return getParameters();
 			case ProceduresPackage.PROCEDURE__CALLERS:
 				return getCallers();
+			case ProceduresPackage.PROCEDURE__START:
+				return getStart();
+			case ProceduresPackage.PROCEDURE__END:
+				if (resolve) return getEnd();
+				return basicGetEnd();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,6 +343,12 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 				getCallers().clear();
 				getCallers().addAll((Collection<? extends ProcedureCall>)newValue);
 				return;
+			case ProceduresPackage.PROCEDURE__START:
+				setStart((Start)newValue);
+				return;
+			case ProceduresPackage.PROCEDURE__END:
+				setEnd((End)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -254,6 +373,12 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 			case ProceduresPackage.PROCEDURE__CALLERS:
 				getCallers().clear();
 				return;
+			case ProceduresPackage.PROCEDURE__START:
+				setStart((Start)null);
+				return;
+			case ProceduresPackage.PROCEDURE__END:
+				setEnd((End)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -274,6 +399,10 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 				return parameters != null && !parameters.isEmpty();
 			case ProceduresPackage.PROCEDURE__CALLERS:
 				return callers != null && !callers.isEmpty();
+			case ProceduresPackage.PROCEDURE__START:
+				return start != null;
+			case ProceduresPackage.PROCEDURE__END:
+				return end != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -349,29 +478,59 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public LabellableElement first() {
+		if(getStart() == null)
+			this.setStart(ContainersFactory.eINSTANCE.createStart());
 		
-		if (getMembers().size() == 0)
-			return this;
-		
-		//first member - must be a procedure or a statement
-		return ((LabellableElement)getMembers().get(0)).first();
-		
+		return getStart();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public EList<LabellableElement> last() {
-		if (getMembers().size() == 0)
-			return this.last();
-		
-		
-		return ((LabellableElement)getMembers().get(getMembers().size() - 1)).last();
-
+		EList<LabellableElement> res = new BasicEList<>();
+		if(getEnd() == null)
+			this.setEnd(ContainersFactory.eINSTANCE.createEnd());
+		res.add(getEnd());
+		return res;
 	}
+
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+//	public LabellableElement first() {
+//		
+//		if (getMembers().size() == 0)
+//			return this;
+//		
+//		//first member - must be a procedure or a statement
+//		return ((LabellableElement)getMembers().get(0)).first();
+//		
+//	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+//	public EList<LabellableElement> last() {
+//		if (getMembers().size() == 0){
+//			//return this.last();
+//			EList<LabellableElement> res =new BasicEList<LabellableElement>();
+//			res.add(this);
+//			return res;
+//		}
+//		
+//		return ((LabellableElement)getMembers().get(getMembers().size() - 1)).last();
+//
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -379,11 +538,27 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	 */
 	public EList<Flow> internalFlow() {
 		EList<Flow> res = new BasicEList<>();
+		
+		if(getStart() == null)
+			this.setStart(ContainersFactory.eINSTANCE.createStart());
+		
+		if(getEnd() == null)
+			this.setEnd(ContainersFactory.eINSTANCE.createEnd());
+		
+		//set labels for start and end
+		getStart().setLabel(0 - getLabel());
+		getEnd().setLabel(Long.MAX_VALUE - getLabel());
+		
 		//If no statements, i.e. {}
-		if (getMembers().isEmpty())
+		if (getMembers().isEmpty()){
+			res.add(FlowsFactory.eINSTANCE.createRegularFlow(getStart(), getEnd()));
 			return res;
 		
+		}
+		
 		LabellableElement firstMember = (LabellableElement) getMembers().get(0);
+		res.add(FlowsFactory.eINSTANCE.createRegularFlow(getStart(), firstMember.first()));
+		
 		EList<LabellableElement> prev = new BasicEList<>();
 		prev.addAll(firstMember.last());
 		res.addAll(firstMember.internalFlow());
@@ -397,7 +572,12 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 			prev = elem.last();
 		}
 		
+		for (LabellableElement element : prev)
+			res.add(FlowsFactory.eINSTANCE.createRegularFlow(element, getEnd()));
+		
 		return res;
 	}
+	
+	
 
 } //ProcedureImpl

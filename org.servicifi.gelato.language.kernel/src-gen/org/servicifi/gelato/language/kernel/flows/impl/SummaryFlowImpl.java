@@ -4,6 +4,7 @@ package org.servicifi.gelato.language.kernel.flows.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.language.kernel.flows.Flow;
 import org.servicifi.gelato.language.kernel.flows.FlowsPackage;
 import org.servicifi.gelato.language.kernel.flows.SummaryFlow;
 
@@ -38,6 +39,11 @@ public class SummaryFlowImpl extends FlowImpl implements SummaryFlow {
 	@Override
 	protected EClass eStaticClass() {
 		return FlowsPackage.Literals.SUMMARY_FLOW;
+	}
+
+	@Override
+	public Flow reverse() {
+		return new SummaryFlowImpl(to, from);
 	}
 
 } //SummaryFlowImpl

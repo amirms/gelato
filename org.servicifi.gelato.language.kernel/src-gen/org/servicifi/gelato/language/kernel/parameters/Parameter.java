@@ -3,6 +3,7 @@
 package org.servicifi.gelato.language.kernel.parameters;
 
 import java.util.Map;
+import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 import org.servicifi.gelato.language.kernel.references.Argument;
 import org.servicifi.gelato.language.kernel.references.ElementReference;
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
@@ -22,7 +23,7 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  * @see org.servicifi.gelato.language.kernel.parameters.ParametersPackage#getParameter()
  * @generated
  */
-public interface Parameter extends org.servicifi.gelato.language.kernel.dataitems.DataItem {
+public interface Parameter extends DataItem {
 	/**
 	 * Returns the value of the '<em><b>Corresponding Argument</b></em>' attribute.
 	 * <!-- begin-user-doc -->

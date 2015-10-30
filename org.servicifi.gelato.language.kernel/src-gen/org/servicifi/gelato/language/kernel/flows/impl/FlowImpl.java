@@ -28,7 +28,7 @@ import org.servicifi.gelato.language.kernel.flows.FlowsPackage;
  *
  * @generated
  */
-public class FlowImpl extends EObjectImpl implements Flow {
+public abstract class FlowImpl extends EObjectImpl implements Flow {
 	/**
 	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -184,14 +184,19 @@ public class FlowImpl extends EObjectImpl implements Flow {
 			eNotify(new ENotificationImpl(this, Notification.SET, FlowsPackage.FLOW__FROM, oldFrom, from));
 	}
 
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public Flow reverse() {
-		return new FlowImpl(to, from);
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -109,8 +109,15 @@ public class BlockImpl extends StatementListContainerImpl implements Block {
 	 * @generated NOT
 	 */
 	public EList<LabellableElement> last() {
-		if (getStatements().isEmpty())
-			return this.last();
+		
+		if (getStatements().isEmpty()){
+		//	return this.last();
+			EList<LabellableElement> res = new BasicEList<LabellableElement>();
+			res.add(this);
+			
+			return res;
+		}
+		System.out.println(getStatements().get(getStatements().size() - 1).getClass());
 		
 		return getStatements().get(getStatements().size() - 1).last();
 	}
@@ -129,6 +136,7 @@ public class BlockImpl extends StatementListContainerImpl implements Block {
 		Statement firstStatement = getStatements().get(0);
 		EList<LabellableElement> prev = new BasicEList<>();
 		prev.addAll(firstStatement.last());
+		System.out.println(firstStatement.getClass());
 		res.addAll(firstStatement.internalFlow());
 		for (int i = 1; i < getStatements().size(); i++) {
 			LabellableElement elem = getStatements().get(i);

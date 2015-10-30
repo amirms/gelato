@@ -347,8 +347,8 @@ public class ProcedureCallImpl extends StatementImpl implements ProcedureCall {
 		if (returnSite == null)
 			setReturnSite(StatementsFactory.eINSTANCE.createReturnSite());
 		
-		res.add(FlowsFactory.eINSTANCE.createRegularFlow(this, getReturnSite()));
-		
+		//res.add(FlowsFactory.eINSTANCE.createRegularFlow(this, getReturnSite()));
+		res.add(FlowsFactory.eINSTANCE.createSummaryFlow(this, getReturnSite()));
 		 
 		return res; 
 		 

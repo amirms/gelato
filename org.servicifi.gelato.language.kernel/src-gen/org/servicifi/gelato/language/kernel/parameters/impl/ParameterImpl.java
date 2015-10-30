@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.servicifi.gelato.language.kernel.dataitems.DataItem;
+import org.servicifi.gelato.language.kernel.dataitems.impl.DataItemImpl;
 import org.servicifi.gelato.language.kernel.parameters.Parameter;
 import org.servicifi.gelato.language.kernel.parameters.ParametersPackage;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
@@ -27,7 +28,7 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  *
  * @generated
  */
-public class ParameterImpl extends org.servicifi.gelato.language.kernel.dataitems.impl.DataItemImpl implements Parameter {
+public class ParameterImpl extends DataItemImpl implements Parameter {
 	/**
 	 * The cached value of the '{@link #getCorrespondingArgument() <em>Corresponding Argument</em>}' attribute.
 	 * <!-- begin-user-doc -->

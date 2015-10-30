@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Queue;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +29,7 @@ import org.servicifi.gelato.language.kernel.containers.End;
 import org.servicifi.gelato.language.kernel.containers.Start;
 import org.servicifi.gelato.language.kernel.flows.Flow;
 import org.servicifi.gelato.language.kernel.flows.RegularFlow;
+import org.servicifi.gelato.language.kernel.flows.SummaryFlow;
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 
 /**
@@ -329,34 +331,58 @@ public abstract class AnalysisImpl extends EObjectImpl implements Analysis {
 		throw new UnsupportedOperationException();
 	}
 
-//	public Map<Long, ExitEntryPair> performInterproceduralAnalysis() {
-//
-//		Map<Long, ExitEntryPair> map = new HashMap<Long, ExitEntryPair>();
-//		Queue<LabellableElement> worklist = new LinkedList<>();
-//		Queue<LabellableElement> pathEdge = new LinkedList<>();
-//		
-//		worklist.add(cfg.get(0).getFrom());
-//		
-//		LabellableElement workElement = null;
-//		
-//		while (!worklist.isEmpty()){
-//			//select the front of queue and remove it from the queue
-//			workElement = worklist.poll();	
-//			
-//			EList<AnalysisResult> entry =  entry(workElement);
-//			EList<AnalysisResult> exit =  exit(workElement);
-//			
-//			if (workElement instanceof ProcedureCall)
-//			
-//			
-//			}
-//
-//			
-//		}
-//		
-//		
-//		return null;
-//	}
+	public Map<Long, ExitEntryPair> performInterproceduralAnalysis() {
+
+		Map<Long, ExitEntryPair> map = new HashMap<Long, ExitEntryPair>();
+		Queue<Flow> worklist = new LinkedList<>();
+		Queue<Flow> pathEdge = new LinkedList<>();
+		EList<SummaryFlow> summaryEdges = new BasicEList<SummaryFlow>();
+		
+		//Add the first element of CFG, i.e. START -> Node
+		worklist.add(cfg.get(0));
+		worklist.add(cfg.get(0));
+		
+		Flow workFlow = null;
+		
+		while (!worklist.isEmpty()){
+			//select the front of queue and remove it from the queue
+			workFlow = worklist.poll();	
+			
+			LabellableElement fromNode = workFlow.getFrom();
+			LabellableElement toNode = workFlow.getTo();
+
+			
+			if (toNode instanceof ProcedureCall){
+			
+				/*
+				 * for each procedure that workELement calls - (all the edges that are procedure call starting from )
+				 * 		propagate the data facts
+				 */
+				/*
+				 *  for each return site  
+				 */
+			}
+			//END has to be for procedures
+			else if (toNode instanceof End)
+			{
+				
+				
+				
+			}
+			else{
+				EList<Flow> edges = getAllEdgesWithDirection(toNode, this.getDirection(),Flow.class);
+				
+				
+				
+				
+			}
+
+			
+		}
+		
+		
+		return null;
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -468,6 +494,32 @@ public abstract class AnalysisImpl extends EObjectImpl implements Analysis {
 		}
 		return res;
 	}
+	
+	public EList<Flow> getAllEdgesWithDirection(LabellableElement e, AnalysisDirection dir, Class<? extends Flow> flowType ) {
+		if ((e instanceof Start) && (dir == AnalysisDirection.BACKWARDS ))
+			return new UniqueEList<>();
+				
+		if ((e instanceof End) && (dir == AnalysisDirection.FORWARDS)) 
+			return new UniqueEList<>();
+		
+		EList<Flow> res = new UniqueEList<>();
+		
+		for (Flow f : getCfg()) {
+			if(flowType.isInstance(f))
+				if (dir == AnalysisDirection.BACKWARDS && f.getTo().equals(e)) {
+					res.add(f);
+				}
+				else if (dir == AnalysisDirection.FORWARDS && f.getFrom().equals(e)) {
+					res.add(f);
+				}
+		}
+		
+		
+		return res;
+	}
+	
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->

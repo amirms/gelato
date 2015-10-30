@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
+import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 import org.servicifi.gelato.language.kernel.members.Member;
 import org.servicifi.gelato.language.kernel.parameters.*;
 
@@ -157,7 +158,7 @@ public class ParametersSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDataItem(org.servicifi.gelato.language.kernel.dataitems.DataItem object) {
+	public T caseDataItem(DataItem object) {
 		return null;
 	}
 

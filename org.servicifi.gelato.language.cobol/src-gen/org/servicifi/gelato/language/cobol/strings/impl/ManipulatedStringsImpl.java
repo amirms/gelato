@@ -17,8 +17,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.servicifi.gelato.language.cobol.identifiers.IdentifierReference;
-
 import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
 
 import org.servicifi.gelato.language.cobol.strings.ManipulatedStrings;
@@ -47,7 +45,7 @@ public abstract class ManipulatedStringsImpl extends StringImpl implements Manip
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IdentifierReference> strings;
+	protected EList<PrimaryOperand> strings;
 
 	/**
 	 * The cached value of the '{@link #getDelimiter() <em>Delimiter</em>}' containment reference.
@@ -83,9 +81,9 @@ public abstract class ManipulatedStringsImpl extends StringImpl implements Manip
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<IdentifierReference> getStrings() {
+	public EList<PrimaryOperand> getStrings() {
 		if (strings == null) {
-			strings = new EObjectContainmentEList<IdentifierReference>(IdentifierReference.class, this, StringsPackage.MANIPULATED_STRINGS__STRINGS);
+			strings = new EObjectContainmentEList<PrimaryOperand>(PrimaryOperand.class, this, StringsPackage.MANIPULATED_STRINGS__STRINGS);
 		}
 		return strings;
 	}
@@ -176,7 +174,7 @@ public abstract class ManipulatedStringsImpl extends StringImpl implements Manip
 		switch (featureID) {
 			case StringsPackage.MANIPULATED_STRINGS__STRINGS:
 				getStrings().clear();
-				getStrings().addAll((Collection<? extends IdentifierReference>)newValue);
+				getStrings().addAll((Collection<? extends PrimaryOperand>)newValue);
 				return;
 			case StringsPackage.MANIPULATED_STRINGS__DELIMITER:
 				setDelimiter((PrimaryOperand)newValue);

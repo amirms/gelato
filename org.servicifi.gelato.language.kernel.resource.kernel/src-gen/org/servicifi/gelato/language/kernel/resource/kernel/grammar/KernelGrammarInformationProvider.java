@@ -44,44 +44,39 @@ public class KernelGrammarInformationProvider {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_0_0_0_0_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_0_0_0_1 = INSTANCE.getKERNEL_0_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_0_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit().getEStructuralFeature(org.servicifi.gelato.language.kernel.containers.ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getMainProcedure(), }, 0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak KERNEL_0_0_0_2 = INSTANCE.getKERNEL_0_0_0_2();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak getKERNEL_0_0_0_2() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_0_0_0_3_0_0_0 = INSTANCE.getKERNEL_0_0_0_3_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_0_0_0_3_0_0_0() {
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_0_0_0_1_0_0_0 = INSTANCE.getKERNEL_0_0_0_1_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_0_0_0_1_0_0_0() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit().getEStructuralFeature(org.servicifi.gelato.language.kernel.containers.ContainersPackage.COMPILATION_UNIT__DECLARATIONS), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), }, 0);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak KERNEL_0_0_0_3_0_0_1 = INSTANCE.getKERNEL_0_0_0_3_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak getKERNEL_0_0_0_3_0_0_1() {
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak KERNEL_0_0_0_1_0_0_1 = INSTANCE.getKERNEL_0_0_0_1_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak getKERNEL_0_0_0_1_0_0_1() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_0_0_0_3_0_0 = INSTANCE.getKERNEL_0_0_0_3_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_0_0_0_3_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_0_0_0_3_0_0_0, KERNEL_0_0_0_3_0_0_1);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_0_0_0_1_0_0 = INSTANCE.getKERNEL_0_0_0_1_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_0_0_0_1_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_0_0_0_1_0_0_0, KERNEL_0_0_0_1_0_0_1);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_0_0_0_3_0 = INSTANCE.getKERNEL_0_0_0_3_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_0_0_0_3_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_0_0_0_3_0_0);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_0_0_0_1_0 = INSTANCE.getKERNEL_0_0_0_1_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_0_0_0_1_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_0_0_0_1_0_0);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_0_0_0_3 = INSTANCE.getKERNEL_0_0_0_3();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_0_0_0_3() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_0_0_0_3_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_0_0_0_1 = INSTANCE.getKERNEL_0_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_0_0_0_1() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_0_0_0_1_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_0_0_0_2 = INSTANCE.getKERNEL_0_0_0_2();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_0_0_0_2() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit().getEStructuralFeature(org.servicifi.gelato.language.kernel.containers.ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getMainProcedure(), }, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_0_0_0 = INSTANCE.getKERNEL_0_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_0_0_0_0, KERNEL_0_0_0_1, KERNEL_0_0_0_2, KERNEL_0_0_0_3);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_0_0_0_0, KERNEL_0_0_0_1, KERNEL_0_0_0_2);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_0_0 = INSTANCE.getKERNEL_0_0();
@@ -304,99 +299,54 @@ public class KernelGrammarInformationProvider {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("(", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_3_0_0_5_0_0_0 = INSTANCE.getKERNEL_3_0_0_5_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_3_0_0_5_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getMainProcedure().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__PARAMETERS), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter(), }, 0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_3_0_0_5_0_0_1_0_0_0 = INSTANCE.getKERNEL_3_0_0_5_0_0_1_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_3_0_0_5_0_0_1_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(",", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_3_0_0_5_0_0_1_0_0_1 = INSTANCE.getKERNEL_3_0_0_5_0_0_1_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_3_0_0_5_0_0_1_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getMainProcedure().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__PARAMETERS), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter(), }, 0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_3_0_0_5_0_0_1_0_0 = INSTANCE.getKERNEL_3_0_0_5_0_0_1_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_3_0_0_5_0_0_1_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_5_0_0_1_0_0_0, KERNEL_3_0_0_5_0_0_1_0_0_1);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_3_0_0_5_0_0_1_0 = INSTANCE.getKERNEL_3_0_0_5_0_0_1_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_3_0_0_5_0_0_1_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_5_0_0_1_0_0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_3_0_0_5_0_0_1 = INSTANCE.getKERNEL_3_0_0_5_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_3_0_0_5_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_3_0_0_5_0_0_1_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_3_0_0_5_0_0 = INSTANCE.getKERNEL_3_0_0_5_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_3_0_0_5_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_5_0_0_0, KERNEL_3_0_0_5_0_0_1);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_3_0_0_5_0 = INSTANCE.getKERNEL_3_0_0_5_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_3_0_0_5_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_5_0_0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_3_0_0_5 = INSTANCE.getKERNEL_3_0_0_5();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_3_0_0_5() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_3_0_0_5_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.QUESTIONMARK);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_3_0_0_5 = INSTANCE.getKERNEL_3_0_0_5();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_3_0_0_5() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(")", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_3_0_0_6 = INSTANCE.getKERNEL_3_0_0_6();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_3_0_0_6() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(")", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_3_0_0_7 = INSTANCE.getKERNEL_3_0_0_7();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_3_0_0_7() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("{", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak KERNEL_3_0_0_8_0_0_0 = INSTANCE.getKERNEL_3_0_0_8_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak getKERNEL_3_0_0_8_0_0_0() {
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak KERNEL_3_0_0_7_0_0_0 = INSTANCE.getKERNEL_3_0_0_7_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak getKERNEL_3_0_0_7_0_0_0() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 1);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_3_0_0_8_0_0_1 = INSTANCE.getKERNEL_3_0_0_8_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_3_0_0_8_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getMainProcedure().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__MEMBERS), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatement(), }, 0);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_3_0_0_7_0_0_1 = INSTANCE.getKERNEL_3_0_0_7_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_3_0_0_7_0_0_1() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getMainProcedure().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__MEMBERS), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatement(), }, 0);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_3_0_0_8_0_0 = INSTANCE.getKERNEL_3_0_0_8_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_3_0_0_8_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_8_0_0_0, KERNEL_3_0_0_8_0_0_1);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_3_0_0_7_0_0 = INSTANCE.getKERNEL_3_0_0_7_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_3_0_0_7_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_7_0_0_0, KERNEL_3_0_0_7_0_0_1);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_3_0_0_8_0 = INSTANCE.getKERNEL_3_0_0_8_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_3_0_0_8_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_8_0_0);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_3_0_0_7_0 = INSTANCE.getKERNEL_3_0_0_7_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_3_0_0_7_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_7_0_0);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_3_0_0_8 = INSTANCE.getKERNEL_3_0_0_8();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_3_0_0_8() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_3_0_0_8_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_3_0_0_7 = INSTANCE.getKERNEL_3_0_0_7();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_3_0_0_7() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_3_0_0_7_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak KERNEL_3_0_0_9 = INSTANCE.getKERNEL_3_0_0_9();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak getKERNEL_3_0_0_9() {
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak KERNEL_3_0_0_8 = INSTANCE.getKERNEL_3_0_0_8();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak getKERNEL_3_0_0_8() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelLineBreak(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_3_0_0_10 = INSTANCE.getKERNEL_3_0_0_10();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_3_0_0_10() {
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_3_0_0_9 = INSTANCE.getKERNEL_3_0_0_9();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_3_0_0_9() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("}", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_3_0_0 = INSTANCE.getKERNEL_3_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_3_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_0, KERNEL_3_0_0_1, KERNEL_3_0_0_2, KERNEL_3_0_0_3, KERNEL_3_0_0_4, KERNEL_3_0_0_5, KERNEL_3_0_0_6, KERNEL_3_0_0_7, KERNEL_3_0_0_8, KERNEL_3_0_0_9, KERNEL_3_0_0_10);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_3_0_0_0, KERNEL_3_0_0_1, KERNEL_3_0_0_2, KERNEL_3_0_0_3, KERNEL_3_0_0_4, KERNEL_3_0_0_5, KERNEL_3_0_0_6, KERNEL_3_0_0_7, KERNEL_3_0_0_8, KERNEL_3_0_0_9);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_3_0 = INSTANCE.getKERNEL_3_0();
@@ -996,7 +946,7 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_16_0_0_0 = INSTANCE.getKERNEL_16_0_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_16_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__LABEL), "CHARACTER_LITERAL", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__LABEL), "CHARACTER_LITERAL", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_16_0_0_1 = INSTANCE.getKERNEL_16_0_0_1();
@@ -1006,77 +956,22 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_16_0_0_2 = INSTANCE.getKERNEL_16_0_0_2();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_16_0_0_2() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("call", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("return", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_16_0_0_3 = INSTANCE.getKERNEL_16_0_0_3();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_16_0_0_3() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_16_0_0_3 = INSTANCE.getKERNEL_16_0_0_3();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_16_0_0_3() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__RETURN_VALUE), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.QUESTIONMARK, new EClass[] {org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), }, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_16_0_0_4 = INSTANCE.getKERNEL_16_0_0_4();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_16_0_0_4() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("(", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_16_0_0_5_0_0_0 = INSTANCE.getKERNEL_16_0_0_5_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_16_0_0_5_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__ARGUMENTS), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), }, 0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_16_0_0_5_0_0_1_0_0_0 = INSTANCE.getKERNEL_16_0_0_5_0_0_1_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_16_0_0_5_0_0_1_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(",", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_16_0_0_5_0_0_1_0_0_1 = INSTANCE.getKERNEL_16_0_0_5_0_0_1_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_16_0_0_5_0_0_1_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__ARGUMENTS), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), }, 0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_16_0_0_5_0_0_1_0_0 = INSTANCE.getKERNEL_16_0_0_5_0_0_1_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_16_0_0_5_0_0_1_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_16_0_0_5_0_0_1_0_0_0, KERNEL_16_0_0_5_0_0_1_0_0_1);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_16_0_0_5_0_0_1_0 = INSTANCE.getKERNEL_16_0_0_5_0_0_1_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_16_0_0_5_0_0_1_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_16_0_0_5_0_0_1_0_0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_16_0_0_5_0_0_1 = INSTANCE.getKERNEL_16_0_0_5_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_16_0_0_5_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_16_0_0_5_0_0_1_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_16_0_0_5_0_0 = INSTANCE.getKERNEL_16_0_0_5_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_16_0_0_5_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_16_0_0_5_0_0_0, KERNEL_16_0_0_5_0_0_1);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_16_0_0_5_0 = INSTANCE.getKERNEL_16_0_0_5_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_16_0_0_5_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_16_0_0_5_0_0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_16_0_0_5 = INSTANCE.getKERNEL_16_0_0_5();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_16_0_0_5() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_16_0_0_5_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.QUESTIONMARK);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_16_0_0_6 = INSTANCE.getKERNEL_16_0_0_6();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_16_0_0_6() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(")", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_16_0_0_7 = INSTANCE.getKERNEL_16_0_0_7();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_16_0_0_7() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(";", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_16_0_0 = INSTANCE.getKERNEL_16_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_16_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_16_0_0_0, KERNEL_16_0_0_1, KERNEL_16_0_0_2, KERNEL_16_0_0_3, KERNEL_16_0_0_4, KERNEL_16_0_0_5, KERNEL_16_0_0_6, KERNEL_16_0_0_7);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_16_0_0_0, KERNEL_16_0_0_1, KERNEL_16_0_0_2, KERNEL_16_0_0_3, KERNEL_16_0_0_4);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_16_0 = INSTANCE.getKERNEL_16_0();
@@ -1086,17 +981,92 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_16 = INSTANCE.getKERNEL_16();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_16() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), KERNEL_16_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn(), KERNEL_16_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_17_0_0_0 = INSTANCE.getKERNEL_17_0_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_17_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__NAME), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__LABEL), "CHARACTER_LITERAL", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_17_0_0_1 = INSTANCE.getKERNEL_17_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_17_0_0_1() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(":", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_17_0_0_2 = INSTANCE.getKERNEL_17_0_0_2();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_17_0_0_2() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("call", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_17_0_0_3 = INSTANCE.getKERNEL_17_0_0_3();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_17_0_0_3() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_17_0_0_4 = INSTANCE.getKERNEL_17_0_0_4();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_17_0_0_4() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("(", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_17_0_0_5_0_0_0 = INSTANCE.getKERNEL_17_0_0_5_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_17_0_0_5_0_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__ARGUMENTS), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), }, 0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_17_0_0_5_0_0_1_0_0_0 = INSTANCE.getKERNEL_17_0_0_5_0_0_1_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_17_0_0_5_0_0_1_0_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(",", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_17_0_0_5_0_0_1_0_0_1 = INSTANCE.getKERNEL_17_0_0_5_0_0_1_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_17_0_0_5_0_0_1_0_0_1() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__ARGUMENTS), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), }, 0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_17_0_0_5_0_0_1_0_0 = INSTANCE.getKERNEL_17_0_0_5_0_0_1_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_17_0_0_5_0_0_1_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_17_0_0_5_0_0_1_0_0_0, KERNEL_17_0_0_5_0_0_1_0_0_1);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_17_0_0_5_0_0_1_0 = INSTANCE.getKERNEL_17_0_0_5_0_0_1_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_17_0_0_5_0_0_1_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_17_0_0_5_0_0_1_0_0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_17_0_0_5_0_0_1 = INSTANCE.getKERNEL_17_0_0_5_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_17_0_0_5_0_0_1() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_17_0_0_5_0_0_1_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_17_0_0_5_0_0 = INSTANCE.getKERNEL_17_0_0_5_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_17_0_0_5_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_17_0_0_5_0_0_0, KERNEL_17_0_0_5_0_0_1);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_17_0_0_5_0 = INSTANCE.getKERNEL_17_0_0_5_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_17_0_0_5_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_17_0_0_5_0_0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_17_0_0_5 = INSTANCE.getKERNEL_17_0_0_5();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_17_0_0_5() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_17_0_0_5_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.QUESTIONMARK);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_17_0_0_6 = INSTANCE.getKERNEL_17_0_0_6();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_17_0_0_6() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(")", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_17_0_0_7 = INSTANCE.getKERNEL_17_0_0_7();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_17_0_0_7() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(";", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_17_0_0 = INSTANCE.getKERNEL_17_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_17_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_17_0_0_0);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_17_0_0_0, KERNEL_17_0_0_1, KERNEL_17_0_0_2, KERNEL_17_0_0_3, KERNEL_17_0_0_4, KERNEL_17_0_0_5, KERNEL_17_0_0_6, KERNEL_17_0_0_7);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_17_0 = INSTANCE.getKERNEL_17_0();
@@ -1106,22 +1076,17 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_17 = INSTANCE.getKERNEL_17();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_17() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter(), KERNEL_17_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), KERNEL_17_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelBooleanTerminal KERNEL_18_0_0_0 = INSTANCE.getKERNEL_18_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelBooleanTerminal getKERNEL_18_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelBooleanTerminal(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__BY_REFERENCE), "ref", "val", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_18_0_0_1 = INSTANCE.getKERNEL_18_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_18_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_18_0_0_0 = INSTANCE.getKERNEL_18_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_18_0_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__NAME), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_18_0_0 = INSTANCE.getKERNEL_18_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_18_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_18_0_0_0, KERNEL_18_0_0_1);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_18_0_0_0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_18_0 = INSTANCE.getKERNEL_18_0();
@@ -1131,77 +1096,22 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_18 = INSTANCE.getKERNEL_18();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_18() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), KERNEL_18_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter(), KERNEL_18_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_19_0_0_0 = INSTANCE.getKERNEL_19_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_19_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.EXPRESSION__LABEL), "CHARACTER_LITERAL", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelBooleanTerminal KERNEL_19_0_0_0 = INSTANCE.getKERNEL_19_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelBooleanTerminal getKERNEL_19_0_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelBooleanTerminal(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__BY_REFERENCE), "ref", "val", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_19_0_0_1 = INSTANCE.getKERNEL_19_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_19_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(":", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_19_0_0_2 = INSTANCE.getKERNEL_19_0_0_2();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_19_0_0_2() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("[", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_19_0_0_3_0_0_0 = INSTANCE.getKERNEL_19_0_0_3_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_19_0_0_3_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.EXPRESSION__CHILDREN), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getSubExpression(), }, 0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_19_0_0_3_0_0_1_0_0_0 = INSTANCE.getKERNEL_19_0_0_3_0_0_1_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_19_0_0_3_0_0_1_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(";", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_19_0_0_3_0_0_1_0_0_1 = INSTANCE.getKERNEL_19_0_0_3_0_0_1_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_19_0_0_3_0_0_1_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.EXPRESSION__CHILDREN), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getSubExpression(), }, 0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_19_0_0_3_0_0_1_0_0 = INSTANCE.getKERNEL_19_0_0_3_0_0_1_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_19_0_0_3_0_0_1_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_19_0_0_3_0_0_1_0_0_0, KERNEL_19_0_0_3_0_0_1_0_0_1);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_19_0_0_3_0_0_1_0 = INSTANCE.getKERNEL_19_0_0_3_0_0_1_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_19_0_0_3_0_0_1_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_19_0_0_3_0_0_1_0_0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_19_0_0_3_0_0_1 = INSTANCE.getKERNEL_19_0_0_3_0_0_1();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_19_0_0_3_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_19_0_0_3_0_0_1_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_19_0_0_3_0_0 = INSTANCE.getKERNEL_19_0_0_3_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_19_0_0_3_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_19_0_0_3_0_0_0, KERNEL_19_0_0_3_0_0_1);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_19_0_0_3_0 = INSTANCE.getKERNEL_19_0_0_3_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_19_0_0_3_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_19_0_0_3_0_0);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_19_0_0_3 = INSTANCE.getKERNEL_19_0_0_3();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_19_0_0_3() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_19_0_0_3_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.QUESTIONMARK);
-	}
-	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_19_0_0_4 = INSTANCE.getKERNEL_19_0_0_4();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_19_0_0_4() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("]", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_19_0_0_1 = INSTANCE.getKERNEL_19_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_19_0_0_1() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_19_0_0 = INSTANCE.getKERNEL_19_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_19_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_19_0_0_0, KERNEL_19_0_0_1, KERNEL_19_0_0_2, KERNEL_19_0_0_3, KERNEL_19_0_0_4);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_19_0_0_0, KERNEL_19_0_0_1);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_19_0 = INSTANCE.getKERNEL_19_0();
@@ -1211,32 +1121,77 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_19 = INSTANCE.getKERNEL_19();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_19() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), KERNEL_19_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), KERNEL_19_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_20_0_0_0 = INSTANCE.getKERNEL_20_0_0_0();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_20_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("defines", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_20_0_0_0 = INSTANCE.getKERNEL_20_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_20_0_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.EXPRESSION__LABEL), "CHARACTER_LITERAL", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_20_0_0_1 = INSTANCE.getKERNEL_20_0_0_1();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_20_0_0_1() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("(", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(":", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_20_0_0_2 = INSTANCE.getKERNEL_20_0_0_2();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_20_0_0_2() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.DEFINES__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_20_0_0_2 = INSTANCE.getKERNEL_20_0_0_2();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_20_0_0_2() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("[", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_20_0_0_3 = INSTANCE.getKERNEL_20_0_0_3();
-	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_20_0_0_3() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(")", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_20_0_0_3_0_0_0 = INSTANCE.getKERNEL_20_0_0_3_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_20_0_0_3_0_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.EXPRESSION__CHILDREN), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getSubExpression(), }, 0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_20_0_0_3_0_0_1_0_0_0 = INSTANCE.getKERNEL_20_0_0_3_0_0_1_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_20_0_0_3_0_0_1_0_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(";", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment KERNEL_20_0_0_3_0_0_1_0_0_1 = INSTANCE.getKERNEL_20_0_0_3_0_0_1_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment getKERNEL_20_0_0_3_0_0_1_0_0_1() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.EXPRESSION__CHILDREN), org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, new EClass[] {org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getSubExpression(), }, 0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_20_0_0_3_0_0_1_0_0 = INSTANCE.getKERNEL_20_0_0_3_0_0_1_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_20_0_0_3_0_0_1_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_20_0_0_3_0_0_1_0_0_0, KERNEL_20_0_0_3_0_0_1_0_0_1);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_20_0_0_3_0_0_1_0 = INSTANCE.getKERNEL_20_0_0_3_0_0_1_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_20_0_0_3_0_0_1_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_20_0_0_3_0_0_1_0_0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_20_0_0_3_0_0_1 = INSTANCE.getKERNEL_20_0_0_3_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_20_0_0_3_0_0_1() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_20_0_0_3_0_0_1_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.STAR);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_20_0_0_3_0_0 = INSTANCE.getKERNEL_20_0_0_3_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_20_0_0_3_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_20_0_0_3_0_0_0, KERNEL_20_0_0_3_0_0_1);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_20_0_0_3_0 = INSTANCE.getKERNEL_20_0_0_3_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_20_0_0_3_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_20_0_0_3_0_0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound KERNEL_20_0_0_3 = INSTANCE.getKERNEL_20_0_0_3();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound getKERNEL_20_0_0_3() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCompound(KERNEL_20_0_0_3_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.QUESTIONMARK);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_20_0_0_4 = INSTANCE.getKERNEL_20_0_0_4();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_20_0_0_4() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("]", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_20_0_0 = INSTANCE.getKERNEL_20_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_20_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_20_0_0_0, KERNEL_20_0_0_1, KERNEL_20_0_0_2, KERNEL_20_0_0_3);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_20_0_0_0, KERNEL_20_0_0_1, KERNEL_20_0_0_2, KERNEL_20_0_0_3, KERNEL_20_0_0_4);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_20_0 = INSTANCE.getKERNEL_20_0();
@@ -1246,12 +1201,12 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_20 = INSTANCE.getKERNEL_20();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_20() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines(), KERNEL_20_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), KERNEL_20_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_21_0_0_0 = INSTANCE.getKERNEL_21_0_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_21_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("uses", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("defines", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_21_0_0_1 = INSTANCE.getKERNEL_21_0_0_1();
@@ -1261,7 +1216,7 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_21_0_0_2 = INSTANCE.getKERNEL_21_0_0_2();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_21_0_0_2() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.USES__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.DEFINES__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_21_0_0_3 = INSTANCE.getKERNEL_21_0_0_3();
@@ -1281,12 +1236,12 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_21 = INSTANCE.getKERNEL_21();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_21() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses(), KERNEL_21_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines(), KERNEL_21_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_22_0_0_0 = INSTANCE.getKERNEL_22_0_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_22_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("affects", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("uses", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_22_0_0_1 = INSTANCE.getKERNEL_22_0_0_1();
@@ -1296,7 +1251,7 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_22_0_0_2 = INSTANCE.getKERNEL_22_0_0_2();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_22_0_0_2() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getAffects().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.AFFECTS__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.USES__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_22_0_0_3 = INSTANCE.getKERNEL_22_0_0_3();
@@ -1316,12 +1271,12 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_22 = INSTANCE.getKERNEL_22();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_22() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getAffects(), KERNEL_22_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses(), KERNEL_22_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_23_0_0_0 = INSTANCE.getKERNEL_23_0_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_23_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("postdefines", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("affects", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_23_0_0_1 = INSTANCE.getKERNEL_23_0_0_1();
@@ -1331,7 +1286,7 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_23_0_0_2 = INSTANCE.getKERNEL_23_0_0_2();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_23_0_0_2() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostDefines().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getAffects().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.AFFECTS__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_23_0_0_3 = INSTANCE.getKERNEL_23_0_0_3();
@@ -1351,12 +1306,12 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_23 = INSTANCE.getKERNEL_23();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_23() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostDefines(), KERNEL_23_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getAffects(), KERNEL_23_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_24_0_0_0 = INSTANCE.getKERNEL_24_0_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_24_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("preuses", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("postdefines", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_24_0_0_1 = INSTANCE.getKERNEL_24_0_0_1();
@@ -1366,7 +1321,7 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_24_0_0_2 = INSTANCE.getKERNEL_24_0_0_2();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_24_0_0_2() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPreUses().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.PRE_USES__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostDefines().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_24_0_0_3 = INSTANCE.getKERNEL_24_0_0_3();
@@ -1386,12 +1341,12 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_24 = INSTANCE.getKERNEL_24();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_24() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPreUses(), KERNEL_24_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostDefines(), KERNEL_24_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_25_0_0_0 = INSTANCE.getKERNEL_25_0_0_0();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_25_0_0_0() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("postaffects", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("preuses", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_25_0_0_1 = INSTANCE.getKERNEL_25_0_0_1();
@@ -1401,7 +1356,7 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_25_0_0_2 = INSTANCE.getKERNEL_25_0_0_2();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_25_0_0_2() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostAffects().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPreUses().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.PRE_USES__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_25_0_0_3 = INSTANCE.getKERNEL_25_0_0_3();
@@ -1421,7 +1376,42 @@ public class KernelGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_25 = INSTANCE.getKERNEL_25();
 	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_25() {
-		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostAffects(), KERNEL_25_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPreUses(), KERNEL_25_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_26_0_0_0 = INSTANCE.getKERNEL_26_0_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_26_0_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("postaffects", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_26_0_0_1 = INSTANCE.getKERNEL_26_0_0_1();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_26_0_0_1() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword("(", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder KERNEL_26_0_0_2 = INSTANCE.getKERNEL_26_0_0_2();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder getKERNEL_26_0_0_2() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostAffects().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__TARGET), "IDENTIFIER", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, 0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword KERNEL_26_0_0_3 = INSTANCE.getKERNEL_26_0_0_3();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword getKERNEL_26_0_0_3() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword(")", org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence KERNEL_26_0_0 = INSTANCE.getKERNEL_26_0_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence getKERNEL_26_0_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSequence(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_26_0_0_0, KERNEL_26_0_0_1, KERNEL_26_0_0_2, KERNEL_26_0_0_3);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice KERNEL_26_0 = INSTANCE.getKERNEL_26_0();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice getKERNEL_26_0() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelChoice(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE, KERNEL_26_0_0);
+	}
+	
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule KERNEL_26 = INSTANCE.getKERNEL_26();
+	private org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getKERNEL_26() {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostAffects(), KERNEL_26_0, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality.ONE);
 	}
 	
 	
@@ -1478,6 +1468,7 @@ public class KernelGrammarInformationProvider {
 		KERNEL_23,
 		KERNEL_24,
 		KERNEL_25,
+		KERNEL_26,
 	};
 	
 	/**

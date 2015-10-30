@@ -58,8 +58,10 @@ RULES {
 	//statements
 	
 	containers.CompilationUnit ::= (declarations:dataitems.DataItem )* 
-									mainProcedure !0
-									(declarations:procedures.Procedure !0)* ;
+									
+									(declarations:procedures.Procedure !0)*
+									mainProcedure
+									 ;
 		
 	//variables
 	dataitems.DataItem ::= "var" name[IDENTIFIER] ";" !0 ;
@@ -70,9 +72,13 @@ RULES {
         	(!1 members:procedures.Procedure, statements.Statement  )* !0
         "}" !0 ;
         
-   	procedures.MainProcedure ::= label[] ":" "Procedure" "main" "(" ( parameters ("," parameters)* )? ")" "{" 
-        	(!1 members:procedures.Procedure, statements.Statement  )* !0
-        "}" ;     
+   	//procedures.MainProcedure ::= label[] ":" "Procedure" "main" "(" ( parameters ("," parameters)* )? ")" "{" 
+    //    	(!1 members:procedures.Procedure, statements.Statement  )* !0
+    //    "}" ;   
+    
+    procedures.MainProcedure ::= label[] ":" "Procedure" "main" "(" ")" "{" 
+        	(!1 members:statements.Statement  )* !0
+        "}" ;  
 	
 	//statements
 	
@@ -106,6 +112,9 @@ RULES {
 	statements.Abort ::= label[] ":" "abort" ";"; 
 	
 	statements.Skip ::= label[] ":" "skip" ";";
+	
+	//ReturnValue is an expression
+	statements.Return ::= label[] ":" "return" returnValue? ";" ;
 	
 	//target is to procedure
 	statements.ProcedureCall ::= label[] ":" "call" target[IDENTIFIER] "(" ( arguments ("," arguments)* )? ")" ";" ;

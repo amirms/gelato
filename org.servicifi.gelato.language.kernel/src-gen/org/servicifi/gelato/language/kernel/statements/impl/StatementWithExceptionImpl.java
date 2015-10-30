@@ -135,9 +135,13 @@ public class StatementWithExceptionImpl extends StatementContainerImpl implement
 	 * @generated NOT
 	 */
 	public EList<LabellableElement> last() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<LabellableElement> res =new BasicEList<LabellableElement>();
+		res.addAll(getStatement().last());
+		
+		for (int i=0; i < this.getExceptionStatements().size(); i++ )
+			res.addAll(this.getExceptionStatements().get(i).last());
+		
+		return res;
 	}
 
 	/**

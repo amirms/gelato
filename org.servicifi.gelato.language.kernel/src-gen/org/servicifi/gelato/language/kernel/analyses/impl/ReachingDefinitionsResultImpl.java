@@ -31,7 +31,7 @@ public class ReachingDefinitionsResultImpl extends AnalysisResultImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected org.servicifi.gelato.language.kernel.dataitems.DataItem variable;
+	protected DataItem variable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,10 +94,10 @@ public class ReachingDefinitionsResultImpl extends AnalysisResultImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.servicifi.gelato.language.kernel.dataitems.DataItem getVariable() {
+	public DataItem getVariable() {
 		if (variable != null && variable.eIsProxy()) {
 			InternalEObject oldVariable = (InternalEObject)variable;
-			variable = (org.servicifi.gelato.language.kernel.dataitems.DataItem)eResolveProxy(oldVariable);
+			variable = (DataItem)eResolveProxy(oldVariable);
 			if (variable != oldVariable) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysesPackage.REACHING_DEFINITIONS_RESULT__VARIABLE, oldVariable, variable));
@@ -111,7 +111,7 @@ public class ReachingDefinitionsResultImpl extends AnalysisResultImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public org.servicifi.gelato.language.kernel.dataitems.DataItem basicGetVariable() {
+	public DataItem basicGetVariable() {
 		return variable;
 	}
 
@@ -120,8 +120,8 @@ public class ReachingDefinitionsResultImpl extends AnalysisResultImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariable(org.servicifi.gelato.language.kernel.dataitems.DataItem newVariable) {
-		org.servicifi.gelato.language.kernel.dataitems.DataItem oldVariable = variable;
+	public void setVariable(DataItem newVariable) {
+		DataItem oldVariable = variable;
 		variable = newVariable;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnalysesPackage.REACHING_DEFINITIONS_RESULT__VARIABLE, oldVariable, variable));
@@ -151,7 +151,7 @@ public class ReachingDefinitionsResultImpl extends AnalysisResultImpl implements
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AnalysesPackage.REACHING_DEFINITIONS_RESULT__VARIABLE:
-				setVariable((org.servicifi.gelato.language.kernel.dataitems.DataItem)newValue);
+				setVariable((DataItem)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -166,7 +166,7 @@ public class ReachingDefinitionsResultImpl extends AnalysisResultImpl implements
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AnalysesPackage.REACHING_DEFINITIONS_RESULT__VARIABLE:
-				setVariable((org.servicifi.gelato.language.kernel.dataitems.DataItem)null);
+				setVariable((DataItem)null);
 				return;
 		}
 		super.eUnset(featureID);

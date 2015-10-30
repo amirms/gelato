@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
+import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 import org.servicifi.gelato.language.kernel.members.Member;
 import org.servicifi.gelato.language.kernel.parameters.*;
 
@@ -89,7 +90,7 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createMemberAdapter();
 			}
 			@Override
-			public Adapter caseDataItem(org.servicifi.gelato.language.kernel.dataitems.DataItem object) {
+			public Adapter caseDataItem(DataItem object) {
 				return createDataItemAdapter();
 			}
 			@Override

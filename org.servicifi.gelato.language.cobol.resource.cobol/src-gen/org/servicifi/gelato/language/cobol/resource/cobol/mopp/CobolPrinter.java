@@ -12804,27 +12804,31 @@ public class CobolPrinter implements org.servicifi.gelato.language.cobol.resourc
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.IO_FILE_DESCRIPTOR__TYPE));
 		printCountingMap.put("type", temp == null ? 0 : 1);
 		// print collected hidden tokens
-		int count;
 		boolean iterate = true;
 		java.io.StringWriter sWriter = null;
 		PrintWriter out1 = null;
 		Map<String, Integer> printCountingMap1 = null;
-		// DEFINITION PART BEGINS (EnumTerminal)
-		count = printCountingMap.get("type");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.IO_FILE_DESCRIPTOR__TYPE));
-			if (o != null) {
-			}
-			printCountingMap.put("type", count - 1);
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_IOFileDescriptor_0(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
 		}
 		// DEFINITION PART BEGINS (CompoundDefinition)
-		print_org_servicifi_gelato_language_cobol_statements_IOFileDescriptor_0(element, localtab, out, printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_IOFileDescriptor_1(element, localtab, out, printCountingMap);
 		iterate = true;
 		while (iterate) {
 			sWriter = new StringWriter();
 			out1 = new PrintWriter(sWriter);
 			printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-			print_org_servicifi_gelato_language_cobol_statements_IOFileDescriptor_0(element, localtab, out1, printCountingMap1);
+			print_org_servicifi_gelato_language_cobol_statements_IOFileDescriptor_1(element, localtab, out1, printCountingMap1);
 			if (printCountingMap.equals(printCountingMap1)) {
 				iterate = false;
 				out1.close();
@@ -12838,6 +12842,18 @@ public class CobolPrinter implements org.servicifi.gelato.language.cobol.resourc
 	}
 	
 	public void print_org_servicifi_gelato_language_cobol_statements_IOFileDescriptor_0(org.servicifi.gelato.language.cobol.statements.IOFileDescriptor element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+		int count;
+		// DEFINITION PART BEGINS (EnumTerminal)
+		count = printCountingMap.get("type");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.IO_FILE_DESCRIPTOR__TYPE));
+			if (o != null) {
+			}
+			printCountingMap.put("type", count - 1);
+		}
+	}
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_IOFileDescriptor_1(org.servicifi.gelato.language.cobol.statements.IOFileDescriptor element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
 		String localtab = outertab;
 		int count;
 		// DEFINITION PART BEGINS (Containment)

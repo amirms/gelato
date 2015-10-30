@@ -770,6 +770,43 @@ public interface StatementsPackage extends EPackage {
 	int RETURN_SITE_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.ReturnImpl <em>Return</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.servicifi.gelato.language.kernel.statements.impl.ReturnImpl
+	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getReturn()
+	 * @generated
+	 */
+	int RETURN = 19;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN__LABEL = STATEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Return Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN__RETURN_VALUE = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Return</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.ExecutionOrder <em>Execution Order</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -777,7 +814,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getExecutionOrder()
 	 * @generated
 	 */
-	int EXECUTION_ORDER = 19;
+	int EXECUTION_ORDER = 20;
 
 
 	/**
@@ -1092,6 +1129,27 @@ public interface StatementsPackage extends EPackage {
 	EClass getReturnSite();
 
 	/**
+	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.statements.Return <em>Return</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Return</em>'.
+	 * @see org.servicifi.gelato.language.kernel.statements.Return
+	 * @generated
+	 */
+	EClass getReturn();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.kernel.statements.Return#getReturnValue <em>Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Return Value</em>'.
+	 * @see org.servicifi.gelato.language.kernel.statements.Return#getReturnValue()
+	 * @see #getReturn()
+	 * @generated
+	 */
+	EReference getReturn_ReturnValue();
+
+	/**
 	 * Returns the meta object for enum '{@link org.servicifi.gelato.language.kernel.statements.ExecutionOrder <em>Execution Order</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1400,6 +1458,24 @@ public interface StatementsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RETURN_SITE = eINSTANCE.getReturnSite();
+
+		/**
+		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.statements.impl.ReturnImpl <em>Return</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.servicifi.gelato.language.kernel.statements.impl.ReturnImpl
+		 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getReturn()
+		 * @generated
+		 */
+		EClass RETURN = eINSTANCE.getReturn();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RETURN__RETURN_VALUE = eINSTANCE.getReturn_ReturnValue();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.statements.ExecutionOrder <em>Execution Order</em>}' enum.

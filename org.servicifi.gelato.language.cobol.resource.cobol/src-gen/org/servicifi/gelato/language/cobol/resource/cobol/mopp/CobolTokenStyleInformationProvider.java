@@ -21,6 +21,9 @@ public class CobolTokenStyleInformationProvider {
 		if ("COBOL_WORD".equals(tokenName)) {
 			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x00, 0x00, 0x00}, null, false, false, false, false);
 		}
+		if ("BOOLEAN_LITERAL".equals(tokenName)) {
+			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x3A, 0x00, 0xFF}, null, false, false, false, false);
+		}
 		if ("FOOTING".equals(tokenName)) {
 			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x7F, 0x00, 0x55}, null, true, false, false, false);
 		}
@@ -796,12 +799,6 @@ public class CobolTokenStyleInformationProvider {
 			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x7F, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("TO".equals(tokenName)) {
-			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x7F, 0x00, 0x55}, null, true, false, false, false);
-		}
-		if ("TRUE".equals(tokenName)) {
-			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x7F, 0x00, 0x55}, null, true, false, false, false);
-		}
-		if ("FALSE".equals(tokenName)) {
 			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x7F, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("UNIT".equals(tokenName)) {

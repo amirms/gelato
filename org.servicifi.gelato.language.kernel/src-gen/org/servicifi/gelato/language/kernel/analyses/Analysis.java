@@ -60,7 +60,7 @@ public interface Analysis extends EObject {
 	void setDirection(AnalysisDirection value);
 
 	/**
-	 * Returns the value of the '<em><b>Cfg</b></em>' reference list.
+	 * Returns the value of the '<em><b>Cfg</b></em>' containment reference list.
 	 * The list contents are of type {@link org.servicifi.gelato.language.kernel.flows.Flow}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -68,7 +68,7 @@ public interface Analysis extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cfg</em>' reference list.
+	 * @return the value of the '<em>Cfg</em>' containment reference list.
 	 * @see org.servicifi.gelato.language.kernel.analyses.AnalysesPackage#getAnalysis_Cfg()
 	 * @generated
 	 */

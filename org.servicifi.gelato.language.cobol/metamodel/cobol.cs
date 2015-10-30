@@ -159,7 +159,7 @@ TOKENS {
 	
 	
 	@SuppressWarnings(unusedToken)
-	DEFINE WHITESPACE $(.)+$;
+	DEFINE WHITESPACE $(' '|'\t'|'\f'|'\r'|'\n'|',' | ';')+$;
 }
 
 TOKENSTYLES {
@@ -168,6 +168,8 @@ TOKENSTYLES {
 	"ALPHANUMERIC_LITERAL" COLOR #2A00FF;
 	
 	"COBOL_WORD" COLOR #000000;
+	
+	"BOOLEAN_LITERAL" COLOR #3A00FF;
 	//"PICTURE_STRING" COLOR #3A00FF;
 	//"PICTURE_STRING_EDITED" COLOR #3A00FF;
 	
@@ -256,7 +258,6 @@ TOKENSTYLES {
 	"SYSIN", "SYSIPT", "SYSLIST", 
 	"SYSLST", "SYSOUT", "SYSPCH", "SYSPUNCH", "TALLYING", 
 	"TERMINATE", "TEST", "THAN", "THEN", "THROUGH", "THRU", "TIMES", "TO", 
-	"TRUE", "FALSE",
 	"UNIT", "UNSTRING", "UNTIL", "UPDATE", "UPON", 
 	"USAGE", "USE", "USING",  "VALUE", "VALUES", "VARYING", 
 	"WHEN", "WITH", "WORKING-STORAGE", "WRITE", 
@@ -804,9 +805,10 @@ statements.TallyingIn
   
 //the receiver and sender can also be index-names
 //TODO conflict with definition of identifier
+//DONE TRUE/FALSE is a boolean literal  
 statements.Set
   ::= "SET" ( receivers:identifiers.IdentifierReference )+ 
-  	  "TO" sender:identifiers.Identifier, literals.IntegerLiteral;
+  	  "TO" sender:identifiers.Identifier, literals.IntegerLiteral, literals.BooleanLiteral;
   
 statements.SetSwitches
   ::= "SET" switches+ ;
@@ -815,7 +817,7 @@ statements.SwitchStatus
 	::=  ( mnemonicNames )+
 		"TO" status[on : "ON", off : "OFF"];
 
-//TODO commented this, as TRUE is a boolean literal  
+
 //statements.
  
 //  ::= "SET" ( operands:identifiers.Identifier )+
@@ -1122,7 +1124,7 @@ statements.Close
   ;
 
 statements.IOFileDescriptor
-  ::=  type[input : "INPUT", output : "OUTPUT", io : "I-O", extend : "EXTEND"]
+  ::=  (type[input : "INPUT", output : "OUTPUT", io : "I-O", extend : "EXTEND"])?
      ( ioFiles  )+
      ;  
   

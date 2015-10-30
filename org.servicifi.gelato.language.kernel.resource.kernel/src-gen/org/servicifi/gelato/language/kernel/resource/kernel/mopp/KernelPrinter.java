@@ -69,6 +69,10 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 			print_org_servicifi_gelato_language_kernel_containers_CompilationUnit((org.servicifi.gelato.language.kernel.containers.CompilationUnit) element, globaltab, out);
 			return;
 		}
+		if (element instanceof org.servicifi.gelato.language.kernel.procedures.Procedure) {
+			print_org_servicifi_gelato_language_kernel_procedures_Procedure((org.servicifi.gelato.language.kernel.procedures.Procedure) element, globaltab, out);
+			return;
+		}
 		if (element instanceof org.servicifi.gelato.language.kernel.procedures.MainProcedure) {
 			print_org_servicifi_gelato_language_kernel_procedures_MainProcedure((org.servicifi.gelato.language.kernel.procedures.MainProcedure) element, globaltab, out);
 			return;
@@ -121,6 +125,10 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 			print_org_servicifi_gelato_language_kernel_statements_Skip((org.servicifi.gelato.language.kernel.statements.Skip) element, globaltab, out);
 			return;
 		}
+		if (element instanceof org.servicifi.gelato.language.kernel.statements.Return) {
+			print_org_servicifi_gelato_language_kernel_statements_Return((org.servicifi.gelato.language.kernel.statements.Return) element, globaltab, out);
+			return;
+		}
 		if (element instanceof org.servicifi.gelato.language.kernel.statements.ProcedureCall) {
 			print_org_servicifi_gelato_language_kernel_statements_ProcedureCall((org.servicifi.gelato.language.kernel.statements.ProcedureCall) element, globaltab, out);
 			return;
@@ -163,10 +171,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 		}
 		if (element instanceof org.servicifi.gelato.language.kernel.dataitems.DataItem) {
 			print_org_servicifi_gelato_language_kernel_dataitems_DataItem((org.servicifi.gelato.language.kernel.dataitems.DataItem) element, globaltab, out);
-			return;
-		}
-		if (element instanceof org.servicifi.gelato.language.kernel.procedures.Procedure) {
-			print_org_servicifi_gelato_language_kernel_procedures_Procedure((org.servicifi.gelato.language.kernel.procedures.Procedure) element, globaltab, out);
 			return;
 		}
 		
@@ -260,18 +264,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 				printCountingMap.putAll(printCountingMap1);
 			}
 		}
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("mainProcedure");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.containers.ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE));
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("mainProcedure", count - 1);
-		}
-		// DEFINITION PART BEGINS (LineBreak)
-		out.println();
-		out.print(localtab);
 		// DEFINITION PART BEGINS (CompoundDefinition)
 		iterate = true;
 		while (iterate) {
@@ -288,6 +280,15 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 				out.print(sWriter.toString());
 				printCountingMap.putAll(printCountingMap1);
 			}
+		}
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("mainProcedure");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.containers.ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE));
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("mainProcedure", count - 1);
 		}
 	}
 	
@@ -595,18 +596,12 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		Map<String, Integer> printCountingMap = new LinkedHashMap<String, Integer>(5);
+		Map<String, Integer> printCountingMap = new LinkedHashMap<String, Integer>(2);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__LABEL));
 		printCountingMap.put("label", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__NAME));
-		printCountingMap.put("name", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__MEMBERS));
 		printCountingMap.put("members", temp == null ? 0 : ((Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__PARAMETERS));
-		printCountingMap.put("parameters", temp == null ? 0 : ((Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__CALLERS));
-		printCountingMap.put("callers", temp == null ? 0 : ((Collection<?>) temp).size());
 		// print collected hidden tokens
 		int count;
 		boolean iterate = true;
@@ -637,19 +632,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 		// DEFINITION PART BEGINS (CsString)
 		out.print("(");
 		out.print(" ");
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		sWriter = new StringWriter();
-		out1 = new PrintWriter(sWriter);
-		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-		print_org_servicifi_gelato_language_kernel_procedures_MainProcedure_0(element, localtab, out1, printCountingMap1);
-		if (printCountingMap.equals(printCountingMap1)) {
-			out1.close();
-		} else {
-			out1.flush();
-			out1.close();
-			out.print(sWriter.toString());
-			printCountingMap.putAll(printCountingMap1);
-		}
 		// DEFINITION PART BEGINS (CsString)
 		out.print(")");
 		out.print(" ");
@@ -662,7 +644,7 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 			sWriter = new StringWriter();
 			out1 = new PrintWriter(sWriter);
 			printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-			print_org_servicifi_gelato_language_kernel_procedures_MainProcedure_1(element, localtab, out1, printCountingMap1);
+			print_org_servicifi_gelato_language_kernel_procedures_MainProcedure_0(element, localtab, out1, printCountingMap1);
 			if (printCountingMap.equals(printCountingMap1)) {
 				iterate = false;
 				out1.close();
@@ -682,72 +664,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 	}
 	
 	public void print_org_servicifi_gelato_language_kernel_procedures_MainProcedure_0(org.servicifi.gelato.language.kernel.procedures.MainProcedure element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		boolean iterate = true;
-		java.io.StringWriter sWriter = null;
-		PrintWriter out1 = null;
-		Map<String, Integer> printCountingMap1 = null;
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("parameters");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__PARAMETERS));
-			List<?> list = (List<?>) o;
-			int index = list.size() - count;
-			if (index >= 0) {
-				o = list.get(index);
-			} else {
-				o = null;
-			}
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("parameters", count - 1);
-		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		iterate = true;
-		while (iterate) {
-			sWriter = new StringWriter();
-			out1 = new PrintWriter(sWriter);
-			printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-			print_org_servicifi_gelato_language_kernel_procedures_MainProcedure_0_0(element, localtab, out1, printCountingMap1);
-			if (printCountingMap.equals(printCountingMap1)) {
-				iterate = false;
-				out1.close();
-			} else {
-				out1.flush();
-				out1.close();
-				out.print(sWriter.toString());
-				printCountingMap.putAll(printCountingMap1);
-			}
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_kernel_procedures_MainProcedure_0_0(org.servicifi.gelato.language.kernel.procedures.MainProcedure element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (CsString)
-		out.print(",");
-		out.print(" ");
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("parameters");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.MAIN_PROCEDURE__PARAMETERS));
-			List<?> list = (List<?>) o;
-			int index = list.size() - count;
-			if (index >= 0) {
-				o = list.get(index);
-			} else {
-				o = null;
-			}
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("parameters", count - 1);
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_kernel_procedures_MainProcedure_1(org.servicifi.gelato.language.kernel.procedures.MainProcedure element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
 		String localtab = outertab;
 		int count;
 		// DEFINITION PART BEGINS (LineBreak)
@@ -1481,6 +1397,54 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 		// DEFINITION PART BEGINS (CsString)
 		out.print("skip");
 		out.print(" ");
+		// DEFINITION PART BEGINS (CsString)
+		out.print(";");
+		out.print(" ");
+	}
+	
+	
+	public void print_org_servicifi_gelato_language_kernel_statements_Return(org.servicifi.gelato.language.kernel.statements.Return element, String outertab, PrintWriter out) {
+		String localtab = outertab;
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		Map<String, Integer> printCountingMap = new LinkedHashMap<String, Integer>(2);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__LABEL));
+		printCountingMap.put("label", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__RETURN_VALUE));
+		printCountingMap.put("returnValue", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		int count;
+		// DEFINITION PART BEGINS (PlaceholderUsingDefaultToken)
+		count = printCountingMap.get("label");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__LABEL));
+			if (o != null) {
+				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver resolver = tokenResolverFactory.createTokenResolver("CHARACTER_LITERAL");
+				resolver.setOptions(getOptions());
+				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__LABEL), element));
+				out.print(" ");
+			}
+			printCountingMap.put("label", count - 1);
+		}
+		// DEFINITION PART BEGINS (CsString)
+		out.print(":");
+		out.print(" ");
+		// DEFINITION PART BEGINS (CsString)
+		out.print("return");
+		out.print(" ");
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("returnValue");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__RETURN_VALUE));
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("returnValue", count - 1);
+		}
 		// DEFINITION PART BEGINS (CsString)
 		out.print(";");
 		out.print(" ");

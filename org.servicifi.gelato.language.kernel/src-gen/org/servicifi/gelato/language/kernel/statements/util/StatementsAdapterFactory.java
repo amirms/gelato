@@ -150,6 +150,10 @@ public class StatementsAdapterFactory extends AdapterFactoryImpl {
 				return createReturnSiteAdapter();
 			}
 			@Override
+			public Adapter caseReturn(Return object) {
+				return createReturnAdapter();
+			}
+			@Override
 			public Adapter caseLabellableElement(LabellableElement object) {
 				return createLabellableElementAdapter();
 			}
@@ -444,6 +448,20 @@ public class StatementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createReturnSiteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.statements.Return <em>Return</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.language.kernel.statements.Return
+	 * @generated
+	 */
+	public Adapter createReturnAdapter() {
 		return null;
 	}
 

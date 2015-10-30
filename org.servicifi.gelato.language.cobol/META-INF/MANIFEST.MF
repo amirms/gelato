@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.v201211140001
 Bundle-ClassPath: .
 Bundle-Vendor: ServiciFi Project - Utrecht University - The Netherlands
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: J2SE-1.7
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.emftext.commons.layout;bundle-version="1.0.0"

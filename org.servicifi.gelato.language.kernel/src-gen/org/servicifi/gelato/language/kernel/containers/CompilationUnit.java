@@ -70,14 +70,14 @@ public interface CompilationUnit extends KernelRoot, LabellableElement {
 	EList<Member> getDeclarations();
 
 	/**
-	 * Returns the value of the '<em><b>Start</b></em>' reference.
+	 * Returns the value of the '<em><b>Start</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Start</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Start</em>' reference.
+	 * @return the value of the '<em>Start</em>' containment reference.
 	 * @see #setStart(Start)
 	 * @see org.servicifi.gelato.language.kernel.containers.ContainersPackage#getCompilationUnit_Start()
 	 * @generated
@@ -85,24 +85,24 @@ public interface CompilationUnit extends KernelRoot, LabellableElement {
 	Start getStart();
 
 	/**
-	 * Sets the value of the '{@link org.servicifi.gelato.language.kernel.containers.CompilationUnit#getStart <em>Start</em>}' reference.
+	 * Sets the value of the '{@link org.servicifi.gelato.language.kernel.containers.CompilationUnit#getStart <em>Start</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Start</em>' reference.
+	 * @param value the new value of the '<em>Start</em>' containment reference.
 	 * @see #getStart()
 	 * @generated
 	 */
 	void setStart(Start value);
 
 	/**
-	 * Returns the value of the '<em><b>End</b></em>' reference.
+	 * Returns the value of the '<em><b>End</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>End</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>End</em>' reference.
+	 * @return the value of the '<em>End</em>' containment reference.
 	 * @see #setEnd(End)
 	 * @see org.servicifi.gelato.language.kernel.containers.ContainersPackage#getCompilationUnit_End()
 	 * @generated
@@ -110,10 +110,10 @@ public interface CompilationUnit extends KernelRoot, LabellableElement {
 	End getEnd();
 
 	/**
-	 * Sets the value of the '{@link org.servicifi.gelato.language.kernel.containers.CompilationUnit#getEnd <em>End</em>}' reference.
+	 * Sets the value of the '{@link org.servicifi.gelato.language.kernel.containers.CompilationUnit#getEnd <em>End</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>End</em>' reference.
+	 * @param value the new value of the '<em>End</em>' containment reference.
 	 * @see #getEnd()
 	 * @generated
 	 */

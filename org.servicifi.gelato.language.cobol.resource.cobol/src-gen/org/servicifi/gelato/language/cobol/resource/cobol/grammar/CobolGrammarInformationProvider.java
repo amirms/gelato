@@ -5086,7 +5086,7 @@ public class CobolGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment COBOL_70_0_0_3 = INSTANCE.getCOBOL_70_0_0_3();
 	private org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment getCOBOL_70_0_0_3() {
-		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment(org.servicifi.gelato.language.cobol.statements.StatementsPackage.eINSTANCE.getSet().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SET__SENDER), org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.ONE, new EClass[] {org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage.eINSTANCE.getIdentifier(), org.servicifi.gelato.language.cobol.literals.LiteralsPackage.eINSTANCE.getIntegerLiteral(), }, 0);
+		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment(org.servicifi.gelato.language.cobol.statements.StatementsPackage.eINSTANCE.getSet().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SET__SENDER), org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.ONE, new EClass[] {org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage.eINSTANCE.getIdentifier(), org.servicifi.gelato.language.cobol.literals.LiteralsPackage.eINSTANCE.getIntegerLiteral(), org.servicifi.gelato.language.cobol.literals.LiteralsPackage.eINSTANCE.getBooleanLiteral(), }, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSequence COBOL_70_0_0 = INSTANCE.getCOBOL_70_0_0();
@@ -8389,9 +8389,24 @@ public class CobolGrammarInformationProvider {
 		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolRule(org.servicifi.gelato.language.cobol.statements.StatementsPackage.eINSTANCE.getClose(), COBOL_107_0, org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.ONE);
 	}
 	
-	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolEnumerationTerminal COBOL_108_0_0_0 = INSTANCE.getCOBOL_108_0_0_0();
-	private org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolEnumerationTerminal getCOBOL_108_0_0_0() {
+	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolEnumerationTerminal COBOL_108_0_0_0_0_0_0 = INSTANCE.getCOBOL_108_0_0_0_0_0_0();
+	private org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolEnumerationTerminal getCOBOL_108_0_0_0_0_0_0() {
 		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolEnumerationTerminal(org.servicifi.gelato.language.cobol.statements.StatementsPackage.eINSTANCE.getIOFileDescriptor().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.IO_FILE_DESCRIPTOR__TYPE), new String[] {"input", "INPUT", "output", "OUTPUT", "io", "I-O", "extend", "EXTEND", }, org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.ONE, 0);
+	}
+	
+	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSequence COBOL_108_0_0_0_0_0 = INSTANCE.getCOBOL_108_0_0_0_0_0();
+	private org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSequence getCOBOL_108_0_0_0_0_0() {
+		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSequence(org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.ONE, COBOL_108_0_0_0_0_0_0);
+	}
+	
+	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolChoice COBOL_108_0_0_0_0 = INSTANCE.getCOBOL_108_0_0_0_0();
+	private org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolChoice getCOBOL_108_0_0_0_0() {
+		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolChoice(org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.ONE, COBOL_108_0_0_0_0_0);
+	}
+	
+	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCompound COBOL_108_0_0_0 = INSTANCE.getCOBOL_108_0_0_0();
+	private org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCompound getCOBOL_108_0_0_0() {
+		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCompound(COBOL_108_0_0_0_0, org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.QUESTIONMARK);
 	}
 	
 	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment COBOL_108_0_0_1_0_0_0 = INSTANCE.getCOBOL_108_0_0_1_0_0_0();
@@ -11301,7 +11316,7 @@ public class CobolGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment COBOL_167_0_0_0 = INSTANCE.getCOBOL_167_0_0_0();
 	private org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment getCOBOL_167_0_0_0() {
-		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment(org.servicifi.gelato.language.cobol.strings.StringsPackage.eINSTANCE.getConcatenatingStrings().getEStructuralFeature(org.servicifi.gelato.language.cobol.strings.StringsPackage.CONCATENATING_STRINGS__STRINGS), org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.PLUS, new EClass[] {org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage.eINSTANCE.getIdentifierReference(), }, 0);
+		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment(org.servicifi.gelato.language.cobol.strings.StringsPackage.eINSTANCE.getConcatenatingStrings().getEStructuralFeature(org.servicifi.gelato.language.cobol.strings.StringsPackage.CONCATENATING_STRINGS__STRINGS), org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.PLUS, new EClass[] {org.servicifi.gelato.language.cobol.operands.OperandsPackage.eINSTANCE.getPrimaryOperand(), }, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolKeyword COBOL_167_0_0_1 = INSTANCE.getCOBOL_167_0_0_1();
@@ -11376,7 +11391,7 @@ public class CobolGrammarInformationProvider {
 	
 	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment COBOL_168_0_0_0 = INSTANCE.getCOBOL_168_0_0_0();
 	private org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment getCOBOL_168_0_0_0() {
-		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment(org.servicifi.gelato.language.cobol.strings.StringsPackage.eINSTANCE.getSplittedString().getEStructuralFeature(org.servicifi.gelato.language.cobol.strings.StringsPackage.SPLITTED_STRING__STRINGS), org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.ONE, new EClass[] {org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage.eINSTANCE.getIdentifierReference(), }, 0);
+		return new org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolContainment(org.servicifi.gelato.language.cobol.strings.StringsPackage.eINSTANCE.getSplittedString().getEStructuralFeature(org.servicifi.gelato.language.cobol.strings.StringsPackage.SPLITTED_STRING__STRINGS), org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality.ONE, new EClass[] {org.servicifi.gelato.language.cobol.operands.OperandsPackage.eINSTANCE.getPrimaryOperand(), }, 0);
 	}
 	
 	public final static org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolKeyword COBOL_168_0_0_1_0_0_0 = INSTANCE.getCOBOL_168_0_0_1_0_0_0();

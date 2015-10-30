@@ -3,19 +3,18 @@
 package org.servicifi.gelato.language.kernel.statements.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
 import org.servicifi.gelato.language.kernel.commons.LabellableElement;
-
 import org.servicifi.gelato.language.kernel.flows.Flow;
+import org.servicifi.gelato.language.kernel.flows.FlowsFactory;
 import org.servicifi.gelato.language.kernel.members.Member;
-
 import org.servicifi.gelato.language.kernel.statements.ExecutionOrder;
 import org.servicifi.gelato.language.kernel.statements.ParallelBlock;
+import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 import org.servicifi.gelato.language.kernel.statements.Statement;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
 
@@ -138,34 +137,73 @@ public class ParallelBlockImpl extends StatementListContainerImpl implements Par
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public LabellableElement first() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//if(getOrder().equals(ExecutionOrder.L2R_VALUE))
+		
+		//TODO incorprate interleaved semantics
+		
+		if (getOrder().equals(ExecutionOrder.R2L_VALUE))
+			return getStatements().get(getStatements().size()-1).first();
+		
+		return getStatements().get(0).first();
+		  
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<LabellableElement> last() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList <LabellableElement> res = new BasicEList<LabellableElement>();
+		
+		//if(getOrder().equals(ExecutionOrder.L2R_VALUE))
+		//TODO incorprate interleaved semantics
+		
+		if (getOrder().equals(ExecutionOrder.R2L_VALUE))
+			res.addAll(getStatements().get(0).last());
+		else
+			
+			res.addAll(getStatements().get(getStatements().size()-1).last());
+		
+		return res;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Flow> internalFlow() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//TODO incorporate interleaved semantics
+		//TODO R2L order is yet to be implemented!
+		EList<Flow> res = new BasicEList<>();
+		//If no statements, i.e. {}
+		if (getStatements().isEmpty())
+			return res;
+		
+		Statement firstStatement = getStatements().get(0);
+		EList<LabellableElement> prev = new BasicEList<>();
+		prev.addAll(firstStatement.last());
+		res.addAll(firstStatement.internalFlow());
+		for (int i = 1; i < getStatements().size(); i++) {
+			LabellableElement elem = getStatements().get(i);
+			for (LabellableElement e : prev) {
+				if (e instanceof ProcedureCall) {
+					res.add(FlowsFactory.eINSTANCE.createProcedureFlow(e, elem.first()));
+				}
+				else {
+					res.add(FlowsFactory.eINSTANCE.createRegularFlow(e, elem.first()));
+				}
+			}
+			res.addAll(elem.internalFlow());
+			
+			prev = elem.last();
+		}
+		
+		return res;
 	}
 
 	/**

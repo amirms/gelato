@@ -241,6 +241,15 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StatementsPackage.RETURN: {
+				Return return_ = (Return)theEObject;
+				T result = caseReturn(return_);
+				if (result == null) result = caseStatement(return_);
+				if (result == null) result = caseLabellableElement(return_);
+				if (result == null) result = caseMember(return_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -527,6 +536,21 @@ public class StatementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseReturnSite(ReturnSite object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Return</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Return</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReturn(Return object) {
 		return null;
 	}
 

@@ -316,7 +316,7 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	public EList<Flow> internalFlow() {
 		EList<Flow> result = new BasicEList<>();
 		LabellableElement mainproc = getMainProcedure() ;
-
+		
 		if(getStart() == null)
 			this.setStart(ContainersFactory.eINSTANCE.createStart());
 		
@@ -350,7 +350,7 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 				Procedure callee = (Procedure) procedureCall.getTarget();
 				result.add(FlowsFactory.eINSTANCE.createProcedureFlow(procedureCall.first(), callee.first()));
 				for (LabellableElement e : callee.last())
-					result.add(FlowsFactory.eINSTANCE.createProcedureFlow(e, procedureCall.first()));
+					result.add(FlowsFactory.eINSTANCE.createProcedureFlow(e, procedureCall.first())); //FIXME is this a procedure flow, or just a regular flow
 				
 			}
 				

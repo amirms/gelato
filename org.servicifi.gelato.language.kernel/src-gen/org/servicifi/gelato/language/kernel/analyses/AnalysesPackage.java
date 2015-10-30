@@ -75,7 +75,7 @@ public interface AnalysesPackage extends EPackage {
 	int ANALYSIS__DIRECTION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Cfg</b></em>' reference list.
+	 * The feature id for the '<em><b>Cfg</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -148,7 +148,7 @@ public interface AnalysesPackage extends EPackage {
 	int REACHING_DEFINITIONS_ANALYSIS__DIRECTION = ANALYSIS__DIRECTION;
 
 	/**
-	 * The feature id for the '<em><b>Cfg</b></em>' reference list.
+	 * The feature id for the '<em><b>Cfg</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -412,10 +412,10 @@ public interface AnalysesPackage extends EPackage {
 	EAttribute getAnalysis_Direction();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.servicifi.gelato.language.kernel.analyses.Analysis#getCfg <em>Cfg</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.servicifi.gelato.language.kernel.analyses.Analysis#getCfg <em>Cfg</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Cfg</em>'.
+	 * @return the meta object for the containment reference list '<em>Cfg</em>'.
 	 * @see org.servicifi.gelato.language.kernel.analyses.Analysis#getCfg()
 	 * @see #getAnalysis()
 	 * @generated
@@ -664,7 +664,7 @@ public interface AnalysesPackage extends EPackage {
 		EAttribute ANALYSIS__DIRECTION = eINSTANCE.getAnalysis_Direction();
 
 		/**
-		 * The meta object literal for the '<em><b>Cfg</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Cfg</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -24,15 +24,6 @@ public interface FlowsFactory extends EFactory {
 	FlowsFactory eINSTANCE = org.servicifi.gelato.language.kernel.flows.impl.FlowsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Flow</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flow</em>'.
-	 * @generated
-	 */
-	Flow createFlow();
-
-	/**
 	 * Returns a new object of class '<em>Regular Flow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

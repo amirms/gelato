@@ -2,6 +2,8 @@
  */
 package org.servicifi.gelato.language.kernel.analyses;
 
+import org.servicifi.gelato.language.kernel.dataitems.DataItem;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Reaching Definitions Result</b></em>'.
@@ -27,11 +29,11 @@ public interface ReachingDefinitionsResult extends AnalysisResult {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variable</em>' reference.
-	 * @see #setVariable(org.servicifi.gelato.language.kernel.dataitems.DataItem)
+	 * @see #setVariable(DataItem)
 	 * @see org.servicifi.gelato.language.kernel.analyses.AnalysesPackage#getReachingDefinitionsResult_Variable()
 	 * @generated
 	 */
-	org.servicifi.gelato.language.kernel.dataitems.DataItem getVariable();
+	DataItem getVariable();
 
 	/**
 	 * Sets the value of the '{@link org.servicifi.gelato.language.kernel.analyses.ReachingDefinitionsResult#getVariable <em>Variable</em>}' reference.
@@ -41,6 +43,6 @@ public interface ReachingDefinitionsResult extends AnalysisResult {
 	 * @see #getVariable()
 	 * @generated
 	 */
-	void setVariable(org.servicifi.gelato.language.kernel.dataitems.DataItem value);
+	void setVariable(DataItem value);
 
 } // ReachingDefinitionsResult

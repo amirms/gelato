@@ -148,6 +148,15 @@ public interface StatementsFactory extends EFactory {
 	ReturnSite createReturnSite();
 
 	/**
+	 * Returns a new object of class '<em>Return</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Return</em>'.
+	 * @generated
+	 */
+	Return createReturn();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

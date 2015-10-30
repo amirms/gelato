@@ -5,6 +5,7 @@ package org.servicifi.gelato.language.kernel.analyses;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
+import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 
 
 /**
@@ -36,7 +37,7 @@ public interface ReachingDefinitionsAnalysis extends Analysis {
 	 * @see org.servicifi.gelato.language.kernel.analyses.AnalysesPackage#getReachingDefinitionsAnalysis_Assignments()
 	 * @generated
 	 */
-	Map<org.servicifi.gelato.language.kernel.dataitems.DataItem, EList<Long>> getAssignments();
+	Map<DataItem, EList<Long>> getAssignments();
 
 	/**
 	 * Sets the value of the '{@link org.servicifi.gelato.language.kernel.analyses.ReachingDefinitionsAnalysis#getAssignments <em>Assignments</em>}' attribute.
@@ -46,6 +47,6 @@ public interface ReachingDefinitionsAnalysis extends Analysis {
 	 * @see #getAssignments()
 	 * @generated
 	 */
-	void setAssignments(Map<org.servicifi.gelato.language.kernel.dataitems.DataItem, EList<Long>> value);
+	void setAssignments(Map<DataItem, EList<Long>> value);
 
 } // ReachingDefinitionsAnalysis

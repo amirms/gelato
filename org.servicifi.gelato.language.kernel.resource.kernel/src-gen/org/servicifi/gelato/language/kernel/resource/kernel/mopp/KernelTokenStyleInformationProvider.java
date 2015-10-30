@@ -75,6 +75,9 @@ public class KernelTokenStyleInformationProvider {
 		if ("skip".equals(tokenName)) {
 			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
+		if ("return".equals(tokenName)) {
+			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
 		if ("call".equals(tokenName)) {
 			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}

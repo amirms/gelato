@@ -217,6 +217,10 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_0, foundFormattingElements);
 			return;
 		}
+		if (element instanceof org.servicifi.gelato.language.kernel.procedures.Procedure) {
+			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_2, foundFormattingElements);
+			return;
+		}
 		if (element instanceof org.servicifi.gelato.language.kernel.procedures.MainProcedure) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_3, foundFormattingElements);
 			return;
@@ -269,52 +273,52 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_15, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.statements.ProcedureCall) {
+		if (element instanceof org.servicifi.gelato.language.kernel.statements.Return) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_16, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.parameters.Parameter) {
+		if (element instanceof org.servicifi.gelato.language.kernel.statements.ProcedureCall) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_17, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.references.Argument) {
+		if (element instanceof org.servicifi.gelato.language.kernel.parameters.Parameter) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_18, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Expression) {
+		if (element instanceof org.servicifi.gelato.language.kernel.references.Argument) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_19, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Defines) {
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Expression) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_20, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Uses) {
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Defines) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_21, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Affects) {
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Uses) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PostDefines) {
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Affects) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PreUses) {
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PostDefines) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PostAffects) {
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PreUses) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PostAffects) {
+			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_26, foundFormattingElements);
 			return;
 		}
 		if (element instanceof org.servicifi.gelato.language.kernel.dataitems.DataItem) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_1, foundFormattingElements);
-			return;
-		}
-		if (element instanceof org.servicifi.gelato.language.kernel.procedures.Procedure) {
-			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_2, foundFormattingElements);
 			return;
 		}
 		

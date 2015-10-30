@@ -58,7 +58,7 @@
         <styles xmi:type="notation:SortingStyle" xmi:id="_JW4W7ReBEeWZTZMmPQw3Pg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_JW4W7heBEeWZTZMmPQw3Pg"/>
       </children>
-      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW3v6BeBEeWZTZMmPQw3Pg"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW3v6BeBEeWZTZMmPQw3Pg" diagramLink="_qwNCoEvwEeWeb6sSHKMpMA"/>
       <element xmi:type="ecore:EPackage" href="cobol.ecore#//conditions"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW3v6ReBEeWZTZMmPQw3Pg" x="448"/>
     </children>
@@ -162,7 +162,7 @@
         <styles xmi:type="notation:SortingStyle" xmi:id="_JW5lDReBEeWZTZMmPQw3Pg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_JW5lDheBEeWZTZMmPQw3Pg"/>
       </children>
-      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW4-FBeBEeWZTZMmPQw3Pg"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW4-FBeBEeWZTZMmPQw3Pg" diagramLink="_HJ7IgFV5EeW1Xe4-wQX-pQ"/>
       <element xmi:type="ecore:EPackage" href="cobol.ecore#//literals"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW4-FReBEeWZTZMmPQw3Pg" x="2160"/>
     </children>
@@ -318,7 +318,7 @@
         <styles xmi:type="notation:SortingStyle" xmi:id="_JW7aQReBEeWZTZMmPQw3Pg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_JW7aQheBEeWZTZMmPQw3Pg"/>
       </children>
-      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW7aMReBEeWZTZMmPQw3Pg"/>
+      <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_JW7aMReBEeWZTZMmPQw3Pg" diagramLink="_OEbR8FV4EeW1Xe4-wQX-pQ"/>
       <element xmi:type="ecore:EPackage" href="cobol.ecore#//operands"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JW7aMheBEeWZTZMmPQw3Pg" x="4558"/>
     </children>
@@ -770,5 +770,17 @@
   <notation:Diagram xmi:id="_LTYf0BeBEeWZTZMmPQw3Pg" type="Ecore" measurementUnit="Pixel">
     <styles xmi:type="notation:DiagramStyle" xmi:id="_LTYf0ReBEeWZTZMmPQw3Pg"/>
     <element xmi:type="ecore:EPackage" href="cobol.ecore#//labels"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_qwNCoEvwEeWeb6sSHKMpMA" type="Ecore" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_qwNCoUvwEeWeb6sSHKMpMA"/>
+    <element xmi:type="ecore:EPackage" href="cobol.ecore#//conditions"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_OEbR8FV4EeW1Xe4-wQX-pQ" type="Ecore" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_OEbR8VV4EeW1Xe4-wQX-pQ"/>
+    <element xmi:type="ecore:EPackage" href="cobol.ecore#//operands"/>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_HJ7IgFV5EeW1Xe4-wQX-pQ" type="Ecore" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_HJ7IgVV5EeW1Xe4-wQX-pQ"/>
+    <element xmi:type="ecore:EPackage" href="cobol.ecore#//literals"/>
   </notation:Diagram>
 </xmi:XMI>

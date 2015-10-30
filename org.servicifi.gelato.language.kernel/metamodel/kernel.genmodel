@@ -70,6 +70,10 @@
       </genClasses>
       <genClasses ecoreClass="kernel.ecore#//statements/Skip"/>
       <genClasses ecoreClass="kernel.ecore#//statements/ReturnSite"/>
+      <genClasses ecoreClass="kernel.ecore#//statements/Return">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference kernel.ecore#//statements/Return/returnValue"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Procedures" basePackage="org.servicifi.gelato.language.kernel"
         disposableProviderFactory="true" ecorePackage="kernel.ecore#//procedures">
@@ -78,8 +82,16 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kernel.ecore#//procedures/Procedure/parameters"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference kernel.ecore#//procedures/Procedure/callers"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kernel.ecore#//procedures/Procedure/start"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference kernel.ecore#//procedures/Procedure/end"/>
       </genClasses>
-      <genClasses ecoreClass="kernel.ecore#//procedures/MainProcedure"/>
+      <genClasses ecoreClass="kernel.ecore#//procedures/MainProcedure">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kernel.ecore#//procedures/MainProcedure/members"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kernel.ecore#//procedures/MainProcedure/start"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference kernel.ecore#//procedures/MainProcedure/end"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Expressions" basePackage="org.servicifi.gelato.language.kernel"
         disposableProviderFactory="true" ecorePackage="kernel.ecore#//expressions">

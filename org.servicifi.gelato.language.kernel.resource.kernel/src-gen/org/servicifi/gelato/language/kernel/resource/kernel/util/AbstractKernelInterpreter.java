@@ -50,6 +50,7 @@ import org.servicifi.gelato.language.kernel.statements.Jump;
 import org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock;
 import org.servicifi.gelato.language.kernel.statements.ParallelBlock;
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
+import org.servicifi.gelato.language.kernel.statements.Return;
 import org.servicifi.gelato.language.kernel.statements.ReturnSite;
 import org.servicifi.gelato.language.kernel.statements.Skip;
 import org.servicifi.gelato.language.kernel.statements.Statement;
@@ -242,6 +243,12 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.kernel.statements.Return) {
+			result = interprete_org_servicifi_gelato_language_kernel_statements_Return((org.servicifi.gelato.language.kernel.statements.Return) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.kernel.expressions.Expression) {
 			result = interprete_org_servicifi_gelato_language_kernel_expressions_Expression((org.servicifi.gelato.language.kernel.expressions.Expression) object, context);
 		}
@@ -302,14 +309,14 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.kernel.procedures.MainProcedure) {
-			result = interprete_org_servicifi_gelato_language_kernel_procedures_MainProcedure((org.servicifi.gelato.language.kernel.procedures.MainProcedure) object, context);
+		if (object instanceof org.servicifi.gelato.language.kernel.procedures.Procedure) {
+			result = interprete_org_servicifi_gelato_language_kernel_procedures_Procedure((org.servicifi.gelato.language.kernel.procedures.Procedure) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.kernel.procedures.Procedure) {
-			result = interprete_org_servicifi_gelato_language_kernel_procedures_Procedure((org.servicifi.gelato.language.kernel.procedures.Procedure) object, context);
+		if (object instanceof org.servicifi.gelato.language.kernel.procedures.MainProcedure) {
+			result = interprete_org_servicifi_gelato_language_kernel_procedures_MainProcedure((org.servicifi.gelato.language.kernel.procedures.MainProcedure) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -456,6 +463,10 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ReturnSite(ReturnSite returnSite, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Return(Return _return, ContextType context) {
 		return null;
 	}
 	

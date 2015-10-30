@@ -111,7 +111,7 @@ public interface ContainersPackage extends EPackage {
 	int COMPILATION_UNIT__DECLARATIONS = KERNEL_ROOT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Start</b></em>' reference.
+	 * The feature id for the '<em><b>Start</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -120,7 +120,7 @@ public interface ContainersPackage extends EPackage {
 	int COMPILATION_UNIT__START = KERNEL_ROOT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>End</b></em>' reference.
+	 * The feature id for the '<em><b>End</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -238,10 +238,10 @@ public interface ContainersPackage extends EPackage {
 	EReference getCompilationUnit_Declarations();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.servicifi.gelato.language.kernel.containers.CompilationUnit#getStart <em>Start</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.kernel.containers.CompilationUnit#getStart <em>Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Start</em>'.
+	 * @return the meta object for the containment reference '<em>Start</em>'.
 	 * @see org.servicifi.gelato.language.kernel.containers.CompilationUnit#getStart()
 	 * @see #getCompilationUnit()
 	 * @generated
@@ -249,10 +249,10 @@ public interface ContainersPackage extends EPackage {
 	EReference getCompilationUnit_Start();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.servicifi.gelato.language.kernel.containers.CompilationUnit#getEnd <em>End</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.kernel.containers.CompilationUnit#getEnd <em>End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>End</em>'.
+	 * @return the meta object for the containment reference '<em>End</em>'.
 	 * @see org.servicifi.gelato.language.kernel.containers.CompilationUnit#getEnd()
 	 * @see #getCompilationUnit()
 	 * @generated
@@ -338,7 +338,7 @@ public interface ContainersPackage extends EPackage {
 		EReference COMPILATION_UNIT__DECLARATIONS = eINSTANCE.getCompilationUnit_Declarations();
 
 		/**
-		 * The meta object literal for the '<em><b>Start</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -346,7 +346,7 @@ public interface ContainersPackage extends EPackage {
 		EReference COMPILATION_UNIT__START = eINSTANCE.getCompilationUnit_Start();
 
 		/**
-		 * The meta object literal for the '<em><b>End</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>End</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
