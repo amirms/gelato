@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.sections.SectionsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Local Storage Section</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

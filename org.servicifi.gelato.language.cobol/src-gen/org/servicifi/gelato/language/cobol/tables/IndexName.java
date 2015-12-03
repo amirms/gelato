@@ -15,10 +15,10 @@ import org.servicifi.gelato.language.cobol.references.ReferenceableElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.IndexName#getAdditionalIndexNames <em>Additional Index Names</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.tables.TablesPackage#getIndexName()
  * @model

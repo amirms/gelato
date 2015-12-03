@@ -18,10 +18,10 @@ import org.servicifi.gelato.language.cobol.operands.OperandsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.operands.impl.EncodingImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -34,6 +34,7 @@ import org.servicifi.gelato.language.cobol.water.WaterPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.impl.DataItemImpl#getWater <em>Water</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.impl.DataItemImpl#getLevelNumber <em>Level Number</em>}</li>
@@ -41,7 +42,6 @@ import org.servicifi.gelato.language.cobol.water.WaterPackage;
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.impl.DataItemImpl#getSubentries <em>Subentries</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.impl.DataItemImpl#getSuperentry <em>Superentry</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

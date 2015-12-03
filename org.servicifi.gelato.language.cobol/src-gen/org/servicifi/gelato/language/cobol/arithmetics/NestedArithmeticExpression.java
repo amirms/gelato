@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.arithmetics;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.NestedArithmeticExpression#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.arithmetics.ArithmeticsPackage#getNestedArithmeticExpression()
  * @model

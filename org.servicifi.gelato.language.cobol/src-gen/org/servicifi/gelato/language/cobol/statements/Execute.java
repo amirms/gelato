@@ -11,10 +11,10 @@ import java.lang.String;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Execute#getWater <em>Water</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getExecute()
  * @model

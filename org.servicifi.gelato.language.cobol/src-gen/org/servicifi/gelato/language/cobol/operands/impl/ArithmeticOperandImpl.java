@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.operands.OperandsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Arithmetic Operand</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

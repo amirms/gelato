@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.paragraphs.ParagraphsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>IO Section Paragraph</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

@@ -14,13 +14,13 @@ import org.servicifi.gelato.language.cobol.verbs.Is;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.SignCondition#getChild <em>Child</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.SignCondition#getSignOperator <em>Sign Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.SignCondition#getNegateOperator <em>Negate Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.SignCondition#getIs <em>Is</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.conditions.ConditionsPackage#getSignCondition()
  * @model

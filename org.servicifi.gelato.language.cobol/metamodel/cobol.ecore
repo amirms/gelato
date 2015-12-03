@@ -852,6 +852,20 @@
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AfterUntilCondition" eSuperTypes="#//statements/VaryingUntilCondition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//statements/ErrorHandled #//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fileName" lowerBound="1"
+          eType="#//references/FileNameReference" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operator" eType="#//operators/RelationalOperator"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataName" eType="#//identifiers/Identifier"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="not" eType="#//operators/Negate"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Delete" eSuperTypes="#//statements/Statement #//statements/ErrorHandled">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fileName" lowerBound="1"
+          eType="#//references/FileNameReference" containment="true"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="identifiers" nsURI="http://www.servicifi.org/gelato/language/cobol/identifiers"
       nsPrefix="identifiers">

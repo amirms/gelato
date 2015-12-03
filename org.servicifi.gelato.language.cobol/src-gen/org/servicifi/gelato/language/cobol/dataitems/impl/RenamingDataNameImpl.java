@@ -21,10 +21,10 @@ import org.servicifi.gelato.language.cobol.dataitems.RenamingDataName;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.impl.RenamingDataNameImpl#getNameRange <em>Name Range</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

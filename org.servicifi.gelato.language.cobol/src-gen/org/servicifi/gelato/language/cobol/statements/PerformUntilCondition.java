@@ -15,11 +15,11 @@ import org.servicifi.gelato.language.cobol.strings.Positions;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.PerformUntilCondition#getPosition <em>Position</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.PerformUntilCondition#getConditions <em>Conditions</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getPerformUntilCondition()
  * @model abstract="true"

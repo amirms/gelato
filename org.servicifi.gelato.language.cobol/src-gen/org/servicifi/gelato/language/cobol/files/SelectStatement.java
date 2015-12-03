@@ -15,13 +15,13 @@ import org.servicifi.gelato.language.cobol.water.IncompleteElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.SelectStatement#getFileStatus <em>File Status</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.SelectStatement#isIsOptional <em>Is Optional</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.SelectStatement#getExternalFileNames <em>External File Names</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.SelectStatement#getFileNameReference <em>File Name Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.files.FilesPackage#getSelectStatement()
  * @model

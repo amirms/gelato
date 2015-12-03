@@ -29,11 +29,11 @@ import org.servicifi.gelato.language.cobol.water.WaterPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.impl.IdentificationDivisionImpl#getWater <em>Water</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.impl.IdentificationDivisionImpl#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

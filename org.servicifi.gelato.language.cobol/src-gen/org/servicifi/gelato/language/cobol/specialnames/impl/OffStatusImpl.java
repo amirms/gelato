@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Off Status</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

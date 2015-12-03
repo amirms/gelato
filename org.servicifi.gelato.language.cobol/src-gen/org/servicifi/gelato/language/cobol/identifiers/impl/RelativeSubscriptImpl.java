@@ -23,11 +23,11 @@ import org.servicifi.gelato.language.cobol.operators.AdditiveOperator;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.RelativeSubscriptImpl#getAdditiveOperator <em>Additive Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.RelativeSubscriptImpl#getInteger <em>Integer</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

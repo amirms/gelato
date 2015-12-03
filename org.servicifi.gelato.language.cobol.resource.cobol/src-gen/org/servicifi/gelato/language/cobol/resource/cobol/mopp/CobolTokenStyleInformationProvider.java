@@ -339,6 +339,9 @@ public class CobolTokenStyleInformationProvider {
 		if ("END-SEARCH".equals(tokenName)) {
 			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x7F, 0x00, 0x55}, null, true, false, false, false);
 		}
+		if ("END-START".equals(tokenName)) {
+			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x7F, 0x00, 0x55}, null, true, false, false, false);
+		}
 		if ("END-STRING".equals(tokenName)) {
 			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x7F, 0x00, 0x55}, null, true, false, false, false);
 		}
@@ -901,6 +904,9 @@ public class CobolTokenStyleInformationProvider {
 			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("FUNCTION-POINTER".equals(tokenName)) {
+			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
+		if ("END-DELETE".equals(tokenName)) {
 			return new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("ACCEPT".equals(tokenName)) {

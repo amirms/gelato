@@ -15,13 +15,13 @@ import org.servicifi.gelato.language.cobol.water.IncompleteElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.DataItem#getLevelNumber <em>Level Number</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.DataItem#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.DataItem#getSubentries <em>Subentries</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.DataItem#getSuperentry <em>Superentry</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.dataitems.DataitemsPackage#getDataItem()
  * @model

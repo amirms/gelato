@@ -22,11 +22,11 @@ import org.servicifi.gelato.language.cobol.operators.Negate;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.NegatedConditionalExpressionImpl#getChild <em>Child</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.NegatedConditionalExpressionImpl#getNegateOperator <em>Negate Operator</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

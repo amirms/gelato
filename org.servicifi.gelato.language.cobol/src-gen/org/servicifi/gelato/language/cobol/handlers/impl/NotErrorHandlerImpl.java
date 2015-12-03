@@ -20,10 +20,10 @@ import org.servicifi.gelato.language.cobol.handlers.NotErrorHandler;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.handlers.impl.NotErrorHandlerImpl#getHandlerStatement <em>Handler Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

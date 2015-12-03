@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.water.ObjectComputerParagraphWater;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.literals.IntegerLiteral#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.literals.LiteralsPackage#getIntegerLiteral()
  * @model

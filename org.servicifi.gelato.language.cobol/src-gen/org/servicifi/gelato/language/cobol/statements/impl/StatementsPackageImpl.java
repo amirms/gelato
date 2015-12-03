@@ -124,6 +124,7 @@ import org.servicifi.gelato.language.cobol.statements.Condition;
 import org.servicifi.gelato.language.cobol.statements.Conditional;
 import org.servicifi.gelato.language.cobol.statements.Continue;
 import org.servicifi.gelato.language.cobol.statements.Corresponding;
+import org.servicifi.gelato.language.cobol.statements.Delete;
 import org.servicifi.gelato.language.cobol.statements.Display;
 import org.servicifi.gelato.language.cobol.statements.Divide;
 import org.servicifi.gelato.language.cobol.statements.Entry;
@@ -174,6 +175,7 @@ import org.servicifi.gelato.language.cobol.statements.SetIndexName;
 import org.servicifi.gelato.language.cobol.statements.SetStatement;
 import org.servicifi.gelato.language.cobol.statements.SetSwitches;
 import org.servicifi.gelato.language.cobol.statements.Sort;
+import org.servicifi.gelato.language.cobol.statements.Start;
 import org.servicifi.gelato.language.cobol.statements.Statement;
 import org.servicifi.gelato.language.cobol.statements.StatementsFactory;
 import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
@@ -684,6 +686,20 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * @generated
 	 */
 	private EClass afterUntilConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass startEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass deleteEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2302,6 +2318,69 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStart() {
+		return startEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStart_FileName() {
+		return (EReference)startEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStart_Operator() {
+		return (EReference)startEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStart_DataName() {
+		return (EReference)startEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStart_Not() {
+		return (EReference)startEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDelete() {
+		return deleteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDelete_FileName() {
+		return (EReference)deleteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getExitLabels() {
 		return exitLabelsEEnum;
 	}
@@ -2613,6 +2692,15 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 
 		afterUntilConditionEClass = createEClass(AFTER_UNTIL_CONDITION);
 
+		startEClass = createEClass(START);
+		createEReference(startEClass, START__FILE_NAME);
+		createEReference(startEClass, START__OPERATOR);
+		createEReference(startEClass, START__DATA_NAME);
+		createEReference(startEClass, START__NOT);
+
+		deleteEClass = createEClass(DELETE);
+		createEReference(deleteEClass, DELETE__FILE_NAME);
+
 		// Create enums
 		exitLabelsEEnum = createEEnum(EXIT_LABELS);
 		adjustingsEEnum = createEEnum(ADJUSTINGS);
@@ -2661,6 +2749,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 		LiteralsPackage theLiteralsPackage = (LiteralsPackage)EPackage.Registry.INSTANCE.getEPackage(LiteralsPackage.eNS_URI);
 		IosPackage theIosPackage = (IosPackage)EPackage.Registry.INSTANCE.getEPackage(IosPackage.eNS_URI);
+		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -2751,6 +2840,10 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		ioFileEClass.getESuperTypes().add(theWaterPackage.getIncompleteElement());
 		varyingUntilConditionEClass.getESuperTypes().add(this.getConditional());
 		afterUntilConditionEClass.getESuperTypes().add(this.getVaryingUntilCondition());
+		startEClass.getESuperTypes().add(this.getErrorHandled());
+		startEClass.getESuperTypes().add(this.getStatement());
+		deleteEClass.getESuperTypes().add(this.getStatement());
+		deleteEClass.getESuperTypes().add(this.getErrorHandled());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2977,6 +3070,15 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		initEReference(getVaryingUntilCondition_Increment(), theOperandsPackage.getPrimaryOperand(), null, "increment", null, 0, 1, VaryingUntilCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(afterUntilConditionEClass, AfterUntilCondition.class, "AfterUntilCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStart_FileName(), theReferencesPackage.getFileNameReference(), null, "fileName", null, 1, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStart_Operator(), theOperatorsPackage.getRelationalOperator(), null, "operator", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStart_DataName(), theIdentifiersPackage.getIdentifier(), null, "dataName", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStart_Not(), theOperatorsPackage.getNegate(), null, "not", null, 0, 1, Start.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(deleteEClass, Delete.class, "Delete", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDelete_FileName(), theReferencesPackage.getFileNameReference(), null, "fileName", null, 1, 1, Delete.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(exitLabelsEEnum, ExitLabels.class, "ExitLabels");

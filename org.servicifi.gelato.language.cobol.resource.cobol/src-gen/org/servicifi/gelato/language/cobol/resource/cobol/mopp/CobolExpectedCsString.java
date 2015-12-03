@@ -29,7 +29,7 @@ public class CobolExpectedCsString extends org.servicifi.gelato.language.cobol.r
 	/**
 	 * Returns the expected keyword.
 	 */
-	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSymtaxElement() {
+	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSyntaxElement() {
 		return keyword;
 	}
 	

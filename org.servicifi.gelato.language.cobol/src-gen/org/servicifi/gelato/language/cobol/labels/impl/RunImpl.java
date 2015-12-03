@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.labels.Run;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Run</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

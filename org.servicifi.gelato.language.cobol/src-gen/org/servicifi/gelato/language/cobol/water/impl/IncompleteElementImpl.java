@@ -26,10 +26,10 @@ import org.servicifi.gelato.language.cobol.water.WaterPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.water.impl.IncompleteElementImpl#getWater <em>Water</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

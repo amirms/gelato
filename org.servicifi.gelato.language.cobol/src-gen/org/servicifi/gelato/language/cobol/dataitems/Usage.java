@@ -10,11 +10,11 @@ package org.servicifi.gelato.language.cobol.dataitems;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.Usage#getUsage <em>Usage</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.Usage#isIsNative <em>Is Native</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.dataitems.DataitemsPackage#getUsage()
  * @model

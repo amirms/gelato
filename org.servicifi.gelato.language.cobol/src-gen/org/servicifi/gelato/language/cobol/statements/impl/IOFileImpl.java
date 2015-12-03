@@ -23,10 +23,10 @@ import org.servicifi.gelato.language.cobol.water.impl.IncompleteElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.IOFileImpl#getFileName <em>File Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

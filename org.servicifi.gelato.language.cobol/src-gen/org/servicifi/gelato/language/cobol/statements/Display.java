@@ -15,11 +15,11 @@ import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Display#getOperands <em>Operands</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Display#getOutput <em>Output</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getDisplay()
  * @model

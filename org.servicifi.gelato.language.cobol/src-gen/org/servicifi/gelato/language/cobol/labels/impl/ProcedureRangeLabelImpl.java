@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.labels.ProcedureRangeLabel;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Procedure Range Label</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

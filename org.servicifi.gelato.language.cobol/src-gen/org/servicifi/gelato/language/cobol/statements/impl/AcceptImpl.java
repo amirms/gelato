@@ -32,11 +32,11 @@ import org.servicifi.gelato.language.cobol.water.WaterPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.AcceptImpl#getWater <em>Water</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.AcceptImpl#getReceiver <em>Receiver</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

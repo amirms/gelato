@@ -32,12 +32,12 @@ import org.servicifi.gelato.language.cobol.parameters.Parametrizable;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.impl.ProcedureDivisionImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.impl.ProcedureDivisionImpl#getReturning <em>Returning</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.impl.ProcedureDivisionImpl#getDeclaratives <em>Declaratives</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

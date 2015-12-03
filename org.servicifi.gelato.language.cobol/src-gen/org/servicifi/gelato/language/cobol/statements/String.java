@@ -15,12 +15,12 @@ import org.servicifi.gelato.language.cobol.strings.ConcatenatingStrings;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.String#getPointer <em>Pointer</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.String#getReceiver <em>Receiver</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.String#getSenders <em>Senders</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getString()
  * @model

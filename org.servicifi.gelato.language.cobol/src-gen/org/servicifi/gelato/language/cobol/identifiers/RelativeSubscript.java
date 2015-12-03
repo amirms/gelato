@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.operators.AdditiveOperator;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.RelativeSubscript#getAdditiveOperator <em>Additive Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.RelativeSubscript#getInteger <em>Integer</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage#getRelativeSubscript()
  * @model

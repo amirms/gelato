@@ -25,10 +25,10 @@ import org.servicifi.gelato.language.cobol.specialnames.SymbolicCharacter;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.impl.SymbolicCharacterImpl#getIntegers <em>Integers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

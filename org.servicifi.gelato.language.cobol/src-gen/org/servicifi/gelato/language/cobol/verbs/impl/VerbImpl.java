@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.verbs.VerbsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Verb</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

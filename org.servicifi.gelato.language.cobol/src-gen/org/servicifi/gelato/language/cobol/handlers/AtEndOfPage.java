@@ -11,10 +11,10 @@ import org.servicifi.gelato.language.cobol.statements.EOP;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.handlers.AtEndOfPage#getEop <em>Eop</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.handlers.HandlersPackage#getAtEndOfPage()
  * @model

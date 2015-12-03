@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.handlers.NotInvalidKey;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Not Invalid Key</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

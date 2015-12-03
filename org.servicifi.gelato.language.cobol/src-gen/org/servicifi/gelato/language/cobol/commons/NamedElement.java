@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.commons;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.commons.NamedElement#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.commons.CommonsPackage#getNamedElement()
  * @model abstract="true"

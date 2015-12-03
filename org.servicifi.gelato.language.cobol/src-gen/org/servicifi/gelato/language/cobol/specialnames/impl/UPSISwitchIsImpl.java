@@ -24,10 +24,10 @@ import org.servicifi.gelato.language.cobol.specialnames.UPSISwitchIs;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.impl.UPSISwitchIsImpl#getConditionNames <em>Condition Names</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

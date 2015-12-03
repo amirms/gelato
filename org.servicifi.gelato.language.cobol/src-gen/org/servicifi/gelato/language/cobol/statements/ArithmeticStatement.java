@@ -13,12 +13,12 @@ import org.servicifi.gelato.language.cobol.operands.ArithmeticOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.ArithmeticStatement#getCorresponding <em>Corresponding</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.ArithmeticStatement#getOperands <em>Operands</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.ArithmeticStatement#getGivings <em>Givings</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getArithmeticStatement()
  * @model abstract="true"

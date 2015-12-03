@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.references.impl.ReferenceableElementI
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Parameter</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

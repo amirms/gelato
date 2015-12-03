@@ -109,7 +109,7 @@ TOKENS {
 	
 	//In a cobol word, there is at least one character
 	@SuppressWarnings(tokenOverlapping)
-	DEFINE COBOL_WORD $(('A'..'Z' | 'a'..'z' | '0'..'9' | '_' | '\\' | '+' | '-'| '*'| '!' | '/' | '~') 
+	DEFINE COBOL_WORD $(('A'..'Z' | 'a'..'z' | '0'..'9' | '_' | '+' | '-'| '*'| '!' | '/' | '~') 
 						('['('0'..'9')+']')? )+$;
 	
 	//@SuppressWarnings(tokenOverlapping)
@@ -159,7 +159,7 @@ TOKENS {
 	
 	
 	@SuppressWarnings(unusedToken)
-	DEFINE WHITESPACE $(' '|'\t'|'\f'|'\r'|'\n'|',' | ';')+$;
+	DEFINE WHITESPACE $(' '|'\t'|'\f'|'\r'|'\n'|',' |  '\\'  | ';')+$;
 }
 
 TOKENSTYLES {
@@ -223,7 +223,7 @@ TOKENSTYLES {
 	"END-DIVIDE", "END-EVALUATE", 
 	"END-EXEC", "END-IF", "END-MULTIPLY",  
 	"END-PERFORM", "END-RETURN", 
-	"END-SEARCH", "END-STRING", "END-SUBTRACT", 
+	"END-SEARCH", "END-START", "END-STRING", "END-SUBTRACT", 
 	"END-UNSTRING",  "ENTRY", "ENVIRONMENT", 
 	"EQUAL", "ERROR", "EVALUATE", "EXCEPTION", "EXEC", "EXIT", 
 	"EXTEND", "EXTERNAL",  "FD", "FILE", "FILE-CONTROL", 
@@ -708,34 +708,59 @@ sentences.EmptySentence ::= ".";
 
 //statements
 
+
+//START statement
+
+statements.Start
+	::= "START" fileName
+    ( "KEY" ( "IS" )? (not)? operator dataName:Identifiers.IdentifierReference )?
+    ( handlers:handlers.InvalidKey)?
+    ( handlers:handlers.NotInvalidKey)?
+    endVerb["END-START" : ""]
+    ;
+    
+    
+statements.Delete
+	::= "DELETE" fileName ("RECORD")?
+    ( handlers:handlers.InvalidKey)?
+    ( handlers:handlers.NotInvalidKey)?
+    endVerb["END-DELETE" : ""]
+    ;    
+
+
+
+
+
+//FIXME include
+//statements.Merge
+//	::= "MERGE" fileName
+//		( keyDescriptors )+
+//		( water:water.SortPhraseWater )*
+//		( input:ios.InputFile )
+//		( output )
+//	;
+			
+//FIXME include
+//statements.Sort 
+//	::= "SORT" fileName
+//		( keyDescriptors )+			
+//		( water:water.SortPhraseWater )*
+//		( input )?
+//		( output )?
+//	;
+
+//FIXME include
+//FROM points to identifier
+//statements.Release
+//	::= "RELEASE" recordName
+//		( "FROM" sender )?
+//		;
 // ACCEPT receiver FROM sender
 statements.Accept
   ::= "ACCEPT" receiver:identifiers.Identifier 
   ( water:water.AcceptStatementWater )*
   ;
 
-//FROM points to identifier
-statements.Release
-	::= "RELEASE" recordName
-		( "FROM" sender )?
-		;
-
-statements.Merge
-	::= "MERGE" fileName
-		( keyDescriptors )+
-		( water:water.SortPhraseWater )*
-		( input:ios.InputFile )
-		( output )
-	;
-			
-
-statements.Sort 
-	::= "SORT" fileName
-		( keyDescriptors )+			
-		( water:water.SortPhraseWater )*
-		( input )?
-		( output )?
-	;
 	
 statements.KeyDescriptor
 	::= ( "ON" )? order[asc: "ASCENDING", dsc: "DESCENDING"] ( "KEY" )? ("IS")? ( keyNames )+

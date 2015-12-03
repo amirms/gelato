@@ -27,11 +27,11 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.DivideImpl#getIntos <em>Intos</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.DivideImpl#getRemainders <em>Remainders</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

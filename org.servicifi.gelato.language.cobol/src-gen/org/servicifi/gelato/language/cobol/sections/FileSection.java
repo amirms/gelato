@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.files.FileName;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.sections.FileSection#getFileDescriptors <em>File Descriptors</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.sections.SectionsPackage#getFileSection()
  * @model

@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.registers.ReturnCode;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Return Code</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

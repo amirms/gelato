@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.operands.ArithmeticOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Add#getTos <em>Tos</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getAdd()
  * @model

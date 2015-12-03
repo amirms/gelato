@@ -13,12 +13,12 @@ import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.Location#getPosition <em>Position</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.Location#isInitial <em>Initial</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.Location#getBase <em>Base</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.strings.StringsPackage#getLocation()
  * @model

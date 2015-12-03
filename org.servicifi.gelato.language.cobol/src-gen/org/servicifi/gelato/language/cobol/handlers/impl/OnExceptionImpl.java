@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.handlers.OnException;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>On Exception</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

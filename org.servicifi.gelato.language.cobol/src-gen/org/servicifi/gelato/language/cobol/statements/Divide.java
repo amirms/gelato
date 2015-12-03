@@ -15,11 +15,11 @@ import org.servicifi.gelato.language.cobol.operands.ArithmeticOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Divide#getIntos <em>Intos</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Divide#getRemainders <em>Remainders</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getDivide()
  * @model

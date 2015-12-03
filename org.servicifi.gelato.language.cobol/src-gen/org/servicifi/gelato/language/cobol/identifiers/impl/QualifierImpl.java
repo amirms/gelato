@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.references.impl.ElementReferenceImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Qualifier</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

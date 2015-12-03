@@ -34,6 +34,7 @@ import org.servicifi.gelato.language.cobol.strings.SplittedString;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.UnstringImpl#getNext <em>Next</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.UnstringImpl#isEndVerb <em>End Verb</em>}</li>
@@ -44,7 +45,6 @@ import org.servicifi.gelato.language.cobol.strings.SplittedString;
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.UnstringImpl#getDelimiter <em>Delimiter</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.UnstringImpl#getCounter <em>Counter</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

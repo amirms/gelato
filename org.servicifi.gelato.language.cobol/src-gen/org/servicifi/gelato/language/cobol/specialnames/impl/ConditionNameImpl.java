@@ -29,11 +29,11 @@ import org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.impl.ConditionNameImpl#getAliasesTo <em>Aliases To</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.impl.ConditionNameImpl#getAliasesFrom <em>Aliases From</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

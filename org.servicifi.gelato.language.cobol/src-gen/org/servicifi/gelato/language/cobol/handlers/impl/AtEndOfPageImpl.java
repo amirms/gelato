@@ -19,10 +19,10 @@ import org.servicifi.gelato.language.cobol.statements.EOP;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.handlers.impl.AtEndOfPageImpl#getEop <em>Eop</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -23,10 +23,10 @@ import org.servicifi.gelato.language.cobol.references.ReferencesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.LinageCounterImpl#getQualifier <em>Qualifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

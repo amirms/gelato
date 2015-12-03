@@ -24,7 +24,7 @@ public class CobolKeyword extends org.servicifi.gelato.language.cobol.resource.c
 	}
 	
 	public String toString() {
-		return value;
+		return "\"" + value + "\"";
 	}
 	
 }

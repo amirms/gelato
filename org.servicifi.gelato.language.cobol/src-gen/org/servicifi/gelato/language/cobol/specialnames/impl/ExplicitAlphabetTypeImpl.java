@@ -25,10 +25,10 @@ import org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.impl.ExplicitAlphabetTypeImpl#getRange <em>Range</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -11,10 +11,10 @@ import org.servicifi.gelato.language.cobol.arithmetics.AssignmentExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Compute#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getCompute()
  * @model

@@ -11,11 +11,11 @@ import org.servicifi.gelato.language.cobol.identifiers.IdentifierReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Release#getRecordName <em>Record Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Release#getSender <em>Sender</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getRelease()
  * @model

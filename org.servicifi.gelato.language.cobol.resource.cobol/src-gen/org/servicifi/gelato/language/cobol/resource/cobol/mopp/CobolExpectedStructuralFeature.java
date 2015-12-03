@@ -30,7 +30,7 @@ public class CobolExpectedStructuralFeature extends org.servicifi.gelato.languag
 	/**
 	 * Returns the expected placeholder.
 	 */
-	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSymtaxElement() {
+	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSyntaxElement() {
 		return placeholder;
 	}
 	

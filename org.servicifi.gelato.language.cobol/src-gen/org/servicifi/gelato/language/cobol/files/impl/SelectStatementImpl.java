@@ -30,13 +30,13 @@ import org.servicifi.gelato.language.cobol.water.impl.IncompleteElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.SelectStatementImpl#getFileStatus <em>File Status</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.SelectStatementImpl#isIsOptional <em>Is Optional</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.SelectStatementImpl#getExternalFileNames <em>External File Names</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.SelectStatementImpl#getFileNameReference <em>File Name Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -25,10 +25,10 @@ import org.servicifi.gelato.language.cobol.paragraphs.ParagraphsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.paragraphs.impl.FileControlParagraphImpl#getSelectStatements <em>Select Statements</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

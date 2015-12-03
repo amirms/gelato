@@ -31,12 +31,12 @@ import org.servicifi.gelato.language.cobol.water.impl.IncompleteElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.OpenImpl#getNext <em>Next</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.OpenImpl#isEndVerb <em>End Verb</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.OpenImpl#getIoFileDescriptors <em>Io File Descriptors</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

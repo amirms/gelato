@@ -15,12 +15,12 @@ import org.servicifi.gelato.language.cobol.operators.Equal;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.AssignmentExpression#getAssignmentOperator <em>Assignment Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.AssignmentExpression#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.AssignmentExpression#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.arithmetics.ArithmeticsPackage#getAssignmentExpression()
  * @model

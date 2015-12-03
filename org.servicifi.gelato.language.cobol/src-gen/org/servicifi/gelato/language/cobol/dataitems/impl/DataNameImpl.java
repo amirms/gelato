@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.dataitems.DataitemsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Data Name</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

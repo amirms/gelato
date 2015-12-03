@@ -32,12 +32,12 @@ import org.servicifi.gelato.language.cobol.sentences.StatementContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.sections.impl.SectionImpl#getSentences <em>Sentences</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.sections.impl.SectionImpl#getParagraphs <em>Paragraphs</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.sections.impl.SectionImpl#getSegmentNumber <em>Segment Number</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

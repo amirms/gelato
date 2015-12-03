@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.environments.SuppressSpacing;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Suppress Spacing</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

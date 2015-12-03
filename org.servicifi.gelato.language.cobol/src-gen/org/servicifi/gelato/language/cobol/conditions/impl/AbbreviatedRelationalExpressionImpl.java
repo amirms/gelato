@@ -25,13 +25,13 @@ import org.servicifi.gelato.language.cobol.verbs.Is;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.AbbreviatedRelationalExpressionImpl#getRelationalOperator <em>Relational Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.AbbreviatedRelationalExpressionImpl#getChild <em>Child</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.AbbreviatedRelationalExpressionImpl#getNegateOperator <em>Negate Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.AbbreviatedRelationalExpressionImpl#getIs <em>Is</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

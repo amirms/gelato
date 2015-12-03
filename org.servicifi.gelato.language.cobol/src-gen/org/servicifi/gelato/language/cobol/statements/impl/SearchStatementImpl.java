@@ -32,12 +32,12 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.SearchStatementImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.SearchStatementImpl#getCases <em>Cases</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.SearchStatementImpl#getTable <em>Table</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

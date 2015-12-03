@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.identifiers.IdentifierReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.FileStatus#getFileStatus <em>File Status</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.FileStatus#getVsamFileStatus <em>Vsam File Status</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.files.FilesPackage#getFileStatus()
  * @model

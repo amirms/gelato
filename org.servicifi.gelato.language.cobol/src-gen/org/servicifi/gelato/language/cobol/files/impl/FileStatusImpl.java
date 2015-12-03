@@ -22,11 +22,11 @@ import org.servicifi.gelato.language.cobol.identifiers.IdentifierReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.FileStatusImpl#getFileStatus <em>File Status</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.FileStatusImpl#getVsamFileStatus <em>Vsam File Status</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

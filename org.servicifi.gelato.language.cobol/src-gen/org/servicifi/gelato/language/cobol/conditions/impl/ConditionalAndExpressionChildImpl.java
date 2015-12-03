@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.conditions.ConditionsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Conditional And Expression Child</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

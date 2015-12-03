@@ -21,11 +21,11 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.EntryImpl#getNext <em>Next</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.EntryImpl#isEndVerb <em>End Verb</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

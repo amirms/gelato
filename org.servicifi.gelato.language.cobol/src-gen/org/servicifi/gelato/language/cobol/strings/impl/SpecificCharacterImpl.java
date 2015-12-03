@@ -21,10 +21,10 @@ import org.servicifi.gelato.language.cobol.strings.StringsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.SpecificCharacterImpl#getTallying <em>Tallying</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

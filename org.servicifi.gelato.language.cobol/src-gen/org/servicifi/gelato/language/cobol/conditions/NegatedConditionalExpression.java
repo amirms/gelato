@@ -11,11 +11,11 @@ import org.servicifi.gelato.language.cobol.operators.Negate;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.NegatedConditionalExpression#getChild <em>Child</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.NegatedConditionalExpression#getNegateOperator <em>Negate Operator</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.conditions.ConditionsPackage#getNegatedConditionalExpression()
  * @model

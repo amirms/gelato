@@ -29,11 +29,11 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.IOFileDescriptorImpl#getIoFiles <em>Io Files</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.IOFileDescriptorImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

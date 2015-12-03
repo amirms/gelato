@@ -19,12 +19,12 @@ import org.servicifi.gelato.language.cobol.sentences.StatementContainer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.Division#getSections <em>Sections</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.Division#getParagraphs <em>Paragraphs</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.Division#getSentences <em>Sentences</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.divisions.DivisionsPackage#getDivision()
  * @model abstract="true"

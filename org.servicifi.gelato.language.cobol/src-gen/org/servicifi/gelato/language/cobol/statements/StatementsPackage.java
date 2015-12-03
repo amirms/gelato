@@ -4019,6 +4019,143 @@ public interface StatementsPackage extends EPackage {
 	int AFTER_UNTIL_CONDITION_FEATURE_COUNT = VARYING_UNTIL_CONDITION_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.servicifi.gelato.language.cobol.statements.impl.StartImpl <em>Start</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.servicifi.gelato.language.cobol.statements.impl.StartImpl
+	 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getStart()
+	 * @generated
+	 */
+	int START = 68;
+
+	/**
+	 * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__HANDLERS = ERROR_HANDLED__HANDLERS;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__NEXT = ERROR_HANDLED_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>End Verb</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__END_VERB = ERROR_HANDLED_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>File Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__FILE_NAME = ERROR_HANDLED_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__OPERATOR = ERROR_HANDLED_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Data Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__DATA_NAME = ERROR_HANDLED_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Not</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__NOT = ERROR_HANDLED_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Start</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_FEATURE_COUNT = ERROR_HANDLED_FEATURE_COUNT + 6;
+
+	/**
+	 * The meta object id for the '{@link org.servicifi.gelato.language.cobol.statements.impl.DeleteImpl <em>Delete</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.servicifi.gelato.language.cobol.statements.impl.DeleteImpl
+	 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getDelete()
+	 * @generated
+	 */
+	int DELETE = 69;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE__NEXT = STATEMENT__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>End Verb</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE__END_VERB = STATEMENT__END_VERB;
+
+	/**
+	 * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE__HANDLERS = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>File Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE__FILE_NAME = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Delete</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELETE_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.cobol.statements.ExitLabels <em>Exit Labels</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4026,7 +4163,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getExitLabels()
 	 * @generated
 	 */
-	int EXIT_LABELS = 68;
+	int EXIT_LABELS = 70;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.cobol.statements.Adjustings <em>Adjustings</em>}' enum.
@@ -4036,7 +4173,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getAdjustings()
 	 * @generated
 	 */
-	int ADJUSTINGS = 69;
+	int ADJUSTINGS = 71;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.cobol.statements.Status <em>Status</em>}' enum.
@@ -4046,7 +4183,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 70;
+	int STATUS = 72;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.cobol.statements.EOP <em>EOP</em>}' enum.
@@ -4056,7 +4193,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getEOP()
 	 * @generated
 	 */
-	int EOP = 71;
+	int EOP = 73;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.cobol.statements.IOTypes <em>IO Types</em>}' enum.
@@ -4066,7 +4203,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getIOTypes()
 	 * @generated
 	 */
-	int IO_TYPES = 72;
+	int IO_TYPES = 74;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.cobol.statements.Orders <em>Orders</em>}' enum.
@@ -4076,7 +4213,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getOrders()
 	 * @generated
 	 */
-	int ORDERS = 73;
+	int ORDERS = 75;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.cobol.statements.Corresponding <em>Corresponding</em>}' enum.
@@ -4086,7 +4223,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getCorresponding()
 	 * @generated
 	 */
-	int CORRESPONDING = 74;
+	int CORRESPONDING = 76;
 
 
 	/**
@@ -5749,6 +5886,81 @@ public interface StatementsPackage extends EPackage {
 	EClass getAfterUntilCondition();
 
 	/**
+	 * Returns the meta object for class '{@link org.servicifi.gelato.language.cobol.statements.Start <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Start</em>'.
+	 * @see org.servicifi.gelato.language.cobol.statements.Start
+	 * @generated
+	 */
+	EClass getStart();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.cobol.statements.Start#getFileName <em>File Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>File Name</em>'.
+	 * @see org.servicifi.gelato.language.cobol.statements.Start#getFileName()
+	 * @see #getStart()
+	 * @generated
+	 */
+	EReference getStart_FileName();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.cobol.statements.Start#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operator</em>'.
+	 * @see org.servicifi.gelato.language.cobol.statements.Start#getOperator()
+	 * @see #getStart()
+	 * @generated
+	 */
+	EReference getStart_Operator();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.cobol.statements.Start#getDataName <em>Data Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Data Name</em>'.
+	 * @see org.servicifi.gelato.language.cobol.statements.Start#getDataName()
+	 * @see #getStart()
+	 * @generated
+	 */
+	EReference getStart_DataName();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.cobol.statements.Start#getNot <em>Not</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Not</em>'.
+	 * @see org.servicifi.gelato.language.cobol.statements.Start#getNot()
+	 * @see #getStart()
+	 * @generated
+	 */
+	EReference getStart_Not();
+
+	/**
+	 * Returns the meta object for class '{@link org.servicifi.gelato.language.cobol.statements.Delete <em>Delete</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Delete</em>'.
+	 * @see org.servicifi.gelato.language.cobol.statements.Delete
+	 * @generated
+	 */
+	EClass getDelete();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.cobol.statements.Delete#getFileName <em>File Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>File Name</em>'.
+	 * @see org.servicifi.gelato.language.cobol.statements.Delete#getFileName()
+	 * @see #getDelete()
+	 * @generated
+	 */
+	EReference getDelete_FileName();
+
+	/**
 	 * Returns the meta object for enum '{@link org.servicifi.gelato.language.cobol.statements.ExitLabels <em>Exit Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7231,6 +7443,66 @@ public interface StatementsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass AFTER_UNTIL_CONDITION = eINSTANCE.getAfterUntilCondition();
+
+		/**
+		 * The meta object literal for the '{@link org.servicifi.gelato.language.cobol.statements.impl.StartImpl <em>Start</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.servicifi.gelato.language.cobol.statements.impl.StartImpl
+		 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getStart()
+		 * @generated
+		 */
+		EClass START = eINSTANCE.getStart();
+
+		/**
+		 * The meta object literal for the '<em><b>File Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference START__FILE_NAME = eINSTANCE.getStart_FileName();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference START__OPERATOR = eINSTANCE.getStart_Operator();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference START__DATA_NAME = eINSTANCE.getStart_DataName();
+
+		/**
+		 * The meta object literal for the '<em><b>Not</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference START__NOT = eINSTANCE.getStart_Not();
+
+		/**
+		 * The meta object literal for the '{@link org.servicifi.gelato.language.cobol.statements.impl.DeleteImpl <em>Delete</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.servicifi.gelato.language.cobol.statements.impl.DeleteImpl
+		 * @see org.servicifi.gelato.language.cobol.statements.impl.StatementsPackageImpl#getDelete()
+		 * @generated
+		 */
+		EClass DELETE = eINSTANCE.getDelete();
+
+		/**
+		 * The meta object literal for the '<em><b>File Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DELETE__FILE_NAME = eINSTANCE.getDelete_FileName();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.cobol.statements.ExitLabels <em>Exit Labels</em>}' enum.

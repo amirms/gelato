@@ -23,12 +23,12 @@ import org.servicifi.gelato.language.cobol.strings.StringsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.LocationImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.LocationImpl#isInitial <em>Initial</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.LocationImpl#getBase <em>Base</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

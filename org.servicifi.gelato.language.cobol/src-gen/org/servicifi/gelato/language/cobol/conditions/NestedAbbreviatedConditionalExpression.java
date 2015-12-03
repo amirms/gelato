@@ -10,11 +10,11 @@ package org.servicifi.gelato.language.cobol.conditions;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.NestedAbbreviatedConditionalExpression#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.NestedAbbreviatedConditionalExpression#getRest <em>Rest</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.conditions.ConditionsPackage#getNestedAbbreviatedConditionalExpression()
  * @model

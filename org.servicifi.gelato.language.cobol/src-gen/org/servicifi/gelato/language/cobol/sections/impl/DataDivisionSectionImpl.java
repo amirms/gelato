@@ -27,11 +27,11 @@ import org.servicifi.gelato.language.cobol.statements.Statement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.sections.impl.DataDivisionSectionImpl#getStatements <em>Statements</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.sections.impl.DataDivisionSectionImpl#getRecords <em>Records</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

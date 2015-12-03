@@ -24,10 +24,10 @@ import org.servicifi.gelato.language.cobol.dataitems.RecordName;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.impl.RecordNameImpl#getElems <em>Elems</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

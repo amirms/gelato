@@ -17,10 +17,10 @@ import org.servicifi.gelato.language.cobol.sentences.StatementContainer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.paragraphs.Paragraph#getSentences <em>Sentences</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.paragraphs.ParagraphsPackage#getParagraph()
  * @model

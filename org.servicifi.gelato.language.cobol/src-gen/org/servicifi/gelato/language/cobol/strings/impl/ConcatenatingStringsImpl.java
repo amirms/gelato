@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.strings.StringsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Concatenating Strings</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

@@ -15,11 +15,11 @@ import org.servicifi.gelato.language.cobol.strings.Replacement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Initialize#getSubprograms <em>Subprograms</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Initialize#getReplacements <em>Replacements</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getInitialize()
  * @model

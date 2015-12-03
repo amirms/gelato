@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.conditions.NegatedAbbreviatedConditio
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Negated Abbreviated Conditional Expression Child</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

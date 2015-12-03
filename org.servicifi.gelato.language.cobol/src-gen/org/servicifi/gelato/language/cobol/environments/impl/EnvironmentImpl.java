@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.water.impl.AcceptStatementWaterImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Environment</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

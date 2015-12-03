@@ -27,10 +27,10 @@ import org.servicifi.gelato.language.cobol.sentences.StatementContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.paragraphs.impl.ParagraphImpl#getSentences <em>Sentences</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

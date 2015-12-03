@@ -31,12 +31,12 @@ import org.servicifi.gelato.language.cobol.sentences.StatementContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.impl.DivisionImpl#getSections <em>Sections</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.impl.DivisionImpl#getParagraphs <em>Paragraphs</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.impl.DivisionImpl#getSentences <em>Sentences</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

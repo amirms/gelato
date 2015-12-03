@@ -1,8 +1,0 @@
-eclipse.preferences.version=1
-gmf_dashboard/domainGenerationModel=platform\:/resource/org.servicifi.gelato.language.kernel/metamodel/kernel.genmodel
-gmf_dashboard/domainModel=platform\:/resource/org.servicifi.gelato.language.kernel/metamodel/kernel.ecore
-gmf_dashboard/generationModel=platform\:/resource/org.servicifi.gelato.language.kernel/metamodel/kernel.gmfgen
-gmf_dashboard/graphicalDefinitionModel=platform\:/resource/org.servicifi.gelato.language.kernel/metamodel/kernel.gmfgraph
-gmf_dashboard/mappingModel=platform\:/resource/org.servicifi.gelato.language.kernel/metamodel/kernel.gmfmap
-gmf_dashboard/option_rcp=*
-gmf_dashboard/toolingDefinitionModel=platform\:/resource/org.servicifi.gelato.language.kernel/metamodel/kernel.gmftool

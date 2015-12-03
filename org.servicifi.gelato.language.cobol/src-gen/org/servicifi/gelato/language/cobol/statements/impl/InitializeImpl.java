@@ -27,11 +27,11 @@ import org.servicifi.gelato.language.cobol.strings.Replacement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.InitializeImpl#getSubprograms <em>Subprograms</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.InitializeImpl#getReplacements <em>Replacements</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

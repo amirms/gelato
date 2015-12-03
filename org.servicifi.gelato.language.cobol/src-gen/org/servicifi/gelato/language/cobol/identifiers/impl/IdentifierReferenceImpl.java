@@ -34,13 +34,13 @@ import org.servicifi.gelato.language.cobol.references.ReferencesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.IdentifierReferenceImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.IdentifierReferenceImpl#getQualifier <em>Qualifier</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.IdentifierReferenceImpl#getSubscripts <em>Subscripts</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.IdentifierReferenceImpl#getQualifiers <em>Qualifiers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

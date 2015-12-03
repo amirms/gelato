@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.ManipulatedStrings#getStrings <em>Strings</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.ManipulatedStrings#getDelimiter <em>Delimiter</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.strings.StringsPackage#getManipulatedStrings()
  * @model abstract="true"

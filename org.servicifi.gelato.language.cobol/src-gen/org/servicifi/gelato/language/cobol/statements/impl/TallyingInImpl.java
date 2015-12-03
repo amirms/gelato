@@ -31,11 +31,11 @@ import org.servicifi.gelato.language.cobol.strings.Tallying;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.TallyingInImpl#getOccurrences <em>Occurrences</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.TallyingInImpl#getCounter <em>Counter</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

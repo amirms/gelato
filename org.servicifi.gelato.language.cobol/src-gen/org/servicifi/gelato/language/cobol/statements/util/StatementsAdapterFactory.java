@@ -25,6 +25,7 @@ import org.servicifi.gelato.language.cobol.statements.Compute;
 import org.servicifi.gelato.language.cobol.statements.Condition;
 import org.servicifi.gelato.language.cobol.statements.Conditional;
 import org.servicifi.gelato.language.cobol.statements.Continue;
+import org.servicifi.gelato.language.cobol.statements.Delete;
 import org.servicifi.gelato.language.cobol.statements.Display;
 import org.servicifi.gelato.language.cobol.statements.Divide;
 import org.servicifi.gelato.language.cobol.statements.Entry;
@@ -72,6 +73,7 @@ import org.servicifi.gelato.language.cobol.statements.SetIndexName;
 import org.servicifi.gelato.language.cobol.statements.SetStatement;
 import org.servicifi.gelato.language.cobol.statements.SetSwitches;
 import org.servicifi.gelato.language.cobol.statements.Sort;
+import org.servicifi.gelato.language.cobol.statements.Start;
 import org.servicifi.gelato.language.cobol.statements.Statement;
 import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
 import org.servicifi.gelato.language.cobol.statements.Stop;
@@ -411,6 +413,14 @@ public class StatementsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAfterUntilCondition(AfterUntilCondition object) {
 				return createAfterUntilConditionAdapter();
+			}
+			@Override
+			public Adapter caseStart(Start object) {
+				return createStartAdapter();
+			}
+			@Override
+			public Adapter caseDelete(Delete object) {
+				return createDeleteAdapter();
 			}
 			@Override
 			public Adapter caseIncompleteElement(IncompleteElement object) {
@@ -1393,6 +1403,34 @@ public class StatementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAfterUntilConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.cobol.statements.Start <em>Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.language.cobol.statements.Start
+	 * @generated
+	 */
+	public Adapter createStartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.cobol.statements.Delete <em>Delete</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.language.cobol.statements.Delete
+	 * @generated
+	 */
+	public Adapter createDeleteAdapter() {
 		return null;
 	}
 

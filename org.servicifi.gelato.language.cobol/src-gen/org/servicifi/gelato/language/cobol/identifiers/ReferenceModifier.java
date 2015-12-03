@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.arithmetics.ArithmeticExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.ReferenceModifier#getStart <em>Start</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.ReferenceModifier#getLength <em>Length</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage#getReferenceModifier()
  * @model

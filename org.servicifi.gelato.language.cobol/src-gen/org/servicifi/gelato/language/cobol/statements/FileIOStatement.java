@@ -16,13 +16,13 @@ import org.servicifi.gelato.language.cobol.references.FileNameReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.FileIOStatement#getFileName <em>File Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.FileIOStatement#getInput <em>Input</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.FileIOStatement#getOutput <em>Output</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.FileIOStatement#getKeyDescriptors <em>Key Descriptors</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getFileIOStatement()
  * @model abstract="true"

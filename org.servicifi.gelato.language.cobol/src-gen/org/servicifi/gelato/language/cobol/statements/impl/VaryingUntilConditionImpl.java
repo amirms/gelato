@@ -23,12 +23,12 @@ import org.servicifi.gelato.language.cobol.statements.VaryingUntilCondition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.VaryingUntilConditionImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.VaryingUntilConditionImpl#getInit <em>Init</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.VaryingUntilConditionImpl#getIncrement <em>Increment</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

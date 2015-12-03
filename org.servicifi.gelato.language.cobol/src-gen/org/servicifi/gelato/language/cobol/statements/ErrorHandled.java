@@ -15,10 +15,10 @@ import org.servicifi.gelato.language.cobol.handlers.Handler;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.ErrorHandled#getHandlers <em>Handlers</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getErrorHandled()
  * @model abstract="true"

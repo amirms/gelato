@@ -27,10 +27,10 @@ import org.servicifi.gelato.language.cobol.water.WaterPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.MergeImpl#getWater <em>Water</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

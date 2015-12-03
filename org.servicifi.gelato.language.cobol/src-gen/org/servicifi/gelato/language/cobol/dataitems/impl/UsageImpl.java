@@ -18,11 +18,11 @@ import org.servicifi.gelato.language.cobol.dataitems.Usages;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.impl.UsageImpl#getUsage <em>Usage</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.impl.UsageImpl#isIsNative <em>Is Native</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

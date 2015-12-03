@@ -65,11 +65,11 @@ import org.servicifi.gelato.language.cobol.water.Water;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.functions.impl.FunctionCallImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.functions.impl.FunctionCallImpl#getModifier <em>Modifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -15,11 +15,11 @@ import org.servicifi.gelato.language.cobol.water.SpecialNamesParagraphWater;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.paragraphs.SpecialNamesParagraph#getSpecialNameStatements <em>Special Name Statements</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.paragraphs.SpecialNamesParagraph#getWater <em>Water</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.paragraphs.ParagraphsPackage#getSpecialNamesParagraph()
  * @model

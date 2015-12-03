@@ -24,10 +24,10 @@ import org.servicifi.gelato.language.cobol.strings.StringsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.StringManipulationImpl#getLocations <em>Locations</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

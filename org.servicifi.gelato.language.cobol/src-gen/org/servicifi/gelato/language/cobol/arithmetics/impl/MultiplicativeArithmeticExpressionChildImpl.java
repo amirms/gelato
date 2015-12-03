@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.arithmetics.MultiplicativeArithmeticE
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Multiplicative Arithmetic Expression Child</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

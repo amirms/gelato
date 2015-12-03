@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.commons.CommonsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Commentable</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

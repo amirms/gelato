@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.registers.ShiftIn;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Shift In</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

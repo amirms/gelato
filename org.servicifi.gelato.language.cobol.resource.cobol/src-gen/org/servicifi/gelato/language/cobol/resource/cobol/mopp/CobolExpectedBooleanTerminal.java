@@ -30,7 +30,7 @@ public class CobolExpectedBooleanTerminal extends org.servicifi.gelato.language.
 	/**
 	 * Returns the expected boolean terminal.
 	 */
-	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSymtaxElement() {
+	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSyntaxElement() {
 		return booleanTerminal;
 	}
 	

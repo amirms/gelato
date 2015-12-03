@@ -18,10 +18,10 @@ import org.servicifi.gelato.language.cobol.sentences.SentencesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.sentences.impl.SentenceImpl#getNext <em>Next</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

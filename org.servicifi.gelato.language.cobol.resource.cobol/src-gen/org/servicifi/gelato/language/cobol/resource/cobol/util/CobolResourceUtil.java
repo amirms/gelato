@@ -224,7 +224,7 @@ public class CobolResourceUtil {
 			return null;
 		}
 		EObject root = contents.get(0);
-		return (org.servicifi.gelato.language.cobol.containers.CompilationGroup) root;
+		return root;
 	}
 	
 	public static void saveResource(File file, Resource resource) throws IOException {

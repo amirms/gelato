@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.specialnames.SystemDeviceIs;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>System Device Is</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

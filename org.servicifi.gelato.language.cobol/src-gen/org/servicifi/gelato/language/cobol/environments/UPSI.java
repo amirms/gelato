@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.environments;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.environments.UPSI#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.environments.EnvironmentsPackage#getUPSI()
  * @model

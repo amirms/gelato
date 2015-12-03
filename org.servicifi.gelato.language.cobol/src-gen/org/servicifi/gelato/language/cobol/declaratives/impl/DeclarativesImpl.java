@@ -27,10 +27,10 @@ import org.servicifi.gelato.language.cobol.sections.DeclarativeSection;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.declaratives.impl.DeclarativesImpl#getDeclarativeSections <em>Declarative Sections</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

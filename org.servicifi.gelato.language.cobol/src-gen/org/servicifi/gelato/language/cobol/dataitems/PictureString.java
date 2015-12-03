@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.dataitems;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.PictureString#getPicture <em>Picture</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.dataitems.DataitemsPackage#getPictureString()
  * @model

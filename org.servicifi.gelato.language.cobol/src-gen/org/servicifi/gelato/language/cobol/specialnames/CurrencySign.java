@@ -11,11 +11,11 @@ import org.servicifi.gelato.language.cobol.literals.Literal;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.CurrencySign#getPictureSymbol <em>Picture Symbol</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.CurrencySign#getCurrency <em>Currency</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage#getCurrencySign()
  * @model

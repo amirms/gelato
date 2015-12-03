@@ -11,10 +11,10 @@ import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.registers.Register#getOperand <em>Operand</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.registers.RegistersPackage#getRegister()
  * @model abstract="true"

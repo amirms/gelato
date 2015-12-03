@@ -45,6 +45,17 @@ public abstract class CobolSyntaxElement {
 		return parent;
 	}
 	
+	/**
+	 * Returns the rule of this syntax element. The rule is determined by the
+	 * containment hierarchy in the CS model.
+	 */
+	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolRule getRule() {
+		if (this instanceof org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolRule) {
+			return (org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolRule) this;
+		}
+		return parent.getRule();
+	}
+	
 	public CobolSyntaxElement[] getChildren() {
 		if (children == null) {
 			return new CobolSyntaxElement[0];
@@ -58,6 +69,16 @@ public abstract class CobolSyntaxElement {
 	
 	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolCardinality getCardinality() {
 		return cardinality;
+	}
+	
+	public boolean hasContainment(EClass metaclass) {
+		org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement[] children = getChildren();
+		for (org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement child : children) {
+			if (child.hasContainment(metaclass)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

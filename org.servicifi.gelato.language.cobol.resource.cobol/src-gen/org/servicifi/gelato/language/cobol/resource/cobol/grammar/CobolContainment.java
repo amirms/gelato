@@ -22,6 +22,16 @@ public class CobolContainment extends org.servicifi.gelato.language.cobol.resour
 		return allowedTypes;
 	}
 	
+	@Override
+	public boolean hasContainment(EClass metaclass) {
+		for (EClass allowedType : allowedTypes) {
+			if (allowedType == metaclass) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public String toString() {
 		String typeRestrictions = null;
 		if (allowedTypes != null && allowedTypes.length > 0) {

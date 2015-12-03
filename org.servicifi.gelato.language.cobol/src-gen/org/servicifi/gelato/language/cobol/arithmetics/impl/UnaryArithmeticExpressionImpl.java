@@ -22,11 +22,11 @@ import org.servicifi.gelato.language.cobol.operators.UnaryOperator;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.impl.UnaryArithmeticExpressionImpl#getChild <em>Child</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.impl.UnaryArithmeticExpressionImpl#getUnaryOperator <em>Unary Operator</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

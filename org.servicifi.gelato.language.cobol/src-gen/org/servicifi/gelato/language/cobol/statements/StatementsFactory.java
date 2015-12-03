@@ -499,6 +499,24 @@ public interface StatementsFactory extends EFactory {
 	AfterUntilCondition createAfterUntilCondition();
 
 	/**
+	 * Returns a new object of class '<em>Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Start</em>'.
+	 * @generated
+	 */
+	Start createStart();
+
+	/**
+	 * Returns a new object of class '<em>Delete</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Delete</em>'.
+	 * @generated
+	 */
+	Delete createDelete();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

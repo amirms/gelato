@@ -11,10 +11,10 @@ import org.servicifi.gelato.language.cobol.labels.Label;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.ios.ProcedureDirective#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.ios.IosPackage#getProcedureDirective()
  * @model abstract="true"

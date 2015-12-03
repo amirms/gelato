@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.operators.LogicalOperator;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.ConditionalOrExpression#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.ConditionalOrExpression#getLogicalOperators <em>Logical Operators</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.conditions.ConditionsPackage#getConditionalOrExpression()
  * @model

@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.conditions.Condition;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Conditional#getCondition <em>Condition</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getConditional()
  * @model abstract="true"

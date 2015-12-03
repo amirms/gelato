@@ -17,11 +17,11 @@ import org.servicifi.gelato.language.cobol.operators.OperatorsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.operators.impl.GreaterThanOrEqualImpl#isThan <em>Than</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.operators.impl.GreaterThanOrEqualImpl#isTo <em>To</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

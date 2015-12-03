@@ -15,10 +15,10 @@ import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.functions.Argument#getOperands <em>Operands</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.functions.FunctionsPackage#getArgument()
  * @model abstract="true"

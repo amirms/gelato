@@ -283,6 +283,7 @@ import org.servicifi.gelato.language.cobol.statements.Compute;
 import org.servicifi.gelato.language.cobol.statements.Condition;
 import org.servicifi.gelato.language.cobol.statements.Conditional;
 import org.servicifi.gelato.language.cobol.statements.Continue;
+import org.servicifi.gelato.language.cobol.statements.Delete;
 import org.servicifi.gelato.language.cobol.statements.Display;
 import org.servicifi.gelato.language.cobol.statements.Divide;
 import org.servicifi.gelato.language.cobol.statements.Entry;
@@ -330,6 +331,7 @@ import org.servicifi.gelato.language.cobol.statements.SetIndexName;
 import org.servicifi.gelato.language.cobol.statements.SetStatement;
 import org.servicifi.gelato.language.cobol.statements.SetSwitches;
 import org.servicifi.gelato.language.cobol.statements.Sort;
+import org.servicifi.gelato.language.cobol.statements.Start;
 import org.servicifi.gelato.language.cobol.statements.Statement;
 import org.servicifi.gelato.language.cobol.statements.Stop;
 import org.servicifi.gelato.language.cobol.statements.Subtract;
@@ -538,8 +540,8 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.sections.WorkingStorageSection) {
-			result = interprete_org_servicifi_gelato_language_cobol_sections_WorkingStorageSection((org.servicifi.gelato.language.cobol.sections.WorkingStorageSection) object, context);
+		if (object instanceof org.servicifi.gelato.language.cobol.divisions.ProcedureDivision) {
+			result = interprete_org_servicifi_gelato_language_cobol_divisions_ProcedureDivision((org.servicifi.gelato.language.cobol.divisions.ProcedureDivision) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -970,6 +972,18 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.statements.Start) {
+			result = interprete_org_servicifi_gelato_language_cobol_statements_Start((org.servicifi.gelato.language.cobol.statements.Start) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.statements.Delete) {
+			result = interprete_org_servicifi_gelato_language_cobol_statements_Delete((org.servicifi.gelato.language.cobol.statements.Delete) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.sentences.EmptySentence) {
 			result = interprete_org_servicifi_gelato_language_cobol_sentences_EmptySentence((org.servicifi.gelato.language.cobol.sentences.EmptySentence) object, context);
 		}
@@ -1036,14 +1050,14 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.divisions.ProcedureDivision) {
-			result = interprete_org_servicifi_gelato_language_cobol_divisions_ProcedureDivision((org.servicifi.gelato.language.cobol.divisions.ProcedureDivision) object, context);
+		if (object instanceof org.servicifi.gelato.language.cobol.divisions.Division) {
+			result = interprete_org_servicifi_gelato_language_cobol_divisions_Division((org.servicifi.gelato.language.cobol.divisions.Division) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.divisions.Division) {
-			result = interprete_org_servicifi_gelato_language_cobol_divisions_Division((org.servicifi.gelato.language.cobol.divisions.Division) object, context);
+		if (object instanceof org.servicifi.gelato.language.cobol.sections.WorkingStorageSection) {
+			result = interprete_org_servicifi_gelato_language_cobol_sections_WorkingStorageSection((org.servicifi.gelato.language.cobol.sections.WorkingStorageSection) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1126,12 +1140,6 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.paragraphs.RepositoryParagraph) {
-			result = interprete_org_servicifi_gelato_language_cobol_paragraphs_RepositoryParagraph((org.servicifi.gelato.language.cobol.paragraphs.RepositoryParagraph) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.paragraphs.ConfigurationSectionParagraph) {
 			result = interprete_org_servicifi_gelato_language_cobol_paragraphs_ConfigurationSectionParagraph((org.servicifi.gelato.language.cobol.paragraphs.ConfigurationSectionParagraph) object, context);
 		}
@@ -1146,6 +1154,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.servicifi.gelato.language.cobol.paragraphs.SpecialNamesParagraph) {
 			result = interprete_org_servicifi_gelato_language_cobol_paragraphs_SpecialNamesParagraph((org.servicifi.gelato.language.cobol.paragraphs.SpecialNamesParagraph) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.paragraphs.RepositoryParagraph) {
+			result = interprete_org_servicifi_gelato_language_cobol_paragraphs_RepositoryParagraph((org.servicifi.gelato.language.cobol.paragraphs.RepositoryParagraph) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1168,24 +1182,6 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.references.FileNameReference) {
-			result = interprete_org_servicifi_gelato_language_cobol_references_FileNameReference((org.servicifi.gelato.language.cobol.references.FileNameReference) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.references.IndexNameReference) {
-			result = interprete_org_servicifi_gelato_language_cobol_references_IndexNameReference((org.servicifi.gelato.language.cobol.references.IndexNameReference) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.references.ElementReference) {
-			result = interprete_org_servicifi_gelato_language_cobol_references_ElementReference((org.servicifi.gelato.language.cobol.references.ElementReference) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.references.Reference) {
 			result = interprete_org_servicifi_gelato_language_cobol_references_Reference((org.servicifi.gelato.language.cobol.references.Reference) object, context);
 		}
@@ -1194,6 +1190,18 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.servicifi.gelato.language.cobol.references.ReferenceableElement) {
 			result = interprete_org_servicifi_gelato_language_cobol_references_ReferenceableElement((org.servicifi.gelato.language.cobol.references.ReferenceableElement) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.references.FileNameReference) {
+			result = interprete_org_servicifi_gelato_language_cobol_references_FileNameReference((org.servicifi.gelato.language.cobol.references.FileNameReference) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.references.IndexNameReference) {
+			result = interprete_org_servicifi_gelato_language_cobol_references_IndexNameReference((org.servicifi.gelato.language.cobol.references.IndexNameReference) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1234,6 +1242,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.references.ElementReference) {
+			result = interprete_org_servicifi_gelato_language_cobol_references_ElementReference((org.servicifi.gelato.language.cobol.references.ElementReference) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.references.Qualifiable) {
 			result = interprete_org_servicifi_gelato_language_cobol_references_Qualifiable((org.servicifi.gelato.language.cobol.references.Qualifiable) object, context);
 		}
@@ -1252,6 +1266,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.literals.FloatingDecimalLiteral) {
+			result = interprete_org_servicifi_gelato_language_cobol_literals_FloatingDecimalLiteral((org.servicifi.gelato.language.cobol.literals.FloatingDecimalLiteral) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.literals.DecimalLiteral) {
 			result = interprete_org_servicifi_gelato_language_cobol_literals_DecimalLiteral((org.servicifi.gelato.language.cobol.literals.DecimalLiteral) object, context);
 		}
@@ -1266,12 +1286,6 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.servicifi.gelato.language.cobol.literals.BooleanLiteral) {
 			result = interprete_org_servicifi_gelato_language_cobol_literals_BooleanLiteral((org.servicifi.gelato.language.cobol.literals.BooleanLiteral) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.literals.FloatingDecimalLiteral) {
-			result = interprete_org_servicifi_gelato_language_cobol_literals_FloatingDecimalLiteral((org.servicifi.gelato.language.cobol.literals.FloatingDecimalLiteral) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1306,6 +1320,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.literals.NationalHexLiteral) {
+			result = interprete_org_servicifi_gelato_language_cobol_literals_NationalHexLiteral((org.servicifi.gelato.language.cobol.literals.NationalHexLiteral) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.literals.DBCSLiteral) {
 			result = interprete_org_servicifi_gelato_language_cobol_literals_DBCSLiteral((org.servicifi.gelato.language.cobol.literals.DBCSLiteral) object, context);
 		}
@@ -1314,12 +1334,6 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.servicifi.gelato.language.cobol.literals.FixedDecimalLiteral) {
 			result = interprete_org_servicifi_gelato_language_cobol_literals_FixedDecimalLiteral((org.servicifi.gelato.language.cobol.literals.FixedDecimalLiteral) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.literals.NationalHexLiteral) {
-			result = interprete_org_servicifi_gelato_language_cobol_literals_NationalHexLiteral((org.servicifi.gelato.language.cobol.literals.NationalHexLiteral) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1456,6 +1470,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.arithmetics.PrimaryExpression) {
+			result = interprete_org_servicifi_gelato_language_cobol_arithmetics_PrimaryExpression((org.servicifi.gelato.language.cobol.arithmetics.PrimaryExpression) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.arithmetics.UnaryArithmeticExpressionChild) {
 			result = interprete_org_servicifi_gelato_language_cobol_arithmetics_UnaryArithmeticExpressionChild((org.servicifi.gelato.language.cobol.arithmetics.UnaryArithmeticExpressionChild) object, context);
 		}
@@ -1464,12 +1484,6 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.servicifi.gelato.language.cobol.arithmetics.UnaryArithmeticExpression) {
 			result = interprete_org_servicifi_gelato_language_cobol_arithmetics_UnaryArithmeticExpression((org.servicifi.gelato.language.cobol.arithmetics.UnaryArithmeticExpression) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.arithmetics.PrimaryExpression) {
-			result = interprete_org_servicifi_gelato_language_cobol_arithmetics_PrimaryExpression((org.servicifi.gelato.language.cobol.arithmetics.PrimaryExpression) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1546,8 +1560,32 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.conditions.SignCondition) {
+			result = interprete_org_servicifi_gelato_language_cobol_conditions_SignCondition((org.servicifi.gelato.language.cobol.conditions.SignCondition) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.conditions.ClassCondition) {
+			result = interprete_org_servicifi_gelato_language_cobol_conditions_ClassCondition((org.servicifi.gelato.language.cobol.conditions.ClassCondition) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.conditions.NegatedConditionalExpressionChild) {
 			result = interprete_org_servicifi_gelato_language_cobol_conditions_NegatedConditionalExpressionChild((org.servicifi.gelato.language.cobol.conditions.NegatedConditionalExpressionChild) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.conditions.ConditionalAndExpressionChild) {
+			result = interprete_org_servicifi_gelato_language_cobol_conditions_ConditionalAndExpressionChild((org.servicifi.gelato.language.cobol.conditions.ConditionalAndExpressionChild) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.conditions.ConditionalAndExpression) {
+			result = interprete_org_servicifi_gelato_language_cobol_conditions_ConditionalAndExpression((org.servicifi.gelato.language.cobol.conditions.ConditionalAndExpression) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1570,44 +1608,8 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.conditions.NegatedAbbreviatedConditionalExpressionChild) {
-			result = interprete_org_servicifi_gelato_language_cobol_conditions_NegatedAbbreviatedConditionalExpressionChild((org.servicifi.gelato.language.cobol.conditions.NegatedAbbreviatedConditionalExpressionChild) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.conditions.ConditionalAndExpressionChild) {
-			result = interprete_org_servicifi_gelato_language_cobol_conditions_ConditionalAndExpressionChild((org.servicifi.gelato.language.cobol.conditions.ConditionalAndExpressionChild) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.conditions.ConditionalAndExpression) {
-			result = interprete_org_servicifi_gelato_language_cobol_conditions_ConditionalAndExpression((org.servicifi.gelato.language.cobol.conditions.ConditionalAndExpression) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.conditions.NestedAbbreviatedConditionalExpression) {
 			result = interprete_org_servicifi_gelato_language_cobol_conditions_NestedAbbreviatedConditionalExpression((org.servicifi.gelato.language.cobol.conditions.NestedAbbreviatedConditionalExpression) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.conditions.AbbreviatedConditionalExpressionChild) {
-			result = interprete_org_servicifi_gelato_language_cobol_conditions_AbbreviatedConditionalExpressionChild((org.servicifi.gelato.language.cobol.conditions.AbbreviatedConditionalExpressionChild) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.conditions.SignCondition) {
-			result = interprete_org_servicifi_gelato_language_cobol_conditions_SignCondition((org.servicifi.gelato.language.cobol.conditions.SignCondition) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.conditions.ClassCondition) {
-			result = interprete_org_servicifi_gelato_language_cobol_conditions_ClassCondition((org.servicifi.gelato.language.cobol.conditions.ClassCondition) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1618,8 +1620,14 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.conditions.NestedCondition) {
-			result = interprete_org_servicifi_gelato_language_cobol_conditions_NestedCondition((org.servicifi.gelato.language.cobol.conditions.NestedCondition) object, context);
+		if (object instanceof org.servicifi.gelato.language.cobol.conditions.NegatedAbbreviatedConditionalExpressionChild) {
+			result = interprete_org_servicifi_gelato_language_cobol_conditions_NegatedAbbreviatedConditionalExpressionChild((org.servicifi.gelato.language.cobol.conditions.NegatedAbbreviatedConditionalExpressionChild) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.conditions.AbbreviatedConditionalExpressionChild) {
+			result = interprete_org_servicifi_gelato_language_cobol_conditions_AbbreviatedConditionalExpressionChild((org.servicifi.gelato.language.cobol.conditions.AbbreviatedConditionalExpressionChild) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1642,6 +1650,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.conditions.NestedCondition) {
+			result = interprete_org_servicifi_gelato_language_cobol_conditions_NestedCondition((org.servicifi.gelato.language.cobol.conditions.NestedCondition) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.operators.AdditiveOperator) {
 			result = interprete_org_servicifi_gelato_language_cobol_operators_AdditiveOperator((org.servicifi.gelato.language.cobol.operators.AdditiveOperator) object, context);
 		}
@@ -1660,6 +1674,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.operators.ConditionAnd) {
+			result = interprete_org_servicifi_gelato_language_cobol_operators_ConditionAnd((org.servicifi.gelato.language.cobol.operators.ConditionAnd) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.operators.LogicalOperator) {
 			result = interprete_org_servicifi_gelato_language_cobol_operators_LogicalOperator((org.servicifi.gelato.language.cobol.operators.LogicalOperator) object, context);
 		}
@@ -1674,12 +1694,6 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.servicifi.gelato.language.cobol.operators.ConditionOr) {
 			result = interprete_org_servicifi_gelato_language_cobol_operators_ConditionOr((org.servicifi.gelato.language.cobol.operators.ConditionOr) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.operators.ConditionAnd) {
-			result = interprete_org_servicifi_gelato_language_cobol_operators_ConditionAnd((org.servicifi.gelato.language.cobol.operators.ConditionAnd) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -1948,6 +1962,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.identifiers.Subscript) {
+			result = interprete_org_servicifi_gelato_language_cobol_identifiers_Subscript((org.servicifi.gelato.language.cobol.identifiers.Subscript) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.identifiers.ReferenceModifier) {
 			result = interprete_org_servicifi_gelato_language_cobol_identifiers_ReferenceModifier((org.servicifi.gelato.language.cobol.identifiers.ReferenceModifier) object, context);
 		}
@@ -1974,12 +1994,6 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.servicifi.gelato.language.cobol.identifiers.DirectSubscript) {
 			result = interprete_org_servicifi_gelato_language_cobol_identifiers_DirectSubscript((org.servicifi.gelato.language.cobol.identifiers.DirectSubscript) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.identifiers.Subscript) {
-			result = interprete_org_servicifi_gelato_language_cobol_identifiers_Subscript((org.servicifi.gelato.language.cobol.identifiers.Subscript) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -2194,6 +2208,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.water.Water) {
+			result = interprete_org_servicifi_gelato_language_cobol_water_Water((org.servicifi.gelato.language.cobol.water.Water) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.registers.ShiftIn) {
 			result = interprete_org_servicifi_gelato_language_cobol_registers_ShiftIn((org.servicifi.gelato.language.cobol.registers.ShiftIn) object, context);
 		}
@@ -2242,6 +2262,30 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.environments.SystemLogicalOutput) {
+			result = interprete_org_servicifi_gelato_language_cobol_environments_SystemLogicalOutput((org.servicifi.gelato.language.cobol.environments.SystemLogicalOutput) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.environments.Console) {
+			result = interprete_org_servicifi_gelato_language_cobol_environments_Console((org.servicifi.gelato.language.cobol.environments.Console) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.environments.AdvancedFunctionPrinting) {
+			result = interprete_org_servicifi_gelato_language_cobol_environments_AdvancedFunctionPrinting((org.servicifi.gelato.language.cobol.environments.AdvancedFunctionPrinting) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.environments.Pocket) {
+			result = interprete_org_servicifi_gelato_language_cobol_environments_Pocket((org.servicifi.gelato.language.cobol.environments.Pocket) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.environments.SystemDevice) {
 			result = interprete_org_servicifi_gelato_language_cobol_environments_SystemDevice((org.servicifi.gelato.language.cobol.environments.SystemDevice) object, context);
 		}
@@ -2254,20 +2298,8 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.environments.SystemLogicalOutput) {
-			result = interprete_org_servicifi_gelato_language_cobol_environments_SystemLogicalOutput((org.servicifi.gelato.language.cobol.environments.SystemLogicalOutput) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.environments.SystemPunchDevice) {
 			result = interprete_org_servicifi_gelato_language_cobol_environments_SystemPunchDevice((org.servicifi.gelato.language.cobol.environments.SystemPunchDevice) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.environments.Console) {
-			result = interprete_org_servicifi_gelato_language_cobol_environments_Console((org.servicifi.gelato.language.cobol.environments.Console) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -2278,32 +2310,14 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.environments.AdvancedFunctionPrinting) {
-			result = interprete_org_servicifi_gelato_language_cobol_environments_AdvancedFunctionPrinting((org.servicifi.gelato.language.cobol.environments.AdvancedFunctionPrinting) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.environments.SuppressSpacing) {
 			result = interprete_org_servicifi_gelato_language_cobol_environments_SuppressSpacing((org.servicifi.gelato.language.cobol.environments.SuppressSpacing) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.environments.Pocket) {
-			result = interprete_org_servicifi_gelato_language_cobol_environments_Pocket((org.servicifi.gelato.language.cobol.environments.Pocket) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.environments.Environment) {
 			result = interprete_org_servicifi_gelato_language_cobol_environments_Environment((org.servicifi.gelato.language.cobol.environments.Environment) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.water.Water) {
-			result = interprete_org_servicifi_gelato_language_cobol_water_Water((org.servicifi.gelato.language.cobol.water.Water) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -2416,6 +2430,30 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.CurrencySign) {
+			result = interprete_org_servicifi_gelato_language_cobol_specialnames_CurrencySign((org.servicifi.gelato.language.cobol.specialnames.CurrencySign) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.SystemDeviceIs) {
+			result = interprete_org_servicifi_gelato_language_cobol_specialnames_SystemDeviceIs((org.servicifi.gelato.language.cobol.specialnames.SystemDeviceIs) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.MnemonicName) {
+			result = interprete_org_servicifi_gelato_language_cobol_specialnames_MnemonicName((org.servicifi.gelato.language.cobol.specialnames.MnemonicName) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.SpecialName) {
+			result = interprete_org_servicifi_gelato_language_cobol_specialnames_SpecialName((org.servicifi.gelato.language.cobol.specialnames.SpecialName) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.PredefinedAlphabetType) {
 			result = interprete_org_servicifi_gelato_language_cobol_specialnames_PredefinedAlphabetType((org.servicifi.gelato.language.cobol.specialnames.PredefinedAlphabetType) object, context);
 		}
@@ -2440,38 +2478,14 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.CurrencySign) {
-			result = interprete_org_servicifi_gelato_language_cobol_specialnames_CurrencySign((org.servicifi.gelato.language.cobol.specialnames.CurrencySign) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.ClassName) {
 			result = interprete_org_servicifi_gelato_language_cobol_specialnames_ClassName((org.servicifi.gelato.language.cobol.specialnames.ClassName) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.SystemDeviceIs) {
-			result = interprete_org_servicifi_gelato_language_cobol_specialnames_SystemDeviceIs((org.servicifi.gelato.language.cobol.specialnames.SystemDeviceIs) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.MnemonicName) {
-			result = interprete_org_servicifi_gelato_language_cobol_specialnames_MnemonicName((org.servicifi.gelato.language.cobol.specialnames.MnemonicName) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.SymbolicCharacter) {
 			result = interprete_org_servicifi_gelato_language_cobol_specialnames_SymbolicCharacter((org.servicifi.gelato.language.cobol.specialnames.SymbolicCharacter) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.specialnames.SpecialName) {
-			result = interprete_org_servicifi_gelato_language_cobol_specialnames_SpecialName((org.servicifi.gelato.language.cobol.specialnames.SpecialName) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -2650,12 +2664,6 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.handlers.NotAtEndOfPage) {
-			result = interprete_org_servicifi_gelato_language_cobol_handlers_NotAtEndOfPage((org.servicifi.gelato.language.cobol.handlers.NotAtEndOfPage) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.handlers.NotErrorHandler) {
 			result = interprete_org_servicifi_gelato_language_cobol_handlers_NotErrorHandler((org.servicifi.gelato.language.cobol.handlers.NotErrorHandler) object, context);
 		}
@@ -2676,6 +2684,12 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.servicifi.gelato.language.cobol.handlers.InvalidKey) {
 			result = interprete_org_servicifi_gelato_language_cobol_handlers_InvalidKey((org.servicifi.gelato.language.cobol.handlers.InvalidKey) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.handlers.NotAtEndOfPage) {
+			result = interprete_org_servicifi_gelato_language_cobol_handlers_NotAtEndOfPage((org.servicifi.gelato.language.cobol.handlers.NotAtEndOfPage) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -2722,38 +2736,8 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.cobol.strings.TallyingOccurrence) {
-			result = interprete_org_servicifi_gelato_language_cobol_strings_TallyingOccurrence((org.servicifi.gelato.language.cobol.strings.TallyingOccurrence) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.strings.AnyCharacter) {
-			result = interprete_org_servicifi_gelato_language_cobol_strings_AnyCharacter((org.servicifi.gelato.language.cobol.strings.AnyCharacter) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.cobol.strings.AnyCharacterBySpecificCharacter) {
 			result = interprete_org_servicifi_gelato_language_cobol_strings_AnyCharacterBySpecificCharacter((org.servicifi.gelato.language.cobol.strings.AnyCharacterBySpecificCharacter) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.strings.String) {
-			result = interprete_org_servicifi_gelato_language_cobol_strings_String((org.servicifi.gelato.language.cobol.strings.String) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.strings.Location) {
-			result = interprete_org_servicifi_gelato_language_cobol_strings_Location((org.servicifi.gelato.language.cobol.strings.Location) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.cobol.strings.ReplacementOccurrence) {
-			result = interprete_org_servicifi_gelato_language_cobol_strings_ReplacementOccurrence((org.servicifi.gelato.language.cobol.strings.ReplacementOccurrence) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -2770,8 +2754,38 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.cobol.strings.String) {
+			result = interprete_org_servicifi_gelato_language_cobol_strings_String((org.servicifi.gelato.language.cobol.strings.String) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.strings.Location) {
+			result = interprete_org_servicifi_gelato_language_cobol_strings_Location((org.servicifi.gelato.language.cobol.strings.Location) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.strings.TallyingOccurrence) {
+			result = interprete_org_servicifi_gelato_language_cobol_strings_TallyingOccurrence((org.servicifi.gelato.language.cobol.strings.TallyingOccurrence) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.strings.ReplacementOccurrence) {
+			result = interprete_org_servicifi_gelato_language_cobol_strings_ReplacementOccurrence((org.servicifi.gelato.language.cobol.strings.ReplacementOccurrence) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.cobol.strings.Occurrence) {
 			result = interprete_org_servicifi_gelato_language_cobol_strings_Occurrence((org.servicifi.gelato.language.cobol.strings.Occurrence) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.cobol.strings.AnyCharacter) {
+			result = interprete_org_servicifi_gelato_language_cobol_strings_AnyCharacter((org.servicifi.gelato.language.cobol.strings.AnyCharacter) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -3126,6 +3140,14 @@ public class AbstractCobolInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_org_servicifi_gelato_language_cobol_statements_AfterUntilCondition(AfterUntilCondition afterUntilCondition, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_servicifi_gelato_language_cobol_statements_Start(Start start, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_servicifi_gelato_language_cobol_statements_Delete(Delete delete, ContextType context) {
 		return null;
 	}
 	

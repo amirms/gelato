@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.operands.Operand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.Subscript#getSubscript <em>Subscript</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage#getSubscript()
  * @model abstract="true"

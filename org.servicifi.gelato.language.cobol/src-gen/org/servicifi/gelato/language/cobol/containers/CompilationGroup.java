@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.commons.NamedElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.containers.CompilationGroup#getCompilationUnits <em>Compilation Units</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.containers.ContainersPackage#getCompilationGroup()
  * @model

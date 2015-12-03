@@ -20,13 +20,13 @@ import org.servicifi.gelato.language.cobol.water.IncompleteElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.FileName#getFileDescriptor <em>File Descriptor</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.FileName#getRecords <em>Records</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.FileName#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.FileName#getSentences <em>Sentences</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.files.FilesPackage#getFileName()
  * @model

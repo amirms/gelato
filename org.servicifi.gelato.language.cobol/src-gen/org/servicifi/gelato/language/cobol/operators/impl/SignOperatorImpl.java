@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.operators.SignOperator;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Sign Operator</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

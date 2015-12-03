@@ -25,11 +25,11 @@ import org.servicifi.gelato.language.cobol.references.ReferencesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.references.impl.ReferenceableElementImpl#getAliasesTo <em>Aliases To</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.references.impl.ReferenceableElementImpl#getAliasesFrom <em>Aliases From</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

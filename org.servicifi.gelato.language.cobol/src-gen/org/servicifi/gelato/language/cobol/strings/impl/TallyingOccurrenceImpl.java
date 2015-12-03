@@ -29,11 +29,11 @@ import org.servicifi.gelato.language.cobol.strings.TallyingOccurrence;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.TallyingOccurrenceImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.TallyingOccurrenceImpl#getOccurrences <em>Occurrences</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.operands.ArithmeticOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Multiply#getBys <em>Bys</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getMultiply()
  * @model

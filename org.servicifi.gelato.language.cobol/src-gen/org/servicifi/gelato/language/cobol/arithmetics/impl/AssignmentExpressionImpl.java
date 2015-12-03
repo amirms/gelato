@@ -30,12 +30,12 @@ import org.servicifi.gelato.language.cobol.operators.Equal;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.impl.AssignmentExpressionImpl#getAssignmentOperator <em>Assignment Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.impl.AssignmentExpressionImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.impl.AssignmentExpressionImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

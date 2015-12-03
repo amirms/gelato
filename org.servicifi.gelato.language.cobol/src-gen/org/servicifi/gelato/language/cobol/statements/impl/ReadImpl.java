@@ -33,13 +33,13 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ReadImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ReadImpl#getReceiver <em>Receiver</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ReadImpl#getKeyName <em>Key Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ReadImpl#getFileName <em>File Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

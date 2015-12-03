@@ -28,11 +28,11 @@ import org.servicifi.gelato.language.cobol.functions.FunctionsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.functions.impl.ArgumentableImpl#getArguments <em>Arguments</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.functions.impl.ArgumentableImpl#getReturning <em>Returning</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

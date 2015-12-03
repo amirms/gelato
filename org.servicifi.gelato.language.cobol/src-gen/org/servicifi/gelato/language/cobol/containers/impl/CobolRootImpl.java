@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.containers.ContainersPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Cobol Root</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

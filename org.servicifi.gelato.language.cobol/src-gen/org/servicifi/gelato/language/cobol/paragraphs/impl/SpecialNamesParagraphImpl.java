@@ -27,11 +27,11 @@ import org.servicifi.gelato.language.cobol.water.SpecialNamesParagraphWater;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.paragraphs.impl.SpecialNamesParagraphImpl#getSpecialNameStatements <em>Special Name Statements</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.paragraphs.impl.SpecialNamesParagraphImpl#getWater <em>Water</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

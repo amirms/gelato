@@ -33,6 +33,7 @@ import org.servicifi.gelato.language.cobol.tables.TablesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.impl.TableImpl#getTableDimension <em>Table Dimension</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.impl.TableImpl#getIndexedBy <em>Indexed By</em>}</li>
@@ -40,7 +41,6 @@ import org.servicifi.gelato.language.cobol.tables.TablesPackage;
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.impl.TableImpl#getMaxTableDimension <em>Max Table Dimension</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.impl.TableImpl#getDependsOn <em>Depends On</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

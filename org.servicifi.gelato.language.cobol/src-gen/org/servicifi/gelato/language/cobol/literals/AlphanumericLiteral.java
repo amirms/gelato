@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.literals;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.literals.AlphanumericLiteral#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.literals.LiteralsPackage#getAlphanumericLiteral()
  * @model

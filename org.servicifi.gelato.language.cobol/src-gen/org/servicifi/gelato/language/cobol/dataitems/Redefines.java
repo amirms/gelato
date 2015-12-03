@@ -11,10 +11,10 @@ import org.servicifi.gelato.language.cobol.identifiers.IdentifierReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.Redefines#getDataName <em>Data Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.dataitems.DataitemsPackage#getRedefines()
  * @model

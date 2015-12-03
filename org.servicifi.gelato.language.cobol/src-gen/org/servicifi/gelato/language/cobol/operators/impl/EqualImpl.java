@@ -17,10 +17,10 @@ import org.servicifi.gelato.language.cobol.operators.OperatorsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.operators.impl.EqualImpl#isTo <em>To</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

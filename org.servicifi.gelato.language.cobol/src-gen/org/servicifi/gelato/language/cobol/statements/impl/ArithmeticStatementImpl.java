@@ -32,13 +32,13 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ArithmeticStatementImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ArithmeticStatementImpl#getCorresponding <em>Corresponding</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ArithmeticStatementImpl#getOperands <em>Operands</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ArithmeticStatementImpl#getGivings <em>Givings</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

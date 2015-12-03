@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.functions.OmittedArgument;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Omitted Argument</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

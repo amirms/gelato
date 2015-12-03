@@ -21,10 +21,10 @@ import org.servicifi.gelato.language.cobol.operands.RoundedIdentifier;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.operands.impl.RoundedIdentifierImpl#getIdentifier <em>Identifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

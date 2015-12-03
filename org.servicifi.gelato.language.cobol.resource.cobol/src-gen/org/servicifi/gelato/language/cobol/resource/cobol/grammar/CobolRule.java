@@ -28,5 +28,10 @@ public class CobolRule extends org.servicifi.gelato.language.cobol.resource.cobo
 		return (org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolChoice) getChildren()[0];
 	}
 	
+	@Deprecated
+	public String toString() {
+		return metaclass == null ? "null" : metaclass.getName() + " ::= " + getDefinition().toString();
+	}
+	
 }
 

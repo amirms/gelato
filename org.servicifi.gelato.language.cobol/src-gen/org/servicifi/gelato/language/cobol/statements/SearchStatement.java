@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.SearchStatement#getCases <em>Cases</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.SearchStatement#getTable <em>Table</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getSearchStatement()
  * @model abstract="true"

@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.operators.OperatorsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Operator</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

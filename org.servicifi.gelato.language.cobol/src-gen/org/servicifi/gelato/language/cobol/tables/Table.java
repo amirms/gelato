@@ -17,6 +17,7 @@ import org.servicifi.gelato.language.cobol.water.IncompleteElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.Table#getTableDimension <em>Table Dimension</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.Table#getIndexedBy <em>Indexed By</em>}</li>
@@ -24,7 +25,6 @@ import org.servicifi.gelato.language.cobol.water.IncompleteElement;
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.Table#getMaxTableDimension <em>Max Table Dimension</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.Table#getDependsOn <em>Depends On</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.tables.TablesPackage#getTable()
  * @model

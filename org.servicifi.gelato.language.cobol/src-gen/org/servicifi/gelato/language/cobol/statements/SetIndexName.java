@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.references.IndexNameReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.SetIndexName#getAdjust <em>Adjust</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.SetIndexName#getReceivers <em>Receivers</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getSetIndexName()
  * @model

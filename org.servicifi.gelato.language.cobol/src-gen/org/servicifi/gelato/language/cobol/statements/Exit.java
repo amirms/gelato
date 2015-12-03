@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.statements;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Exit#getExitLabel <em>Exit Label</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getExit()
  * @model

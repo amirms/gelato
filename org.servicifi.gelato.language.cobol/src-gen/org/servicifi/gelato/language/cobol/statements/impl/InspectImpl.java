@@ -31,13 +31,13 @@ import org.servicifi.gelato.language.cobol.strings.Replacement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.InspectImpl#getTallyingIns <em>Tallying Ins</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.InspectImpl#getReplacements <em>Replacements</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.InspectImpl#getConversions <em>Conversions</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.InspectImpl#getString <em>String</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

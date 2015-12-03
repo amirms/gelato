@@ -274,6 +274,8 @@ public enum InvokeStatementTokens implements Enumerator {
 	 * Returns the '<em><b>Invoke Statement Tokens</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static InvokeStatementTokens get(String literal) {
@@ -290,6 +292,8 @@ public enum InvokeStatementTokens implements Enumerator {
 	 * Returns the '<em><b>Invoke Statement Tokens</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static InvokeStatementTokens getByName(String name) {
@@ -306,6 +310,8 @@ public enum InvokeStatementTokens implements Enumerator {
 	 * Returns the '<em><b>Invoke Statement Tokens</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static InvokeStatementTokens get(int value) {

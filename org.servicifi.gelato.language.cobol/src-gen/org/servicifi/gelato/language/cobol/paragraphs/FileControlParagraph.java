@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.files.SelectStatement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.paragraphs.FileControlParagraph#getSelectStatements <em>Select Statements</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.paragraphs.ParagraphsPackage#getFileControlParagraph()
  * @model

@@ -30,11 +30,11 @@ import org.servicifi.gelato.language.cobol.tables.TablesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.impl.KeyNameImpl#getKeys <em>Keys</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.impl.KeyNameImpl#getKeyOrder <em>Key Order</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

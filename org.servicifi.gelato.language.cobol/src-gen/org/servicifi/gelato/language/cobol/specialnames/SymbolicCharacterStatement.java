@@ -14,11 +14,11 @@ import org.servicifi.gelato.language.cobol.references.ElementReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.SymbolicCharacterStatement#getSymbolicCharacters <em>Symbolic Characters</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.SymbolicCharacterStatement#getAlphabetNameReference <em>Alphabet Name Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage#getSymbolicCharacterStatement()
  * @model

@@ -23,6 +23,7 @@ import org.servicifi.gelato.language.cobol.statements.Compute;
 import org.servicifi.gelato.language.cobol.statements.Condition;
 import org.servicifi.gelato.language.cobol.statements.Continue;
 import org.servicifi.gelato.language.cobol.statements.Corresponding;
+import org.servicifi.gelato.language.cobol.statements.Delete;
 import org.servicifi.gelato.language.cobol.statements.Display;
 import org.servicifi.gelato.language.cobol.statements.Divide;
 import org.servicifi.gelato.language.cobol.statements.EOP;
@@ -63,6 +64,7 @@ import org.servicifi.gelato.language.cobol.statements.Set;
 import org.servicifi.gelato.language.cobol.statements.SetIndexName;
 import org.servicifi.gelato.language.cobol.statements.SetSwitches;
 import org.servicifi.gelato.language.cobol.statements.Sort;
+import org.servicifi.gelato.language.cobol.statements.Start;
 import org.servicifi.gelato.language.cobol.statements.StatementsFactory;
 import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
 import org.servicifi.gelato.language.cobol.statements.Status;
@@ -170,6 +172,8 @@ public class StatementsFactoryImpl extends EFactoryImpl implements StatementsFac
 			case StatementsPackage.IO_FILE: return createIOFile();
 			case StatementsPackage.TALLYING_IN: return createTallyingIn();
 			case StatementsPackage.AFTER_UNTIL_CONDITION: return createAfterUntilCondition();
+			case StatementsPackage.START: return createStart();
+			case StatementsPackage.DELETE: return createDelete();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -757,6 +761,26 @@ public class StatementsFactoryImpl extends EFactoryImpl implements StatementsFac
 	public AfterUntilCondition createAfterUntilCondition() {
 		AfterUntilConditionImpl afterUntilCondition = new AfterUntilConditionImpl();
 		return afterUntilCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Start createStart() {
+		StartImpl start = new StartImpl();
+		return start;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Delete createDelete() {
+		DeleteImpl delete = new DeleteImpl();
+		return delete;
 	}
 
 	/**

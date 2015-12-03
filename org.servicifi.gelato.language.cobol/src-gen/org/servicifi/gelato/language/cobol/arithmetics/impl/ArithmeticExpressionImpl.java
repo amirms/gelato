@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.conditions.impl.AbbreviatedRelational
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Arithmetic Expression</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

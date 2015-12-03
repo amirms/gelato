@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.references;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.references.ElementReference#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.references.ReferencesPackage#getElementReference()
  * @model abstract="true"

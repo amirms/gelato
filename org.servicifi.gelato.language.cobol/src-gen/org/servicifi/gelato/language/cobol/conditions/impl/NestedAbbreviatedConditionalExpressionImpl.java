@@ -20,11 +20,11 @@ import org.servicifi.gelato.language.cobol.conditions.NestedAbbreviatedCondition
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.NestedAbbreviatedConditionalExpressionImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.NestedAbbreviatedConditionalExpressionImpl#getRest <em>Rest</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -36,6 +36,7 @@ import org.servicifi.gelato.language.cobol.strings.Positions;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.PerformUntilConditionImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.PerformUntilConditionImpl#getVariable <em>Variable</em>}</li>
@@ -44,7 +45,6 @@ import org.servicifi.gelato.language.cobol.strings.Positions;
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.PerformUntilConditionImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.PerformUntilConditionImpl#getConditions <em>Conditions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

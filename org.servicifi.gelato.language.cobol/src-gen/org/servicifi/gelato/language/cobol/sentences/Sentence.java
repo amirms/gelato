@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.sentences;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.sentences.Sentence#getNext <em>Next</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.sentences.SentencesPackage#getSentence()
  * @model

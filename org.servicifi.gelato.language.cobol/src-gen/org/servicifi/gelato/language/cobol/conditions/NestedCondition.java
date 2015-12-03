@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.conditions;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.NestedCondition#getCondition <em>Condition</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.conditions.ConditionsPackage#getNestedCondition()
  * @model

@@ -26,10 +26,10 @@ import org.servicifi.gelato.language.cobol.water.UseStatementWater;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.Identifier#getModifier <em>Modifier</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage#getIdentifier()
  * @model abstract="true"

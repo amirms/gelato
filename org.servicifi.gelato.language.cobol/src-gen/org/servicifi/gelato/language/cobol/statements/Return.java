@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.references.FileNameReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Return#getFileName <em>File Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Return#getOutput <em>Output</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getReturn()
  * @model

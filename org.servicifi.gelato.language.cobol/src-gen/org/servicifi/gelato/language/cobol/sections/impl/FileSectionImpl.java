@@ -25,10 +25,10 @@ import org.servicifi.gelato.language.cobol.sections.SectionsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.sections.impl.FileSectionImpl#getFileDescriptors <em>File Descriptors</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

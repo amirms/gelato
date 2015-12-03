@@ -31,11 +31,11 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ComputeImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ComputeImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

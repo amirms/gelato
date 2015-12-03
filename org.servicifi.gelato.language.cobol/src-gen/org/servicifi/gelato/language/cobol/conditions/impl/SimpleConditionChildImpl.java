@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.conditions.SimpleConditionChild;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Simple Condition Child</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

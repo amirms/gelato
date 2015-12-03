@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.labels;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.labels.ProcedureRangeChild#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.labels.LabelsPackage#getProcedureRangeChild()
  * @model abstract="true"

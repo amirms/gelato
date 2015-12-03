@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.arithmetics.RangeExpression;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.ClassName#getRange <em>Range</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage#getClassName()
  * @model

@@ -22,10 +22,10 @@ import org.servicifi.gelato.language.cobol.operands.Operand;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.SubscriptImpl#getSubscript <em>Subscript</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

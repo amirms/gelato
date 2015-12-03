@@ -33,12 +33,12 @@ import org.servicifi.gelato.language.cobol.specialnames.SymbolicCharacterStateme
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.impl.SymbolicCharacterStatementImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.impl.SymbolicCharacterStatementImpl#getSymbolicCharacters <em>Symbolic Characters</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.impl.SymbolicCharacterStatementImpl#getAlphabetNameReference <em>Alphabet Name Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

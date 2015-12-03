@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.labels.ProcedureRangeLabel;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Jump#getLabels <em>Labels</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getJump()
  * @model abstract="true"

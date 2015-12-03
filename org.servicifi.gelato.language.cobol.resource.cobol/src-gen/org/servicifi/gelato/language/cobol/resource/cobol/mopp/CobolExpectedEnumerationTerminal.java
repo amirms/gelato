@@ -44,7 +44,7 @@ public class CobolExpectedEnumerationTerminal extends org.servicifi.gelato.langu
 	/**
 	 * Returns the expected enumeration terminal.
 	 */
-	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSymtaxElement() {
+	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSyntaxElement() {
 		return enumerationTerminal;
 	}
 	

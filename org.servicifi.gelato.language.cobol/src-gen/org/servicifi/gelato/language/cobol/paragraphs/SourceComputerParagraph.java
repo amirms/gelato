@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.paragraphs;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.paragraphs.SourceComputerParagraph#getWithDebuggingMode <em>With Debugging Mode</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.paragraphs.ParagraphsPackage#getSourceComputerParagraph()
  * @model

@@ -26,10 +26,10 @@ import org.servicifi.gelato.language.cobol.references.FileNameReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.ios.impl.OutputFileImpl#getFileNames <em>File Names</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

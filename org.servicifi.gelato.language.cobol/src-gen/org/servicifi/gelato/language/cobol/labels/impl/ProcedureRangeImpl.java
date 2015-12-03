@@ -29,11 +29,11 @@ import org.servicifi.gelato.language.cobol.operators.Through;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.labels.impl.ProcedureRangeImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.labels.impl.ProcedureRangeImpl#getThroughOperator <em>Through Operator</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

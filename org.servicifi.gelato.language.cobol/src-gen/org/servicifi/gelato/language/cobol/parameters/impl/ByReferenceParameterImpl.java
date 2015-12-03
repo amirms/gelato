@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.parameters.ParametersPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>By Reference Parameter</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

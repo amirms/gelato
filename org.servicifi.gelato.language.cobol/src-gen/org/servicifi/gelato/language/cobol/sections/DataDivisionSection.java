@@ -15,11 +15,11 @@ import org.servicifi.gelato.language.cobol.statements.Statement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.sections.DataDivisionSection#getStatements <em>Statements</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.sections.DataDivisionSection#getRecords <em>Records</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.sections.SectionsPackage#getDataDivisionSection()
  * @model abstract="true"

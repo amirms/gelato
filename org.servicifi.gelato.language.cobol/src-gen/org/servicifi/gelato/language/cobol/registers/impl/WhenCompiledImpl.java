@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.registers.WhenCompiled;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>When Compiled</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

@@ -32,13 +32,13 @@ import org.servicifi.gelato.language.cobol.strings.ConcatenatingStrings;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.StringImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.StringImpl#getPointer <em>Pointer</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.StringImpl#getReceiver <em>Receiver</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.StringImpl#getSenders <em>Senders</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

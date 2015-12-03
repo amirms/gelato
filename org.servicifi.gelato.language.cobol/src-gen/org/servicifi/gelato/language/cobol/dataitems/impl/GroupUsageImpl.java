@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.dataitems.GroupUsage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Group Usage</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

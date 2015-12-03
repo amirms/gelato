@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.literals.LiteralsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Alphanumeric Hexa Decimal Literal</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

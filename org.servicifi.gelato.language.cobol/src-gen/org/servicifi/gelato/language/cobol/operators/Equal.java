@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.operators;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.operators.Equal#isTo <em>To</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.operators.OperatorsPackage#getEqual()
  * @model abstract="true"

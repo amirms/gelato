@@ -42,6 +42,7 @@ import org.servicifi.gelato.language.cobol.water.impl.IncompleteElementImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.FileNameImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.FileNameImpl#getAliasesTo <em>Aliases To</em>}</li>
@@ -51,7 +52,6 @@ import org.servicifi.gelato.language.cobol.water.impl.IncompleteElementImpl;
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.FileNameImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.files.impl.FileNameImpl#getSentences <em>Sentences</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

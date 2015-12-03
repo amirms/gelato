@@ -560,6 +560,8 @@ public enum IOControlDescriptionInfo implements Enumerator {
 	 * Returns the '<em><b>IO Control Description Info</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static IOControlDescriptionInfo get(String literal) {
@@ -576,6 +578,8 @@ public enum IOControlDescriptionInfo implements Enumerator {
 	 * Returns the '<em><b>IO Control Description Info</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static IOControlDescriptionInfo getByName(String name) {
@@ -592,6 +596,8 @@ public enum IOControlDescriptionInfo implements Enumerator {
 	 * Returns the '<em><b>IO Control Description Info</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static IOControlDescriptionInfo get(int value) {

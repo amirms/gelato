@@ -27,10 +27,10 @@ import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.functions.impl.ArgumentImpl#getOperands <em>Operands</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

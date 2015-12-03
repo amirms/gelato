@@ -30,11 +30,11 @@ import org.servicifi.gelato.language.cobol.statements.SwitchStatus;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.SwitchStatusImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.SwitchStatusImpl#getMnemonicNames <em>Mnemonic Names</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

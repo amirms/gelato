@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Perform</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

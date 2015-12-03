@@ -23,6 +23,7 @@ import org.servicifi.gelato.language.cobol.statements.Compute;
 import org.servicifi.gelato.language.cobol.statements.Condition;
 import org.servicifi.gelato.language.cobol.statements.Conditional;
 import org.servicifi.gelato.language.cobol.statements.Continue;
+import org.servicifi.gelato.language.cobol.statements.Delete;
 import org.servicifi.gelato.language.cobol.statements.Display;
 import org.servicifi.gelato.language.cobol.statements.Divide;
 import org.servicifi.gelato.language.cobol.statements.Entry;
@@ -70,6 +71,7 @@ import org.servicifi.gelato.language.cobol.statements.SetIndexName;
 import org.servicifi.gelato.language.cobol.statements.SetStatement;
 import org.servicifi.gelato.language.cobol.statements.SetSwitches;
 import org.servicifi.gelato.language.cobol.statements.Sort;
+import org.servicifi.gelato.language.cobol.statements.Start;
 import org.servicifi.gelato.language.cobol.statements.Statement;
 import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
 import org.servicifi.gelato.language.cobol.statements.Stop;
@@ -120,7 +122,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -675,6 +677,22 @@ public class StatementsSwitch<T> extends Switch<T> {
 				T result = caseAfterUntilCondition(afterUntilCondition);
 				if (result == null) result = caseVaryingUntilCondition(afterUntilCondition);
 				if (result == null) result = caseConditional(afterUntilCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StatementsPackage.START: {
+				Start start = (Start)theEObject;
+				T result = caseStart(start);
+				if (result == null) result = caseErrorHandled(start);
+				if (result == null) result = caseStatement(start);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StatementsPackage.DELETE: {
+				Delete delete = (Delete)theEObject;
+				T result = caseDelete(delete);
+				if (result == null) result = caseStatement(delete);
+				if (result == null) result = caseErrorHandled(delete);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1699,6 +1717,36 @@ public class StatementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAfterUntilCondition(AfterUntilCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Start</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStart(Start object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Delete</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Delete</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDelete(Delete object) {
 		return null;
 	}
 

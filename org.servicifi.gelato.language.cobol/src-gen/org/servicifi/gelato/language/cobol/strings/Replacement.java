@@ -11,10 +11,10 @@ import org.servicifi.gelato.language.cobol.operands.ReplacementOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.Replacement#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.strings.StringsPackage#getReplacement()
  * @model abstract="true"

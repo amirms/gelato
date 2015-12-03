@@ -17,11 +17,11 @@ import org.servicifi.gelato.language.cobol.strings.Tallying;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.TallyingIn#getOccurrences <em>Occurrences</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.TallyingIn#getCounter <em>Counter</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getTallyingIn()
  * @model

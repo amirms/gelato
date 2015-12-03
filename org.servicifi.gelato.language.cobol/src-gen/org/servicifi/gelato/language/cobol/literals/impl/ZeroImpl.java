@@ -18,10 +18,10 @@ import org.servicifi.gelato.language.cobol.literals.Zeroes;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.literals.impl.ZeroImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

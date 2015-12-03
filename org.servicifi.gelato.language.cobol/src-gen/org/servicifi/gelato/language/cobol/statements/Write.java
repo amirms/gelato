@@ -15,6 +15,7 @@ import org.servicifi.gelato.language.cobol.references.MnemonicNameReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Write#getRecordName <em>Record Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Write#getNumLines <em>Num Lines</em>}</li>
@@ -22,7 +23,6 @@ import org.servicifi.gelato.language.cobol.references.MnemonicNameReference;
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Write#getMnemonicName <em>Mnemonic Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Write#getSender <em>Sender</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getWrite()
  * @model

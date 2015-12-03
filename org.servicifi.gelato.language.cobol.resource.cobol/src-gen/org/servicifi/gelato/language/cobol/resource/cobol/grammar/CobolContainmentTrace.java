@@ -52,7 +52,23 @@ public class CobolContainmentTrace {
 	}
 	
 	public String toString() {
-		return (startClass == null ? "null" : startClass.getName()) + "->" + org.servicifi.gelato.language.cobol.resource.cobol.util.CobolStringUtil.explode(path, "->");
+		return (startClass == null ? "null" : startClass.getName()) + "." + org.servicifi.gelato.language.cobol.resource.cobol.util.CobolStringUtil.explode(path, "->");
+	}
+	
+	public boolean contains(org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolRule rule) {
+		if (path == null) {
+			return false;
+		}
+		
+		EClass ruleMetaclass = rule.getMetaclass();
+		for (org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolContainedFeature pathElement : path) {
+			EClass containerClass = pathElement.getContainerClass();
+			if (containerClass == ruleMetaclass) {
+				return true;
+			}
+		}
+		
+		return startClass == ruleMetaclass;
 	}
 	
 }

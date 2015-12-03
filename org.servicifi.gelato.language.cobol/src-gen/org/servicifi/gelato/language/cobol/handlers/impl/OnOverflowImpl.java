@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.handlers.OnOverflow;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>On Overflow</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

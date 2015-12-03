@@ -19,10 +19,10 @@ import org.servicifi.gelato.language.cobol.labels.ProcedureRangeChild;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.labels.impl.ProcedureRangeChildImpl#getTarget <em>Target</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.IOFileDescriptor#getIoFiles <em>Io Files</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.IOFileDescriptor#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getIOFileDescriptor()
  * @model

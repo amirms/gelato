@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.water;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.water.AcceptStatementToken#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.water.WaterPackage#getAcceptStatementToken()
  * @model

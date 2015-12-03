@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Direct Subscript</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

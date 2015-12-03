@@ -30,12 +30,12 @@ import org.servicifi.gelato.language.cobol.tables.TablesPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.impl.IndexNameImpl#getAliasesTo <em>Aliases To</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.impl.IndexNameImpl#getAliasesFrom <em>Aliases From</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.impl.IndexNameImpl#getAdditionalIndexNames <em>Additional Index Names</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

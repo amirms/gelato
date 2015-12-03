@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.strings.Tallying;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Tallying</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

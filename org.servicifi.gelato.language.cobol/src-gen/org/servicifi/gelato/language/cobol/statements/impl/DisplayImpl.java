@@ -30,11 +30,11 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.DisplayImpl#getOperands <em>Operands</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.DisplayImpl#getOutput <em>Output</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

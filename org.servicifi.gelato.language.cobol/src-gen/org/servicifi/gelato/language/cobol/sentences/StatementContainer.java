@@ -15,10 +15,10 @@ import org.servicifi.gelato.language.cobol.statements.Statement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.sentences.StatementContainer#getStatements <em>Statements</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.sentences.SentencesPackage#getStatementContainer()
  * @model abstract="true"

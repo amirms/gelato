@@ -28,13 +28,13 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ConditionImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ConditionImpl#getNext <em>Next</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ConditionImpl#isEndVerb <em>End Verb</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ConditionImpl#getElseStatements <em>Else Statements</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

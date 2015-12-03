@@ -31,11 +31,11 @@ import org.servicifi.gelato.language.cobol.containers.ContainersPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.containers.impl.CompilationGroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.containers.impl.CompilationGroupImpl#getCompilationUnits <em>Compilation Units</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

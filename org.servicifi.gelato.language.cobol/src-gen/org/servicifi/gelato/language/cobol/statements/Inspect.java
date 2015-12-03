@@ -15,13 +15,13 @@ import org.servicifi.gelato.language.cobol.strings.Replacement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Inspect#getTallyingIns <em>Tallying Ins</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Inspect#getReplacements <em>Replacements</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Inspect#getConversions <em>Conversions</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Inspect#getString <em>String</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getInspect()
  * @model

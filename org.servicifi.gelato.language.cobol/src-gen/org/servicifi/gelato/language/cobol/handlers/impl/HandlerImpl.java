@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.statements.impl.NestedStatementImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Handler</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

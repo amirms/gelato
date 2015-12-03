@@ -29,12 +29,12 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.MoveImpl#getReceivers <em>Receivers</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.MoveImpl#getCorresponding <em>Corresponding</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.MoveImpl#getSender <em>Sender</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

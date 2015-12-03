@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.sentences.SentencesPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Entry Sentence</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

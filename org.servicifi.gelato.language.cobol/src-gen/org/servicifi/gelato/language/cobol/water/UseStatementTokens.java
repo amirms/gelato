@@ -586,6 +586,8 @@ public enum UseStatementTokens implements Enumerator {
 	 * Returns the '<em><b>Use Statement Tokens</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static UseStatementTokens get(String literal) {
@@ -602,6 +604,8 @@ public enum UseStatementTokens implements Enumerator {
 	 * Returns the '<em><b>Use Statement Tokens</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static UseStatementTokens getByName(String name) {
@@ -618,6 +622,8 @@ public enum UseStatementTokens implements Enumerator {
 	 * Returns the '<em><b>Use Statement Tokens</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static UseStatementTokens get(int value) {

@@ -11,10 +11,10 @@ import org.servicifi.gelato.language.cobol.identifiers.Identifier;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.SerialSearch#getVariable <em>Variable</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getSerialSearch()
  * @model

@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.references.FileNameReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.ios.FileDirective#getFileNames <em>File Names</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.ios.IosPackage#getFileDirective()
  * @model abstract="true"

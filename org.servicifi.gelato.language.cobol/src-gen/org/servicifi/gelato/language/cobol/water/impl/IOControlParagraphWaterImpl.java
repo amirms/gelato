@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.water.WaterPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>IO Control Paragraph Water</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

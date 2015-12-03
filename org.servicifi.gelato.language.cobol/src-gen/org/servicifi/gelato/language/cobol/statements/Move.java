@@ -13,12 +13,12 @@ import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Move#getReceivers <em>Receivers</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Move#getCorresponding <em>Corresponding</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Move#getSender <em>Sender</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getMove()
  * @model

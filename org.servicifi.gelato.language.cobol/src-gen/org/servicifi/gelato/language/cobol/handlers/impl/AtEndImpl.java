@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.handlers.HandlersPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>At End</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

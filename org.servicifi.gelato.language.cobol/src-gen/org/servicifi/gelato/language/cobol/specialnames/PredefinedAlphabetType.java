@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.specialnames;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.PredefinedAlphabetType#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage#getPredefinedAlphabetType()
  * @model

@@ -21,11 +21,11 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ReleaseImpl#getRecordName <em>Record Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.ReleaseImpl#getSender <em>Sender</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

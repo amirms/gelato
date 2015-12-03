@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.operands;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.operands.Encoding#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.operands.OperandsPackage#getEncoding()
  * @model

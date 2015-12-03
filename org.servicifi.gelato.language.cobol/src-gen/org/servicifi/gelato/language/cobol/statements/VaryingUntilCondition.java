@@ -13,12 +13,12 @@ import org.servicifi.gelato.language.cobol.operands.PrimaryOperand;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.VaryingUntilCondition#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.VaryingUntilCondition#getInit <em>Init</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.VaryingUntilCondition#getIncrement <em>Increment</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getVaryingUntilCondition()
  * @model abstract="true"

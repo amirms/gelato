@@ -30,11 +30,11 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.PerformProcedureUntilConditionImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.PerformProcedureUntilConditionImpl#getAfters <em>Afters</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

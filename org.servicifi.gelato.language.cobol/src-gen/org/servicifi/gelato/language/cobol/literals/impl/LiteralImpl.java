@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.water.impl.SelectStatementWaterImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Literal</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

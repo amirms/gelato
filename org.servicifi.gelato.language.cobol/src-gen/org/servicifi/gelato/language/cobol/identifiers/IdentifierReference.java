@@ -14,11 +14,11 @@ import org.servicifi.gelato.language.cobol.references.Qualifiable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.IdentifierReference#getSubscripts <em>Subscripts</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.IdentifierReference#getQualifiers <em>Qualifiers</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.identifiers.IdentifiersPackage#getIdentifierReference()
  * @model

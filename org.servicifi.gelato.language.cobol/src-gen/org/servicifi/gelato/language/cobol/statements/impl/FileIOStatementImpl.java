@@ -32,13 +32,13 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.FileIOStatementImpl#getFileName <em>File Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.FileIOStatementImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.FileIOStatementImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.FileIOStatementImpl#getKeyDescriptors <em>Key Descriptors</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

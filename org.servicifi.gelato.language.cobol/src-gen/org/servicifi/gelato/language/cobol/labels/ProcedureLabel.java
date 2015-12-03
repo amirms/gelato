@@ -11,10 +11,10 @@ import org.servicifi.gelato.language.cobol.sections.Section;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.labels.ProcedureLabel#getSection <em>Section</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.labels.LabelsPackage#getProcedureLabel()
  * @model

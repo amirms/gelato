@@ -22,10 +22,10 @@ import org.servicifi.gelato.language.cobol.references.SpecialNamesConditionNameR
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.references.impl.SpecialNamesConditionNameReferenceImpl#getQualifier <em>Qualifier</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

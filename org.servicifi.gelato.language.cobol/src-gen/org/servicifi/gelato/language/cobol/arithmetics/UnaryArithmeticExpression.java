@@ -11,11 +11,11 @@ import org.servicifi.gelato.language.cobol.operators.UnaryOperator;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.UnaryArithmeticExpression#getChild <em>Child</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.UnaryArithmeticExpression#getUnaryOperator <em>Unary Operator</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.arithmetics.ArithmeticsPackage#getUnaryArithmeticExpression()
  * @model

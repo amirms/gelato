@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.parameters.Parametrizable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.divisions.ProcedureDivision#getDeclaratives <em>Declaratives</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.divisions.DivisionsPackage#getProcedureDivision()
  * @model

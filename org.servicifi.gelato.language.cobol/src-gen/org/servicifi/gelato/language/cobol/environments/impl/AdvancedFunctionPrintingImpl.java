@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.environments.EnvironmentsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Advanced Function Printing</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.commons;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.commons.LabellableElement#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.commons.CommonsPackage#getLabellableElement()
  * @model abstract="true"

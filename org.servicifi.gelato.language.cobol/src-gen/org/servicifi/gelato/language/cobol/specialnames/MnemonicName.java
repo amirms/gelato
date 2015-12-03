@@ -11,10 +11,10 @@ import org.servicifi.gelato.language.cobol.environments.Environment;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.MnemonicName#getEnvironment <em>Environment</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage#getMnemonicName()
  * @model abstract="true"

@@ -31,12 +31,12 @@ import org.servicifi.gelato.language.cobol.strings.StringsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.ReplacementOccurrenceImpl#getLocations <em>Locations</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.ReplacementOccurrenceImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.ReplacementOccurrenceImpl#getOccurrences <em>Occurrences</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

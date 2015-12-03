@@ -33,6 +33,7 @@ import org.servicifi.gelato.language.cobol.divisions.ProcedureDivision;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.containers.impl.CompilationUnitImpl#getIdentificationDivision <em>Identification Division</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.containers.impl.CompilationUnitImpl#getEnvironmentDivision <em>Environment Division</em>}</li>
@@ -40,7 +41,6 @@ import org.servicifi.gelato.language.cobol.divisions.ProcedureDivision;
  *   <li>{@link org.servicifi.gelato.language.cobol.containers.impl.CompilationUnitImpl#getProcedureDivision <em>Procedure Division</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.containers.impl.CompilationUnitImpl#getNestedCompilationUnits <em>Nested Compilation Units</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

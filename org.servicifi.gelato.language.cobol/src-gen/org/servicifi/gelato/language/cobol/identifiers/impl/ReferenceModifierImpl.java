@@ -22,11 +22,11 @@ import org.servicifi.gelato.language.cobol.identifiers.ReferenceModifier;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.ReferenceModifierImpl#getStart <em>Start</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.identifiers.impl.ReferenceModifierImpl#getLength <em>Length</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

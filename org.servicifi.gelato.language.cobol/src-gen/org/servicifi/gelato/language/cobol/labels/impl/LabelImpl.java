@@ -13,8 +13,6 @@ import org.servicifi.gelato.language.cobol.labels.LabelsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Label</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

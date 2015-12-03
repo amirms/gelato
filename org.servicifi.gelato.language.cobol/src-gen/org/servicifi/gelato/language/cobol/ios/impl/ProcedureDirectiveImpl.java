@@ -21,10 +21,10 @@ import org.servicifi.gelato.language.cobol.labels.Label;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.ios.impl.ProcedureDirectiveImpl#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

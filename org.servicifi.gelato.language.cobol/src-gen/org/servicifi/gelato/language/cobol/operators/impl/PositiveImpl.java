@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.operators.Positive;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Positive</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

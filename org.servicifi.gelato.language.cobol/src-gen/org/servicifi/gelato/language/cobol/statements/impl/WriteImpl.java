@@ -35,6 +35,7 @@ import org.servicifi.gelato.language.cobol.statements.Write;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.WriteImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.WriteImpl#getRecordName <em>Record Name</em>}</li>
@@ -43,7 +44,6 @@ import org.servicifi.gelato.language.cobol.statements.Write;
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.WriteImpl#getMnemonicName <em>Mnemonic Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.WriteImpl#getSender <em>Sender</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

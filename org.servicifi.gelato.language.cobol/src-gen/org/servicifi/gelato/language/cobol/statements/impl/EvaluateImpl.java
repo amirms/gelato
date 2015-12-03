@@ -29,11 +29,11 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.EvaluateImpl#getCases <em>Cases</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.EvaluateImpl#getSubject <em>Subject</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

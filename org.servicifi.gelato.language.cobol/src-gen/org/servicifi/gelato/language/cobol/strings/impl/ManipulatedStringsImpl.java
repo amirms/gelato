@@ -28,11 +28,11 @@ import org.servicifi.gelato.language.cobol.strings.StringsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.ManipulatedStringsImpl#getStrings <em>Strings</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.strings.impl.ManipulatedStringsImpl#getDelimiter <em>Delimiter</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

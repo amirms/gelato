@@ -24,10 +24,10 @@ import org.servicifi.gelato.language.cobol.conditions.ConditionsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.AbbreviatedConditionalExpressionImpl#getChildren <em>Children</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

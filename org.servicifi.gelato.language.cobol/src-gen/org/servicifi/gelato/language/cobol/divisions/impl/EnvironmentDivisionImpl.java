@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.divisions.EnvironmentDivision;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Environment Division</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

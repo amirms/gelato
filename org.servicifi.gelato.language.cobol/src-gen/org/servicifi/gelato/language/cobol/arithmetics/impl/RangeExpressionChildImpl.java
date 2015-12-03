@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.arithmetics.RangeExpressionChild;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Range Expression Child</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

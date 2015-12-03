@@ -11,8 +11,6 @@ import org.servicifi.gelato.language.cobol.functions.FunctionsPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>By Content Argument</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

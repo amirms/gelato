@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.operators.Through;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.labels.ProcedureRange#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.labels.ProcedureRange#getThroughOperator <em>Through Operator</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.labels.LabelsPackage#getProcedureRange()
  * @model

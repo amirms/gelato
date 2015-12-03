@@ -15,11 +15,11 @@ import org.servicifi.gelato.language.cobol.references.MnemonicNameReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.SwitchStatus#getStatus <em>Status</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.SwitchStatus#getMnemonicNames <em>Mnemonic Names</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getSwitchStatus()
  * @model

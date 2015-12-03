@@ -17,10 +17,10 @@ import org.servicifi.gelato.language.cobol.dataitems.PictureString;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.dataitems.impl.PictureStringImpl#getPicture <em>Picture</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

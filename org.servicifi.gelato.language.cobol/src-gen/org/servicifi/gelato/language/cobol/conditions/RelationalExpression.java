@@ -16,13 +16,13 @@ import org.servicifi.gelato.language.cobol.verbs.Is;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.RelationalExpression#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.RelationalExpression#getRelationalOperator <em>Relational Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.RelationalExpression#getNegateOperator <em>Negate Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.RelationalExpression#getIs <em>Is</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.conditions.ConditionsPackage#getRelationalExpression()
  * @model

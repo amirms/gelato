@@ -13,10 +13,10 @@ import org.servicifi.gelato.language.cobol.literals.IntegerLiteral;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.specialnames.SymbolicCharacter#getIntegers <em>Integers</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.specialnames.SpecialnamesPackage#getSymbolicCharacter()
  * @model

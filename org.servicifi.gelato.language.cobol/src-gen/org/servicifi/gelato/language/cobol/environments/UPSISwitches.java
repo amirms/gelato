@@ -248,6 +248,8 @@ public enum UPSISwitches implements Enumerator {
 	 * Returns the '<em><b>UPSI Switches</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static UPSISwitches get(String literal) {
@@ -264,6 +266,8 @@ public enum UPSISwitches implements Enumerator {
 	 * Returns the '<em><b>UPSI Switches</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static UPSISwitches getByName(String name) {
@@ -280,6 +284,8 @@ public enum UPSISwitches implements Enumerator {
 	 * Returns the '<em><b>UPSI Switches</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static UPSISwitches get(int value) {

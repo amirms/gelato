@@ -20,10 +20,10 @@ import org.servicifi.gelato.language.cobol.literals.LiteralsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.literals.impl.AllLiteralImpl#getConstant <em>Constant</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

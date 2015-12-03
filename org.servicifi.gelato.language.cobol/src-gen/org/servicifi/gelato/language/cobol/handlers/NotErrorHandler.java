@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.handlers;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.handlers.NotErrorHandler#getHandlerStatement <em>Handler Statement</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.handlers.HandlersPackage#getNotErrorHandler()
  * @model abstract="true"

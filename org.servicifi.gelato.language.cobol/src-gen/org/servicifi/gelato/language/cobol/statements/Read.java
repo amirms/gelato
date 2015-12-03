@@ -13,12 +13,12 @@ import org.servicifi.gelato.language.cobol.references.FileNameReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Read#getReceiver <em>Receiver</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Read#getKeyName <em>Key Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.Read#getFileName <em>File Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.statements.StatementsPackage#getRead()
  * @model

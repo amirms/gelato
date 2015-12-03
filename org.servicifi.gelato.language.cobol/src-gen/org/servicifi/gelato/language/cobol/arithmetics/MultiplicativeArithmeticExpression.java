@@ -13,11 +13,11 @@ import org.servicifi.gelato.language.cobol.operators.MultiplicativeOperator;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.MultiplicativeArithmeticExpression#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.MultiplicativeArithmeticExpression#getMultiplicativeOperators <em>Multiplicative Operators</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.arithmetics.ArithmeticsPackage#getMultiplicativeArithmeticExpression()
  * @model

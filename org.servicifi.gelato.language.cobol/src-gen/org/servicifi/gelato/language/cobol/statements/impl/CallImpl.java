@@ -35,13 +35,13 @@ import org.servicifi.gelato.language.cobol.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.CallImpl#getArguments <em>Arguments</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.CallImpl#getReturning <em>Returning</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.CallImpl#getHandlers <em>Handlers</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.CallImpl#getSubprogram <em>Subprogram</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

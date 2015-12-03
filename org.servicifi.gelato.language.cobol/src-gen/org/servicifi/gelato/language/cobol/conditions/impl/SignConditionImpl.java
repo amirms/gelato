@@ -25,13 +25,13 @@ import org.servicifi.gelato.language.cobol.verbs.Is;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.SignConditionImpl#getChild <em>Child</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.SignConditionImpl#getSignOperator <em>Sign Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.SignConditionImpl#getNegateOperator <em>Negate Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.SignConditionImpl#getIs <em>Is</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

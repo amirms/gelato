@@ -15,11 +15,11 @@ import org.servicifi.gelato.language.cobol.identifiers.IdentifierReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.KeyName#getKeys <em>Keys</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.tables.KeyName#getKeyOrder <em>Key Order</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.tables.TablesPackage#getKeyName()
  * @model

@@ -24,10 +24,10 @@ import org.servicifi.gelato.language.cobol.statements.SwitchStatus;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.statements.impl.SetSwitchesImpl#getSwitches <em>Switches</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -28,7 +28,7 @@ public interface ICobolExpectedElement {
 	/**
 	 * Returns the syntax element that is expected.
 	 */
-	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSymtaxElement();
+	public org.servicifi.gelato.language.cobol.resource.cobol.grammar.CobolSyntaxElement getSyntaxElement();
 	
 	/**
 	 * Adds an element that is a valid follower for this element.

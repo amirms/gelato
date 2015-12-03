@@ -20,6 +20,14 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
+/**
+ * This class provides an implementation of the
+ * org.servicifi.gelato.language.cobol.resource.cobol.ICobolTextDiagnostic
+ * interface. However, it is recommended to use the
+ * org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolPrinter2 instead,
+ * because it provides advanced printing features. There are even some features
+ * (e.g., printing enumeration terminals) which are only supported by that class.
+ */
 public class CobolPrinter implements org.servicifi.gelato.language.cobol.resource.cobol.ICobolTextPrinter {
 	
 	protected org.servicifi.gelato.language.cobol.resource.cobol.ICobolTokenResolverFactory tokenResolverFactory = new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolTokenResolverFactory();
@@ -286,20 +294,16 @@ public class CobolPrinter implements org.servicifi.gelato.language.cobol.resourc
 			print_org_servicifi_gelato_language_cobol_sentences_EmptySentence((org.servicifi.gelato.language.cobol.sentences.EmptySentence) element, globaltab, out);
 			return;
 		}
+		if (element instanceof org.servicifi.gelato.language.cobol.statements.Start) {
+			print_org_servicifi_gelato_language_cobol_statements_Start((org.servicifi.gelato.language.cobol.statements.Start) element, globaltab, out);
+			return;
+		}
+		if (element instanceof org.servicifi.gelato.language.cobol.statements.Delete) {
+			print_org_servicifi_gelato_language_cobol_statements_Delete((org.servicifi.gelato.language.cobol.statements.Delete) element, globaltab, out);
+			return;
+		}
 		if (element instanceof org.servicifi.gelato.language.cobol.statements.Accept) {
 			print_org_servicifi_gelato_language_cobol_statements_Accept((org.servicifi.gelato.language.cobol.statements.Accept) element, globaltab, out);
-			return;
-		}
-		if (element instanceof org.servicifi.gelato.language.cobol.statements.Release) {
-			print_org_servicifi_gelato_language_cobol_statements_Release((org.servicifi.gelato.language.cobol.statements.Release) element, globaltab, out);
-			return;
-		}
-		if (element instanceof org.servicifi.gelato.language.cobol.statements.Merge) {
-			print_org_servicifi_gelato_language_cobol_statements_Merge((org.servicifi.gelato.language.cobol.statements.Merge) element, globaltab, out);
-			return;
-		}
-		if (element instanceof org.servicifi.gelato.language.cobol.statements.Sort) {
-			print_org_servicifi_gelato_language_cobol_statements_Sort((org.servicifi.gelato.language.cobol.statements.Sort) element, globaltab, out);
 			return;
 		}
 		if (element instanceof org.servicifi.gelato.language.cobol.statements.KeyDescriptor) {
@@ -6571,6 +6575,345 @@ public class CobolPrinter implements org.servicifi.gelato.language.cobol.resourc
 	}
 	
 	
+	public void print_org_servicifi_gelato_language_cobol_statements_Start(org.servicifi.gelato.language.cobol.statements.Start element, String outertab, PrintWriter out) {
+		String localtab = outertab;
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		Map<String, Integer> printCountingMap = new LinkedHashMap<String, Integer>(7);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__HANDLERS));
+		printCountingMap.put("handlers", temp == null ? 0 : ((Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__NEXT));
+		printCountingMap.put("next", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__END_VERB));
+		printCountingMap.put("endVerb", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__FILE_NAME));
+		printCountingMap.put("fileName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__OPERATOR));
+		printCountingMap.put("operator", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__DATA_NAME));
+		printCountingMap.put("dataName", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__NOT));
+		printCountingMap.put("not", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		int count;
+		java.io.StringWriter sWriter = null;
+		PrintWriter out1 = null;
+		Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("START");
+		out.print(" ");
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("fileName");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__FILE_NAME));
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("fileName", count - 1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_Start_0(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_Start_1(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_Start_2(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
+		// DEFINITION PART BEGINS (BooleanTerminal)
+		count = printCountingMap.get("endVerb");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__END_VERB));
+			if (o != null) {
+			}
+			printCountingMap.put("endVerb", count - 1);
+		}
+	}
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_Start_0(org.servicifi.gelato.language.cobol.statements.Start element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		java.io.StringWriter sWriter = null;
+		PrintWriter out1 = null;
+		Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("KEY");
+		out.print(" ");
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_Start_0_0(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_Start_0_1(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("operator");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__OPERATOR));
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("operator", count - 1);
+		}
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("dataName");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__DATA_NAME));
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("dataName", count - 1);
+		}
+	}
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_Start_0_0(org.servicifi.gelato.language.cobol.statements.Start element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+		// DEFINITION PART BEGINS (CsString)
+		out.print("IS");
+		out.print(" ");
+	}
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_Start_0_1(org.servicifi.gelato.language.cobol.statements.Start element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("not");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__NOT));
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("not", count - 1);
+		}
+	}
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_Start_1(org.servicifi.gelato.language.cobol.statements.Start element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("handlers");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__HANDLERS));
+			List<?> list = (List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("handlers", count - 1);
+		}
+	}
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_Start_2(org.servicifi.gelato.language.cobol.statements.Start element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("handlers");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.START__HANDLERS));
+			List<?> list = (List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("handlers", count - 1);
+		}
+	}
+	
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_Delete(org.servicifi.gelato.language.cobol.statements.Delete element, String outertab, PrintWriter out) {
+		String localtab = outertab;
+		// The printCountingMap contains a mapping from feature names to the number of
+		// remaining elements that still need to be printed. The map is initialized with
+		// the number of elements stored in each structural feature. For lists this is the
+		// list size. For non-multiple features it is either 1 (if the feature is set) or
+		// 0 (if the feature is null).
+		Map<String, Integer> printCountingMap = new LinkedHashMap<String, Integer>(4);
+		Object temp;
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.DELETE__NEXT));
+		printCountingMap.put("next", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.DELETE__END_VERB));
+		printCountingMap.put("endVerb", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.DELETE__HANDLERS));
+		printCountingMap.put("handlers", temp == null ? 0 : ((Collection<?>) temp).size());
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.DELETE__FILE_NAME));
+		printCountingMap.put("fileName", temp == null ? 0 : 1);
+		// print collected hidden tokens
+		int count;
+		java.io.StringWriter sWriter = null;
+		PrintWriter out1 = null;
+		Map<String, Integer> printCountingMap1 = null;
+		// DEFINITION PART BEGINS (CsString)
+		out.print("DELETE");
+		out.print(" ");
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("fileName");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.DELETE__FILE_NAME));
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("fileName", count - 1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_Delete_0(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_Delete_1(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
+		// DEFINITION PART BEGINS (CompoundDefinition)
+		sWriter = new StringWriter();
+		out1 = new PrintWriter(sWriter);
+		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
+		print_org_servicifi_gelato_language_cobol_statements_Delete_2(element, localtab, out1, printCountingMap1);
+		if (printCountingMap.equals(printCountingMap1)) {
+			out1.close();
+		} else {
+			out1.flush();
+			out1.close();
+			out.print(sWriter.toString());
+			printCountingMap.putAll(printCountingMap1);
+		}
+		// DEFINITION PART BEGINS (BooleanTerminal)
+		count = printCountingMap.get("endVerb");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.DELETE__END_VERB));
+			if (o != null) {
+			}
+			printCountingMap.put("endVerb", count - 1);
+		}
+	}
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_Delete_0(org.servicifi.gelato.language.cobol.statements.Delete element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+		// DEFINITION PART BEGINS (CsString)
+		out.print("RECORD");
+		out.print(" ");
+	}
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_Delete_1(org.servicifi.gelato.language.cobol.statements.Delete element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("handlers");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.DELETE__HANDLERS));
+			List<?> list = (List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("handlers", count - 1);
+		}
+	}
+	
+	public void print_org_servicifi_gelato_language_cobol_statements_Delete_2(org.servicifi.gelato.language.cobol.statements.Delete element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
+		String localtab = outertab;
+		int count;
+		// DEFINITION PART BEGINS (Containment)
+		count = printCountingMap.get("handlers");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.DELETE__HANDLERS));
+			List<?> list = (List<?>) o;
+			int index = list.size() - count;
+			if (index >= 0) {
+				o = list.get(index);
+			} else {
+				o = null;
+			}
+			if (o != null) {
+				doPrint((EObject) o, out, localtab);
+			}
+			printCountingMap.put("handlers", count - 1);
+		}
+	}
+	
+	
 	public void print_org_servicifi_gelato_language_cobol_statements_Accept(org.servicifi.gelato.language.cobol.statements.Accept element, String outertab, PrintWriter out) {
 		String localtab = outertab;
 		// The printCountingMap contains a mapping from feature names to the number of
@@ -6643,401 +6986,6 @@ public class CobolPrinter implements org.servicifi.gelato.language.cobol.resourc
 				doPrint((EObject) o, out, localtab);
 			}
 			printCountingMap.put("water", count - 1);
-		}
-	}
-	
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Release(org.servicifi.gelato.language.cobol.statements.Release element, String outertab, PrintWriter out) {
-		String localtab = outertab;
-		// The printCountingMap contains a mapping from feature names to the number of
-		// remaining elements that still need to be printed. The map is initialized with
-		// the number of elements stored in each structural feature. For lists this is the
-		// list size. For non-multiple features it is either 1 (if the feature is set) or
-		// 0 (if the feature is null).
-		Map<String, Integer> printCountingMap = new LinkedHashMap<String, Integer>(4);
-		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.RELEASE__NEXT));
-		printCountingMap.put("next", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.RELEASE__END_VERB));
-		printCountingMap.put("endVerb", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.RELEASE__RECORD_NAME));
-		printCountingMap.put("recordName", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.RELEASE__SENDER));
-		printCountingMap.put("sender", temp == null ? 0 : 1);
-		// print collected hidden tokens
-		int count;
-		java.io.StringWriter sWriter = null;
-		PrintWriter out1 = null;
-		Map<String, Integer> printCountingMap1 = null;
-		// DEFINITION PART BEGINS (CsString)
-		out.print("RELEASE");
-		out.print(" ");
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("recordName");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.RELEASE__RECORD_NAME));
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("recordName", count - 1);
-		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		sWriter = new StringWriter();
-		out1 = new PrintWriter(sWriter);
-		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-		print_org_servicifi_gelato_language_cobol_statements_Release_0(element, localtab, out1, printCountingMap1);
-		if (printCountingMap.equals(printCountingMap1)) {
-			out1.close();
-		} else {
-			out1.flush();
-			out1.close();
-			out.print(sWriter.toString());
-			printCountingMap.putAll(printCountingMap1);
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Release_0(org.servicifi.gelato.language.cobol.statements.Release element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (CsString)
-		out.print("FROM");
-		out.print(" ");
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("sender");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.RELEASE__SENDER));
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("sender", count - 1);
-		}
-	}
-	
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Merge(org.servicifi.gelato.language.cobol.statements.Merge element, String outertab, PrintWriter out) {
-		String localtab = outertab;
-		// The printCountingMap contains a mapping from feature names to the number of
-		// remaining elements that still need to be printed. The map is initialized with
-		// the number of elements stored in each structural feature. For lists this is the
-		// list size. For non-multiple features it is either 1 (if the feature is set) or
-		// 0 (if the feature is null).
-		Map<String, Integer> printCountingMap = new LinkedHashMap<String, Integer>(7);
-		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__NEXT));
-		printCountingMap.put("next", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__END_VERB));
-		printCountingMap.put("endVerb", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__FILE_NAME));
-		printCountingMap.put("fileName", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__INPUT));
-		printCountingMap.put("input", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__OUTPUT));
-		printCountingMap.put("output", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__KEY_DESCRIPTORS));
-		printCountingMap.put("keyDescriptors", temp == null ? 0 : ((Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__WATER));
-		printCountingMap.put("water", temp == null ? 0 : ((Collection<?>) temp).size());
-		// print collected hidden tokens
-		int count;
-		boolean iterate = true;
-		java.io.StringWriter sWriter = null;
-		PrintWriter out1 = null;
-		Map<String, Integer> printCountingMap1 = null;
-		// DEFINITION PART BEGINS (CsString)
-		out.print("MERGE");
-		out.print(" ");
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("fileName");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__FILE_NAME));
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("fileName", count - 1);
-		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		print_org_servicifi_gelato_language_cobol_statements_Merge_0(element, localtab, out, printCountingMap);
-		iterate = true;
-		while (iterate) {
-			sWriter = new StringWriter();
-			out1 = new PrintWriter(sWriter);
-			printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-			print_org_servicifi_gelato_language_cobol_statements_Merge_0(element, localtab, out1, printCountingMap1);
-			if (printCountingMap.equals(printCountingMap1)) {
-				iterate = false;
-				out1.close();
-			} else {
-				out1.flush();
-				out1.close();
-				out.print(sWriter.toString());
-				printCountingMap.putAll(printCountingMap1);
-			}
-		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		iterate = true;
-		while (iterate) {
-			sWriter = new StringWriter();
-			out1 = new PrintWriter(sWriter);
-			printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-			print_org_servicifi_gelato_language_cobol_statements_Merge_1(element, localtab, out1, printCountingMap1);
-			if (printCountingMap.equals(printCountingMap1)) {
-				iterate = false;
-				out1.close();
-			} else {
-				out1.flush();
-				out1.close();
-				out.print(sWriter.toString());
-				printCountingMap.putAll(printCountingMap1);
-			}
-		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		print_org_servicifi_gelato_language_cobol_statements_Merge_2(element, localtab, out, printCountingMap);
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		print_org_servicifi_gelato_language_cobol_statements_Merge_3(element, localtab, out, printCountingMap);
-	}
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Merge_0(org.servicifi.gelato.language.cobol.statements.Merge element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("keyDescriptors");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__KEY_DESCRIPTORS));
-			List<?> list = (List<?>) o;
-			int index = list.size() - count;
-			if (index >= 0) {
-				o = list.get(index);
-			} else {
-				o = null;
-			}
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("keyDescriptors", count - 1);
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Merge_1(org.servicifi.gelato.language.cobol.statements.Merge element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("water");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__WATER));
-			List<?> list = (List<?>) o;
-			int index = list.size() - count;
-			if (index >= 0) {
-				o = list.get(index);
-			} else {
-				o = null;
-			}
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("water", count - 1);
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Merge_2(org.servicifi.gelato.language.cobol.statements.Merge element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("input");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__INPUT));
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("input", count - 1);
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Merge_3(org.servicifi.gelato.language.cobol.statements.Merge element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("output");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.MERGE__OUTPUT));
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("output", count - 1);
-		}
-	}
-	
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Sort(org.servicifi.gelato.language.cobol.statements.Sort element, String outertab, PrintWriter out) {
-		String localtab = outertab;
-		// The printCountingMap contains a mapping from feature names to the number of
-		// remaining elements that still need to be printed. The map is initialized with
-		// the number of elements stored in each structural feature. For lists this is the
-		// list size. For non-multiple features it is either 1 (if the feature is set) or
-		// 0 (if the feature is null).
-		Map<String, Integer> printCountingMap = new LinkedHashMap<String, Integer>(7);
-		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__NEXT));
-		printCountingMap.put("next", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__END_VERB));
-		printCountingMap.put("endVerb", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__FILE_NAME));
-		printCountingMap.put("fileName", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__INPUT));
-		printCountingMap.put("input", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__OUTPUT));
-		printCountingMap.put("output", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__KEY_DESCRIPTORS));
-		printCountingMap.put("keyDescriptors", temp == null ? 0 : ((Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__WATER));
-		printCountingMap.put("water", temp == null ? 0 : ((Collection<?>) temp).size());
-		// print collected hidden tokens
-		int count;
-		boolean iterate = true;
-		java.io.StringWriter sWriter = null;
-		PrintWriter out1 = null;
-		Map<String, Integer> printCountingMap1 = null;
-		// DEFINITION PART BEGINS (CsString)
-		out.print("SORT");
-		out.print(" ");
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("fileName");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__FILE_NAME));
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("fileName", count - 1);
-		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		print_org_servicifi_gelato_language_cobol_statements_Sort_0(element, localtab, out, printCountingMap);
-		iterate = true;
-		while (iterate) {
-			sWriter = new StringWriter();
-			out1 = new PrintWriter(sWriter);
-			printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-			print_org_servicifi_gelato_language_cobol_statements_Sort_0(element, localtab, out1, printCountingMap1);
-			if (printCountingMap.equals(printCountingMap1)) {
-				iterate = false;
-				out1.close();
-			} else {
-				out1.flush();
-				out1.close();
-				out.print(sWriter.toString());
-				printCountingMap.putAll(printCountingMap1);
-			}
-		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		iterate = true;
-		while (iterate) {
-			sWriter = new StringWriter();
-			out1 = new PrintWriter(sWriter);
-			printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-			print_org_servicifi_gelato_language_cobol_statements_Sort_1(element, localtab, out1, printCountingMap1);
-			if (printCountingMap.equals(printCountingMap1)) {
-				iterate = false;
-				out1.close();
-			} else {
-				out1.flush();
-				out1.close();
-				out.print(sWriter.toString());
-				printCountingMap.putAll(printCountingMap1);
-			}
-		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		sWriter = new StringWriter();
-		out1 = new PrintWriter(sWriter);
-		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-		print_org_servicifi_gelato_language_cobol_statements_Sort_2(element, localtab, out1, printCountingMap1);
-		if (printCountingMap.equals(printCountingMap1)) {
-			out1.close();
-		} else {
-			out1.flush();
-			out1.close();
-			out.print(sWriter.toString());
-			printCountingMap.putAll(printCountingMap1);
-		}
-		// DEFINITION PART BEGINS (CompoundDefinition)
-		sWriter = new StringWriter();
-		out1 = new PrintWriter(sWriter);
-		printCountingMap1 = new LinkedHashMap<String, Integer>(printCountingMap);
-		print_org_servicifi_gelato_language_cobol_statements_Sort_3(element, localtab, out1, printCountingMap1);
-		if (printCountingMap.equals(printCountingMap1)) {
-			out1.close();
-		} else {
-			out1.flush();
-			out1.close();
-			out.print(sWriter.toString());
-			printCountingMap.putAll(printCountingMap1);
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Sort_0(org.servicifi.gelato.language.cobol.statements.Sort element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("keyDescriptors");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__KEY_DESCRIPTORS));
-			List<?> list = (List<?>) o;
-			int index = list.size() - count;
-			if (index >= 0) {
-				o = list.get(index);
-			} else {
-				o = null;
-			}
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("keyDescriptors", count - 1);
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Sort_1(org.servicifi.gelato.language.cobol.statements.Sort element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("water");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__WATER));
-			List<?> list = (List<?>) o;
-			int index = list.size() - count;
-			if (index >= 0) {
-				o = list.get(index);
-			} else {
-				o = null;
-			}
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("water", count - 1);
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Sort_2(org.servicifi.gelato.language.cobol.statements.Sort element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("input");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__INPUT));
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("input", count - 1);
-		}
-	}
-	
-	public void print_org_servicifi_gelato_language_cobol_statements_Sort_3(org.servicifi.gelato.language.cobol.statements.Sort element, String outertab, PrintWriter out, Map<String, Integer> printCountingMap) {
-		String localtab = outertab;
-		int count;
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("output");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.cobol.statements.StatementsPackage.SORT__OUTPUT));
-			if (o != null) {
-				doPrint((EObject) o, out, localtab);
-			}
-			printCountingMap.put("output", count - 1);
 		}
 	}
 	

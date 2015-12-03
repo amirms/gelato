@@ -32,13 +32,13 @@ import org.servicifi.gelato.language.cobol.verbs.Is;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.RelationalExpressionImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.RelationalExpressionImpl#getRelationalOperator <em>Relational Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.RelationalExpressionImpl#getNegateOperator <em>Negate Operator</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.RelationalExpressionImpl#getIs <em>Is</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

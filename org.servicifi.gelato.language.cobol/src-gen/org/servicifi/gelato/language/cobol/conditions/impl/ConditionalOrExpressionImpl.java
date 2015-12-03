@@ -26,11 +26,11 @@ import org.servicifi.gelato.language.cobol.operators.LogicalOperator;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.ConditionalOrExpressionImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.conditions.impl.ConditionalOrExpressionImpl#getLogicalOperators <em>Logical Operators</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

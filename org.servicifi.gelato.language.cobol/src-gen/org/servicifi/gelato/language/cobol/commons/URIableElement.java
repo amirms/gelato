@@ -10,10 +10,10 @@ package org.servicifi.gelato.language.cobol.commons;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.commons.URIableElement#getUri <em>Uri</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.commons.CommonsPackage#getURIableElement()
  * @model abstract="true"

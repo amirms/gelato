@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.functions.Argumentable#getArguments <em>Arguments</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.functions.Argumentable#getReturning <em>Returning</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.servicifi.gelato.language.cobol.functions.FunctionsPackage#getArgumentable()
  * @model abstract="true"

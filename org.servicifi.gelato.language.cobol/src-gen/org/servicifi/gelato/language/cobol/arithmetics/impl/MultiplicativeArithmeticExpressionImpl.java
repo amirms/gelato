@@ -26,11 +26,11 @@ import org.servicifi.gelato.language.cobol.operators.MultiplicativeOperator;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.impl.MultiplicativeArithmeticExpressionImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.cobol.arithmetics.impl.MultiplicativeArithmeticExpressionImpl#getMultiplicativeOperators <em>Multiplicative Operators</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
