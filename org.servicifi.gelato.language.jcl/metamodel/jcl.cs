@@ -4,11 +4,10 @@ START containers.JobUnit
 
 IMPORTS {
 	
-	commons : <http://www.servicifi.org/gelato/language/jcl/commons>
+	waters : <http://www.servicifi.org/gelato/language/jcl/waters>
 	containers : <http://www.servicifi.org/gelato/language/jcl/containers>
 	statements : <http://www.servicifi.org/gelato/language/jcl/statements>
-	parameters : <http://www.servicifi.org/gelato/language/jcl/parameters>
-
+	
 }
 
 
@@ -24,22 +23,44 @@ OPTIONS {
 	disableDebugSupport = "true";
 	ignoreTypeRestrictionsForPrinting = "true";
 	overrideResourcePostProcessor = "false";
-	overrideMetaInformation = "false";	
+	overrideMetaInformation = "false";
+	//overrideScanner="true";
 }
 
 
 TOKENS{
-	@SuppressWarnings(tokenOverlapping)
-	DEFINE JCL_WORD $(('A'..'Z' | 'a'..'z' | '0'..'9' | '_' | '\\' | '+' | '-'| '*'| '!' | '/' | '~') 
-						('['('0'..'9')+']')? )+$;
 	
-	//	@SuppressWarnings(unusedToken)
-	//DEFINE WHITESPACE $.$;
+	
+	DEFINE SL_COMMENT $'*'(~('\n'|'\r'|'\uffff'))* $;
+	
+	
+	@SuppressWarnings(unusedToken)
+	DEFINE JCL_WORD $('A'..'Z' | 'a'..'z')('A'..'Z' | 'a'..'z' | '0'..'9' | '_' )*$;			
+	//	DEFINE JCL_WORD $(('A'..'Z' | 'a'..'z' | '0'..'9' | '_' | '\\' | '+' | '-'| '*'| '!' | '/' | '~') 
+	//('['('0'..'9')+']')? )+$;
+
+	//Basic Alphanumeric Literals 
+	DEFINE FRAGMENT ESCAPE_QUOTE_CHARACTER  $'"''"'$;	
+	DEFINE FRAGMENT ESCAPE_APOST_CHARACTER  $'\'''\''$;	
+	DEFINE FRAGMENT ALPHANUMERIC_QUOTE_LITERAL $'"' ($ + ESCAPE_QUOTE_CHARACTER + $| ~('"'))* '"' $; 	
+	DEFINE FRAGMENT ALPHANUMERIC_APOST_LITERAL $'\'' ($ + ESCAPE_APOST_CHARACTER + $| ~('\''))* '\'' $; 	
+
+	@SuppressWarnings(unusedToken)
+	DEFINE ALPHANUMERIC_LITERAL ALPHANUMERIC_QUOTE_LITERAL + $|$ + ALPHANUMERIC_APOST_LITERAL;
+	@SuppressWarnings(unusedToken)	
+	DEFINE DECIMAL_INTEGER_LITERAL $('0'|'1'..'9''0'..'9'*)$;
+	
+	@SuppressWarnings(unusedToken)
+	DEFINE SLASH_SLASH $'/' $;
+	@SuppressWarnings(unusedToken)
+	DEFINE WHITESPACE $(',' | '.' | '\u0024' |' '|')' | '(' | '>' | '<' | '@' | '#' | '^' | '{' | '}'
+				| '&' | '%' | '+' | '-' | '_' | ':' | ';' | '?'| '!'|'\t'|'\f'|'\r'|'\n')+$;
 }
 
 
 TOKENSTYLES {
-	//"SL_COMMENT" COLOR #000080, ITALIC;
+	"SLASH_SLASH" COLOR  #001080;
+	"SL_COMMENT" COLOR #000080, ITALIC;
 	
 	//"ALPHANUMERIC_LITERAL" COLOR #2A00FF;
 	
@@ -48,15 +69,38 @@ TOKENSTYLES {
 	//"PICTURE_STRING_EDITED" COLOR #3A00FF;
 	
 	
-	//"JOB", "EXEC", "DD", "COMMAND", "CNTL", "ENDCNTL",
-	//"IF", "THEN", "ELSE", "ENDIF", "JCLLIB", "OUTPUT",
-	//"PEND", "PROC", "SET", "XMIT" 
-	"EXEC" COLOR #7F0055, BOLD;
+	"EXEC", "PGM" COLOR #7F0055, BOLD;
 }
 
 
 RULES {
-	containers.JobUnit ::= statements+;
-	statements.Execute ::= name[] "EXEC";
+	//FIXME the account information
+	containers.JobUnit ::= waters* (executes+ waters*)+
+	;
+	//	containers.JobUnit ::= executes+
+	//;
+	
+	//Account Infomation
+	
+	
+	
+	//statements
+	// //[procStepNamename] EXEC positional-parameter [, keyword-parameters]* [,symbolic-parameters = value]* [comments]
+	//State
+	statements.ExecuteProgram ::=  "EXEC" "PGM" "=" programName[];
+	
+	//statements.ExecuteProcedure ::=  "EXEC" ("PGM")? "=" procedureName[];
+	//A program-name = {program-name }
+	//{*.procStepNamename.ddname }
+	//{*.procStepNamename.procprocStepNamename.ddname}
+	//{JCLTEST }
+	//{JSTTEST}
+
+
+	//refernces.DSNReference ::= "*"
+	
+	//literals
+	
+	waters.Water ::= value[] | "=" | "EXEC" ;
 	
 }

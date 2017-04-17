@@ -9,6 +9,14 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated jcl -->
       <package
+            uri="http://www.servicifi.org/gelato/language/jcl"
+            class="org.servicifi.gelato.language.jcl.JclPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
             uri="http://www.servicifi.org/gelato/language/jcl/commons"
             class="org.servicifi.gelato.language.jcl.commons.CommonsPackage"
             genModel="metamodel/jcl.genmodel"/>
@@ -41,8 +49,64 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated jcl -->
       <package
+            uri="http://www.servicifi.org/gelato/language/jcl/members"
+            class="org.servicifi.gelato.language.jcl.members.MembersPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/waters"
+            class="org.servicifi.gelato.language.jcl.waters.WatersPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
             uri="http://www.servicifi.org/gelato/language/jcl/containers"
             class="org.servicifi.gelato.language.jcl.containers.ContainersPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/expressions"
+            class="org.servicifi.gelato.language.jcl.expressions.ExpressionsPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/operators"
+            class="org.servicifi.gelato.language.jcl.operators.OperatorsPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/literals"
+            class="org.servicifi.gelato.language.jcl.literals.LiteralsPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/references"
+            class="org.servicifi.gelato.language.jcl.references.ReferencesPackage"
+            genModel="metamodel/jcl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jcl -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/jcl/conditions"
+            class="org.servicifi.gelato.language.jcl.conditions.ConditionsPackage"
             genModel="metamodel/jcl.genmodel"/>
    </extension>
 
