@@ -1,0 +1,17 @@
+src-gen/
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+/org.servicifi.rabobank.art/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
