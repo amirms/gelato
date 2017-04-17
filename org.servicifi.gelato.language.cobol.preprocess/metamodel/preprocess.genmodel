@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.servicifi.gelato.language.cobol.preprocess/src-gen"
+    modelPluginID="org.servicifi.gelato.language.cobol.preprocess" modelName="Preprocess"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>preprocess.ecore</foreignModel>
+  <genPackages prefix="Preprocess" basePackage="org.servicifi.gelato.language.cobol"
+      disposableProviderFactory="true" ecorePackage="preprocess.ecore#/">
+    <genClasses ecoreClass="preprocess.ecore#//Dummy"/>
+    <nestedGenPackages prefix="Containers" basePackage="org.servicifi.gelato.language.cobol.preprocess"
+        disposableProviderFactory="true" ecorePackage="preprocess.ecore#//containers">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="preprocess.ecore#//containers/identifications">
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//containers/identifications/id"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//containers/identifications/identification"/>
+      </genEnums>
+      <genClasses ecoreClass="preprocess.ecore#//containers/PreprocessingUnit">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/PreprocessingUnit/nestedPreprocessingUnits"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/PreprocessingUnit/ending"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/PreprocessingUnit/dataSegment"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/PreprocessingUnit/procedureSegment"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//containers/PreprocessingUnit/id"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//containers/PreprocessingGroup">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/PreprocessingGroup/preprocessingUnits"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//containers/CobolRoot"/>
+      <genClasses ecoreClass="preprocess.ecore#//containers/CopyUnit">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/CopyUnit/sentence"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//containers/Copybook">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/Copybook/copyUnits"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//containers/DataSegment"/>
+      <genClasses ecoreClass="preprocess.ecore#//containers/ProcedureSegment"/>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//containers/Segment">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/Segment/copyUnits"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//containers/DataCopyUnit"/>
+      <genClasses ecoreClass="preprocess.ecore#//containers/ProcedureCopyUnit"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Water" basePackage="org.servicifi.gelato.language.cobol.preprocess"
+        disposableProviderFactory="true" ecorePackage="preprocess.ecore#//water">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="preprocess.ecore#//water/PreprocessingUnitTokens">
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/by"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/in"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/of"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/replacing"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/suppress"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/replace"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/program"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/division"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/all"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/end"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/off"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/on"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//water/PreprocessingUnitTokens/procedure"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//water/PreprocessingUnitWater"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Dot"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Water"/>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//water/IncompleteElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//water/IncompleteElement/water"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//water/DataSegmentWater"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/ProcedureSegmentWater"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/By"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/In"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Of"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Replacing"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Suppress"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Replace"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Program"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Division"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/All"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/End"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Off"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/On"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/Procedure"/>
+      <genClasses ecoreClass="preprocess.ecore#//water/DataSegmentToken"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Sentences" basePackage="org.servicifi.gelato.language.cobol.preprocess"
+        disposableProviderFactory="true" ecorePackage="preprocess.ecore#//sentences">
+      <genClasses ecoreClass="preprocess.ecore#//sentences/CopySentence">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//sentences/CopySentence/suppress"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//sentences/Replacing">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//sentences/Replacing/source"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//sentences/Replacing/target"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//sentences/PreprocessingSentence">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//sentences/PreprocessingSentence/replacings"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//sentences/ReplaceSentence">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//sentences/ReplaceSentence/switch"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Commons" basePackage="org.servicifi.gelato.language.cobol.preprocess"
+        disposableProviderFactory="true" ecorePackage="preprocess.ecore#//commons">
+      <genClasses ecoreClass="preprocess.ecore#//commons/LibraryElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//commons/LibraryElement/libraryName"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//commons/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//commons/NamedElement/name"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Literals" basePackage="org.servicifi.gelato.language.cobol.preprocess"
+        disposableProviderFactory="true" ecorePackage="preprocess.ecore#//literals">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="preprocess.ecore#//literals/SpaceConstants">
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/SpaceConstants/space"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/SpaceConstants/spaces"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="preprocess.ecore#//literals/HighValueConstants">
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/HighValueConstants/highValue"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/HighValueConstants/highValues"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="preprocess.ecore#//literals/LowValueConstants">
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/LowValueConstants/lowValue"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/LowValueConstants/lowValues"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="preprocess.ecore#//literals/ZeroConstants">
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/ZeroConstants/zero"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/ZeroConstants/zeros"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/ZeroConstants/zeroes"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="preprocess.ecore#//literals/QuoteConstants">
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/QuoteConstants/quote"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/QuoteConstants/quotes"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="preprocess.ecore#//literals/NullConstants">
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/NullConstants/null"/>
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//literals/NullConstants/nulls"/>
+      </genEnums>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//literals/Literal"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/AlphanumericLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//literals/AlphanumericLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//literals/AlphanumericHexaDecimalLiteral"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/PseudoLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//literals/PseudoLiteral/value"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//literals/NumericLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//literals/NumericLiteral/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//literals/FigurativeConstantLiteral"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/AllLiteral">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//literals/AllLiteral/constant"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//literals/ConstantLiteral"/>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//literals/SpaceConstant"/>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//literals/HighValueConstant"/>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//literals/LowValueConstant"/>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//literals/ZeroConstant"/>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//literals/QuoteConstant"/>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//literals/NullConstant"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/Space"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/Spaces"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/HighValue"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/HighValues"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/LowValue"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/LowValues"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/Zero"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/Zeroes"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/Zeros"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/Quote"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/Quotes"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/Null"/>
+      <genClasses ecoreClass="preprocess.ecore#//literals/Nulls"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Operands" basePackage="org.servicifi.gelato.language.cobol.preprocess"
+        disposableProviderFactory="true" ecorePackage="preprocess.ecore#//operands">
+      <genClasses image="false" ecoreClass="preprocess.ecore#//operands/Operand"/>
+      <genClasses ecoreClass="preprocess.ecore#//operands/CobolWord">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//operands/CobolWord/value"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Statements" basePackage="org.servicifi.gelato.language.cobol.preprocess"
+        disposableProviderFactory="true" ecorePackage="preprocess.ecore#//statements">
+      <genClasses image="false" ecoreClass="preprocess.ecore#//statements/Statement"/>
+      <genClasses ecoreClass="preprocess.ecore#//statements/Execute">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//statements/Execute/water"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

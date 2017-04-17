@@ -4,7 +4,7 @@
 	<comment></comment>
 	<projects>
 	</projects>
-	<buildSpec>
+		<buildSpec>
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
@@ -21,17 +21,7 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.servicifi.language.cobol.resource.cobol.builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
 			<name>org.emftext.sdk.concretesyntax.resource.cs.builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>org.servicifi.gelato.language.cobol.resource.cobol.builder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -39,8 +29,6 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
-		<nature>org.servicifi.language.cobol.resource.cobol.nature</nature>
 		<nature>org.emftext.sdk.concretesyntax.resource.cs.nature</nature>
-		<nature>org.servicifi.gelato.language.cobol.resource.cobol.nature</nature>
 	</natures>
 </projectDescription>
