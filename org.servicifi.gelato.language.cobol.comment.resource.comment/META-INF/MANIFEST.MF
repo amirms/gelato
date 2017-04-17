@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMFText Parser Plugin: comment
+Bundle-SymbolicName: org.servicifi.gelato.language.cobol.comment.resource.comment;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: Software Technology Group - TU Dresden Germany
+Require-Bundle: org.eclipse.core.runtime;resolution:=optional,
+  org.eclipse.core.resources;resolution:=optional,
+  org.eclipse.emf.ecore,
+  org.eclipse.emf.ecore.change,
+  org.eclipse.emf.validation;resolution:=optional,
+  org.emftext.access;resolution:=optional,
+  org.emftext.commons.antlr3_4_0,
+  org.servicifi.gelato.language.cobol.comment
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.servicifi.gelato.language.cobol.comment.resource.comment,
+  org.servicifi.gelato.language.cobol.comment.resource.comment.analysis,
+  org.servicifi.gelato.language.cobol.comment.resource.comment.mopp,
+  org.servicifi.gelato.language.cobol.comment.resource.comment.debug,
+  org.servicifi.gelato.language.cobol.comment.resource.comment.launch,
+  org.servicifi.gelato.language.cobol.comment.resource.comment.grammar,
+  org.servicifi.gelato.language.cobol.comment.resource.comment.util
+Bundle-Activator: org.servicifi.gelato.language.cobol.comment.resource.comment.mopp.CommentPlugin

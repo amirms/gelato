@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_cTRNsQQeEeO5DoXduw6gYg" type="EcoreTools" name="comment.ecorediag" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_gzKgcAQeEeO5DoXduw6gYg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_gzTqYAQeEeO5DoXduw6gYg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_gz0nwAQeEeO5DoXduw6gYg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_gz0nwQQeEeO5DoXduw6gYg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_gz0nwgQeEeO5DoXduw6gYg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_gz0nwwQeEeO5DoXduw6gYg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_gz1O0AQeEeO5DoXduw6gYg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_gz1O0QQeEeO5DoXduw6gYg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_gz1O0gQeEeO5DoXduw6gYg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_gz1O0wQeEeO5DoXduw6gYg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_gzKgcQQeEeO5DoXduw6gYg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="comment.ecore#//Unit"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gzKgcgQeEeO5DoXduw6gYg" x="183" y="109"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_hwu78AQeEeO5DoXduw6gYg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_hwvjAgQeEeO5DoXduw6gYg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_hwvjAwQeEeO5DoXduw6gYg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_iVl8gAQeEeO5DoXduw6gYg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="comment.ecore#//Comment/value"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_iVl8gQQeEeO5DoXduw6gYg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hwvjBAQeEeO5DoXduw6gYg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hwvjBQQeEeO5DoXduw6gYg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hwvjBgQeEeO5DoXduw6gYg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_hwwKEAQeEeO5DoXduw6gYg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hwwKEQQeEeO5DoXduw6gYg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hwwKEgQeEeO5DoXduw6gYg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hwwKEwQeEeO5DoXduw6gYg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_hwvjAAQeEeO5DoXduw6gYg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="comment.ecore#//Comment"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hwvjAQQeEeO5DoXduw6gYg" x="231" y="240"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_cTR0wAQeEeO5DoXduw6gYg"/>
+  <element xmi:type="ecore:EPackage" href="comment.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_lhiUEAQeEeO5DoXduw6gYg" type="3002" source="_gzKgcAQeEeO5DoXduw6gYg" target="_hwu78AQeEeO5DoXduw6gYg">
+    <children xmi:type="notation:Node" xmi:id="_lhjiMAQeEeO5DoXduw6gYg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lhjiMQQeEeO5DoXduw6gYg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_lhkJQAQeEeO5DoXduw6gYg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lhkJQQQeEeO5DoXduw6gYg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_lhiUEQQeEeO5DoXduw6gYg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_lhiUEgQeEeO5DoXduw6gYg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="comment.ecore#//Unit/comments"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lhiUEwQeEeO5DoXduw6gYg" points="[7, 21, -46, -114]$[47, 111, -6, -24]"/>
+  </edges>
+</notation:Diagram>
