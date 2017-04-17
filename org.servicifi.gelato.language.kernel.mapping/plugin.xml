@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/mapping/containers"
+            class="org.servicifi.gelato.language.kernel.mapping.containers.ContainersPackage"
+            genModel="model/mapping.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/mapping/procedures"
+            class="org.servicifi.gelato.language.kernel.mapping.procedures.ProceduresPackage"
+            genModel="model/mapping.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/mapping/statements"
+            class="org.servicifi.gelato.language.kernel.mapping.statements.StatementsPackage"
+            genModel="model/mapping.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/mapping/references"
+            class="org.servicifi.gelato.language.kernel.mapping.references.ReferencesPackage"
+            genModel="model/mapping.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated mapping -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/mapping"
+            class="org.servicifi.gelato.language.kernel.mapping.MappingPackage"
+            genModel="model/mapping.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/mapping/commons"
+            class="org.servicifi.gelato.language.kernel.mapping.commons.CommonsPackage"
+            genModel="model/mapping.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated mapping -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/kernel/mapping/core"
+            class="org.servicifi.gelato.language.kernel.mapping.core.CorePackage"
+            genModel="model/mapping.genmodel"/>
+   </extension>
+
+</plugin>

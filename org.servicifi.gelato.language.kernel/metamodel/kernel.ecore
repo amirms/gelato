@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kernel" nsURI="http://www.servicifi.org/gelato/language/kernel"
+    nsPrefix="kernel">
+  <eClassifiers xsi:type="ecore:EDataType" name="Dummy" instanceClassName="java.lang.Object"/>
+  <eSubpackages name="commons" nsURI="http://www.servicifi.org/gelato/language/kernel/commons"
+      nsPrefix="commons">
+    <eClassifiers xsi:type="ecore:EClass" name="LabellableElement" abstract="true">
+      <eOperations name="first" lowerBound="1" eType="#//commons/LabellableElement"/>
+      <eOperations name="last" lowerBound="1" upperBound="-1" eType="#//commons/LabellableElement"/>
+      <eOperations name="internalFlow" lowerBound="1" upperBound="-1" eType="#//flows/Flow"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="statements" nsURI="http://www.servicifi.org/gelato/language/kernel/statements"
+      nsPrefix="statements">
+    <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" eSuperTypes="#//commons/LabellableElement #//members/Member"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StatementListContainer" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
+          eType="#//statements/Statement" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StatementContainer" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statement" lowerBound="1"
+          eType="#//statements/Statement" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="#//statements/StatementContainer #//statements/Conditional #//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elseStatement" eType="#//statements/Statement"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WhileLoop" eSuperTypes="#//statements/StatementContainer #//statements/Conditional #//statements/Statement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="#//statements/StatementListContainer #//statements/Statement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentStatement" eSuperTypes="#//statements/Statement #//references/ElementReference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="#//expressions/Expression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Jump" abstract="true" eSuperTypes="#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//commons/LabellableElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Goto" eSuperTypes="#//statements/Jump"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NonDeterministicBlock" eSuperTypes="#//statements/StatementListContainer #//statements/Statement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ParallelBlock" eSuperTypes="#//statements/StatementListContainer #//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" lowerBound="1"
+          eType="#//statements/ExecutionOrder"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Abort" eSuperTypes="#//statements/Statement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExceptionHandlerStatement" eSuperTypes="#//statements/StatementContainer #//commons/LabellableElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StatementWithException" eSuperTypes="#//statements/StatementContainer #//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exceptionStatements"
+          lowerBound="1" upperBound="-1" eType="#//statements/ExceptionHandlerStatement"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Conditional" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+          eType="#//expressions/Expression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcedureCall" eSuperTypes="#//statements/Statement #//references/ElementReference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+          eType="#//references/Argument" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returnSite" lowerBound="1"
+          eType="#//statements/ReturnSite" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ExecutionOrder">
+      <eLiterals name="l2r"/>
+      <eLiterals name="r2l" value="1"/>
+      <eLiterals name="interleaved" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExpressionStatement" eSuperTypes="#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+          eType="#//expressions/Expression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Skip" eSuperTypes="#//statements/Statement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ReturnSite" eSuperTypes="#//commons/LabellableElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Return" eSuperTypes="#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="procedures" nsURI="http://www.servicifi.org/gelato/language/kernel/procedures"
+      nsPrefix="procedures">
+    <eClassifiers xsi:type="ecore:EClass" name="Procedure" eSuperTypes="#//commons/LabellableElement #//members/Member #//references/ReferenceableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+          eType="#//members/Member" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//parameters/Parameter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="callers" upperBound="-1"
+          eType="#//statements/ProcedureCall"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1"
+          eType="#//containers/Start" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//containers/End"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MainProcedure" eSuperTypes="#//commons/LabellableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+          eType="#//members/Member" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1"
+          eType="#//containers/Start" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//containers/End"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="expressions" nsURI="http://www.servicifi.org/gelato/language/kernel/expressions"
+      nsPrefix="expressions">
+    <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//commons/LabellableElement">
+      <eOperations name="getDefinedVariables" lowerBound="1" upperBound="-1" eType="#//dataitems/DataItem"/>
+      <eOperations name="getUsedVariables" lowerBound="1" upperBound="-1" eType="#//dataitems/DataItem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+          eType="#//expressions/SubExpression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubExpression" abstract="true" eSuperTypes="#//references/ElementReference"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Defines" eSuperTypes="#//expressions/Definition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PostDefines" eSuperTypes="#//expressions/Definition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Affects" eSuperTypes="#//expressions/Definition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PostAffects" eSuperTypes="#//expressions/Definition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Uses" eSuperTypes="#//expressions/Usage"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PreUses" eSuperTypes="#//expressions/Usage"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Definition" abstract="true" eSuperTypes="#//expressions/SubExpression">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="reaches" upperBound="-1"
+          eType="#//expressions/Usage"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Usage" abstract="true" eSuperTypes="#//expressions/SubExpression"/>
+  </eSubpackages>
+  <eSubpackages name="containers" nsURI="http://www.servicifi.org/gelato/language/kernel/containers"
+      nsPrefix="containers">
+    <eClassifiers xsi:type="ecore:EClass" name="KernelRoot" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit" eSuperTypes="#//containers/KernelRoot #//commons/LabellableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mainProcedure" lowerBound="1"
+          eType="#//procedures/MainProcedure" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
+          eType="#//members/Member" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1"
+          eType="#//containers/Start" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="#//containers/End"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//commons/LabellableElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//commons/LabellableElement"/>
+  </eSubpackages>
+  <eSubpackages name="members" nsURI="http://www.servicifi.org/gelato/language/kernel/members"
+      nsPrefix="members">
+    <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true"/>
+  </eSubpackages>
+  <eSubpackages name="dataitems" nsURI="http://www.servicifi.org/gelato/language/kernel/dataitems"
+      nsPrefix="dataitems">
+    <eClassifiers xsi:type="ecore:EClass" name="DataItem" eSuperTypes="#//references/ReferenceableElement #//members/Member"/>
+  </eSubpackages>
+  <eSubpackages name="parameters" nsURI="http://www.servicifi.org/gelato/language/kernel/parameters"
+      nsPrefix="parameters">
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//dataitems/DataItem">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="correspondingArgument"
+          lowerBound="1" transient="true">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="#//statements/ProcedureCall"/>
+          <eTypeArguments eClassifier="#//references/Argument"/>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="references" nsURI="http://www.servicifi.org/gelato/language/kernel/references"
+      nsPrefix="references">
+    <eClassifiers xsi:type="ecore:EClass" name="ElementReference" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//references/ReferenceableElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReferenceableElement" abstract="true"
+        eSuperTypes="#//commons/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Reference" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="#//references/ElementReference">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="byReference" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="correspondingParameter"
+          lowerBound="1" eType="#//parameters/Parameter"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="flows" nsURI="http://www.servicifi.org/gelato/language/kernel/flows"
+      nsPrefix="flows">
+    <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true">
+      <eOperations name="reverse" eType="#//flows/Flow"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//commons/LabellableElement"
+          unsettable="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//commons/LabellableElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RegularFlow" eSuperTypes="#//flows/Flow"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcedureFlow" eSuperTypes="#//flows/Flow"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SummaryFlow" eSuperTypes="#//flows/Flow"/>
+  </eSubpackages>
+  <eSubpackages name="analyses" nsURI="http://www.servicifi.org/gelato/language/kernel/analyses"
+      nsPrefix="analyses">
+    <eClassifiers xsi:type="ecore:EClass" name="Analysis" abstract="true">
+      <eOperations name="kill" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
+      </eOperations>
+      <eOperations name="gen" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
+      </eOperations>
+      <eOperations name="entry" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
+      </eOperations>
+      <eOperations name="exit" ordered="false" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
+      </eOperations>
+      <eOperations name="performAnalysis" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+          <eTypeArguments eClassifier="#//analyses/ExitEntryPair"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="getAllNodesWithDirection" lowerBound="1" upperBound="-1"
+          eType="#//commons/LabellableElement">
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
+        <eParameters name="dir" lowerBound="1" eType="#//analyses/AnalysisDirection"/>
+      </eOperations>
+      <eOperations name="meet" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="exits" lowerBound="1" upperBound="-1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+            <eTypeArguments eClassifier="#//analyses/AnalysisResult"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
+          eType="#//analyses/AnalysisDirection" defaultValueLiteral="FORWARDS"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cfg" lowerBound="1" upperBound="-1"
+          eType="#//flows/Flow" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" lowerBound="1"
+          transient="true">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+          <eTypeArguments eClassifier="#//analyses/ExitEntryPair"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exitTable" lowerBound="1"
+          transient="true">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="#//commons/LabellableElement"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+            <eTypeArguments eClassifier="#//analyses/AnalysisResult"/>
+          </eTypeArguments>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="entryTable" lowerBound="1"
+          transient="true">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="#//commons/LabellableElement"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+            <eTypeArguments eClassifier="#//analyses/AnalysisResult"/>
+          </eTypeArguments>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="analysisType" lowerBound="1"
+          eType="#//analyses/AnalysisType" defaultValueLiteral="MUST"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReachingDefinitionsAnalysis" eSuperTypes="#//analyses/Analysis">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="assignments" lowerBound="1"
+          transient="true">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="#//dataitems/DataItem"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+          </eTypeArguments>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="AnalysisDirection">
+      <eLiterals name="forwards" literal="FORWARDS"/>
+      <eLiterals name="backwards" value="1" literal="BACKWARDS"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnalysisResult" abstract="true" eSuperTypes="#//analyses/Comparable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReachingDefinitionsResult" eSuperTypes="#//analyses/AnalysisResult">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
+          eType="#//dataitems/DataItem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExitEntryPair">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entry" upperBound="-1"
+          eType="#//analyses/AnalysisResult"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exit" upperBound="-1"
+          eType="#//analyses/AnalysisResult"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Comparable" instanceTypeName="Comparable"
+        abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IteratorElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+          eType="#//commons/LabellableElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="AnalysisType">
+      <eLiterals name="must" literal="MUST"/>
+      <eLiterals name="may" value="1" literal="MAY"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

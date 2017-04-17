@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.servicifi.gelato.language.kernel.mapping/src-gen"
+    modelPluginID="org.servicifi.gelato.language.kernel.mapping" modelName="Mapping"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>mapping.ecore</foreignModel>
+  <genPackages prefix="Mapping" basePackage="org.servicifi.gelato.language.kernel"
+      disposableProviderFactory="true" ecorePackage="mapping.ecore#/">
+    <genClasses image="false" ecoreClass="mapping.ecore#//KernelElement"/>
+    <genClasses image="false" ecoreClass="mapping.ecore#//CobolElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mapping.ecore#//CobolElement/mapsTo"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="mapping.ecore#//CobolStatement"/>
+    <genClasses image="false" ecoreClass="mapping.ecore#//CobolProcedure"/>
+    <genClasses image="false" ecoreClass="mapping.ecore#//CobolReferenceableElement"/>
+    <nestedGenPackages prefix="Commons" basePackage="org.servicifi.gelato.language.kernel.mapping"
+        disposableProviderFactory="true" ecorePackage="mapping.ecore#//commons">
+      <genClasses image="false" ecoreClass="mapping.ecore#//commons/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//commons/NamedElement/name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="mapping.ecore#//commons/LabellableElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//commons/LabellableElement/label"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="mapping.ecore#//commons/URIableElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mapping.ecore#//commons/URIableElement/uri"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Core" basePackage="org.servicifi.gelato.language.kernel.mapping"
+        disposableProviderFactory="true" ecorePackage="mapping.ecore#//core">
+      <genClasses ecoreClass="mapping.ecore#//core/KernelCompilationUnit">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mapping.ecore#//core/KernelCompilationUnit/referenceableElements"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mapping.ecore#//core/KernelCompilationUnit/procedures"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="mapping.ecore#//core/MappingRoot"/>
+      <genClasses image="false" ecoreClass="mapping.ecore#//core/CobolCompilationUnitxsxsx">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mapping.ecore#//core/CobolCompilationUnitxsxsx/procedures"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="mapping.ecore#//core/CobolProcedurexaxa">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference mapping.ecore#//core/CobolProcedurexaxa/mapsTo"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference mapping.ecore#//core/CobolProcedurexaxa/referenceableElements"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mapping.ecore#//core/CobolProcedurexaxa/statements"/>
+      </genClasses>
+      <genClasses ecoreClass="mapping.ecore#//core/KernelProcedure">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference mapping.ecore#//core/KernelProcedure/mapsFrom"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mapping.ecore#//core/KernelProcedure/kernelStatements"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="mapping.ecore#//core/CobolStatementaxaxax">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference mapping.ecore#//core/CobolStatementaxaxax/mapsTo"/>
+      </genClasses>
+      <genClasses ecoreClass="mapping.ecore#//core/KernelStatement">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference mapping.ecore#//core/KernelStatement/mapsFrom"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="mapping.ecore#//core/CobolReferenceableElementaxax">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference mapping.ecore#//core/CobolReferenceableElementaxax/mapsTo"/>
+      </genClasses>
+      <genClasses ecoreClass="mapping.ecore#//core/KernelReferenceableElement">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference mapping.ecore#//core/KernelReferenceableElement/mapsFrom"/>
+      </genClasses>
+      <genClasses ecoreClass="mapping.ecore#//core/Kernel2CobolMapping">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mapping.ecore#//core/Kernel2CobolMapping/kernelCU"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mapping.ecore#//core/Kernel2CobolMapping/cobolCUs"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
