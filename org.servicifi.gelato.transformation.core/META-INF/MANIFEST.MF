@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core Plug-in
+Bundle-SymbolicName: org.servicifi.gelato.transformation.core
+Bundle-Version: 1.0.0
+Bundle-Vendor: 
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf;bundle-version="2.6.0",
+ org.eclipse.emf.common;bundle-version="2.10.1",
+ org.emftext.commons.antlr3_4_0;bundle-version="1.0.0",
+ org.eclipse.core.resources;bundle-version="3.9.0",
+ org.eclipse.jdt.core;bundle-version="3.10.0",
+ org.servicifi.gelato.language.cobol;bundle-version="0.1.0",
+ org.servicifi.gelato.language.kernel;bundle-version="1.0.0",
+ org.servicifi.gelato.language.kernel.resource.kernel;bundle-version="1.0.0",
+ org.eclipse.m2m.qvt.oml;bundle-version="3.4.1",
+ org.eclipse.m2m.qvt.oml.common;bundle-version="3.4.0",
+ org.eclipse.m2m.qvt.oml.runtime;bundle-version="3.4.0",
+ org.eclipse.m2m.qvt.oml.project;bundle-version="3.4.0",
+ org.eclipse.m2m.qvt.oml.ocl;bundle-version="3.4.0",
+ org.eclipse.m2m.qvt.oml.emf.util;bundle-version="3.4.0",
+ org.servicifi.gelato.language.jcl;bundle-version="1.0.0",
+ org.servicifi.gelato.language.jcl.resource.jcl;bundle-version="1.0.0",
+ org.servicifi.gelato.language.jcl.resource;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
