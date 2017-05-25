@@ -72,10 +72,11 @@
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReachingDefinitionsAnalysis" eSuperTypes="#//analyses/Analysis">
+      <eAnnotations/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="assignments" lowerBound="1"
           transient="true">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//variables/Variable"/>
+          <eTypeArguments eClassifier="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//dataitems/DataItem"/>
           <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
             <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
           </eTypeArguments>
@@ -92,7 +93,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReachingDefinitionsResult" eSuperTypes="#//analyses/AnalysisResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
-          eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//variables/Variable"/>
+          eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//dataitems/DataItem"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExitEntryPair">
       <eStructuralFeatures xsi:type="ecore:EReference" name="entry" upperBound="-1"
