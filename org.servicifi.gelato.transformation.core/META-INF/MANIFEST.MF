@@ -21,5 +21,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.m2m.qvt.oml.emf.util;bundle-version="3.4.0",
  org.servicifi.gelato.language.jcl;bundle-version="1.0.0",
  org.servicifi.gelato.language.jcl.resource.jcl;bundle-version="1.0.0",
- org.servicifi.gelato.language.jcl.resource;bundle-version="1.0.0"
+ org.servicifi.gelato.language.jcl.resource;bundle-version="1.0.0",
+ org.servicifi.gelato.language.cobol.resource;bundle-version="1.0.0",
+ org.servicifi.gelato.language.cobol.resource.cobol;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

@@ -11,6 +11,5 @@ public class CobolXMIUtil {
 
 		Map<String, Object> extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
 		extensionToFactoryMap.put("cobxmi", new XMIResourceFactoryImpl());
-; 
 	}
 }

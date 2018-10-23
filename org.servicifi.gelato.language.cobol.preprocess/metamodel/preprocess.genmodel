@@ -6,6 +6,7 @@
   <foreignModel>preprocess.ecore</foreignModel>
   <genPackages prefix="Preprocess" basePackage="org.servicifi.gelato.language.cobol"
       disposableProviderFactory="true" ecorePackage="preprocess.ecore#/">
+    <genDataTypes ecoreDataType="preprocess.ecore#//Pattern"/>
     <genClasses ecoreClass="preprocess.ecore#//Dummy"/>
     <nestedGenPackages prefix="Containers" basePackage="org.servicifi.gelato.language.cobol.preprocess"
         disposableProviderFactory="true" ecorePackage="preprocess.ecore#//containers">
@@ -23,7 +24,9 @@
       <genClasses ecoreClass="preprocess.ecore#//containers/PreprocessingGroup">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/PreprocessingGroup/preprocessingUnits"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="preprocess.ecore#//containers/CobolRoot"/>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//containers/CobolRoot">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/CobolRoot/lines"/>
+      </genClasses>
       <genClasses ecoreClass="preprocess.ecore#//containers/CopyUnit">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference preprocess.ecore#//containers/CopyUnit/sentence"/>
       </genClasses>
@@ -102,6 +105,10 @@
       <genClasses ecoreClass="preprocess.ecore#//commons/NamedElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//commons/NamedElement/name"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//commons/Element">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference preprocess.ecore#//commons/Element/location"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Literals" basePackage="org.servicifi.gelato.language.cobol.preprocess"
         disposableProviderFactory="true" ecorePackage="preprocess.ecore#//literals">
@@ -179,6 +186,27 @@
       <genClasses ecoreClass="preprocess.ecore#//statements/Execute">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//statements/Execute/water"/>
       </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Layouts" basePackage="org.servicifi.gelato.language.cobol.preprocess"
+        disposableProviderFactory="true" ecorePackage="preprocess.ecore#//layouts">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="preprocess.ecore#//layouts/CobolSourceFormatTypeEnum">
+        <genEnumLiterals ecoreEnumLiteral="preprocess.ecore#//layouts/CobolSourceFormatTypeEnum/ANSI85"/>
+      </genEnums>
+      <genClasses ecoreClass="preprocess.ecore#//layouts/CobolLine">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//layouts/CobolLine/comment"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//layouts/CobolLine/contentAreaA"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//layouts/CobolLine/contentAreaB"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//layouts/CobolLine/indicatorArea"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//layouts/CobolLine/sequenceArea"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference preprocess.ecore#//layouts/CobolLine/lineFormat"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="preprocess.ecore#//layouts/CobolSourceFormat">
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//layouts/CobolSourceFormat/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//layouts/CobolSourceFormat/commentEntryMultiLine"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//layouts/CobolSourceFormat/regex"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute preprocess.ecore#//layouts/CobolSourceFormat/pattern"/>
+      </genClasses>
+      <genClasses ecoreClass="preprocess.ecore#//layouts/ANSI85CobolSourceFormat"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

@@ -1,3 +1,9 @@
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+*.class
+
+# usual java ignores
 .metadata
 bin/
 tmp/
@@ -9,5 +15,33 @@ local.properties
 .loadpath
 *.trace
 
-# Locally stored "Eclipse launch configurations"
-*.launch
+# Maven
+*/target/*
+target/*
+/target/
+*/deploy/*
+deploy/*
+
+# src-gen folder is populated by the command of protobuf, these files should not be pushed
+src-gen/*
+
+# eclipse generated stuff
+dependency-reduced-pom.xml
+
+# we shouldn't have .jar files in our repository, 
+# apart from these 5 jars which are vital for our build process
+*.jar
+!/projectName/bundle/**/*.jar
+
+# For Unix editors 
+# sometimes make file copies ending
+# with ~
+# To ignore them use:
+*~
+
+# For Mac
+.DS_Store
+._*
+
+# For markdown read me files
+.README.md.html

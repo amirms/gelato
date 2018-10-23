@@ -28,9 +28,6 @@ import org.eclipse.core.runtime.Status;
 * @author Amir
 */
 public class CobolModelRepairer {
-
-	
-
 	
 	/**
 	 * Repairs the syntax tree as produced for the condition expressions containing

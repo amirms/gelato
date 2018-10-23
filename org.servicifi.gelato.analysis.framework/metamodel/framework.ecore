@@ -2,32 +2,32 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="framework" nsURI="http://www.servicifi.org/gelato/analysis/framework"
     nsPrefix="framework">
-  <eSubpackages name="flows" nsURI="http://www.servicifi.org/gelato/analysis/framework/flows"
-      nsPrefix="flows">
+  <eSubpackages name="graphs" nsURI="http://www.servicifi.org/gelato/analysis/framework/graphs"
+      nsPrefix="graphs">
     <eClassifiers xsi:type="ecore:EClass" name="Flow">
-      <eOperations name="reverse" eType="#//flows/Flow"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//commons/LabellableElement"
+      <eOperations name="reverse" eType="#//graphs/Flow"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//graphs/Node"
           unsettable="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//commons/LabellableElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//graphs/Node"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RegularFlow" eSuperTypes="#//flows/Flow"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcedureFlow" eSuperTypes="#//flows/Flow"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RegularFlow" eSuperTypes="#//graphs/Flow"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcedureFlow" eSuperTypes="#//graphs/Flow"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predecessors" upperBound="-1"
+          eType="#//graphs/Node"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="successors" upperBound="-1"
+          eType="#//graphs/Node"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="analyses" nsURI="http://www.servicifi.org/gelato/analysis/framework/analyses"
       nsPrefix="analyses">
     <eClassifiers xsi:type="ecore:EClass" name="Analysis" abstract="true">
-      <eOperations name="kill" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
-        <eParameters name="e" lowerBound="1" eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//commons/LabellableElement"/>
-      </eOperations>
-      <eOperations name="gen" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
-        <eParameters name="e" lowerBound="1" eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//commons/LabellableElement"/>
-      </eOperations>
       <eOperations name="entry" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
-        <eParameters name="e" lowerBound="1" eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//commons/LabellableElement"/>
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
         <eParameters name="iteration" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </eOperations>
       <eOperations name="exit" ordered="false" upperBound="-1" eType="#//analyses/AnalysisResult">
-        <eParameters name="e" lowerBound="1" eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//commons/LabellableElement"/>
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
         <eParameters name="iteration" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </eOperations>
       <eOperations name="performAnalysis" lowerBound="1">
@@ -37,14 +37,22 @@
         </eGenericType>
       </eOperations>
       <eOperations name="getAllNodesWithDirection" lowerBound="1" upperBound="-1"
-          eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//commons/LabellableElement">
-        <eParameters name="e" lowerBound="1" eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//commons/LabellableElement"/>
+          eType="#//commons/LabellableElement">
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
         <eParameters name="dir" lowerBound="1" eType="#//analyses/AnalysisDirection"/>
+        <eParameters name="flowType" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </eOperations>
+      <eOperations name="meet" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="exits" lowerBound="1" upperBound="-1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+            <eTypeArguments eClassifier="#//analyses/AnalysisResult"/>
+          </eGenericType>
+        </eParameters>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//analyses/AnalysisDirection"
           defaultValueLiteral="FORWARDS"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="cfg" lowerBound="1" upperBound="-1"
-          eType="#//flows/Flow"/>
+          eType="#//graphs/Flow"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" lowerBound="1"
           transient="true">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
@@ -70,18 +78,8 @@
           </eTypeArguments>
         </eGenericType>
       </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ReachingDefinitionsAnalysis" eSuperTypes="#//analyses/Analysis">
-      <eAnnotations/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="assignments" lowerBound="1"
-          transient="true">
-        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//dataitems/DataItem"/>
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
-          </eTypeArguments>
-        </eGenericType>
-      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" lowerBound="1"
+          eType="#//analyses/AnalysisConfiguration" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="AnalysisDirection">
       <eLiterals name="forwards" literal="FORWARDS"/>
@@ -90,10 +88,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="AnalysisResult" abstract="true" eSuperTypes="#//analyses/Comparable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ReachingDefinitionsResult" eSuperTypes="#//analyses/AnalysisResult">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
-          eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//dataitems/DataItem"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExitEntryPair">
       <eStructuralFeatures xsi:type="ecore:EReference" name="entry" upperBound="-1"
@@ -107,7 +101,63 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="iteration" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
-          eType="ecore:EClass ../../org.servicifi.gelato.language.kernel/metamodel/kernel.ecore#//commons/LabellableElement"/>
+          eType="#//commons/LabellableElement"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnalysisConfiguration" abstract="true">
+      <eOperations name="gen" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
+      </eOperations>
+      <eOperations name="kill" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
+          eType="#//analyses/AnalysisDirection"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="analysisType" lowerBound="1"
+          eType="#//analyses/AnalysisType" defaultValueLiteral="MUST"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntraproceduralAnalysis" eSuperTypes="#//analyses/Analysis"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InterproceduralAnalysis" eSuperTypes="#//analyses/Analysis"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ReachingDefinitionsAnalysisConfiguration"
+        eSuperTypes="#//analyses/AnalysisConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="assignments" lowerBound="1"
+          transient="true">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="#//commons/Variable"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+          </eTypeArguments>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReachingDefinitionsAnalysisResult"
+        eSuperTypes="#//analyses/AnalysisResult">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//commons/Variable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="AnalysisType">
+      <eLiterals name="must" literal="MUST"/>
+      <eLiterals name="may" value="1" literal="MAY"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="commons" nsURI="http://www.servicifi.org/gelato/analysis/framework/commons"
+      nsPrefix="commons">
+    <eClassifiers xsi:type="ecore:EClass" name="LabellableElement" abstract="true"
+        eSuperTypes="#//graphs/Node">
+      <eOperations name="first" lowerBound="1" eType="#//commons/LabellableElement"/>
+      <eOperations name="last" lowerBound="1" upperBound="-1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//commons/LabellableElement"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="internalFlow" lowerBound="1" upperBound="-1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//graphs/Flow"/>
+        </eGenericType>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Variable" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//commons/LabellableElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="End" eSuperTypes="#//commons/LabellableElement"/>
   </eSubpackages>
 </ecore:EPackage>

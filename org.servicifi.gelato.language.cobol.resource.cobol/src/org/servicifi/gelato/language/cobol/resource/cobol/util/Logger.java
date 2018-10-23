@@ -14,5 +14,4 @@ public class Logger {
 		IStatus status = new Status(IStatus.OK, COBOL_RESOURCE_PLUGIN, msg);
 		log.log(status);
 	}
-	
 }

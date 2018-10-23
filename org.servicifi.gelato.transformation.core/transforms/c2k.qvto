@@ -1,5 +1,5 @@
-modeltype COBOL uses "http://www.servicifi.org/gelato/language/cobol";
-modeltype KERNEL uses   "http://www.servicifi.org/gelato/language/kernel";
+modeltype COBOL uses  "http://www.servicifi.org/gelato/language/cobol";
+modeltype KERNEL uses "http://www.servicifi.org/gelato/language/kernel";
 
 transformation c2k(in cobolModel : COBOL, out KERNEL);
 

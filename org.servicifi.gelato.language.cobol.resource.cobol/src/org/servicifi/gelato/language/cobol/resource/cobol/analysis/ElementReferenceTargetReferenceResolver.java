@@ -30,84 +30,86 @@ import org.servicifi.gelato.language.cobol.resource.cobol.analysis.decider.Mnemo
 import org.servicifi.gelato.language.cobol.resource.cobol.analysis.helper.IResolutionTargetDecider;
 import org.servicifi.gelato.language.cobol.resource.cobol.analysis.helper.ScopedTreeWalker;
 
-public class ElementReferenceTargetReferenceResolver implements org.servicifi.gelato.language.cobol.resource.cobol.ICobolReferenceResolver<org.servicifi.gelato.language.cobol.references.ElementReference, org.servicifi.gelato.language.cobol.references.ReferenceableElement> {
-	
+public class ElementReferenceTargetReferenceResolver implements
+		org.servicifi.gelato.language.cobol.resource.cobol.ICobolReferenceResolver<org.servicifi.gelato.language.cobol.references.ElementReference, org.servicifi.gelato.language.cobol.references.ReferenceableElement> {
+
 	private org.servicifi.gelato.language.cobol.resource.cobol.analysis.CobolDefaultResolverDelegate<org.servicifi.gelato.language.cobol.references.ElementReference, org.servicifi.gelato.language.cobol.references.ReferenceableElement> delegate = new org.servicifi.gelato.language.cobol.resource.cobol.analysis.CobolDefaultResolverDelegate<org.servicifi.gelato.language.cobol.references.ElementReference, org.servicifi.gelato.language.cobol.references.ReferenceableElement>();
-	public void resolve(String identifier, org.servicifi.gelato.language.cobol.references.ElementReference container, org.eclipse.emf.ecore.EReference reference, int position, boolean resolveFuzzy, final org.servicifi.gelato.language.cobol.resource.cobol.ICobolReferenceResolveResult<org.servicifi.gelato.language.cobol.references.ReferenceableElement> result) {
-		//System.out.println("Resolving identifier: " + identifier);
-		//delegate.resolve(identifier, container, reference, position, resolveFuzzy, result);
-		//System.out.println("The container object is: " + container.toString());
-		//delegate.resolve(identifier, container, reference, position, resolveFuzzy, result);
-		
+
+	public void resolve(String identifier, org.servicifi.gelato.language.cobol.references.ElementReference container,
+			org.eclipse.emf.ecore.EReference reference, int position, boolean resolveFuzzy,
+			final org.servicifi.gelato.language.cobol.resource.cobol.ICobolReferenceResolveResult<org.servicifi.gelato.language.cobol.references.ReferenceableElement> result) {
+		// System.out.println("Resolving identifier: " + identifier);
+		// delegate.resolve(identifier, container, reference, position,
+		// resolveFuzzy, result);
+		// System.out.println("The container object is: " +
+		// container.toString());
+		// delegate.resolve(identifier, container, reference, position,
+		// resolveFuzzy, result);
+
 		EObject startingPoint = null;
 		EObject target = null;
 		Reference parentReference = null;
-		
+
 		startingPoint = container;
 		while (!(startingPoint instanceof CompilationUnit)) {
 			startingPoint = startingPoint.eContainer();
-			
+
 		}
 		if (startingPoint instanceof CompilationUnit)
-			startingPoint = ((CompilationUnit)startingPoint).getDataDivision();
-		
-		
-		if ( container instanceof Qualifier ) {
-			
+			startingPoint = ((CompilationUnit) startingPoint).getDataDivision();
+
+		if (container instanceof Qualifier) {
+
 			Qualifier qualifier = (Qualifier) container;
-			
+
 			IdentifierReference parentIdentifierReference = (IdentifierReference) qualifier.eContainer();
-			
+
 			Iterator<Qualifier> it = parentIdentifierReference.getQualifiers().iterator();
-			
+
 			while (it.hasNext()) {
-				 Qualifier q = it.next();
-				 
-				 if (qualifier.equals(q))
-					 break;
-				
+				Qualifier q = it.next();
+
+				if (qualifier.equals(q))
+					break;
+
 			}
-			
+
 			if (it.hasNext()) {
-				
+
 				Qualifier parentQualifier = it.next();
-				
+
 				startingPoint = parentQualifier.getTarget();
-				
+
 			}
-			
+
 		}
-		
-		if ( container instanceof IdentifierReference) {
-			
-			
-			
+
+		if (container instanceof IdentifierReference) {
+
 			IdentifierReference identifierReference = (IdentifierReference) container;
-			if (!((IdentifierReference) container).getQualifiers().isEmpty())
-			{
+			if (!((IdentifierReference) container).getQualifiers().isEmpty()) {
 				Qualifier containingQualifier = identifierReference.getQualifiers().get(0);
-			
+
 				startingPoint = containingQualifier.getTarget();
 			}
 		}
-		
-		//System.out.println("Resolving " + identifier + " within container " + container.toString());
-		
-		target = searchFromStartingPoint(identifier, container, reference,
-					startingPoint);
-		
+
+		// System.out.println("Resolving " + identifier + " within container " +
+		// container.toString());
+
+		target = searchFromStartingPoint(identifier, container, reference, startingPoint);
+
 		if (target != null) {
 			if (target.eIsProxy()) {
 				target = EcoreUtil.resolve(target, container);
-			}
-			if (!target.eIsProxy()) {
+			} else {
 				result.addMapping(identifier, (ReferenceableElement) target);
 			}
 		}
-		
 	}
-	private EObject searchFromStartingPoint(String identifier,
-			ElementReference container, EReference reference, EObject startingPoint) {
+
+	private EObject searchFromStartingPoint(String identifier, ElementReference container, EReference reference,
+			EObject startingPoint) {
 		List<IResolutionTargetDecider> deciderList = new ArrayList<IResolutionTargetDecider>();
 		deciderList.add(new AlphabetNameDecider());
 		deciderList.add(new DataNameDecider());
@@ -121,13 +123,16 @@ public class ElementReferenceTargetReferenceResolver implements org.servicifi.ge
 		return treeWalker.walk(startingPoint, identifier, container, reference);
 	}
 
-	public String deResolve(org.servicifi.gelato.language.cobol.references.ReferenceableElement element, org.servicifi.gelato.language.cobol.references.ElementReference container, org.eclipse.emf.ecore.EReference reference) {
+	public String deResolve(org.servicifi.gelato.language.cobol.references.ReferenceableElement element,
+			org.servicifi.gelato.language.cobol.references.ElementReference container,
+			org.eclipse.emf.ecore.EReference reference) {
 		return delegate.deResolve(element, container, reference);
 	}
-	
-	public void setOptions(java.util.Map<?,?> options) {
-		// save options in a field or leave method empty if this resolver does not depend
+
+	public void setOptions(java.util.Map<?, ?> options) {
+		// save options in a field or leave method empty if this resolver does
+		// not depend
 		// on any option
 	}
-	
+
 }

@@ -13,4 +13,68 @@
             genModel="metamodel/preprocess.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated preprocess -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/preprocess/containers"
+            class="org.servicifi.gelato.language.cobol.preprocess.containers.ContainersPackage"
+            genModel="metamodel/preprocess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated preprocess -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/preprocess/water"
+            class="org.servicifi.gelato.language.cobol.preprocess.water.WaterPackage"
+            genModel="metamodel/preprocess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated preprocess -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/preprocess/sentences"
+            class="org.servicifi.gelato.language.cobol.preprocess.sentences.SentencesPackage"
+            genModel="metamodel/preprocess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated preprocess -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/preprocess/commons"
+            class="org.servicifi.gelato.language.cobol.preprocess.commons.CommonsPackage"
+            genModel="metamodel/preprocess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated preprocess -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/preprocess/literals"
+            class="org.servicifi.gelato.language.cobol.preprocess.literals.LiteralsPackage"
+            genModel="metamodel/preprocess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated preprocess -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/preprocess/operands"
+            class="org.servicifi.gelato.language.cobol.preprocess.operands.OperandsPackage"
+            genModel="metamodel/preprocess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated preprocess -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/preprocess/statements"
+            class="org.servicifi.gelato.language.cobol.preprocess.statements.StatementsPackage"
+            genModel="metamodel/preprocess.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated preprocess -->
+      <package
+            uri="http://www.servicifi.org/gelato/language/cobol/preprocess/layouts"
+            class="org.servicifi.gelato.language.cobol.preprocess.layouts.LayoutsPackage"
+            genModel="metamodel/preprocess.genmodel"/>
+   </extension>
+
 </plugin>

@@ -46,9 +46,7 @@ public class PreprocessedCobolSourceOrCopybookFileResource extends CobolResource
 		return uri.toString().startsWith(
 				CobolUniquePathConstructor.COBOL_COMPILATION_UNIT_PATHMAP);
 	}
-
 	
-		
 	@Override
 	public void load(Map<?, ?> options) throws IOException {
     	URIConverter uriConverter = getURIConverter();

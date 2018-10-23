@@ -6,6 +6,8 @@
  */
 package org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.mopp;
 
+import org.servicifi.gelato.language.cobol.preprocess.CobolPreprocessClasspath;
+
 public class PreprocessResourcePostProcessor implements org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessResourcePostProcessor {
 	
 	public void process(org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.mopp.PreprocessResource resource) {
@@ -19,5 +21,4 @@ public class PreprocessResourcePostProcessor implements org.servicifi.gelato.lan
 		// computation. However, this is only required for computation intensive
 		// post-processors.
 	}
-	
 }

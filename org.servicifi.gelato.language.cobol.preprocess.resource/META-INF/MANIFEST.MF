@@ -3,10 +3,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Resource
 Bundle-SymbolicName: org.servicifi.gelato.language.cobol.preprocess.resource;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.7.0",
  org.eclipse.emf.ecore;bundle-version="2.8.3",
  org.servicifi.gelato.language.cobol.preprocess.resource.preprocess;bundle-version="1.0.0",
  org.servicifi.gelato.language.cobol.preprocess;bundle-version="1.0.0",
- org.eclipse.core.resources;bundle-version="3.7.100"
+ org.eclipse.core.resources;bundle-version="3.7.100",
+ org.eclipse.emf.emfstore.common,
+ org.apache.commons.lang;bundle-version="2.6.0"
 Export-Package: org.servicifi.gelato.language.cobol.preprocess.resource

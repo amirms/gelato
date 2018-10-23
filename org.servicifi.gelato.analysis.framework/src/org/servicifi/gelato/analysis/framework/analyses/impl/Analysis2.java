@@ -3,21 +3,25 @@ package org.servicifi.gelato.analysis.framework.analyses.impl;
 import java.awt.Label;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
-import org.servicifi.gelato.analysis.framework.flows.Flow;
-import org.servicifi.gelato.language.kernel.analyses.AnalysisDirection;
-import org.servicifi.gelato.language.kernel.analyses.AnalysisResult;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.language.kernel.procedures.Procedure;
 
 import com.google.common.collect.Lists;
 
 public class Analysis2 extends AnalysisImpl {
 	
-	AnalysisConfiguration<UEnvironment, UContext, UResult, UNode> configuration;
+	AnalysisConfiguration configuration;
+	Map<LabellableElement, Map<AnalysisContext, ExitEntryPair>> envs = 
+			new HashMap<LabellableElement, Map<AnalysisContext, ExitEntryPair>>();
 
 	public Map<Long, ExitEntryPair> performAnalysis() {
 		Map<Long, ExitEntryPair> map = new HashMap<Long, ExitEntryPair>();
@@ -36,8 +40,8 @@ public class Analysis2 extends AnalysisImpl {
 		return map;
 	}
 
-	Map<Long, ExitEntryPair> performInterprocedualAnalysis<UEnvironment,UContext,UResult,UNode extends Node>(
-	AnalysisConfiguration<UEnvironment, UContext, UResult, UNode> configuration, Graph graph)
+	Map<Long, ExitEntryPair> performInterprocedualAnalysis(
+			AnalysisConfiguration configuration, Graph graph)
 	{
 			/**
 			 * Represents start, end and, in case of a jump, the original start of the edge.
@@ -46,7 +50,7 @@ public class Analysis2 extends AnalysisImpl {
 			 */
 			//Edge = [GraphNode<ts.Node>, UContext, GraphNode<ts.Node>, UContext, GraphNode<ts.Node> | undefined, UContext | undefined];
 
-			List<Flow> worklist= new ArrayList<Flow>();
+			List<ContextualEdge> worklist= new ArrayList<ContextualEdge>();
 			for (Flow f: this.cfg) {
 				LabellableElement from = f.getFrom();
 				LabellableElement to = f.getTo();
@@ -54,7 +58,7 @@ public class Analysis2 extends AnalysisImpl {
 				List<AnalysisContext> toContext = configuration.getInitialContexts(to);
 				for (AnalysisContext context: fromContext) {
 					if (toContext.indexOf(context) != -1) {
-						Flow flow = new ContextualFlow(from, context, to, context, null, null);
+						ContextualEdge flow = new ContextualEdge(from, context, to, context, null, null);
 						worklist.add(flow);
 					}
 				}
@@ -62,7 +66,6 @@ public class Analysis2 extends AnalysisImpl {
 			if (configuration.getDirection().equals(AnalysisDirection.FORWARDS)) {
 				// Reverse worklist
 				worklist = Lists.reverse(worklist);
-//				worklist = worklist.map((value, index) => worklist[worklist.length - index - 1]);
 			}
 
 			
@@ -79,22 +82,22 @@ public class Analysis2 extends AnalysisImpl {
 			while (worklist.size() != 0) {
 //				const [from, fromContext, to, toContext, beforeJump, beforeJumpContext] = worklist.pop()!;
 				
-				Flow currentFlow =  worklist.remove(worklist.size() - 1);
+				ContextualEdge currentEdge =  worklist.remove(worklist.size() - 1);
 
-				LabellableElement from = currentFlow.getFrom();
-				AnalysisContext fromContext = currentFlow.getFromContext();
+				LabellableElement from = currentEdge.getFrom();
+				AnalysisContext fromContext = currentEdge.getFromContext();
 				
-				LabellableElement to = currentFlow.getTo();
-				AnalysisContext toContext = currentFlow.getToContext();
+				LabellableElement to = currentEdge.getTo();
+				AnalysisContext toContext = currentEdge.getToContext();
 				
-				JumpBack beforeJump = currentFlow.getBeforeJump();
-				AnalysisContext beforeJumpContext = currentFlow.getBeforeJumpContext();
+				JumpBack beforeJump = currentEdge.getBeforeJump();
+				AnalysisContext beforeJumpContext = currentEdge.getBeforeJumpContext();
 						
 				AnalysisResult envFrom = get(from, fromContext);
 
 				AnalysisResult envOut = get(to, toContext);
 				
-				ExitEntryPair<AnalysisContext, AnaysisResult> transferred = null; 
+				ExitEntryPair<AnalysisContext, AnalysisResult> transferred = null; 
 						
 				if (beforeJump != null){
 					transferred = transferMerge(beforeJump, from, get(beforeJump, beforeJumpContext!), transfer(from, fromContext, envFrom).env)
@@ -104,10 +107,11 @@ public class Analysis2 extends AnalysisImpl {
 				}
 				
 				for (Jump jump : transferred.jumps) {
-					Procedure procedureGraph = cfg.getProcedure(jump.to); //get the procedure graph for the callee
+//					Procedure procedureGraph = cfg.getProcedure(jump.getTo()); //get the procedure graph for the callee
+					Procedure procedureGraph = jump.getTo(); 
 					if (configuration.getDirection().equals(AnalysisDirection.FORWARDS)) {
-						AnaysisEnvironment envJumpTo = get(procedureGraph.entry, jump.toContext);
-						AnaysisEnvironment newEnvJumpTo = this.join(jump.env, envJumpTo); //data facts 
+						AnaysisEnvironment envJumpTo = get(procedureGraph.getStart(), jump.toContext);
+						AnaysisEnvironment newEnvJumpTo = join(jump.env, envJumpTo); //data facts 
 						const transformed = join(envJumpTo, newEnvJumpTo);
 						if (!configuration.equals(envJumpTo, transformed)) {
 							set(procedureGraph.entry, jump.toContext, transformed);
@@ -116,17 +120,21 @@ public class Analysis2 extends AnalysisImpl {
 							if (envJumpTo.equals(configuration.bottom)) {
 								// Add edges to worklist
 								Set<LabellableElement> visited = new HashSet<LabellableElement>();
-								let visit = (node: GraphNode<ts.Node>) => {
-									if (visited.has(node)) return;
+								
+								Visitor visitor = (LabellableElement node) -> {
+									if (visited.contains(node)) return;
 									visited.add(node);
-									for (const next of node.next) {
-										worklist.push([node, toContext, next, toContext, undefined, undefined]);
-										visit(next);
+									for (LabellableElement next : node.next) {
+										ContextualEdge edge = new ContextualEdge(node, toContext, next, toContext, undefined, undefined);
+										
+										worklist.add(edge);
+										visitor.visit(next);
 									}
 								};
-								visit(to);
+								
+								visitor.visit(to);
 
-								for (const exit of functionGraph.exit) {
+								for (LabellableElement exit : procedureGraph.exit) {
 									addJumpEdge(exit, jump.toContext, to, toContext, from, fromContext);
 								}
 							}
@@ -139,7 +147,7 @@ public class Analysis2 extends AnalysisImpl {
 					transferred.env,
 					envOut
 				);
-				if (configuration.equal(transformed, envOut)) continue;
+				if (configuration.equals(transformed, envOut)) continue;
 				set(to, toContext, transformed);
 				addWork(to, toContext);
 			}
@@ -148,8 +156,13 @@ public class Analysis2 extends AnalysisImpl {
 
 			
 		}
+	
+	interface Visitor {
+		void visit(LabellableElement node);
+		
+	}
 
-	addWork(LabellableElement node, AnalysisContext context) {
+	void addWork(LabellableElement node, AnalysisContext context) {
 		for (Flow edge : successors(node, context)) {
 			worklist.add(edge);
 			LabellableElement to = edge.to;
@@ -161,8 +174,8 @@ public class Analysis2 extends AnalysisImpl {
 				if (jumps == null) continue;
 				for (Jump jump : jumps) {
 					if (jump.original.equals(node) && jump.originalContext.equals(context)) {
-						worklist.add(new Flow{
-							[jump.node, jump.context, to, toContext, undefined, undefined])
+						worklist.add(new ContextualEdge(
+							jump.node, jump.context, to, toContext, null, null));
 						};
 					}
 				}
@@ -205,7 +218,7 @@ public class Analysis2 extends AnalysisImpl {
 
 	boolean isEntry(LabellableElement node) {
 		if (configuration.isEntry) return configuration.isEntry(node);
-		List<LabellableElement> predecessors = configuration.direction === Direction.Forward ? node.next : node.previous;
+		List<LabellableElement> predecessors = configuration.direction == Direction.Forward ? node.next : node.previous;
 		return predecessors.length === 0;
 	}
 
@@ -217,7 +230,7 @@ public class Analysis2 extends AnalysisImpl {
 		return value;
 	}
 
-	function set(LabellableElement node, AnalysisContext context, AnalysisEnvironment value) {
+	set(LabellableElement node, AnalysisContext context, AnaysisEnvironment value) {
 		envs.set(node, context, value);
 	}
 
@@ -244,14 +257,18 @@ public class Analysis2 extends AnalysisImpl {
 		for (const jump of jumpBack.get(node, context) || []) {
 			yield [node, context, jump.node, jump.context, jump.original, jump.originalContext];
 		}
-	}function*
+	}
 
-	successors(node: GraphNode<ts.Node>, context: UContext): IterableIterator<Edge> {
-		for (const n of configuration.direction === Direction.Forward ? node.next : node.previous) {
-			yield [node, context, n, context, undefined, undefined];
+	//function*
+	List<ContextualEdge> successors(LabellableElement node, UContext context)  {
+		List<ContextualEdge> result = new ArrayList<>();
+		
+		for (LabellableElement n : configuration.direction == Direction.Forward ? node.next : node.previous) {
+			result.add(new ContextualEdge(node, context, n, context, null, null));
 		}
-		for (const jump of jumpTo.get(node, context) || []) {
-			yield [node, context, jump.node, jump.context, jump.original, jump.originalContext];
+		for (Jump jump : jumpTo.get(node, context)) {
+			result.add(new ContextualEdge(node, context, jump.node, jump.context, jump.original, jump.originalContext));
 		}
 	}
+
 }
