@@ -104,12 +104,6 @@
           eType="#//commons/LabellableElement"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AnalysisConfiguration" abstract="true">
-      <eOperations name="gen" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
-        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
-      </eOperations>
-      <eOperations name="kill" ordered="false" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
-        <eParameters name="e" lowerBound="1" eType="#//commons/LabellableElement"/>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
           eType="#//analyses/AnalysisDirection"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="analysisType" lowerBound="1"
@@ -152,6 +146,12 @@
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
           <eTypeArguments eClassifier="#//graphs/Flow"/>
         </eGenericType>
+      </eOperations>
+      <eOperations name="gen" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="configuration" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </eOperations>
+      <eOperations name="kill" lowerBound="1" upperBound="-1" eType="#//analyses/AnalysisResult">
+        <eParameters name="configuration" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>

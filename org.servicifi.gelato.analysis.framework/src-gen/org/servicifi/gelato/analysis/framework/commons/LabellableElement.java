@@ -4,6 +4,8 @@ package org.servicifi.gelato.analysis.framework.commons;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EClass;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.analysis.framework.graphs.Node;
 
@@ -73,5 +75,21 @@ public interface LabellableElement extends Node {
 	 * @generated
 	 */
 	EList<EList<Flow>> internalFlow();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 * @generated
+	 */
+	EList<AnalysisResult> gen(EClass configuration);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 * @generated
+	 */
+	EList<AnalysisResult> kill(EClass configuration);
 
 } // LabellableElement

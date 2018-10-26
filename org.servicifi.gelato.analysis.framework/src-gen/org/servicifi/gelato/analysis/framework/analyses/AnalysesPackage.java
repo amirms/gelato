@@ -186,10 +186,10 @@ public interface AnalysesPackage extends EPackage {
 	int ANALYSIS_OPERATION_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link Comparable <em>Comparable</em>}' class.
+	 * The meta object id for the '{@link java.lang.Object <em>Comparable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see Comparable
+	 * @see java.lang.Object
 	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getComparable()
 	 * @generated
 	 */
@@ -380,31 +380,13 @@ public interface AnalysesPackage extends EPackage {
 	int ANALYSIS_CONFIGURATION_FEATURE_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>Gen</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_CONFIGURATION___GEN__LABELLABLEELEMENT = 0;
-
-	/**
-	 * The operation id for the '<em>Kill</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_CONFIGURATION___KILL__LABELLABLEELEMENT = 1;
-
-	/**
 	 * The number of operations of the '<em>Analysis Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_CONFIGURATION_OPERATION_COUNT = 2;
+	int ANALYSIS_CONFIGURATION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.analysis.framework.analyses.impl.IntraproceduralAnalysisImpl <em>Intraprocedural Analysis</em>}' class.
@@ -707,24 +689,6 @@ public interface AnalysesPackage extends EPackage {
 	int REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION_FEATURE_COUNT = ANALYSIS_CONFIGURATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Gen</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION___GEN__LABELLABLEELEMENT = ANALYSIS_CONFIGURATION___GEN__LABELLABLEELEMENT;
-
-	/**
-	 * The operation id for the '<em>Kill</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION___KILL__LABELLABLEELEMENT = ANALYSIS_CONFIGURATION___KILL__LABELLABLEELEMENT;
-
-	/**
 	 * The number of operations of the '<em>Reaching Definitions Analysis Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -979,11 +943,11 @@ public interface AnalysesPackage extends EPackage {
 	EReference getExitEntryPair_Exit();
 
 	/**
-	 * Returns the meta object for class '{@link Comparable <em>Comparable</em>}'.
+	 * Returns the meta object for class '{@link java.lang.Object <em>Comparable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Comparable</em>'.
-	 * @see Comparable
+	 * @see java.lang.Object
 	 * @model instanceClass="Comparable"
 	 * @generated
 	 */
@@ -1052,26 +1016,6 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAnalysisConfiguration_AnalysisType();
-
-	/**
-	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration#gen(org.servicifi.gelato.analysis.framework.commons.LabellableElement) <em>Gen</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Gen</em>' operation.
-	 * @see org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration#gen(org.servicifi.gelato.analysis.framework.commons.LabellableElement)
-	 * @generated
-	 */
-	EOperation getAnalysisConfiguration__Gen__LabellableElement();
-
-	/**
-	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration#kill(org.servicifi.gelato.analysis.framework.commons.LabellableElement) <em>Kill</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Kill</em>' operation.
-	 * @see org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration#kill(org.servicifi.gelato.analysis.framework.commons.LabellableElement)
-	 * @generated
-	 */
-	EOperation getAnalysisConfiguration__Kill__LabellableElement();
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis <em>Intraprocedural Analysis</em>}'.
@@ -1321,10 +1265,10 @@ public interface AnalysesPackage extends EPackage {
 		EReference EXIT_ENTRY_PAIR__EXIT = eINSTANCE.getExitEntryPair_Exit();
 
 		/**
-		 * The meta object literal for the '{@link Comparable <em>Comparable</em>}' class.
+		 * The meta object literal for the '{@link java.lang.Object <em>Comparable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see Comparable
+		 * @see java.lang.Object
 		 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getComparable()
 		 * @generated
 		 */
@@ -1381,22 +1325,6 @@ public interface AnalysesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANALYSIS_CONFIGURATION__ANALYSIS_TYPE = eINSTANCE.getAnalysisConfiguration_AnalysisType();
-
-		/**
-		 * The meta object literal for the '<em><b>Gen</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ANALYSIS_CONFIGURATION___GEN__LABELLABLEELEMENT = eINSTANCE.getAnalysisConfiguration__Gen__LabellableElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Kill</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ANALYSIS_CONFIGURATION___KILL__LABELLABLEELEMENT = eINSTANCE.getAnalysisConfiguration__Kill__LabellableElement();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.analysis.framework.analyses.impl.IntraproceduralAnalysisImpl <em>Intraprocedural Analysis</em>}' class.

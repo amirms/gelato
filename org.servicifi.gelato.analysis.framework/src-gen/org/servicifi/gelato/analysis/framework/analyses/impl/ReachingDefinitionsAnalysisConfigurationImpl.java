@@ -5,18 +5,13 @@ package org.servicifi.gelato.analysis.framework.analyses.impl;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.servicifi.gelato.analysis.framework.analyses.AnalysesFactory;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
-import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisType;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
-import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.analysis.framework.commons.Variable;
 
 /**
@@ -37,7 +32,7 @@ public class ReachingDefinitionsAnalysisConfigurationImpl extends AnalysisConfig
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated NOT
+		 * @generated NOT
 	 */
 	protected ReachingDefinitionsAnalysisConfigurationImpl() {
 		super();
@@ -148,95 +143,6 @@ public class ReachingDefinitionsAnalysisConfigurationImpl extends AnalysisConfig
 		result.append(assignments);
 		result.append(')');
 		return result.toString();
-	}
-
-	// Precondition: Names must be unique
-	@Override
-	public EList<AnalysisResult> kill(LabellableElement e) {
-		EList<AnalysisResult> res = new UniqueEList<>();
-
-//		if (e instanceof DefinitionExpression) {
-//			// LHS is a data item
-//			DefinitionExpression definitonVariable = (DefinitionExpression) e;
-//			Variable v = definitonVariable.getDefinedVariable();
-//			res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
-//			if (assignments.containsKey(v)) {
-//				for (Long i : assignments.get(v)) {
-//					res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, i));
-//				}
-//			}
-//
-//		}
-		// else if (e instanceof ProcedureCall) {
-		// Variable v = ((ProcedureCall) e).getReturnVal();
-		// res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v,
-		// -1));
-		// if (assignments.containsKey(v)) {
-		// for (Long i : assignments.get(v)) {
-		// res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v,
-		// i));
-		// }
-		// }
-		// }
-//		else
-			if (e instanceof DefinitionExpression) {
-			// Order matters
-			EList<Variable> vars = ((DefinitionExpression) e).getDefinedVariables();
-			for (Variable v : vars) {
-				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
-				if (assignments.containsKey(v)) {
-					for (Long i : assignments.get(v)) {
-						res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, i));
-					}
-				}
-			}
-		}
-		return res;
-	}
-
-	@Override
-	public EList<AnalysisResult> gen(LabellableElement e) {
-		EList<AnalysisResult> res = new UniqueEList<>();
-//		if (e instanceof AssignmentStatement) {
-//			DataItem v = (DataItem) ((AssignmentStatement) e).getTarget();
-//			res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
-//			if (assignments.containsKey(v)) {
-//				assignments.get(v).add(e.getLabel());
-//			} else {
-//				EList<Long> i = new BasicEList<>(1);
-//				i.add(e.getLabel());
-//				assignments.put(v, i);
-//			}
-//		}
-		// else if (e instanceof ProcedureCall) {
-		// Variable v = ((ProcedureCall) e).getReturnVal();
-		// res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v,
-		// -1));
-		// if (assignments.containsKey(v)) {
-		// assignments.get(v).add(e.getLabel());
-		// }
-		// else {
-		// EList<Long> i = new BasicEList<>(1);
-		// i.add(e.getLabel());
-		// assignments.put(v, i);
-		// }
-		// }
-//		else 
-		if (e instanceof UsageExpression) {
-			// Order matters
-			EList<Variable> vars = ((UsageExpression) e).getUsedVariables();
-			for (Variable v : vars) {
-				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
-				if (assignments.containsKey(v)) {
-					assignments.get(v).add(e.getLabel());
-				} else {
-					EList<Long> i = new BasicEList<>(1);
-					i.add(e.getLabel());
-					assignments.put(v, i);
-				}
-			}
-		}
-		return res;
 	}
 
 } //ReachingDefinitionsAnalysisConfigurationImpl

@@ -132,13 +132,31 @@ public interface CommonsPackage extends EPackage {
 	int LABELLABLE_ELEMENT___INTERNAL_FLOW = GraphsPackage.NODE_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Gen</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABELLABLE_ELEMENT___GEN__ECLASS = GraphsPackage.NODE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Kill</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABELLABLE_ELEMENT___KILL__ECLASS = GraphsPackage.NODE_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Labellable Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABELLABLE_ELEMENT_OPERATION_COUNT = GraphsPackage.NODE_OPERATION_COUNT + 3;
+	int LABELLABLE_ELEMENT_OPERATION_COUNT = GraphsPackage.NODE_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.analysis.framework.commons.impl.VariableImpl <em>Variable</em>}' class.
@@ -243,6 +261,24 @@ public interface CommonsPackage extends EPackage {
 	int START___INTERNAL_FLOW = LABELLABLE_ELEMENT___INTERNAL_FLOW;
 
 	/**
+	 * The operation id for the '<em>Gen</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START___GEN__ECLASS = LABELLABLE_ELEMENT___GEN__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Kill</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START___KILL__ECLASS = LABELLABLE_ELEMENT___KILL__ECLASS;
+
+	/**
 	 * The number of operations of the '<em>Start</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -325,6 +361,24 @@ public interface CommonsPackage extends EPackage {
 	int END___INTERNAL_FLOW = LABELLABLE_ELEMENT___INTERNAL_FLOW;
 
 	/**
+	 * The operation id for the '<em>Gen</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END___GEN__ECLASS = LABELLABLE_ELEMENT___GEN__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Kill</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END___KILL__ECLASS = LABELLABLE_ELEMENT___KILL__ECLASS;
+
+	/**
 	 * The number of operations of the '<em>End</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,6 +438,26 @@ public interface CommonsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getLabellableElement__InternalFlow();
+
+	/**
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.commons.LabellableElement#gen(org.eclipse.emf.ecore.EClass) <em>Gen</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Gen</em>' operation.
+	 * @see org.servicifi.gelato.analysis.framework.commons.LabellableElement#gen(org.eclipse.emf.ecore.EClass)
+	 * @generated
+	 */
+	EOperation getLabellableElement__Gen__EClass();
+
+	/**
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.commons.LabellableElement#kill(org.eclipse.emf.ecore.EClass) <em>Kill</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Kill</em>' operation.
+	 * @see org.servicifi.gelato.analysis.framework.commons.LabellableElement#kill(org.eclipse.emf.ecore.EClass)
+	 * @generated
+	 */
+	EOperation getLabellableElement__Kill__EClass();
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.commons.Variable <em>Variable</em>}'.
@@ -479,6 +553,22 @@ public interface CommonsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation LABELLABLE_ELEMENT___INTERNAL_FLOW = eINSTANCE.getLabellableElement__InternalFlow();
+
+		/**
+		 * The meta object literal for the '<em><b>Gen</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation LABELLABLE_ELEMENT___GEN__ECLASS = eINSTANCE.getLabellableElement__Gen__EClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Kill</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation LABELLABLE_ELEMENT___KILL__ECLASS = eINSTANCE.getLabellableElement__Kill__EClass();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.analysis.framework.commons.impl.VariableImpl <em>Variable</em>}' class.

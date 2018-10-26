@@ -149,7 +149,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link AnalysesPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -163,13 +163,16 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		if (isInited) return (AnalysesPackage)EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI);
 
 		// Obtain or create and register package
-		AnalysesPackageImpl theAnalysesPackage = (AnalysesPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof AnalysesPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new AnalysesPackageImpl());
+		Object registeredAnalysesPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		AnalysesPackageImpl theAnalysesPackage = registeredAnalysesPackage instanceof AnalysesPackageImpl ? (AnalysesPackageImpl)registeredAnalysesPackage : new AnalysesPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		GraphsPackageImpl theGraphsPackage = (GraphsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphsPackage.eNS_URI) instanceof GraphsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphsPackage.eNS_URI) : GraphsPackage.eINSTANCE);
-		CommonsPackageImpl theCommonsPackage = (CommonsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI) instanceof CommonsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI) : CommonsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GraphsPackage.eNS_URI);
+		GraphsPackageImpl theGraphsPackage = (GraphsPackageImpl)(registeredPackage instanceof GraphsPackageImpl ? registeredPackage : GraphsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
+		CommonsPackageImpl theCommonsPackage = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : CommonsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAnalysesPackage.createPackageContents();
@@ -184,7 +187,6 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		// Mark meta-data to indicate it can't be changed
 		theAnalysesPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(AnalysesPackage.eNS_URI, theAnalysesPackage);
 		return theAnalysesPackage;
@@ -411,24 +413,6 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysisConfiguration__Gen__LabellableElement() {
-		return analysisConfigurationEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getAnalysisConfiguration__Kill__LabellableElement() {
-		return analysisConfigurationEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getIntraproceduralAnalysis() {
 		return intraproceduralAnalysisEClass;
 	}
@@ -553,8 +537,6 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		analysisConfigurationEClass = createEClass(ANALYSIS_CONFIGURATION);
 		createEAttribute(analysisConfigurationEClass, ANALYSIS_CONFIGURATION__DIRECTION);
 		createEAttribute(analysisConfigurationEClass, ANALYSIS_CONFIGURATION__ANALYSIS_TYPE);
-		createEOperation(analysisConfigurationEClass, ANALYSIS_CONFIGURATION___GEN__LABELLABLEELEMENT);
-		createEOperation(analysisConfigurationEClass, ANALYSIS_CONFIGURATION___KILL__LABELLABLEELEMENT);
 
 		intraproceduralAnalysisEClass = createEClass(INTRAPROCEDURAL_ANALYSIS);
 
@@ -680,12 +662,6 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		initEClass(analysisConfigurationEClass, AnalysisConfiguration.class, "AnalysisConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnalysisConfiguration_Direction(), this.getAnalysisDirection(), "direction", null, 1, 1, AnalysisConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysisConfiguration_AnalysisType(), this.getAnalysisType(), "analysisType", "MUST", 1, 1, AnalysisConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getAnalysisConfiguration__Gen__LabellableElement(), this.getAnalysisResult(), "gen", 1, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theCommonsPackage.getLabellableElement(), "e", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getAnalysisConfiguration__Kill__LabellableElement(), this.getAnalysisResult(), "kill", 1, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theCommonsPackage.getLabellableElement(), "e", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(intraproceduralAnalysisEClass, IntraproceduralAnalysis.class, "IntraproceduralAnalysis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -5,16 +5,17 @@ package org.servicifi.gelato.analysis.framework.commons.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.servicifi.gelato.analysis.framework.analyses.AnalysesFactory;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
 import org.servicifi.gelato.analysis.framework.commons.CommonsPackage;
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
-
+import org.servicifi.gelato.analysis.framework.commons.Variable;
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
 
 import org.servicifi.gelato.analysis.framework.graphs.impl.NodeImpl;
@@ -129,6 +130,103 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<AnalysisResult> gen(EClass configuration) {
+		EList<AnalysisResult> res = new UniqueEList<>();
+//		if (e instanceof AssignmentStatement) {
+//			DataItem v = (DataItem) ((AssignmentStatement) e).getTarget();
+//			res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
+//			if (assignments.containsKey(v)) {
+//				assignments.get(v).add(e.getLabel());
+//			} else {
+//				EList<Long> i = new BasicEList<>(1);
+//				i.add(e.getLabel());
+//				assignments.put(v, i);
+//			}
+//		}
+		// else if (e instanceof ProcedureCall) {
+		// Variable v = ((ProcedureCall) e).getReturnVal();
+		// res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v,
+		// -1));
+		// if (assignments.containsKey(v)) {
+		// assignments.get(v).add(e.getLabel());
+		// }
+		// else {
+		// EList<Long> i = new BasicEList<>(1);
+		// i.add(e.getLabel());
+		// assignments.put(v, i);
+		// }
+		// }
+//		else 
+		if (this instanceof UsageExpression) {
+			// Order matters
+			EList<Variable> vars = ((UsageExpression) e).getUsedVariables();
+			for (Variable v : vars) {
+				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
+				if (assignments.containsKey(v)) {
+					assignments.get(v).add(e.getLabel());
+				} else {
+					EList<Long> i = new BasicEList<>(1);
+					i.add(e.getLabel());
+					assignments.put(v, i);
+				}
+			}
+		}
+		return res;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<AnalysisResult> kill(EClass configuration) {
+		EList<AnalysisResult> res = new UniqueEList<>();
+
+//		if (e instanceof DefinitionExpression) {
+//			// LHS is a data item
+//			DefinitionExpression definitonVariable = (DefinitionExpression) e;
+//			Variable v = definitonVariable.getDefinedVariable();
+//			res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
+//			if (assignments.containsKey(v)) {
+//				for (Long i : assignments.get(v)) {
+//					res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, i));
+//				}
+//			}
+//
+//		}
+		// else if (e instanceof ProcedureCall) {
+		// Variable v = ((ProcedureCall) e).getReturnVal();
+		// res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v,
+		// -1));
+		// if (assignments.containsKey(v)) {
+		// for (Long i : assignments.get(v)) {
+		// res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v,
+		// i));
+		// }
+		// }
+		// }
+//		else
+			if (this instanceof DefinitionExpression) {
+			// Order matters
+			EList<Variable> vars = ((DefinitionExpression) e).getDefinedVariables();
+			for (Variable v : vars) {
+				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
+				if (assignments.containsKey(v)) {
+					for (Long i : assignments.get(v)) {
+						res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, i));
+					}
+				}
+			}
+		}
+		return res;
+	}
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -198,6 +296,10 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 				return last();
 			case CommonsPackage.LABELLABLE_ELEMENT___INTERNAL_FLOW:
 				return internalFlow();
+			case CommonsPackage.LABELLABLE_ELEMENT___GEN__ECLASS:
+				return gen((EClass)arguments.get(0));
+			case CommonsPackage.LABELLABLE_ELEMENT___KILL__ECLASS:
+				return kill((EClass)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -211,7 +313,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (label: ");
 		result.append(label);
 		result.append(')');

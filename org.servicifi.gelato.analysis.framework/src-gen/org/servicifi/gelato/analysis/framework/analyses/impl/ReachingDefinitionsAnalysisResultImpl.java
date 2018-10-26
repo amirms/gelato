@@ -9,8 +9,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisResult;
 import org.servicifi.gelato.analysis.framework.commons.Variable;
-import org.servicifi.gelato.language.kernel.analyses.impl.ReachingDefinitionsResult;
-import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -19,8 +17,7 @@ import org.servicifi.gelato.language.kernel.dataitems.DataItem;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.servicifi.gelato.analysis.framework.analyses.impl.ReachingDefinitionsAnalysisResultImpl#getVariable
- * <em>Variable</em>}</li>
+ *   <li>{@link org.servicifi.gelato.analysis.framework.analyses.impl.ReachingDefinitionsAnalysisResultImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,9 +25,8 @@ import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 public class ReachingDefinitionsAnalysisResultImpl extends AnalysisResultImpl
 		implements ReachingDefinitionsAnalysisResult {
 	/**
-	 * The cached value of the '{@link #getVariable() <em>Variable</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVariable()
 	 * @generated
 	 * @ordered
@@ -39,7 +35,6 @@ public class ReachingDefinitionsAnalysisResultImpl extends AnalysisResultImpl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ReachingDefinitionsAnalysisResultImpl() {
@@ -60,7 +55,6 @@ public class ReachingDefinitionsAnalysisResultImpl extends AnalysisResultImpl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -70,17 +64,15 @@ public class ReachingDefinitionsAnalysisResultImpl extends AnalysisResultImpl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Variable getVariable() {
 		if (variable != null && variable.eIsProxy()) {
-			InternalEObject oldVariable = (InternalEObject) variable;
-			variable = (Variable) eResolveProxy(oldVariable);
+			InternalEObject oldVariable = (InternalEObject)variable;
+			variable = (Variable)eResolveProxy(oldVariable);
 			if (variable != oldVariable) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE, oldVariable, variable));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE, oldVariable, variable));
 			}
 		}
 		return variable;
@@ -88,7 +80,6 @@ public class ReachingDefinitionsAnalysisResultImpl extends AnalysisResultImpl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Variable basicGetVariable() {
@@ -97,73 +88,66 @@ public class ReachingDefinitionsAnalysisResultImpl extends AnalysisResultImpl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setVariable(Variable newVariable) {
 		Variable oldVariable = variable;
 		variable = newVariable;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE, oldVariable, variable));
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE, oldVariable, variable));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE:
-			if (resolve)
-				return getVariable();
-			return basicGetVariable();
+			case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE:
+				if (resolve) return getVariable();
+				return basicGetVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE:
-			setVariable((Variable) newValue);
-			return;
+			case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE:
+				setVariable((Variable)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE:
-			setVariable((Variable) null);
-			return;
+			case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE:
+				setVariable((Variable)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE:
-			return variable != null;
+			case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_RESULT__VARIABLE:
+				return variable != null;
 		}
 		return super.eIsSet(featureID);
 	}

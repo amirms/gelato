@@ -6,18 +6,20 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesFactory;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection;
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
 import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
+import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisResult;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.Start;
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.analysis.framework.graphs.RegularFlow;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -235,7 +237,7 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 						//go through all the results to find the ones corresponding to each argument variable
 						for (int j=0; j < x.size(); j++){
 						
-							ReachingDefinitionsResult result = (ReachingDefinitionsResult)x.get(j);
+							ReachingDefinitionsAnalysisResult result = (ReachingDefinitionsAnalysisResult)x.get(j);
 							
 							if (result.getVariable().equals(a)){
 								//remove analysis result
@@ -245,7 +247,6 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 								System.out.println("Aasdasda");
 								System.out.println(v);
 								x.add(j, AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, result.getLabel()));
-								
 							}
 								
 						}
@@ -272,10 +273,10 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 			if (res == null) {
 				res = new UniqueEList<>();
 			}
-			for (AnalysisResult ar : kill(e)) {
+			for (AnalysisResult ar : e.kill(configuration.eClass())) {
 				res.remove(ar);
 			}
-			res.addAll(gen(e));
+			res.addAll(e.gen(configuration.eClass()));
 			//TreeSet or UniqueEList
 			res = new UniqueEList<>(res);
 			getExitTable().put(e, res);

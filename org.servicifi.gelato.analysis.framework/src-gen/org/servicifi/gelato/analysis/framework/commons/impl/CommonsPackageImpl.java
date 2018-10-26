@@ -88,7 +88,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link CommonsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -102,13 +102,16 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 		if (isInited) return (CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		CommonsPackageImpl theCommonsPackage = (CommonsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof CommonsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new CommonsPackageImpl());
+		Object registeredCommonsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		CommonsPackageImpl theCommonsPackage = registeredCommonsPackage instanceof CommonsPackageImpl ? (CommonsPackageImpl)registeredCommonsPackage : new CommonsPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		GraphsPackageImpl theGraphsPackage = (GraphsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphsPackage.eNS_URI) instanceof GraphsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphsPackage.eNS_URI) : GraphsPackage.eINSTANCE);
-		AnalysesPackageImpl theAnalysesPackage = (AnalysesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI) instanceof AnalysesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI) : AnalysesPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GraphsPackage.eNS_URI);
+		GraphsPackageImpl theGraphsPackage = (GraphsPackageImpl)(registeredPackage instanceof GraphsPackageImpl ? registeredPackage : GraphsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI);
+		AnalysesPackageImpl theAnalysesPackage = (AnalysesPackageImpl)(registeredPackage instanceof AnalysesPackageImpl ? registeredPackage : AnalysesPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCommonsPackage.createPackageContents();
@@ -123,7 +126,6 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 		// Mark meta-data to indicate it can't be changed
 		theCommonsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(CommonsPackage.eNS_URI, theCommonsPackage);
 		return theCommonsPackage;
@@ -172,6 +174,24 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 */
 	public EOperation getLabellableElement__InternalFlow() {
 		return labellableElementEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLabellableElement__Gen__EClass() {
+		return labellableElementEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLabellableElement__Kill__EClass() {
+		return labellableElementEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -234,6 +254,8 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___FIRST);
 		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___LAST);
 		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___INTERNAL_FLOW);
+		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___GEN__ECLASS);
+		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___KILL__ECLASS);
 
 		variableEClass = createEClass(VARIABLE);
 
@@ -267,6 +289,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 
 		// Obtain other dependent packages
 		GraphsPackage theGraphsPackage = (GraphsPackage)EPackage.Registry.INSTANCE.getEPackage(GraphsPackage.eNS_URI);
+		AnalysesPackage theAnalysesPackage = (AnalysesPackage)EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -294,6 +317,12 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 		g2 = createEGenericType(theGraphsPackage.getFlow());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
+
+		op = initEOperation(getLabellableElement__Gen__EClass(), theAnalysesPackage.getAnalysisResult(), "gen", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEClass(), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getLabellableElement__Kill__EClass(), theAnalysesPackage.getAnalysisResult(), "kill", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEClass(), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

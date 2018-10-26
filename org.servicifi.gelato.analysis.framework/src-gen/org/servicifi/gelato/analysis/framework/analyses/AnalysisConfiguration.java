@@ -2,10 +2,7 @@
  */
 package org.servicifi.gelato.analysis.framework.analyses;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
-import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,21 +80,5 @@ public interface AnalysisConfiguration extends EObject {
 	 * @generated
 	 */
 	void setAnalysisType(AnalysisType value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" eRequired="true"
-	 * @generated
-	 */
-	EList<AnalysisResult> gen(LabellableElement e);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" eRequired="true"
-	 * @generated
-	 */
-	EList<AnalysisResult> kill(LabellableElement e);
 
 } // AnalysisConfiguration

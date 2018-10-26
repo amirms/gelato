@@ -2,12 +2,7 @@
  */
 package org.servicifi.gelato.analysis.framework.analyses.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -16,10 +11,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection;
-import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
-
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisType;
-import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -142,28 +134,6 @@ public abstract class AnalysisConfigurationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AnalysisResult> gen(LabellableElement e) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<AnalysisResult> kill(LabellableElement e) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -233,26 +203,10 @@ public abstract class AnalysisConfigurationImpl extends MinimalEObjectImpl.Conta
 	 * @generated
 	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case AnalysesPackage.ANALYSIS_CONFIGURATION___GEN__LABELLABLEELEMENT:
-				return gen((LabellableElement)arguments.get(0));
-			case AnalysesPackage.ANALYSIS_CONFIGURATION___KILL__LABELLABLEELEMENT:
-				return kill((LabellableElement)arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (direction: ");
 		result.append(direction);
 		result.append(", analysisType: ");

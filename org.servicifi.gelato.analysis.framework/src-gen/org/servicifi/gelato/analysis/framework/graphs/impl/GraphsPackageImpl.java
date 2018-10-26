@@ -87,7 +87,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link GraphsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -101,13 +101,16 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 		if (isInited) return (GraphsPackage)EPackage.Registry.INSTANCE.getEPackage(GraphsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		GraphsPackageImpl theGraphsPackage = (GraphsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GraphsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GraphsPackageImpl());
+		Object registeredGraphsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		GraphsPackageImpl theGraphsPackage = registeredGraphsPackage instanceof GraphsPackageImpl ? (GraphsPackageImpl)registeredGraphsPackage : new GraphsPackageImpl();
 
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		AnalysesPackageImpl theAnalysesPackage = (AnalysesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI) instanceof AnalysesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI) : AnalysesPackage.eINSTANCE);
-		CommonsPackageImpl theCommonsPackage = (CommonsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI) instanceof CommonsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI) : CommonsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI);
+		AnalysesPackageImpl theAnalysesPackage = (AnalysesPackageImpl)(registeredPackage instanceof AnalysesPackageImpl ? registeredPackage : AnalysesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
+		CommonsPackageImpl theCommonsPackage = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : CommonsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theGraphsPackage.createPackageContents();
@@ -122,7 +125,6 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 		// Mark meta-data to indicate it can't be changed
 		theGraphsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(GraphsPackage.eNS_URI, theGraphsPackage);
 		return theGraphsPackage;
