@@ -12,5 +12,5 @@ package org.servicifi.gelato.language.kernel.statements;
  * @see org.servicifi.gelato.language.kernel.statements.StatementsPackage#getWhileLoop()
  * @generated
  */
-public interface WhileLoop extends StatementContainer, Conditional, Statement {
+public interface WhileLoop extends Statement, StatementContainer, Conditional {
 } // WhileLoop

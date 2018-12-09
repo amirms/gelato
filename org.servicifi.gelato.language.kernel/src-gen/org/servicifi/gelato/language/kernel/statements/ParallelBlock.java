@@ -18,7 +18,7 @@ package org.servicifi.gelato.language.kernel.statements;
  * @see org.servicifi.gelato.language.kernel.statements.StatementsPackage#getParallelBlock()
  * @generated
  */
-public interface ParallelBlock extends StatementListContainer, Statement {
+public interface ParallelBlock extends Statement, StatementListContainer {
 	/**
 	 * Returns the value of the '<em><b>Order</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.servicifi.gelato.language.kernel.statements.ExecutionOrder}.

@@ -2,9 +2,7 @@
  */
 package org.servicifi.gelato.language.kernel.statements;
 
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
-import org.servicifi.gelato.language.kernel.references.ElementReference;
-
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +20,6 @@ import org.servicifi.gelato.language.kernel.references.ElementReference;
  * @generated
  */
 public interface Jump extends Statement {
-
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -2,7 +2,8 @@
  */
 package org.servicifi.gelato.language.kernel.statements;
 
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +14,5 @@ import org.servicifi.gelato.language.kernel.commons.LabellableElement;
  * @see org.servicifi.gelato.language.kernel.statements.StatementsPackage#getExceptionHandlerStatement()
  * @generated
  */
-public interface ExceptionHandlerStatement extends StatementContainer, LabellableElement {
+public interface ExceptionHandlerStatement extends LabellableElement, StatementContainer {
 } // ExceptionHandlerStatement

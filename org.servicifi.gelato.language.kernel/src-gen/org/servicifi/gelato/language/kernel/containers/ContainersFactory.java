@@ -31,24 +31,6 @@ public interface ContainersFactory extends EFactory {
 	CompilationUnit createCompilationUnit();
 
 	/**
-	 * Returns a new object of class '<em>Start</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Start</em>'.
-	 * @generated
-	 */
-	Start createStart();
-
-	/**
-	 * Returns a new object of class '<em>End</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>End</em>'.
-	 * @generated
-	 */
-	End createEnd();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

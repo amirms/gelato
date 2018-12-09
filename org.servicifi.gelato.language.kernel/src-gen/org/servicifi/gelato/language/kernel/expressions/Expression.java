@@ -4,7 +4,8 @@ package org.servicifi.gelato.language.kernel.expressions;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.eclipse.emf.ecore.EObject;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 
 /**

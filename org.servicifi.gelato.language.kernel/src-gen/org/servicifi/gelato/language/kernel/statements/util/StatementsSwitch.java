@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.graphs.Node;
 import org.servicifi.gelato.language.kernel.members.Member;
 
 import org.servicifi.gelato.language.kernel.references.ElementReference;
@@ -75,6 +76,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 				T result = caseStatement(statement);
 				if (result == null) result = caseLabellableElement(statement);
 				if (result == null) result = caseMember(statement);
+				if (result == null) result = caseNode(statement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -93,32 +95,35 @@ public class StatementsSwitch<T> extends Switch<T> {
 			case StatementsPackage.CONDITION: {
 				Condition condition = (Condition)theEObject;
 				T result = caseCondition(condition);
+				if (result == null) result = caseStatement(condition);
 				if (result == null) result = caseStatementContainer(condition);
 				if (result == null) result = caseConditional(condition);
-				if (result == null) result = caseStatement(condition);
 				if (result == null) result = caseLabellableElement(condition);
 				if (result == null) result = caseMember(condition);
+				if (result == null) result = caseNode(condition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case StatementsPackage.WHILE_LOOP: {
 				WhileLoop whileLoop = (WhileLoop)theEObject;
 				T result = caseWhileLoop(whileLoop);
+				if (result == null) result = caseStatement(whileLoop);
 				if (result == null) result = caseStatementContainer(whileLoop);
 				if (result == null) result = caseConditional(whileLoop);
-				if (result == null) result = caseStatement(whileLoop);
 				if (result == null) result = caseLabellableElement(whileLoop);
 				if (result == null) result = caseMember(whileLoop);
+				if (result == null) result = caseNode(whileLoop);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case StatementsPackage.BLOCK: {
 				Block block = (Block)theEObject;
 				T result = caseBlock(block);
-				if (result == null) result = caseStatementListContainer(block);
 				if (result == null) result = caseStatement(block);
+				if (result == null) result = caseStatementListContainer(block);
 				if (result == null) result = caseLabellableElement(block);
 				if (result == null) result = caseMember(block);
+				if (result == null) result = caseNode(block);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,6 +134,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseElementReference(assignmentStatement);
 				if (result == null) result = caseLabellableElement(assignmentStatement);
 				if (result == null) result = caseMember(assignmentStatement);
+				if (result == null) result = caseNode(assignmentStatement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,6 +144,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseStatement(jump);
 				if (result == null) result = caseLabellableElement(jump);
 				if (result == null) result = caseMember(jump);
+				if (result == null) result = caseNode(jump);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,26 +155,29 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseStatement(goto_);
 				if (result == null) result = caseLabellableElement(goto_);
 				if (result == null) result = caseMember(goto_);
+				if (result == null) result = caseNode(goto_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case StatementsPackage.NON_DETERMINISTIC_BLOCK: {
 				NonDeterministicBlock nonDeterministicBlock = (NonDeterministicBlock)theEObject;
 				T result = caseNonDeterministicBlock(nonDeterministicBlock);
-				if (result == null) result = caseStatementListContainer(nonDeterministicBlock);
 				if (result == null) result = caseStatement(nonDeterministicBlock);
+				if (result == null) result = caseStatementListContainer(nonDeterministicBlock);
 				if (result == null) result = caseLabellableElement(nonDeterministicBlock);
 				if (result == null) result = caseMember(nonDeterministicBlock);
+				if (result == null) result = caseNode(nonDeterministicBlock);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case StatementsPackage.PARALLEL_BLOCK: {
 				ParallelBlock parallelBlock = (ParallelBlock)theEObject;
 				T result = caseParallelBlock(parallelBlock);
-				if (result == null) result = caseStatementListContainer(parallelBlock);
 				if (result == null) result = caseStatement(parallelBlock);
+				if (result == null) result = caseStatementListContainer(parallelBlock);
 				if (result == null) result = caseLabellableElement(parallelBlock);
 				if (result == null) result = caseMember(parallelBlock);
+				if (result == null) result = caseNode(parallelBlock);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -177,24 +187,27 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseStatement(abort);
 				if (result == null) result = caseLabellableElement(abort);
 				if (result == null) result = caseMember(abort);
+				if (result == null) result = caseNode(abort);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT: {
 				ExceptionHandlerStatement exceptionHandlerStatement = (ExceptionHandlerStatement)theEObject;
 				T result = caseExceptionHandlerStatement(exceptionHandlerStatement);
-				if (result == null) result = caseStatementContainer(exceptionHandlerStatement);
 				if (result == null) result = caseLabellableElement(exceptionHandlerStatement);
+				if (result == null) result = caseStatementContainer(exceptionHandlerStatement);
+				if (result == null) result = caseNode(exceptionHandlerStatement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case StatementsPackage.STATEMENT_WITH_EXCEPTION: {
 				StatementWithException statementWithException = (StatementWithException)theEObject;
 				T result = caseStatementWithException(statementWithException);
-				if (result == null) result = caseStatementContainer(statementWithException);
 				if (result == null) result = caseStatement(statementWithException);
+				if (result == null) result = caseStatementContainer(statementWithException);
 				if (result == null) result = caseLabellableElement(statementWithException);
 				if (result == null) result = caseMember(statementWithException);
+				if (result == null) result = caseNode(statementWithException);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,6 +224,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseElementReference(procedureCall);
 				if (result == null) result = caseLabellableElement(procedureCall);
 				if (result == null) result = caseMember(procedureCall);
+				if (result == null) result = caseNode(procedureCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -220,6 +234,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseStatement(expressionStatement);
 				if (result == null) result = caseLabellableElement(expressionStatement);
 				if (result == null) result = caseMember(expressionStatement);
+				if (result == null) result = caseNode(expressionStatement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -229,13 +244,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseStatement(skip);
 				if (result == null) result = caseLabellableElement(skip);
 				if (result == null) result = caseMember(skip);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StatementsPackage.RETURN_SITE: {
-				ReturnSite returnSite = (ReturnSite)theEObject;
-				T result = caseReturnSite(returnSite);
-				if (result == null) result = caseLabellableElement(returnSite);
+				if (result == null) result = caseNode(skip);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -245,6 +254,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseStatement(return_);
 				if (result == null) result = caseLabellableElement(return_);
 				if (result == null) result = caseMember(return_);
+				if (result == null) result = caseNode(return_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -523,21 +533,6 @@ public class StatementsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Return Site</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Return Site</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReturnSite(ReturnSite object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Return</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -553,21 +548,6 @@ public class StatementsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Labellable Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Labellable Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLabellableElement(LabellableElement object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -579,6 +559,36 @@ public class StatementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMember(Member object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNode(Node object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Labellable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Labellable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLabellableElement(LabellableElement object) {
 		return null;
 	}
 

@@ -9,12 +9,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.analysis.framework.graphs.GraphsFactory;
 import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
 import org.servicifi.gelato.language.kernel.expressions.Expression;
-import org.servicifi.gelato.language.kernel.flows.Flow;
-import org.servicifi.gelato.language.kernel.flows.FlowsFactory;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
 import org.servicifi.gelato.language.kernel.statements.Return;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
@@ -25,10 +26,10 @@ import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.kernel.statements.impl.ReturnImpl#getReturnValue <em>Return Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -177,7 +178,6 @@ public class ReturnImpl extends StatementImpl implements Return {
 		return super.eIsSet(featureID);
 	}
 	
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -200,37 +200,32 @@ public class ReturnImpl extends StatementImpl implements Return {
 		while (!(container instanceof CompilationUnit)){
 			previousContainer = container;
 			container = container.eContainer();
-			
 		}
 			
 		Procedure proc = (Procedure) previousContainer;
 		
 		res.add(proc.getEnd());
 		return res;
-
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	
 	@Override
 	public EList<Flow> internalFlow() {
-		
 		EObject container = this.eContainer();
 		EObject previousContainer = container; // the outmost procedure in the compilation unit
 		while (!(container instanceof CompilationUnit)){
 			previousContainer = container;
 			container = container.eContainer();
-			
 		}
 			
 		Procedure proc = (Procedure) previousContainer;
 		
 		EList<Flow> res = new BasicEList<Flow>();
 		
-		res.add(FlowsFactory.eINSTANCE.createRegularFlow(this, proc.getEnd()));
+		res.add(GraphsFactory.eINSTANCE.createRegularFlow(this, proc.getEnd()));
 		return res;
 	}
 

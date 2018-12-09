@@ -7,12 +7,16 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+
+import org.servicifi.gelato.analysis.framework.graphs.Node;
+
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
 
 import org.servicifi.gelato.language.kernel.members.Member;
 
 import org.servicifi.gelato.language.kernel.procedures.*;
+
 import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
 
 /**
@@ -78,6 +82,7 @@ public class ProceduresSwitch<T> extends Switch<T> {
 				if (result == null) result = caseLabellableElement(procedure);
 				if (result == null) result = caseMember(procedure);
 				if (result == null) result = caseReferenceableElement(procedure);
+				if (result == null) result = caseNode(procedure);
 				if (result == null) result = caseNamedElement(procedure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -86,6 +91,7 @@ public class ProceduresSwitch<T> extends Switch<T> {
 				MainProcedure mainProcedure = (MainProcedure)theEObject;
 				T result = caseMainProcedure(mainProcedure);
 				if (result == null) result = caseLabellableElement(mainProcedure);
+				if (result == null) result = caseNode(mainProcedure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,6 +130,21 @@ public class ProceduresSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMember(Member object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -154,6 +175,21 @@ public class ProceduresSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNode(Node object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Labellable Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -165,21 +201,6 @@ public class ProceduresSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLabellableElement(LabellableElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Member</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMember(Member object) {
 		return null;
 	}
 

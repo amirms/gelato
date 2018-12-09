@@ -12,5 +12,5 @@ package org.servicifi.gelato.language.kernel.statements;
  * @see org.servicifi.gelato.language.kernel.statements.StatementsPackage#getNonDeterministicBlock()
  * @generated
  */
-public interface NonDeterministicBlock extends StatementListContainer, Statement {
+public interface NonDeterministicBlock extends Statement, StatementListContainer {
 } // NonDeterministicBlock

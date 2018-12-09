@@ -9,7 +9,10 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+
+import org.servicifi.gelato.analysis.framework.graphs.Node;
+
 import org.servicifi.gelato.language.kernel.containers.*;
 
 /**
@@ -77,12 +80,8 @@ public class ContainersAdapterFactory extends AdapterFactoryImpl {
 				return createCompilationUnitAdapter();
 			}
 			@Override
-			public Adapter caseStart(Start object) {
-				return createStartAdapter();
-			}
-			@Override
-			public Adapter caseEnd(End object) {
-				return createEndAdapter();
+			public Adapter caseNode(Node object) {
+				return createNodeAdapter();
 			}
 			@Override
 			public Adapter caseLabellableElement(LabellableElement object) {
@@ -137,41 +136,27 @@ public class ContainersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.containers.Start <em>Start</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.analysis.framework.graphs.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.servicifi.gelato.language.kernel.containers.Start
+	 * @see org.servicifi.gelato.analysis.framework.graphs.Node
 	 * @generated
 	 */
-	public Adapter createStartAdapter() {
+	public Adapter createNodeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.containers.End <em>End</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.analysis.framework.commons.LabellableElement <em>Labellable Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.servicifi.gelato.language.kernel.containers.End
-	 * @generated
-	 */
-	public Adapter createEndAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.commons.LabellableElement <em>Labellable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.servicifi.gelato.language.kernel.commons.LabellableElement
+	 * @see org.servicifi.gelato.analysis.framework.commons.LabellableElement
 	 * @generated
 	 */
 	public Adapter createLabellableElementAdapter() {

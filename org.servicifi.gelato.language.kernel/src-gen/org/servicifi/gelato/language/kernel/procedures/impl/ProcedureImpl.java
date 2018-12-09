@@ -8,26 +8,35 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.servicifi.gelato.analysis.framework.commons.CommonsFactory;
+import org.servicifi.gelato.analysis.framework.commons.End;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.Start;
+
+import org.servicifi.gelato.analysis.framework.commons.impl.LabellableElementImpl;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.analysis.framework.graphs.GraphsFactory;
 import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
-import org.servicifi.gelato.language.kernel.commons.impl.LabellableElementImpl;
-import org.servicifi.gelato.language.kernel.containers.ContainersFactory;
-import org.servicifi.gelato.language.kernel.containers.End;
-import org.servicifi.gelato.language.kernel.containers.Start;
-import org.servicifi.gelato.language.kernel.flows.Flow;
-import org.servicifi.gelato.language.kernel.flows.FlowsFactory;
+
 import org.servicifi.gelato.language.kernel.members.Member;
+
 import org.servicifi.gelato.language.kernel.parameters.Parameter;
+
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
 import org.servicifi.gelato.language.kernel.procedures.ProceduresPackage;
+
 import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
+
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 
 /**
@@ -36,6 +45,7 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.kernel.procedures.impl.ProcedureImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.procedures.impl.ProcedureImpl#getMembers <em>Members</em>}</li>
@@ -44,7 +54,6 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  *   <li>{@link org.servicifi.gelato.language.kernel.procedures.impl.ProcedureImpl#getStart <em>Start</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.procedures.impl.ProcedureImpl#getEnd <em>End</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -110,7 +119,7 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	protected Start start;
 
 	/**
-	 * The cached value of the '{@link #getEnd() <em>End</em>}' reference.
+	 * The cached value of the '{@link #getEnd() <em>End</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEnd()
@@ -244,14 +253,6 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	 * @generated
 	 */
 	public End getEnd() {
-		if (end != null && end.eIsProxy()) {
-			InternalEObject oldEnd = (InternalEObject)end;
-			end = (End)eResolveProxy(oldEnd);
-			if (end != oldEnd) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ProceduresPackage.PROCEDURE__END, oldEnd, end));
-			}
-		}
 		return end;
 	}
 
@@ -260,8 +261,14 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public End basicGetEnd() {
-		return end;
+	public NotificationChain basicSetEnd(End newEnd, NotificationChain msgs) {
+		End oldEnd = end;
+		end = newEnd;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ProceduresPackage.PROCEDURE__END, oldEnd, newEnd);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -270,10 +277,17 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	 * @generated
 	 */
 	public void setEnd(End newEnd) {
-		End oldEnd = end;
-		end = newEnd;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ProceduresPackage.PROCEDURE__END, oldEnd, end));
+		if (newEnd != end) {
+			NotificationChain msgs = null;
+			if (end != null)
+				msgs = ((InternalEObject)end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ProceduresPackage.PROCEDURE__END, null, msgs);
+			if (newEnd != null)
+				msgs = ((InternalEObject)newEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ProceduresPackage.PROCEDURE__END, null, msgs);
+			msgs = basicSetEnd(newEnd, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ProceduresPackage.PROCEDURE__END, newEnd, newEnd));
 	}
 
 	/**
@@ -290,6 +304,8 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 			case ProceduresPackage.PROCEDURE__START:
 				return basicSetStart(null, msgs);
+			case ProceduresPackage.PROCEDURE__END:
+				return basicSetEnd(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -313,8 +329,7 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 			case ProceduresPackage.PROCEDURE__START:
 				return getStart();
 			case ProceduresPackage.PROCEDURE__END:
-				if (resolve) return getEnd();
-				return basicGetEnd();
+				return getEnd();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -468,7 +483,7 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(')');
@@ -482,7 +497,7 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	 */
 	public LabellableElement first() {
 		if(getStart() == null)
-			this.setStart(ContainersFactory.eINSTANCE.createStart());
+			this.setStart(CommonsFactory.eINSTANCE.createStart());
 		
 		return getStart();
 	}
@@ -495,12 +510,10 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	public EList<LabellableElement> last() {
 		EList<LabellableElement> res = new BasicEList<>();
 		if(getEnd() == null)
-			this.setEnd(ContainersFactory.eINSTANCE.createEnd());
+			this.setEnd(CommonsFactory.eINSTANCE.createEnd());
 		res.add(getEnd());
 		return res;
 	}
-
-	
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -535,15 +548,16 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public EList<Flow> internalFlow() {
 		EList<Flow> res = new BasicEList<>();
 		
 		if(getStart() == null)
-			this.setStart(ContainersFactory.eINSTANCE.createStart());
+			this.setStart(CommonsFactory.eINSTANCE.createStart());
 		
 		if(getEnd() == null)
-			this.setEnd(ContainersFactory.eINSTANCE.createEnd());
+			this.setEnd(CommonsFactory.eINSTANCE.createEnd());
 		
 		//set labels for start and end
 		getStart().setLabel(0 - getLabel());
@@ -551,13 +565,13 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 		
 		//If no statements, i.e. {}
 		if (getMembers().isEmpty()){
-			res.add(FlowsFactory.eINSTANCE.createRegularFlow(getStart(), getEnd()));
+			res.add(GraphsFactory.eINSTANCE.createRegularFlow(getStart(), getEnd()));
 			return res;
 		
 		}
 		
 		LabellableElement firstMember = (LabellableElement) getMembers().get(0);
-		res.add(FlowsFactory.eINSTANCE.createRegularFlow(getStart(), firstMember.first()));
+		res.add(GraphsFactory.eINSTANCE.createRegularFlow(getStart(), firstMember.first()));
 		
 		EList<LabellableElement> prev = new BasicEList<>();
 		prev.addAll(firstMember.last());
@@ -566,18 +580,16 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 			LabellableElement elem = (LabellableElement) getMembers().get(i);
 
 			for (LabellableElement e : prev)
-				res.add(FlowsFactory.eINSTANCE.createRegularFlow(e, elem.first()));
+				res.add(GraphsFactory.eINSTANCE.createRegularFlow(e, elem.first()));
 			System.out.println(elem);
 			res.addAll(elem.internalFlow());
 			prev = elem.last();
 		}
 		
 		for (LabellableElement element : prev)
-			res.add(FlowsFactory.eINSTANCE.createRegularFlow(element, getEnd()));
+			res.add(GraphsFactory.eINSTANCE.createRegularFlow(element, getEnd()));
 		
 		return res;
 	}
-	
-	
 
 } //ProcedureImpl

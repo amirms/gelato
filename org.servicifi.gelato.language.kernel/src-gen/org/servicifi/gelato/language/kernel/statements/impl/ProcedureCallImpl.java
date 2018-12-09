@@ -8,21 +8,28 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
-import org.servicifi.gelato.language.kernel.flows.Flow;
-import org.servicifi.gelato.language.kernel.flows.FlowsFactory;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.analysis.framework.graphs.GraphsFactory;
+import org.servicifi.gelato.analysis.framework.procedures.ProceduresFactory;
+import org.servicifi.gelato.analysis.framework.procedures.ReturnSite;
+
 import org.servicifi.gelato.language.kernel.references.Argument;
 import org.servicifi.gelato.language.kernel.references.ElementReference;
 import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
 import org.servicifi.gelato.language.kernel.references.ReferencesPackage;
+
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
-import org.servicifi.gelato.language.kernel.statements.ReturnSite;
-import org.servicifi.gelato.language.kernel.statements.StatementsFactory;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
 
 /**
@@ -31,12 +38,12 @@ import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.kernel.statements.impl.ProcedureCallImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.statements.impl.ProcedureCallImpl#getArguments <em>Arguments</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.statements.impl.ProcedureCallImpl#getReturnSite <em>Return Site</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -311,52 +318,69 @@ public class ProcedureCallImpl extends StatementImpl implements ProcedureCall {
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
+	@Override
 	public LabellableElement first() {
 		return this;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
+	@Override
 	public EList<LabellableElement> last() {
 		EList<LabellableElement> res = new BasicEList<>();
-		
-		ReturnSite returnSite = getReturnSite();
-		
-		if (returnSite == null)
-			setReturnSite(StatementsFactory.eINSTANCE.createReturnSite());
-		
-		res.add(getReturnSite());
-		
-		return res;
 
+		ReturnSite returnSite = getReturnSite();
+
+		if (returnSite == null)
+			setReturnSite(ProceduresFactory.eINSTANCE.createReturnSite());
+
+		res.add(getReturnSite());
+
+		return res;
 	}
 	
 	@Override
 	public EList<Flow> internalFlow() {
 		EList<Flow> res = new BasicEList<>();
-		
+
 		ReturnSite returnSite = getReturnSite();
-		
+
 		if (returnSite == null)
-			setReturnSite(StatementsFactory.eINSTANCE.createReturnSite());
-		
-		//res.add(FlowsFactory.eINSTANCE.createRegularFlow(this, getReturnSite()));
-		res.add(FlowsFactory.eINSTANCE.createSummaryFlow(this, getReturnSite()));
-		 
-		return res; 
-		 
+			setReturnSite(ProceduresFactory.eINSTANCE.createReturnSite());
+
+		// res.add(FlowsFactory.eINSTANCE.createRegularFlow(this, getReturnSite()));
+		res.add(GraphsFactory.eINSTANCE.createSummaryFlow(this, getReturnSite()));
+
+		return res;
 	}
-	
-	
+
 	public String toString() {
 		return String.format("Procedure Call(%s,%s)", getTarget(), getArguments());
 	}
-	
+
+	@Override
+	public EList<AnalysisResult> kill(AnalysisConfiguration configuration) {
+		EList<AnalysisResult> res = new UniqueEList<>();
+
+		// TODO need to change the language to have something like v := call(e)
+//		if (configuration instanceof ReachingDefinitionsAnalysisConfiguration) {
+//			ReachingDefinitionsAnalysisConfiguration rdConfig = (ReachingDefinitionsAnalysisConfiguration) configuration;
+//			Map<Variable, EList<Long>> assignments = rdConfig.getAssignments();
+//
+//			DataItem v = getReturnVal();
+//			res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
+//			if (assignments.containsKey(v)) {
+//				for (Long i : assignments.get(v)) {
+//					res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, i));
+//				}
+//			}
+//		}
+
+		return res;
+	}
 } //ProcedureCallImpl

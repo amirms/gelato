@@ -7,9 +7,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.analysis.framework.graphs.GraphsFactory;
 import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
-import org.servicifi.gelato.language.kernel.flows.Flow;
-import org.servicifi.gelato.language.kernel.flows.FlowsFactory;
 import org.servicifi.gelato.language.kernel.statements.Abort;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
 
@@ -91,7 +91,7 @@ public class AbortImpl extends StatementImpl implements Abort {
 		
 		EList<Flow> res = new BasicEList<Flow>();
 		
-		res.add(FlowsFactory.eINSTANCE.createRegularFlow(this, cu.getEnd()));
+		res.add(GraphsFactory.eINSTANCE.createRegularFlow(this, cu.getEnd()));
 		return res;
 	}
 

@@ -7,11 +7,10 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
+import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
 import org.servicifi.gelato.language.kernel.KernelPackage;
 
-import org.servicifi.gelato.language.kernel.analyses.AnalysesPackage;
-
-import org.servicifi.gelato.language.kernel.analyses.impl.AnalysesPackageImpl;
 
 import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
 
@@ -28,10 +27,6 @@ import org.servicifi.gelato.language.kernel.dataitems.DataitemsPackage;
 import org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage;
 
 import org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl;
-
-import org.servicifi.gelato.language.kernel.flows.FlowsPackage;
-
-import org.servicifi.gelato.language.kernel.flows.impl.FlowsPackageImpl;
 
 import org.servicifi.gelato.language.kernel.impl.KernelPackageImpl;
 
@@ -97,7 +92,7 @@ public class DataitemsPackageImpl extends EPackageImpl implements DataitemsPacka
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link DataitemsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -111,55 +106,64 @@ public class DataitemsPackageImpl extends EPackageImpl implements DataitemsPacka
 		if (isInited) return (DataitemsPackage)EPackage.Registry.INSTANCE.getEPackage(DataitemsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		DataitemsPackageImpl theDataitemsPackage = (DataitemsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DataitemsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DataitemsPackageImpl());
+		Object registeredDataitemsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		DataitemsPackageImpl theDataitemsPackage = registeredDataitemsPackage instanceof DataitemsPackageImpl ? (DataitemsPackageImpl)registeredDataitemsPackage : new DataitemsPackageImpl();
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		GraphsPackage.eINSTANCE.eClass();
+		AnalysesPackage.eINSTANCE.eClass();
+		org.servicifi.gelato.analysis.framework.commons.CommonsPackage.eINSTANCE.eClass();
+		org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
-		KernelPackageImpl theKernelPackage = (KernelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(KernelPackage.eNS_URI) instanceof KernelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(KernelPackage.eNS_URI) : KernelPackage.eINSTANCE);
-		CommonsPackageImpl theCommonsPackage = (CommonsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI) instanceof CommonsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI) : CommonsPackage.eINSTANCE);
-		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) instanceof StatementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) : StatementsPackage.eINSTANCE);
-		ProceduresPackageImpl theProceduresPackage = (ProceduresPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI) instanceof ProceduresPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI) : ProceduresPackage.eINSTANCE);
-		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) instanceof ExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) : ExpressionsPackage.eINSTANCE);
-		ContainersPackageImpl theContainersPackage = (ContainersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI) instanceof ContainersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI) : ContainersPackage.eINSTANCE);
-		MembersPackageImpl theMembersPackage = (MembersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI) instanceof MembersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI) : MembersPackage.eINSTANCE);
-		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) instanceof ParametersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
-		ReferencesPackageImpl theReferencesPackage = (ReferencesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI) instanceof ReferencesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI) : ReferencesPackage.eINSTANCE);
-		FlowsPackageImpl theFlowsPackage = (FlowsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FlowsPackage.eNS_URI) instanceof FlowsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FlowsPackage.eNS_URI) : FlowsPackage.eINSTANCE);
-		AnalysesPackageImpl theAnalysesPackage = (AnalysesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI) instanceof AnalysesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI) : AnalysesPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(KernelPackage.eNS_URI);
+		KernelPackageImpl theKernelPackage = (KernelPackageImpl)(registeredPackage instanceof KernelPackageImpl ? registeredPackage : KernelPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
+		CommonsPackageImpl theCommonsPackage_1 = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : CommonsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(registeredPackage instanceof StatementsPackageImpl ? registeredPackage : StatementsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI);
+		ProceduresPackageImpl theProceduresPackage_1 = (ProceduresPackageImpl)(registeredPackage instanceof ProceduresPackageImpl ? registeredPackage : ProceduresPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(registeredPackage instanceof ExpressionsPackageImpl ? registeredPackage : ExpressionsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI);
+		ContainersPackageImpl theContainersPackage = (ContainersPackageImpl)(registeredPackage instanceof ContainersPackageImpl ? registeredPackage : ContainersPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
+		MembersPackageImpl theMembersPackage = (MembersPackageImpl)(registeredPackage instanceof MembersPackageImpl ? registeredPackage : MembersPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
+		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(registeredPackage instanceof ParametersPackageImpl ? registeredPackage : ParametersPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
+		ReferencesPackageImpl theReferencesPackage = (ReferencesPackageImpl)(registeredPackage instanceof ReferencesPackageImpl ? registeredPackage : ReferencesPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theDataitemsPackage.createPackageContents();
 		theKernelPackage.createPackageContents();
-		theCommonsPackage.createPackageContents();
+		theCommonsPackage_1.createPackageContents();
 		theStatementsPackage.createPackageContents();
-		theProceduresPackage.createPackageContents();
+		theProceduresPackage_1.createPackageContents();
 		theExpressionsPackage.createPackageContents();
 		theContainersPackage.createPackageContents();
 		theMembersPackage.createPackageContents();
 		theParametersPackage.createPackageContents();
 		theReferencesPackage.createPackageContents();
-		theFlowsPackage.createPackageContents();
-		theAnalysesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDataitemsPackage.initializePackageContents();
 		theKernelPackage.initializePackageContents();
-		theCommonsPackage.initializePackageContents();
+		theCommonsPackage_1.initializePackageContents();
 		theStatementsPackage.initializePackageContents();
-		theProceduresPackage.initializePackageContents();
+		theProceduresPackage_1.initializePackageContents();
 		theExpressionsPackage.initializePackageContents();
 		theContainersPackage.initializePackageContents();
 		theMembersPackage.initializePackageContents();
 		theParametersPackage.initializePackageContents();
 		theReferencesPackage.initializePackageContents();
-		theFlowsPackage.initializePackageContents();
-		theAnalysesPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDataitemsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DataitemsPackage.eNS_URI, theDataitemsPackage);
 		return theDataitemsPackage;
@@ -231,6 +235,7 @@ public class DataitemsPackageImpl extends EPackageImpl implements DataitemsPacka
 		// Obtain other dependent packages
 		ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
 		MembersPackage theMembersPackage = (MembersPackage)EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
+		org.servicifi.gelato.analysis.framework.commons.CommonsPackage theCommonsPackage = (org.servicifi.gelato.analysis.framework.commons.CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.analysis.framework.commons.CommonsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -239,6 +244,7 @@ public class DataitemsPackageImpl extends EPackageImpl implements DataitemsPacka
 		// Add supertypes to classes
 		dataItemEClass.getESuperTypes().add(theReferencesPackage.getReferenceableElement());
 		dataItemEClass.getESuperTypes().add(theMembersPackage.getMember());
+		dataItemEClass.getESuperTypes().add(theCommonsPackage.getVariable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(dataItemEClass, DataItem.class, "DataItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

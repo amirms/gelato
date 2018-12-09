@@ -12,5 +12,5 @@ package org.servicifi.gelato.language.kernel.statements;
  * @see org.servicifi.gelato.language.kernel.statements.StatementsPackage#getBlock()
  * @generated
  */
-public interface Block extends StatementListContainer, Statement {
+public interface Block extends Statement, StatementListContainer {
 } // Block

@@ -8,11 +8,13 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.servicifi.gelato.language.kernel.KernelPackage;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
 
-import org.servicifi.gelato.language.kernel.analyses.AnalysesPackage;
-import org.servicifi.gelato.language.kernel.analyses.impl.AnalysesPackageImpl;
-import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
+import org.servicifi.gelato.analysis.framework.commons.CommonsPackage;
+
+import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
+
+import org.servicifi.gelato.language.kernel.KernelPackage;
 
 import org.servicifi.gelato.language.kernel.commons.impl.CommonsPackageImpl;
 
@@ -21,13 +23,13 @@ import org.servicifi.gelato.language.kernel.containers.ContainersPackage;
 import org.servicifi.gelato.language.kernel.containers.impl.ContainersPackageImpl;
 
 import org.servicifi.gelato.language.kernel.dataitems.DataitemsPackage;
+
 import org.servicifi.gelato.language.kernel.dataitems.impl.DataitemsPackageImpl;
+
 import org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage;
 
 import org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl;
 
-import org.servicifi.gelato.language.kernel.flows.FlowsPackage;
-import org.servicifi.gelato.language.kernel.flows.impl.FlowsPackageImpl;
 import org.servicifi.gelato.language.kernel.impl.KernelPackageImpl;
 
 import org.servicifi.gelato.language.kernel.members.MembersPackage;
@@ -100,7 +102,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link ProceduresPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -114,27 +116,41 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 		if (isInited) return (ProceduresPackage)EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ProceduresPackageImpl theProceduresPackage = (ProceduresPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ProceduresPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ProceduresPackageImpl());
+		Object registeredProceduresPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		ProceduresPackageImpl theProceduresPackage = registeredProceduresPackage instanceof ProceduresPackageImpl ? (ProceduresPackageImpl)registeredProceduresPackage : new ProceduresPackageImpl();
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		GraphsPackage.eINSTANCE.eClass();
+		AnalysesPackage.eINSTANCE.eClass();
+		CommonsPackage.eINSTANCE.eClass();
+		org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
-		KernelPackageImpl theKernelPackage = (KernelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(KernelPackage.eNS_URI) instanceof KernelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(KernelPackage.eNS_URI) : KernelPackage.eINSTANCE);
-		CommonsPackageImpl theCommonsPackage = (CommonsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI) instanceof CommonsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI) : CommonsPackage.eINSTANCE);
-		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) instanceof StatementsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI) : StatementsPackage.eINSTANCE);
-		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) instanceof ExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI) : ExpressionsPackage.eINSTANCE);
-		ContainersPackageImpl theContainersPackage = (ContainersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI) instanceof ContainersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI) : ContainersPackage.eINSTANCE);
-		MembersPackageImpl theMembersPackage = (MembersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI) instanceof MembersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI) : MembersPackage.eINSTANCE);
-		DataitemsPackageImpl theDataitemsPackage = (DataitemsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DataitemsPackage.eNS_URI) instanceof DataitemsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DataitemsPackage.eNS_URI) : DataitemsPackage.eINSTANCE);
-		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) instanceof ParametersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
-		ReferencesPackageImpl theReferencesPackage = (ReferencesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI) instanceof ReferencesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI) : ReferencesPackage.eINSTANCE);
-		FlowsPackageImpl theFlowsPackage = (FlowsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FlowsPackage.eNS_URI) instanceof FlowsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FlowsPackage.eNS_URI) : FlowsPackage.eINSTANCE);
-		AnalysesPackageImpl theAnalysesPackage = (AnalysesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI) instanceof AnalysesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI) : AnalysesPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(KernelPackage.eNS_URI);
+		KernelPackageImpl theKernelPackage = (KernelPackageImpl)(registeredPackage instanceof KernelPackageImpl ? registeredPackage : KernelPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.language.kernel.commons.CommonsPackage.eNS_URI);
+		CommonsPackageImpl theCommonsPackage_1 = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : org.servicifi.gelato.language.kernel.commons.CommonsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
+		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(registeredPackage instanceof StatementsPackageImpl ? registeredPackage : StatementsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
+		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(registeredPackage instanceof ExpressionsPackageImpl ? registeredPackage : ExpressionsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI);
+		ContainersPackageImpl theContainersPackage = (ContainersPackageImpl)(registeredPackage instanceof ContainersPackageImpl ? registeredPackage : ContainersPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
+		MembersPackageImpl theMembersPackage = (MembersPackageImpl)(registeredPackage instanceof MembersPackageImpl ? registeredPackage : MembersPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DataitemsPackage.eNS_URI);
+		DataitemsPackageImpl theDataitemsPackage = (DataitemsPackageImpl)(registeredPackage instanceof DataitemsPackageImpl ? registeredPackage : DataitemsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
+		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(registeredPackage instanceof ParametersPackageImpl ? registeredPackage : ParametersPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
+		ReferencesPackageImpl theReferencesPackage = (ReferencesPackageImpl)(registeredPackage instanceof ReferencesPackageImpl ? registeredPackage : ReferencesPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theProceduresPackage.createPackageContents();
 		theKernelPackage.createPackageContents();
-		theCommonsPackage.createPackageContents();
+		theCommonsPackage_1.createPackageContents();
 		theStatementsPackage.createPackageContents();
 		theExpressionsPackage.createPackageContents();
 		theContainersPackage.createPackageContents();
@@ -142,13 +158,11 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 		theDataitemsPackage.createPackageContents();
 		theParametersPackage.createPackageContents();
 		theReferencesPackage.createPackageContents();
-		theFlowsPackage.createPackageContents();
-		theAnalysesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theProceduresPackage.initializePackageContents();
 		theKernelPackage.initializePackageContents();
-		theCommonsPackage.initializePackageContents();
+		theCommonsPackage_1.initializePackageContents();
 		theStatementsPackage.initializePackageContents();
 		theExpressionsPackage.initializePackageContents();
 		theContainersPackage.initializePackageContents();
@@ -156,13 +170,10 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 		theDataitemsPackage.initializePackageContents();
 		theParametersPackage.initializePackageContents();
 		theReferencesPackage.initializePackageContents();
-		theFlowsPackage.initializePackageContents();
-		theAnalysesPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theProceduresPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ProceduresPackage.eNS_URI, theProceduresPackage);
 		return theProceduresPackage;
@@ -328,7 +339,6 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 		ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 		StatementsPackage theStatementsPackage = (StatementsPackage)EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
-		ContainersPackage theContainersPackage = (ContainersPackage)EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -345,13 +355,13 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 		initEReference(getProcedure_Members(), theMembersPackage.getMember(), null, "members", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcedure_Parameters(), theParametersPackage.getParameter(), null, "parameters", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcedure_Callers(), theStatementsPackage.getProcedureCall(), null, "callers", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProcedure_Start(), theContainersPackage.getStart(), null, "start", null, 1, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProcedure_End(), theContainersPackage.getEnd(), null, "end", null, 1, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcedure_Start(), theCommonsPackage.getStart(), null, "start", null, 1, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcedure_End(), theCommonsPackage.getEnd(), null, "end", null, 1, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mainProcedureEClass, MainProcedure.class, "MainProcedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMainProcedure_Members(), theMembersPackage.getMember(), null, "members", null, 0, -1, MainProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMainProcedure_Start(), theContainersPackage.getStart(), null, "start", null, 1, 1, MainProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMainProcedure_End(), theContainersPackage.getEnd(), null, "end", null, 1, 1, MainProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMainProcedure_Start(), theCommonsPackage.getStart(), null, "start", null, 1, 1, MainProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMainProcedure_End(), theCommonsPackage.getEnd(), null, "end", null, 1, 1, MainProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //ProceduresPackageImpl

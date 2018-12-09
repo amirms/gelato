@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * @see org.servicifi.gelato.language.kernel.statements.StatementsPackage#getStatementWithException()
  * @generated
  */
-public interface StatementWithException extends StatementContainer, Statement {
+public interface StatementWithException extends Statement, StatementContainer {
 	/**
 	 * Returns the value of the '<em><b>Exception Statements</b></em>' containment reference list.
 	 * The list contents are of type {@link org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement}.

@@ -4,7 +4,7 @@ package org.servicifi.gelato.language.kernel.statements.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.servicifi.gelato.language.kernel.commons.impl.LabellableElementImpl;
+import org.servicifi.gelato.analysis.framework.commons.impl.LabellableElementImpl;
 
 import org.servicifi.gelato.language.kernel.statements.Statement;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;

@@ -18,7 +18,7 @@ package org.servicifi.gelato.language.kernel.statements;
  * @see org.servicifi.gelato.language.kernel.statements.StatementsPackage#getCondition()
  * @generated
  */
-public interface Condition extends StatementContainer, Conditional, Statement {
+public interface Condition extends Statement, StatementContainer, Conditional {
 	/**
 	 * Returns the value of the '<em><b>Else Statement</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

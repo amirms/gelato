@@ -3,6 +3,7 @@
 package org.servicifi.gelato.language.kernel.containers;
 
 import org.eclipse.emf.ecore.EObject;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +14,5 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.servicifi.gelato.language.kernel.containers.ContainersPackage#getKernelRoot()
  * @generated
  */
-public interface KernelRoot extends EObject {
+public interface KernelRoot extends LabellableElement {
 } // KernelRoot

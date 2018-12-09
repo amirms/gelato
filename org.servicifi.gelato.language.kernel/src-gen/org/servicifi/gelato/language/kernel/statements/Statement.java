@@ -2,7 +2,7 @@
  */
 package org.servicifi.gelato.language.kernel.statements;
 
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 
 import org.servicifi.gelato.language.kernel.members.Member;
 

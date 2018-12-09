@@ -2,21 +2,22 @@
  */
 package org.servicifi.gelato.language.kernel.statements.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
-
-import org.servicifi.gelato.language.kernel.flows.Flow;
-import org.servicifi.gelato.language.kernel.members.Member;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock;
 import org.servicifi.gelato.language.kernel.statements.Statement;
+import org.servicifi.gelato.language.kernel.statements.StatementListContainer;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
 
 /**
@@ -27,31 +28,21 @@ import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.servicifi.gelato.language.kernel.statements.impl.NonDeterministicBlockImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.servicifi.gelato.language.kernel.statements.impl.NonDeterministicBlockImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NonDeterministicBlockImpl extends StatementListContainerImpl implements NonDeterministicBlock {
+public class NonDeterministicBlockImpl extends StatementImpl implements NonDeterministicBlock {
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getStatements()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long LABEL_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected long label = LABEL_EDEFAULT;
+	protected EList<Statement> statements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,8 +68,11 @@ public class NonDeterministicBlockImpl extends StatementListContainerImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getLabel() {
-		return label;
+	public EList<Statement> getStatements() {
+		if (statements == null) {
+			statements = new EObjectContainmentEList<Statement>(Statement.class, this, StatementsPackage.NON_DETERMINISTIC_BLOCK__STATEMENTS);
+		}
+		return statements;
 	}
 
 	/**
@@ -86,44 +80,13 @@ public class NonDeterministicBlockImpl extends StatementListContainerImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabel(long newLabel) {
-		long oldLabel = label;
-		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StatementsPackage.NON_DETERMINISTIC_BLOCK__LABEL, oldLabel, label));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LabellableElement first() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<LabellableElement> last() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Flow> internalFlow() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case StatementsPackage.NON_DETERMINISTIC_BLOCK__STATEMENTS:
+				return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -134,8 +97,8 @@ public class NonDeterministicBlockImpl extends StatementListContainerImpl implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StatementsPackage.NON_DETERMINISTIC_BLOCK__LABEL:
-				return getLabel();
+			case StatementsPackage.NON_DETERMINISTIC_BLOCK__STATEMENTS:
+				return getStatements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -145,11 +108,13 @@ public class NonDeterministicBlockImpl extends StatementListContainerImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StatementsPackage.NON_DETERMINISTIC_BLOCK__LABEL:
-				setLabel((Long)newValue);
+			case StatementsPackage.NON_DETERMINISTIC_BLOCK__STATEMENTS:
+				getStatements().clear();
+				getStatements().addAll((Collection<? extends Statement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -163,8 +128,8 @@ public class NonDeterministicBlockImpl extends StatementListContainerImpl implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StatementsPackage.NON_DETERMINISTIC_BLOCK__LABEL:
-				setLabel(LABEL_EDEFAULT);
+			case StatementsPackage.NON_DETERMINISTIC_BLOCK__STATEMENTS:
+				getStatements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -178,8 +143,8 @@ public class NonDeterministicBlockImpl extends StatementListContainerImpl implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StatementsPackage.NON_DETERMINISTIC_BLOCK__LABEL:
-				return label != LABEL_EDEFAULT;
+			case StatementsPackage.NON_DETERMINISTIC_BLOCK__STATEMENTS:
+				return statements != null && !statements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -191,19 +156,9 @@ public class NonDeterministicBlockImpl extends StatementListContainerImpl implem
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == LabellableElement.class) {
+		if (baseClass == StatementListContainer.class) {
 			switch (derivedFeatureID) {
-				case StatementsPackage.NON_DETERMINISTIC_BLOCK__LABEL: return CommonsPackage.LABELLABLE_ELEMENT__LABEL;
-				default: return -1;
-			}
-		}
-		if (baseClass == Member.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == Statement.class) {
-			switch (derivedFeatureID) {
+				case StatementsPackage.NON_DETERMINISTIC_BLOCK__STATEMENTS: return StatementsPackage.STATEMENT_LIST_CONTAINER__STATEMENTS;
 				default: return -1;
 			}
 		}
@@ -217,39 +172,31 @@ public class NonDeterministicBlockImpl extends StatementListContainerImpl implem
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == LabellableElement.class) {
+		if (baseClass == StatementListContainer.class) {
 			switch (baseFeatureID) {
-				case CommonsPackage.LABELLABLE_ELEMENT__LABEL: return StatementsPackage.NON_DETERMINISTIC_BLOCK__LABEL;
-				default: return -1;
-			}
-		}
-		if (baseClass == Member.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == Statement.class) {
-			switch (baseFeatureID) {
+				case StatementsPackage.STATEMENT_LIST_CONTAINER__STATEMENTS: return StatementsPackage.NON_DETERMINISTIC_BLOCK__STATEMENTS;
 				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
+	public LabellableElement first() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (label: ");
-		result.append(label);
-		result.append(')');
-		return result.toString();
+	@Override
+	public EList<LabellableElement> last() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EList<Flow> internalFlow() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //NonDeterministicBlockImpl

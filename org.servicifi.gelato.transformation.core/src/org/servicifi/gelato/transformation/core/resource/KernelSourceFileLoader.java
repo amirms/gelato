@@ -18,14 +18,14 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysesFactory;
+import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
+import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
+import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.language.kernel.KernelPackage;
-import org.servicifi.gelato.language.kernel.analyses.AnalysesFactory;
-import org.servicifi.gelato.language.kernel.analyses.Analysis;
-import org.servicifi.gelato.language.kernel.analyses.ExitEntryPair;
-import org.servicifi.gelato.language.kernel.analyses.ReachingDefinitionsAnalysis;
 import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
 import org.servicifi.gelato.language.kernel.containers.KernelRoot;
-import org.servicifi.gelato.language.kernel.flows.Flow;
 import org.servicifi.gelato.language.kernel.parameters.Parameter;
 import org.servicifi.gelato.language.kernel.procedures.MainProcedure;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
@@ -36,8 +36,6 @@ import org.servicifi.gelato.language.kernel.resource.kernel.KernelEProblemType;
 import org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource;
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 import org.servicifi.gelato.transformation.core.util.KernelUtil;
-
-
 
 public class KernelSourceFileLoader {
 
@@ -140,7 +138,10 @@ public class KernelSourceFileLoader {
 	    			
 	    	}
 	    	
-	    	ReachingDefinitionsAnalysis analysis = AnalysesFactory.eINSTANCE.createReachingDefinitionsAnalysis(cfg);
+	    	IntraproceduralAnalysis analysis = AnalysesFactory.eINSTANCE.createIntraproceduralAnalysis();
+	    	ReachingDefinitionsAnalysisConfiguration configuration = AnalysesFactory.eINSTANCE.createReachingDefinitionsAnalysisConfiguration();
+	    	analysis.setConfiguration(configuration);
+	    	analysis.set
 	    	
 	    	res.putAll(analysis.performAnalysis());
 	    	

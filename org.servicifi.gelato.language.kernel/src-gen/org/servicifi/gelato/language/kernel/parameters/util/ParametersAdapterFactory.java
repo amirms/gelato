@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.servicifi.gelato.analysis.framework.commons.Variable;
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
 import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 import org.servicifi.gelato.language.kernel.members.Member;
@@ -90,6 +91,10 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createMemberAdapter();
 			}
 			@Override
+			public Adapter caseVariable(Variable object) {
+				return createVariableAdapter();
+			}
+			@Override
 			public Adapter caseDataItem(DataItem object) {
 				return createDataItemAdapter();
 			}
@@ -166,6 +171,20 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMemberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.analysis.framework.commons.Variable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.analysis.framework.commons.Variable
+	 * @generated
+	 */
+	public Adapter createVariableAdapter() {
 		return null;
 	}
 

@@ -4,15 +4,16 @@ package org.servicifi.gelato.language.kernel.procedures;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
-import org.servicifi.gelato.language.kernel.commons.NamedElement;
+import org.servicifi.gelato.analysis.framework.commons.End;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.Start;
 
-import org.servicifi.gelato.language.kernel.containers.End;
-import org.servicifi.gelato.language.kernel.containers.Start;
 import org.servicifi.gelato.language.kernel.members.Member;
 
 import org.servicifi.gelato.language.kernel.parameters.Parameter;
+
 import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
+
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 
 /**
@@ -109,7 +110,7 @@ public interface Procedure extends LabellableElement, Member, ReferenceableEleme
 	 * Returns the value of the '<em><b>End</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>End</em>' reference isn't clear,
+	 * If the meaning of the '<em>End</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

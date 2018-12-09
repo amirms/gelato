@@ -68,13 +68,31 @@ public interface ExpressionsPackage extends EPackage {
 	int EXPRESSION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION__PREDECESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION__SUCCESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__SUCCESSORS;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
+	int EXPRESSION__LABEL = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -83,7 +101,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION__CHILDREN = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
+	int EXPRESSION__CHILDREN = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
@@ -92,7 +110,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
+	int EXPRESSION_FEATURE_COUNT = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.SubExpressionImpl <em>Sub Expression</em>}' class.

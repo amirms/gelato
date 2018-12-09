@@ -54,34 +54,6 @@ public interface CommonsPackage extends EPackage {
 	CommonsPackage eINSTANCE = org.servicifi.gelato.language.kernel.commons.impl.CommonsPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.commons.impl.LabellableElementImpl <em>Labellable Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.servicifi.gelato.language.kernel.commons.impl.LabellableElementImpl
-	 * @see org.servicifi.gelato.language.kernel.commons.impl.CommonsPackageImpl#getLabellableElement()
-	 * @generated
-	 */
-	int LABELLABLE_ELEMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABELLABLE_ELEMENT__LABEL = 0;
-
-	/**
-	 * The number of structural features of the '<em>Labellable Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABELLABLE_ELEMENT_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.commons.impl.NamedElementImpl <em>Named Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,7 +61,7 @@ public interface CommonsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.commons.impl.CommonsPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 1;
+	int NAMED_ELEMENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -109,27 +81,6 @@ public interface CommonsPackage extends EPackage {
 	 */
 	int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
-
-	/**
-	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.commons.LabellableElement <em>Labellable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Labellable Element</em>'.
-	 * @see org.servicifi.gelato.language.kernel.commons.LabellableElement
-	 * @generated
-	 */
-	EClass getLabellableElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.servicifi.gelato.language.kernel.commons.LabellableElement#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see org.servicifi.gelato.language.kernel.commons.LabellableElement#getLabel()
-	 * @see #getLabellableElement()
-	 * @generated
-	 */
-	EAttribute getLabellableElement_Label();
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.commons.NamedElement <em>Named Element</em>}'.
@@ -174,24 +125,6 @@ public interface CommonsPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.commons.impl.LabellableElementImpl <em>Labellable Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.servicifi.gelato.language.kernel.commons.impl.LabellableElementImpl
-		 * @see org.servicifi.gelato.language.kernel.commons.impl.CommonsPackageImpl#getLabellableElement()
-		 * @generated
-		 */
-		EClass LABELLABLE_ELEMENT = eINSTANCE.getLabellableElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LABELLABLE_ELEMENT__LABEL = eINSTANCE.getLabellableElement_Label();
-
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.commons.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->

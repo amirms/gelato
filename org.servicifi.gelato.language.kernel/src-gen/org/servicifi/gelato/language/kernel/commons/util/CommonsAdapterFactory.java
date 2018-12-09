@@ -68,10 +68,6 @@ public class CommonsAdapterFactory extends AdapterFactoryImpl {
 	protected CommonsSwitch<Adapter> modelSwitch =
 		new CommonsSwitch<Adapter>() {
 			@Override
-			public Adapter caseLabellableElement(LabellableElement object) {
-				return createLabellableElementAdapter();
-			}
-			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
 			}
@@ -94,20 +90,6 @@ public class CommonsAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.commons.LabellableElement <em>Labellable Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.servicifi.gelato.language.kernel.commons.LabellableElement
-	 * @generated
-	 */
-	public Adapter createLabellableElementAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.commons.NamedElement <em>Named Element</em>}'.

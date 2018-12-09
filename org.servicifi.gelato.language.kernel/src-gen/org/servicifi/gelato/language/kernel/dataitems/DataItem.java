@@ -2,6 +2,7 @@
  */
 package org.servicifi.gelato.language.kernel.dataitems;
 
+import org.servicifi.gelato.analysis.framework.commons.Variable;
 import org.servicifi.gelato.language.kernel.members.Member;
 
 import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
@@ -15,5 +16,5 @@ import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
  * @see org.servicifi.gelato.language.kernel.dataitems.DataitemsPackage#getDataItem()
  * @generated
  */
-public interface DataItem extends ReferenceableElement, Member {
+public interface DataItem extends ReferenceableElement, Member, Variable {
 } // DataItem

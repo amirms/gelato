@@ -70,7 +70,6 @@ public class StatementsFactoryImpl extends EFactoryImpl implements StatementsFac
 			case StatementsPackage.PROCEDURE_CALL: return createProcedureCall();
 			case StatementsPackage.EXPRESSION_STATEMENT: return createExpressionStatement();
 			case StatementsPackage.SKIP: return createSkip();
-			case StatementsPackage.RETURN_SITE: return createReturnSite();
 			case StatementsPackage.RETURN: return createReturn();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -235,16 +234,6 @@ public class StatementsFactoryImpl extends EFactoryImpl implements StatementsFac
 	public Skip createSkip() {
 		SkipImpl skip = new SkipImpl();
 		return skip;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ReturnSite createReturnSite() {
-		ReturnSiteImpl returnSite = new ReturnSiteImpl();
-		return returnSite;
 	}
 
 	/**

@@ -3,16 +3,10 @@
 package org.servicifi.gelato.language.kernel.statements.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
-import org.servicifi.gelato.language.kernel.references.ElementReference;
-import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
-import org.servicifi.gelato.language.kernel.references.ReferencesPackage;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.language.kernel.statements.Jump;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
 

@@ -139,15 +139,6 @@ public interface StatementsFactory extends EFactory {
 	Skip createSkip();
 
 	/**
-	 * Returns a new object of class '<em>Return Site</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Return Site</em>'.
-	 * @generated
-	 */
-	ReturnSite createReturnSite();
-
-	/**
 	 * Returns a new object of class '<em>Return</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

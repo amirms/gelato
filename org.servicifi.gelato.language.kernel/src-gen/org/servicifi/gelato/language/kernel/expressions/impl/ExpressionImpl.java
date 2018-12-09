@@ -4,16 +4,25 @@ package org.servicifi.gelato.language.kernel.expressions.impl;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
-import org.servicifi.gelato.language.kernel.commons.impl.LabellableElementImpl;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysesFactory;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
+import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.Variable;
+import org.servicifi.gelato.analysis.framework.commons.impl.LabellableElementImpl;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 import org.servicifi.gelato.language.kernel.expressions.Definition;
 import org.servicifi.gelato.language.kernel.expressions.Expression;
@@ -26,11 +35,11 @@ import org.servicifi.gelato.language.kernel.expressions.Usage;
  * '<em><b>Expression</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.servicifi.gelato.language.kernel.expressions.impl.ExpressionImpl#getChildren
  * <em>Children</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -200,6 +209,59 @@ public class ExpressionImpl extends LabellableElementImpl implements Expression 
 	public EList<LabellableElement> last() {
 		EList<LabellableElement> res = new BasicEList<>();
 		res.add(this);
+		return res;
+	}
+
+	@Override
+	public EList<Flow> internalFlow() {
+		return new BasicEList<>();
+	}
+
+	@Override
+	public EList<AnalysisResult> gen(AnalysisConfiguration configuration) {
+		EList<AnalysisResult> res = new UniqueEList<>();
+
+		if (configuration instanceof ReachingDefinitionsAnalysisConfiguration) {
+			ReachingDefinitionsAnalysisConfiguration rdConfig = (ReachingDefinitionsAnalysisConfiguration) configuration;
+			Map<Variable, EList<Long>> assignments = rdConfig.getAssignments();
+
+			// Order matters
+			EList<DataItem> items = getUsedVariables();
+			for (DataItem item : items) {
+				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(item, -1));
+				if (assignments.containsKey(item)) {
+					assignments.get(item).add(getLabel());
+				} else {
+					EList<Long> i = new BasicEList<>(1);
+					i.add(getLabel());
+					assignments.put(item, i);
+				}
+			}
+		}
+
+		return res;
+	}
+
+	@Override
+	public EList<AnalysisResult> kill(AnalysisConfiguration configuration) {
+		EList<AnalysisResult> res = new UniqueEList<>();
+
+		if (configuration instanceof ReachingDefinitionsAnalysisConfiguration) {
+			ReachingDefinitionsAnalysisConfiguration rdConfig = (ReachingDefinitionsAnalysisConfiguration) configuration;
+			Map<Variable, EList<Long>> assignments = rdConfig.getAssignments();
+
+			// Order matters
+			EList<DataItem> items = getDefinedVariables();
+			for (DataItem item : items) {
+				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(item, -1));
+				if (assignments.containsKey(item)) {
+					for (Long i : assignments.get(item)) {
+						res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(item, i));
+					}
+				}
+			}
+		}
+
 		return res;
 	}
 

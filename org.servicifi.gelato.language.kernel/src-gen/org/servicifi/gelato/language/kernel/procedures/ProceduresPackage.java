@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
+import org.servicifi.gelato.language.kernel.members.MembersPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,13 +67,31 @@ public interface ProceduresPackage extends EPackage {
 	int PROCEDURE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE__PREDECESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE__SUCCESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__SUCCESSORS;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
+	int PROCEDURE__LABEL = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -81,7 +100,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__NAME = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
+	int PROCEDURE__NAME = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -90,7 +109,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__MEMBERS = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
+	int PROCEDURE__MEMBERS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -99,7 +118,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__PARAMETERS = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 2;
+	int PROCEDURE__PARAMETERS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Callers</b></em>' reference list.
@@ -108,7 +127,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__CALLERS = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 3;
+	int PROCEDURE__CALLERS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -117,7 +136,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__START = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 4;
+	int PROCEDURE__START = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' containment reference.
@@ -126,7 +145,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE__END = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 5;
+	int PROCEDURE__END = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Procedure</em>' class.
@@ -135,7 +154,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEDURE_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 6;
+	int PROCEDURE_FEATURE_COUNT = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 6;
 
 
 	/**
@@ -149,13 +168,31 @@ public interface ProceduresPackage extends EPackage {
 	int MAIN_PROCEDURE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAIN_PROCEDURE__PREDECESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAIN_PROCEDURE__SUCCESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__SUCCESSORS;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
+	int MAIN_PROCEDURE__LABEL = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -164,7 +201,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE__MEMBERS = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
+	int MAIN_PROCEDURE__MEMBERS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -173,7 +210,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE__START = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
+	int MAIN_PROCEDURE__START = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' containment reference.
@@ -182,7 +219,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE__END = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 2;
+	int MAIN_PROCEDURE__END = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Main Procedure</em>' class.
@@ -191,7 +228,7 @@ public interface ProceduresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAIN_PROCEDURE_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 3;
+	int MAIN_PROCEDURE_FEATURE_COUNT = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 3;
 
 
 	/**

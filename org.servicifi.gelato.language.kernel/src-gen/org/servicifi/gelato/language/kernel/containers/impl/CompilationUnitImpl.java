@@ -2,10 +2,8 @@
  */
 package org.servicifi.gelato.language.kernel.containers.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -13,24 +11,24 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.resource.Resource;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.CommonsFactory;
+import org.servicifi.gelato.analysis.framework.commons.End;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.Start;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.analysis.framework.graphs.GraphsFactory;
 import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
 import org.servicifi.gelato.language.kernel.containers.ContainersFactory;
 import org.servicifi.gelato.language.kernel.containers.ContainersPackage;
-import org.servicifi.gelato.language.kernel.containers.End;
-import org.servicifi.gelato.language.kernel.containers.Start;
-import org.servicifi.gelato.language.kernel.flows.Flow;
-import org.servicifi.gelato.language.kernel.flows.FlowsFactory;
+
 import org.servicifi.gelato.language.kernel.members.Member;
+
 import org.servicifi.gelato.language.kernel.procedures.MainProcedure;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
@@ -41,38 +39,17 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- *   <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getMainProcedure <em>Main Procedure</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getDeclarations <em>Declarations</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getStart <em>Start</em>}</li>
  *   <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getEnd <em>End</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class CompilationUnitImpl extends KernelRootImpl implements CompilationUnit {
-	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final long LABEL_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected long label = LABEL_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getMainProcedure() <em>Main Procedure</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -94,7 +71,7 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	protected EList<Member> declarations;
 
 	/**
-	 * The cached value of the '{@link #getStart() <em>Start</em>}' reference.
+	 * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStart()
@@ -104,7 +81,7 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	protected Start start;
 
 	/**
-	 * The cached value of the '{@link #getEnd() <em>End</em>}' reference.
+	 * The cached value of the '{@link #getEnd() <em>End</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEnd()
@@ -130,27 +107,6 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	@Override
 	protected EClass eStaticClass() {
 		return ContainersPackage.Literals.COMPILATION_UNIT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public long getLabel() {
-		return label;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLabel(long newLabel) {
-		long oldLabel = label;
-		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -214,14 +170,6 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	 * @generated
 	 */
 	public Start getStart() {
-		if (start != null && start.eIsProxy()) {
-			InternalEObject oldStart = (InternalEObject)start;
-			start = (Start)eResolveProxy(oldStart);
-			if (start != oldStart) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContainersPackage.COMPILATION_UNIT__START, oldStart, start));
-			}
-		}
 		return start;
 	}
 
@@ -230,8 +178,14 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Start basicGetStart() {
-		return start;
+	public NotificationChain basicSetStart(Start newStart, NotificationChain msgs) {
+		Start oldStart = start;
+		start = newStart;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__START, oldStart, newStart);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -240,10 +194,17 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	 * @generated
 	 */
 	public void setStart(Start newStart) {
-		Start oldStart = start;
-		start = newStart;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__START, oldStart, start));
+		if (newStart != start) {
+			NotificationChain msgs = null;
+			if (start != null)
+				msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__START, null, msgs);
+			if (newStart != null)
+				msgs = ((InternalEObject)newStart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__START, null, msgs);
+			msgs = basicSetStart(newStart, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__START, newStart, newStart));
 	}
 
 	/**
@@ -252,14 +213,6 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	 * @generated
 	 */
 	public End getEnd() {
-		if (end != null && end.eIsProxy()) {
-			InternalEObject oldEnd = (InternalEObject)end;
-			end = (End)eResolveProxy(oldEnd);
-			if (end != oldEnd) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContainersPackage.COMPILATION_UNIT__END, oldEnd, end));
-			}
-		}
 		return end;
 	}
 
@@ -268,8 +221,14 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public End basicGetEnd() {
-		return end;
+	public NotificationChain basicSetEnd(End newEnd, NotificationChain msgs) {
+		End oldEnd = end;
+		end = newEnd;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__END, oldEnd, newEnd);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -278,85 +237,17 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	 * @generated
 	 */
 	public void setEnd(End newEnd) {
-		End oldEnd = end;
-		end = newEnd;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__END, oldEnd, end));
-	}
-
-	
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public LabellableElement first() {
-		return getStart();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public EList<LabellableElement> last() {
-		EList<LabellableElement> res = new BasicEList<>();
-		res.add(getEnd());
-		return res;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	
-	//Add start and end to program start
-	public EList<Flow> internalFlow() {
-		EList<Flow> result = new BasicEList<>();
-		LabellableElement mainproc = getMainProcedure() ;
-		
-		if(getStart() == null)
-			this.setStart(ContainersFactory.eINSTANCE.createStart());
-		
-		if(getEnd() == null)
-			this.setEnd(ContainersFactory.eINSTANCE.createEnd());
-		
-		//set labels for start and end
-		getStart().setLabel(0);
-		getEnd().setLabel(Long.MAX_VALUE);
-
-		//Main Procedure
-		result.add(FlowsFactory.eINSTANCE.createRegularFlow(getStart(), mainproc.first()));
-		result.addAll(mainproc.internalFlow());
-		EList<LabellableElement> endmainproc = new BasicEList<LabellableElement>();
-		endmainproc.addAll(mainproc.last());
-		for (LabellableElement e : endmainproc) 
-			result.add(FlowsFactory.eINSTANCE.createRegularFlow(e, getEnd()));
-
-		//Declared Procedures
-		for (Member member: getDeclarations())
-			if (member instanceof Procedure)
-				result.addAll(((Procedure) member).internalFlow());
-		
-		//get all procedure calls in the entire program
-		TreeIterator<EObject> allContents = eAllContents();
-		
-		while(allContents.hasNext()){
-			EObject obj = allContents.next();
-			if (obj instanceof ProcedureCall){
-				ProcedureCall procedureCall = (ProcedureCall) obj;
-				Procedure callee = (Procedure) procedureCall.getTarget();
-				result.add(FlowsFactory.eINSTANCE.createProcedureFlow(procedureCall.first(), callee.first()));
-				for (LabellableElement e : callee.last())
-					result.add(FlowsFactory.eINSTANCE.createRegularFlow(e, procedureCall.first())); //FIXME is this a procedure flow, or just a regular flow
-				
-			}
-				
+		if (newEnd != end) {
+			NotificationChain msgs = null;
+			if (end != null)
+				msgs = ((InternalEObject)end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__END, null, msgs);
+			if (newEnd != null)
+				msgs = ((InternalEObject)newEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__END, null, msgs);
+			msgs = basicSetEnd(newEnd, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		
-		return result;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__END, newEnd, newEnd));
 	}
 
 	/**
@@ -371,6 +262,10 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 				return basicSetMainProcedure(null, msgs);
 			case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
 				return ((InternalEList<?>)getDeclarations()).basicRemove(otherEnd, msgs);
+			case ContainersPackage.COMPILATION_UNIT__START:
+				return basicSetStart(null, msgs);
+			case ContainersPackage.COMPILATION_UNIT__END:
+				return basicSetEnd(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -383,18 +278,14 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContainersPackage.COMPILATION_UNIT__LABEL:
-				return getLabel();
 			case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
 				return getMainProcedure();
 			case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
 				return getDeclarations();
 			case ContainersPackage.COMPILATION_UNIT__START:
-				if (resolve) return getStart();
-				return basicGetStart();
+				return getStart();
 			case ContainersPackage.COMPILATION_UNIT__END:
-				if (resolve) return getEnd();
-				return basicGetEnd();
+				return getEnd();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -408,9 +299,6 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContainersPackage.COMPILATION_UNIT__LABEL:
-				setLabel((Long)newValue);
-				return;
 			case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
 				setMainProcedure((MainProcedure)newValue);
 				return;
@@ -436,9 +324,6 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContainersPackage.COMPILATION_UNIT__LABEL:
-				setLabel(LABEL_EDEFAULT);
-				return;
 			case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
 				setMainProcedure((MainProcedure)null);
 				return;
@@ -463,8 +348,6 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContainersPackage.COMPILATION_UNIT__LABEL:
-				return label != LABEL_EDEFAULT;
 			case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
 				return mainProcedure != null;
 			case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
@@ -476,54 +359,78 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 		}
 		return super.eIsSet(featureID);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == LabellableElement.class) {
-			switch (derivedFeatureID) {
-				case ContainersPackage.COMPILATION_UNIT__LABEL: return CommonsPackage.LABELLABLE_ELEMENT__LABEL;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == LabellableElement.class) {
-			switch (baseFeatureID) {
-				case CommonsPackage.LABELLABLE_ELEMENT__LABEL: return ContainersPackage.COMPILATION_UNIT__LABEL;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (label: ");
-		result.append(label);
-		result.append(')');
-		return result.toString();
-	}
 	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public LabellableElement first() {
+		return getStart();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<LabellableElement> last() {
+		EList<LabellableElement> res = new BasicEList<>();
+		res.add(getEnd());
+		return res;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+
+	// Add start and end to program start
+	public EList<Flow> internalFlow() {
+		EList<Flow> result = new BasicEList<>();
+		LabellableElement mainproc = getMainProcedure();
+
+		if (getStart() == null)
+			this.setStart(CommonsFactory.eINSTANCE.createStart());
+
+		if (getEnd() == null)
+			this.setEnd(CommonsFactory.eINSTANCE.createEnd());
+
+		// set labels for start and end
+		getStart().setLabel(0);
+		getEnd().setLabel(Long.MAX_VALUE);
+
+		// Main Procedure
+		result.add(GraphsFactory.eINSTANCE.createRegularFlow(getStart(), mainproc.first()));
+		result.addAll(mainproc.internalFlow());
+		EList<LabellableElement> endmainproc = new BasicEList<LabellableElement>();
+		endmainproc.addAll(mainproc.last());
+		for (LabellableElement e : endmainproc)
+			result.add(GraphsFactory.eINSTANCE.createRegularFlow(e, getEnd()));
+
+		// Declared Procedures
+		for (Member member : getDeclarations())
+			if (member instanceof Procedure)
+				result.addAll(((Procedure) member).internalFlow());
+
+		// get all procedure calls in the entire program
+		TreeIterator<EObject> allContents = eAllContents();
+
+		while (allContents.hasNext()) {
+			EObject obj = allContents.next();
+			if (obj instanceof ProcedureCall) {
+				ProcedureCall procedureCall = (ProcedureCall) obj;
+				Procedure callee = (Procedure) procedureCall.getTarget();
+				result.add(GraphsFactory.eINSTANCE.createProcedureFlow(procedureCall.first(), callee.first()));
+				for (LabellableElement e : callee.last()) {
+					// FIXME is this a procedure flow, or just a regular flow
+					result.add(GraphsFactory.eINSTANCE.createRegularFlow(e, procedureCall.first())); 
+				}
+			}
+		}
+
+		return result;
+	}
 
 } //CompilationUnitImpl

@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.servicifi.gelato.analysis.framework.commons.Variable;
 import org.servicifi.gelato.language.kernel.commons.NamedElement;
 import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 import org.servicifi.gelato.language.kernel.members.Member;
@@ -79,6 +80,7 @@ public class ParametersSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDataItem(parameter);
 				if (result == null) result = caseReferenceableElement(parameter);
 				if (result == null) result = caseMember(parameter);
+				if (result == null) result = caseVariable(parameter);
 				if (result == null) result = caseNamedElement(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -144,6 +146,21 @@ public class ParametersSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMember(Member object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariable(Variable object) {
 		return null;
 	}
 

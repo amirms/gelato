@@ -4,7 +4,9 @@ package org.servicifi.gelato.language.kernel.containers;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.End;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.Start;
 import org.servicifi.gelato.language.kernel.members.Member;
 
 import org.servicifi.gelato.language.kernel.procedures.MainProcedure;
@@ -28,7 +30,7 @@ import org.servicifi.gelato.language.kernel.procedures.Procedure;
  * @see org.servicifi.gelato.language.kernel.containers.ContainersPackage#getCompilationUnit()
  * @generated
  */
-public interface CompilationUnit extends KernelRoot, LabellableElement {
+public interface CompilationUnit extends KernelRoot {
 	/**
 	 * Returns the value of the '<em><b>Main Procedure</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

@@ -5,9 +5,7 @@ package org.servicifi.gelato.language.kernel.expressions.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.servicifi.gelato.language.kernel.expressions.Definition;
@@ -128,5 +126,4 @@ public abstract class DefinitionImpl extends SubExpressionImpl implements Defini
 		}
 		return super.eIsSet(featureID);
 	}
-
 } //DefinitionImpl

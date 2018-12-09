@@ -3,11 +3,12 @@
 package org.servicifi.gelato.language.kernel.procedures;
 
 import org.eclipse.emf.common.util.EList;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
-import org.servicifi.gelato.language.kernel.containers.End;
-import org.servicifi.gelato.language.kernel.containers.Start;
-import org.servicifi.gelato.language.kernel.members.Member;
 
+import org.servicifi.gelato.analysis.framework.commons.End;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.Start;
+
+import org.servicifi.gelato.language.kernel.members.Member;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,6 @@ import org.servicifi.gelato.language.kernel.members.Member;
  * @generated
  */
 public interface MainProcedure extends LabellableElement {
-
 	/**
 	 * Returns the value of the '<em><b>Members</b></em>' containment reference list.
 	 * The list contents are of type {@link org.servicifi.gelato.language.kernel.members.Member}.
@@ -72,7 +72,7 @@ public interface MainProcedure extends LabellableElement {
 	 * Returns the value of the '<em><b>End</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>End</em>' reference isn't clear,
+	 * If the meaning of the '<em>End</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -92,4 +92,5 @@ public interface MainProcedure extends LabellableElement {
 	 * @generated
 	 */
 	void setEnd(End value);
+
 } // MainProcedure

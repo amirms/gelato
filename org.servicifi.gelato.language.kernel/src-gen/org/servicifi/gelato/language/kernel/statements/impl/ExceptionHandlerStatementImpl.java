@@ -3,55 +3,44 @@
 package org.servicifi.gelato.language.kernel.statements.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
-import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
-
-import org.servicifi.gelato.language.kernel.flows.Flow;
+import org.servicifi.gelato.analysis.framework.commons.impl.LabellableElementImpl;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement;
+import org.servicifi.gelato.language.kernel.statements.Statement;
+import org.servicifi.gelato.language.kernel.statements.StatementContainer;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Exception Handler Statement</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Exception Handler Statement</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.servicifi.gelato.language.kernel.statements.impl.ExceptionHandlerStatementImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.servicifi.gelato.language.kernel.statements.impl.ExceptionHandlerStatementImpl#getStatement <em>Statement</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExceptionHandlerStatementImpl extends StatementContainerImpl implements ExceptionHandlerStatement {
+public class ExceptionHandlerStatementImpl extends LabellableElementImpl implements ExceptionHandlerStatement {
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The cached value of the '{@link #getStatement() <em>Statement</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getStatement()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long LABEL_EDEFAULT = 0L;
+	protected Statement statement;
 
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected long label = LABEL_EDEFAULT;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ExceptionHandlerStatementImpl() {
@@ -59,8 +48,7 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -73,8 +61,8 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getLabel() {
-		return label;
+	public Statement getStatement() {
+		return statement;
 	}
 
 	/**
@@ -82,38 +70,47 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabel(long newLabel) {
-		long oldLabel = label;
-		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StatementsPackage.EXCEPTION_HANDLER_STATEMENT__LABEL, oldLabel, label));
+	public NotificationChain basicSetStatement(Statement newStatement, NotificationChain msgs) {
+		Statement oldStatement = statement;
+		statement = newStatement;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT, oldStatement, newStatement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public LabellableElement first() {
-		return getStatement().first();
+	public void setStatement(Statement newStatement) {
+		if (newStatement != statement) {
+			NotificationChain msgs = null;
+			if (statement != null)
+				msgs = ((InternalEObject)statement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT, null, msgs);
+			if (newStatement != null)
+				msgs = ((InternalEObject)newStatement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT, null, msgs);
+			msgs = basicSetStatement(newStatement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT, newStatement, newStatement));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public EList<LabellableElement> last() {
-		return getStatement().last();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public EList<Flow> internalFlow() {
-		return getStatement().internalFlow();
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT:
+				return basicSetStatement(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -124,8 +121,8 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__LABEL:
-				return getLabel();
+			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT:
+				return getStatement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -138,8 +135,8 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__LABEL:
-				setLabel((Long)newValue);
+			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT:
+				setStatement((Statement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -153,8 +150,8 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__LABEL:
-				setLabel(LABEL_EDEFAULT);
+			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT:
+				setStatement((Statement)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -168,8 +165,8 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__LABEL:
-				return label != LABEL_EDEFAULT;
+			case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT:
+				return statement != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -181,9 +178,9 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == LabellableElement.class) {
+		if (baseClass == StatementContainer.class) {
 			switch (derivedFeatureID) {
-				case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__LABEL: return CommonsPackage.LABELLABLE_ELEMENT__LABEL;
+				case StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT: return StatementsPackage.STATEMENT_CONTAINER__STATEMENT;
 				default: return -1;
 			}
 		}
@@ -197,9 +194,9 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == LabellableElement.class) {
+		if (baseClass == StatementContainer.class) {
 			switch (baseFeatureID) {
-				case CommonsPackage.LABELLABLE_ELEMENT__LABEL: return StatementsPackage.EXCEPTION_HANDLER_STATEMENT__LABEL;
+				case StatementsPackage.STATEMENT_CONTAINER__STATEMENT: return StatementsPackage.EXCEPTION_HANDLER_STATEMENT__STATEMENT;
 				default: return -1;
 			}
 		}
@@ -207,19 +204,30 @@ public class ExceptionHandlerStatementImpl extends StatementContainerImpl implem
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (label: ");
-		result.append(label);
-		result.append(')');
-		return result.toString();
+	public LabellableElement first() {
+		return getStatement().first();
 	}
 
-} //ExceptionHandlerStatementImpl
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<LabellableElement> last() {
+		return getStatement().last();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<Flow> internalFlow() {
+		return getStatement().internalFlow();
+	}
+
+} // ExceptionHandlerStatementImpl

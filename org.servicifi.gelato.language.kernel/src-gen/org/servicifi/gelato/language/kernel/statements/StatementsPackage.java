@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
+import org.servicifi.gelato.language.kernel.members.MembersPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,13 +69,31 @@ public interface StatementsPackage extends EPackage {
 	int STATEMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT__PREDECESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT__SUCCESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__SUCCESSORS;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
+	int STATEMENT__LABEL = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__LABEL;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -83,7 +102,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
+	int STATEMENT_FEATURE_COUNT = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.StatementListContainerImpl <em>Statement List Container</em>}' class.
@@ -152,22 +171,22 @@ public interface StatementsPackage extends EPackage {
 	int CONDITION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Statement</b></em>' containment reference.
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__STATEMENT = STATEMENT_CONTAINER__STATEMENT;
+	int CONDITION__PREDECESSORS = STATEMENT__PREDECESSORS;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__CONDITION = STATEMENT_CONTAINER_FEATURE_COUNT + 0;
+	int CONDITION__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -176,7 +195,25 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__LABEL = STATEMENT_CONTAINER_FEATURE_COUNT + 1;
+	int CONDITION__LABEL = STATEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Statement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__STATEMENT = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__CONDITION = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Else Statement</b></em>' containment reference.
@@ -185,7 +222,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__ELSE_STATEMENT = STATEMENT_CONTAINER_FEATURE_COUNT + 2;
+	int CONDITION__ELSE_STATEMENT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -194,7 +231,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = STATEMENT_CONTAINER_FEATURE_COUNT + 3;
+	int CONDITION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.WhileLoopImpl <em>While Loop</em>}' class.
@@ -207,22 +244,22 @@ public interface StatementsPackage extends EPackage {
 	int WHILE_LOOP = 4;
 
 	/**
-	 * The feature id for the '<em><b>Statement</b></em>' containment reference.
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WHILE_LOOP__STATEMENT = STATEMENT_CONTAINER__STATEMENT;
+	int WHILE_LOOP__PREDECESSORS = STATEMENT__PREDECESSORS;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WHILE_LOOP__CONDITION = STATEMENT_CONTAINER_FEATURE_COUNT + 0;
+	int WHILE_LOOP__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -231,7 +268,25 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WHILE_LOOP__LABEL = STATEMENT_CONTAINER_FEATURE_COUNT + 1;
+	int WHILE_LOOP__LABEL = STATEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Statement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_LOOP__STATEMENT = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_LOOP__CONDITION = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>While Loop</em>' class.
@@ -240,7 +295,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WHILE_LOOP_FEATURE_COUNT = STATEMENT_CONTAINER_FEATURE_COUNT + 2;
+	int WHILE_LOOP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.BlockImpl <em>Block</em>}' class.
@@ -253,13 +308,22 @@ public interface StatementsPackage extends EPackage {
 	int BLOCK = 5;
 
 	/**
-	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK__STATEMENTS = STATEMENT_LIST_CONTAINER__STATEMENTS;
+	int BLOCK__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -268,7 +332,16 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK__LABEL = STATEMENT_LIST_CONTAINER_FEATURE_COUNT + 0;
+	int BLOCK__LABEL = STATEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__STATEMENTS = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Block</em>' class.
@@ -277,7 +350,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK_FEATURE_COUNT = STATEMENT_LIST_CONTAINER_FEATURE_COUNT + 1;
+	int BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.AssignmentStatementImpl <em>Assignment Statement</em>}' class.
@@ -288,6 +361,24 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 */
 	int ASSIGNMENT_STATEMENT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_STATEMENT__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT_STATEMENT__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -336,6 +427,24 @@ public interface StatementsPackage extends EPackage {
 	int JUMP = 7;
 
 	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUMP__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUMP__SUCCESSORS = STATEMENT__SUCCESSORS;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,6 +480,24 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 */
 	int GOTO = 8;
+
+	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOTO__PREDECESSORS = JUMP__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GOTO__SUCCESSORS = JUMP__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -410,13 +537,22 @@ public interface StatementsPackage extends EPackage {
 	int NON_DETERMINISTIC_BLOCK = 9;
 
 	/**
-	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NON_DETERMINISTIC_BLOCK__STATEMENTS = STATEMENT_LIST_CONTAINER__STATEMENTS;
+	int NON_DETERMINISTIC_BLOCK__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NON_DETERMINISTIC_BLOCK__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -425,7 +561,16 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NON_DETERMINISTIC_BLOCK__LABEL = STATEMENT_LIST_CONTAINER_FEATURE_COUNT + 0;
+	int NON_DETERMINISTIC_BLOCK__LABEL = STATEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NON_DETERMINISTIC_BLOCK__STATEMENTS = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Non Deterministic Block</em>' class.
@@ -434,7 +579,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NON_DETERMINISTIC_BLOCK_FEATURE_COUNT = STATEMENT_LIST_CONTAINER_FEATURE_COUNT + 1;
+	int NON_DETERMINISTIC_BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.ParallelBlockImpl <em>Parallel Block</em>}' class.
@@ -447,13 +592,22 @@ public interface StatementsPackage extends EPackage {
 	int PARALLEL_BLOCK = 10;
 
 	/**
-	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_BLOCK__STATEMENTS = STATEMENT_LIST_CONTAINER__STATEMENTS;
+	int PARALLEL_BLOCK__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_BLOCK__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -462,7 +616,16 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_BLOCK__LABEL = STATEMENT_LIST_CONTAINER_FEATURE_COUNT + 0;
+	int PARALLEL_BLOCK__LABEL = STATEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_BLOCK__STATEMENTS = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Order</b></em>' attribute.
@@ -471,7 +634,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_BLOCK__ORDER = STATEMENT_LIST_CONTAINER_FEATURE_COUNT + 1;
+	int PARALLEL_BLOCK__ORDER = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Parallel Block</em>' class.
@@ -480,7 +643,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_BLOCK_FEATURE_COUNT = STATEMENT_LIST_CONTAINER_FEATURE_COUNT + 2;
+	int PARALLEL_BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.AbortImpl <em>Abort</em>}' class.
@@ -491,6 +654,24 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 */
 	int ABORT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABORT__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABORT__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -521,13 +702,22 @@ public interface StatementsPackage extends EPackage {
 	int EXCEPTION_HANDLER_STATEMENT = 12;
 
 	/**
-	 * The feature id for the '<em><b>Statement</b></em>' containment reference.
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEPTION_HANDLER_STATEMENT__STATEMENT = STATEMENT_CONTAINER__STATEMENT;
+	int EXCEPTION_HANDLER_STATEMENT__PREDECESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCEPTION_HANDLER_STATEMENT__SUCCESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -536,7 +726,16 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEPTION_HANDLER_STATEMENT__LABEL = STATEMENT_CONTAINER_FEATURE_COUNT + 0;
+	int EXCEPTION_HANDLER_STATEMENT__LABEL = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Statement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCEPTION_HANDLER_STATEMENT__STATEMENT = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Exception Handler Statement</em>' class.
@@ -545,7 +744,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEPTION_HANDLER_STATEMENT_FEATURE_COUNT = STATEMENT_CONTAINER_FEATURE_COUNT + 1;
+	int EXCEPTION_HANDLER_STATEMENT_FEATURE_COUNT = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.StatementWithExceptionImpl <em>Statement With Exception</em>}' class.
@@ -558,13 +757,22 @@ public interface StatementsPackage extends EPackage {
 	int STATEMENT_WITH_EXCEPTION = 13;
 
 	/**
-	 * The feature id for the '<em><b>Statement</b></em>' containment reference.
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_WITH_EXCEPTION__STATEMENT = STATEMENT_CONTAINER__STATEMENT;
+	int STATEMENT_WITH_EXCEPTION__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT_WITH_EXCEPTION__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -573,7 +781,16 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_WITH_EXCEPTION__LABEL = STATEMENT_CONTAINER_FEATURE_COUNT + 0;
+	int STATEMENT_WITH_EXCEPTION__LABEL = STATEMENT__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Statement</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT_WITH_EXCEPTION__STATEMENT = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Exception Statements</b></em>' containment reference list.
@@ -582,7 +799,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_WITH_EXCEPTION__EXCEPTION_STATEMENTS = STATEMENT_CONTAINER_FEATURE_COUNT + 1;
+	int STATEMENT_WITH_EXCEPTION__EXCEPTION_STATEMENTS = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Statement With Exception</em>' class.
@@ -591,7 +808,7 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_WITH_EXCEPTION_FEATURE_COUNT = STATEMENT_CONTAINER_FEATURE_COUNT + 2;
+	int STATEMENT_WITH_EXCEPTION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.ConditionalImpl <em>Conditional</em>}' class.
@@ -630,6 +847,24 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 */
 	int PROCEDURE_CALL = 15;
+
+	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE_CALL__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE_CALL__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -687,6 +922,24 @@ public interface StatementsPackage extends EPackage {
 	int EXPRESSION_STATEMENT = 16;
 
 	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION_STATEMENT__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPRESSION_STATEMENT__SUCCESSORS = STATEMENT__SUCCESSORS;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -724,6 +977,24 @@ public interface StatementsPackage extends EPackage {
 	int SKIP = 17;
 
 	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKIP__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKIP__SUCCESSORS = STATEMENT__SUCCESSORS;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -742,34 +1013,6 @@ public interface StatementsPackage extends EPackage {
 	int SKIP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.ReturnSiteImpl <em>Return Site</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.servicifi.gelato.language.kernel.statements.impl.ReturnSiteImpl
-	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getReturnSite()
-	 * @generated
-	 */
-	int RETURN_SITE = 18;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RETURN_SITE__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
-
-	/**
-	 * The number of structural features of the '<em>Return Site</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RETURN_SITE_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.ReturnImpl <em>Return</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -777,7 +1020,25 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getReturn()
 	 * @generated
 	 */
-	int RETURN = 19;
+	int RETURN = 18;
+
+	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN__PREDECESSORS = STATEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN__SUCCESSORS = STATEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -814,7 +1075,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getExecutionOrder()
 	 * @generated
 	 */
-	int EXECUTION_ORDER = 20;
+	int EXECUTION_ORDER = 19;
 
 
 	/**
@@ -1117,16 +1378,6 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSkip();
-
-	/**
-	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.statements.ReturnSite <em>Return Site</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Return Site</em>'.
-	 * @see org.servicifi.gelato.language.kernel.statements.ReturnSite
-	 * @generated
-	 */
-	EClass getReturnSite();
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.statements.Return <em>Return</em>}'.
@@ -1448,16 +1699,6 @@ public interface StatementsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SKIP = eINSTANCE.getSkip();
-
-		/**
-		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.statements.impl.ReturnSiteImpl <em>Return Site</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.servicifi.gelato.language.kernel.statements.impl.ReturnSiteImpl
-		 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getReturnSite()
-		 * @generated
-		 */
-		EClass RETURN_SITE = eINSTANCE.getReturnSite();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.statements.impl.ReturnImpl <em>Return</em>}' class.

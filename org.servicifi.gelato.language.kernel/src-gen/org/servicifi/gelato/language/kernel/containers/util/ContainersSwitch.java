@@ -7,7 +7,10 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+
+import org.servicifi.gelato.analysis.framework.graphs.Node;
+
 import org.servicifi.gelato.language.kernel.containers.*;
 
 /**
@@ -70,6 +73,8 @@ public class ContainersSwitch<T> extends Switch<T> {
 			case ContainersPackage.KERNEL_ROOT: {
 				KernelRoot kernelRoot = (KernelRoot)theEObject;
 				T result = caseKernelRoot(kernelRoot);
+				if (result == null) result = caseLabellableElement(kernelRoot);
+				if (result == null) result = caseNode(kernelRoot);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -78,20 +83,7 @@ public class ContainersSwitch<T> extends Switch<T> {
 				T result = caseCompilationUnit(compilationUnit);
 				if (result == null) result = caseKernelRoot(compilationUnit);
 				if (result == null) result = caseLabellableElement(compilationUnit);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ContainersPackage.START: {
-				Start start = (Start)theEObject;
-				T result = caseStart(start);
-				if (result == null) result = caseLabellableElement(start);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ContainersPackage.END: {
-				End end = (End)theEObject;
-				T result = caseEnd(end);
-				if (result == null) result = caseLabellableElement(end);
+				if (result == null) result = caseNode(compilationUnit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,32 +122,17 @@ public class ContainersSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Start</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Start</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Node</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStart(Start object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>End</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>End</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEnd(End object) {
+	public T caseNode(Node object) {
 		return null;
 	}
 

@@ -4,7 +4,8 @@ package org.servicifi.gelato.language.kernel.statements;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.servicifi.gelato.language.kernel.parameters.Parameter;
+import org.servicifi.gelato.analysis.framework.procedures.ReturnSite;
+
 import org.servicifi.gelato.language.kernel.references.Argument;
 import org.servicifi.gelato.language.kernel.references.ElementReference;
 

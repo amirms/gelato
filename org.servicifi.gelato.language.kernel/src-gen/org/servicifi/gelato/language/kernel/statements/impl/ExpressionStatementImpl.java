@@ -9,9 +9,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.language.kernel.expressions.Expression;
-import org.servicifi.gelato.language.kernel.flows.Flow;
 import org.servicifi.gelato.language.kernel.statements.ExpressionStatement;
 import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
 
@@ -204,6 +204,5 @@ public class ExpressionStatementImpl extends StatementImpl implements Expression
 	public EList<Flow> internalFlow() {
 		return new BasicEList<>();
 	}
-
 
 } //ExpressionStatementImpl

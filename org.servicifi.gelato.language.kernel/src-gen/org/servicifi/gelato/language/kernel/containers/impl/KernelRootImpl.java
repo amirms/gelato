@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.servicifi.gelato.analysis.framework.commons.impl.LabellableElementImpl;
 import org.servicifi.gelato.language.kernel.containers.ContainersPackage;
 import org.servicifi.gelato.language.kernel.containers.KernelRoot;
 
@@ -16,7 +17,7 @@ import org.servicifi.gelato.language.kernel.containers.KernelRoot;
  *
  * @generated
  */
-public abstract class KernelRootImpl extends EObjectImpl implements KernelRoot {
+public abstract class KernelRootImpl extends LabellableElementImpl implements KernelRoot {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

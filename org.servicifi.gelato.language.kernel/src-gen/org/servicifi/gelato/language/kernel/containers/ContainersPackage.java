@@ -5,7 +5,8 @@ package org.servicifi.gelato.language.kernel.containers;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
+
+import org.servicifi.gelato.analysis.framework.commons.CommonsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,13 +66,40 @@ public interface ContainersPackage extends EPackage {
 	int KERNEL_ROOT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KERNEL_ROOT__PREDECESSORS = CommonsPackage.LABELLABLE_ELEMENT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KERNEL_ROOT__SUCCESSORS = CommonsPackage.LABELLABLE_ELEMENT__SUCCESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KERNEL_ROOT__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
+
+	/**
 	 * The number of structural features of the '<em>Kernel Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KERNEL_ROOT_FEATURE_COUNT = 0;
+	int KERNEL_ROOT_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
@@ -84,13 +112,31 @@ public interface ContainersPackage extends EPackage {
 	int COMPILATION_UNIT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__PREDECESSORS = KERNEL_ROOT__PREDECESSORS;
+
+	/**
+	 * The feature id for the '<em><b>Successors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__SUCCESSORS = KERNEL_ROOT__SUCCESSORS;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__LABEL = KERNEL_ROOT_FEATURE_COUNT + 0;
+	int COMPILATION_UNIT__LABEL = KERNEL_ROOT__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Main Procedure</b></em>' containment reference.
@@ -99,7 +145,7 @@ public interface ContainersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__MAIN_PROCEDURE = KERNEL_ROOT_FEATURE_COUNT + 1;
+	int COMPILATION_UNIT__MAIN_PROCEDURE = KERNEL_ROOT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
@@ -108,7 +154,7 @@ public interface ContainersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__DECLARATIONS = KERNEL_ROOT_FEATURE_COUNT + 2;
+	int COMPILATION_UNIT__DECLARATIONS = KERNEL_ROOT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -117,7 +163,7 @@ public interface ContainersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__START = KERNEL_ROOT_FEATURE_COUNT + 3;
+	int COMPILATION_UNIT__START = KERNEL_ROOT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' containment reference.
@@ -126,7 +172,7 @@ public interface ContainersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT__END = KERNEL_ROOT_FEATURE_COUNT + 4;
+	int COMPILATION_UNIT__END = KERNEL_ROOT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Compilation Unit</em>' class.
@@ -135,64 +181,7 @@ public interface ContainersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT_FEATURE_COUNT = KERNEL_ROOT_FEATURE_COUNT + 5;
-
-
-	/**
-	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.containers.impl.StartImpl <em>Start</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.servicifi.gelato.language.kernel.containers.impl.StartImpl
-	 * @see org.servicifi.gelato.language.kernel.containers.impl.ContainersPackageImpl#getStart()
-	 * @generated
-	 */
-	int START = 2;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
-
-	/**
-	 * The number of structural features of the '<em>Start</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.containers.impl.EndImpl <em>End</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.servicifi.gelato.language.kernel.containers.impl.EndImpl
-	 * @see org.servicifi.gelato.language.kernel.containers.impl.ContainersPackageImpl#getEnd()
-	 * @generated
-	 */
-	int END = 3;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
-
-	/**
-	 * The number of structural features of the '<em>End</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
+	int COMPILATION_UNIT_FEATURE_COUNT = KERNEL_ROOT_FEATURE_COUNT + 4;
 
 
 	/**
@@ -258,26 +247,6 @@ public interface ContainersPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCompilationUnit_End();
-
-	/**
-	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.containers.Start <em>Start</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Start</em>'.
-	 * @see org.servicifi.gelato.language.kernel.containers.Start
-	 * @generated
-	 */
-	EClass getStart();
-
-	/**
-	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.containers.End <em>End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>End</em>'.
-	 * @see org.servicifi.gelato.language.kernel.containers.End
-	 * @generated
-	 */
-	EClass getEnd();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -352,26 +321,6 @@ public interface ContainersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPILATION_UNIT__END = eINSTANCE.getCompilationUnit_End();
-
-		/**
-		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.containers.impl.StartImpl <em>Start</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.servicifi.gelato.language.kernel.containers.impl.StartImpl
-		 * @see org.servicifi.gelato.language.kernel.containers.impl.ContainersPackageImpl#getStart()
-		 * @generated
-		 */
-		EClass START = eINSTANCE.getStart();
-
-		/**
-		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.containers.impl.EndImpl <em>End</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.servicifi.gelato.language.kernel.containers.impl.EndImpl
-		 * @see org.servicifi.gelato.language.kernel.containers.impl.ContainersPackageImpl#getEnd()
-		 * @generated
-		 */
-		EClass END = eINSTANCE.getEnd();
 
 	}
 

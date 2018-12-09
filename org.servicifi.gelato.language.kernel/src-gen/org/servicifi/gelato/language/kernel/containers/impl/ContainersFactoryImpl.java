@@ -57,8 +57,6 @@ public class ContainersFactoryImpl extends EFactoryImpl implements ContainersFac
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ContainersPackage.COMPILATION_UNIT: return createCompilationUnit();
-			case ContainersPackage.START: return createStart();
-			case ContainersPackage.END: return createEnd();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -72,26 +70,6 @@ public class ContainersFactoryImpl extends EFactoryImpl implements ContainersFac
 	public CompilationUnit createCompilationUnit() {
 		CompilationUnitImpl compilationUnit = new CompilationUnitImpl();
 		return compilationUnit;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Start createStart() {
-		StartImpl start = new StartImpl();
-		return start;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public End createEnd() {
-		EndImpl end = new EndImpl();
-		return end;
 	}
 
 	/**
