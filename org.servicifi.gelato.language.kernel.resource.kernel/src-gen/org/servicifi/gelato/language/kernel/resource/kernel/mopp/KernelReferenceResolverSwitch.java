@@ -16,7 +16,7 @@ public class KernelReferenceResolverSwitch implements org.servicifi.gelato.langu
 	protected org.servicifi.gelato.language.kernel.resource.kernel.analysis.JumpTargetReferenceResolver jumpTargetReferenceResolver = new org.servicifi.gelato.language.kernel.resource.kernel.analysis.JumpTargetReferenceResolver();
 	protected org.servicifi.gelato.language.kernel.resource.kernel.analysis.ElementReferenceTargetReferenceResolver elementReferenceTargetReferenceResolver = new org.servicifi.gelato.language.kernel.resource.kernel.analysis.ElementReferenceTargetReferenceResolver();
 	
-	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceResolver<org.servicifi.gelato.language.kernel.statements.Jump, org.servicifi.gelato.language.kernel.commons.LabellableElement> getJumpTargetReferenceResolver() {
+	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceResolver<org.servicifi.gelato.language.kernel.statements.Jump, org.servicifi.gelato.analysis.framework.commons.LabellableElement> getJumpTargetReferenceResolver() {
 		return getResolverChain(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getJump_Target(), jumpTargetReferenceResolver);
 	}
 	
@@ -38,7 +38,7 @@ public class KernelReferenceResolverSwitch implements org.servicifi.gelato.langu
 			return;
 		}
 		if (org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getJump().isInstance(container)) {
-			KernelFuzzyResolveResult<org.servicifi.gelato.language.kernel.commons.LabellableElement> frr = new KernelFuzzyResolveResult<org.servicifi.gelato.language.kernel.commons.LabellableElement>(result);
+			KernelFuzzyResolveResult<org.servicifi.gelato.analysis.framework.commons.LabellableElement> frr = new KernelFuzzyResolveResult<org.servicifi.gelato.analysis.framework.commons.LabellableElement>(result);
 			String referenceName = reference.getName();
 			org.eclipse.emf.ecore.EStructuralFeature feature = container.eClass().getEStructuralFeature(referenceName);
 			if (feature != null && feature instanceof org.eclipse.emf.ecore.EReference && referenceName != null && referenceName.equals("target")) {

@@ -11,7 +11,8 @@ Require-Bundle: org.eclipse.core.runtime;resolution:=optional,
   org.emftext.access;resolution:=optional,
   org.eclipse.debug.core;resolution:=optional,
   org.emftext.commons.antlr3_4_0,
-  org.servicifi.gelato.language.kernel
+  org.servicifi.gelato.language.kernel,
+  org.servicifi.gelato.analysis.framework
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.servicifi.gelato.language.kernel.resource.kernel,

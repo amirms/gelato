@@ -78,20 +78,4 @@
             genModel="metamodel/kernel.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated kernel -->
-      <package
-            uri="http://www.servicifi.org/gelato/language/kernel/flows"
-            class="org.servicifi.gelato.language.kernel.flows.FlowsPackage"
-            genModel="metamodel/kernel.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated kernel -->
-      <package
-            uri="http://www.servicifi.org/gelato/language/kernel/analyses"
-            class="org.servicifi.gelato.language.kernel.analyses.AnalysesPackage"
-            genModel="metamodel/kernel.genmodel"/>
-   </extension>
-
 </plugin>

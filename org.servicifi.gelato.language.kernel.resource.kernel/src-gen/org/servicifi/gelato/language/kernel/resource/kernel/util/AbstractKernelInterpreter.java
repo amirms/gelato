@@ -58,12 +58,6 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 	
 	public ResultType interprete(org.eclipse.emf.ecore.EObject object, ContextType context) {
 		ResultType result = null;
-		if (object instanceof org.servicifi.gelato.language.kernel.commons.LabellableElement) {
-			result = interprete_org_servicifi_gelato_language_kernel_commons_LabellableElement((org.servicifi.gelato.language.kernel.commons.LabellableElement) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.kernel.dataitems.DataItem) {
 			result = interprete_org_servicifi_gelato_language_kernel_dataitems_DataItem((org.servicifi.gelato.language.kernel.dataitems.DataItem) object, context);
 		}
@@ -82,6 +76,12 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.kernel.statements.WhileLoop) {
+			result = interprete_org_servicifi_gelato_language_kernel_statements_WhileLoop((org.servicifi.gelato.language.kernel.statements.WhileLoop) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.kernel.statements.Block) {
 			result = interprete_org_servicifi_gelato_language_kernel_statements_Block((org.servicifi.gelato.language.kernel.statements.Block) object, context);
 		}
@@ -94,14 +94,8 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.kernel.statements.Jump) {
-			result = interprete_org_servicifi_gelato_language_kernel_statements_Jump((org.servicifi.gelato.language.kernel.statements.Jump) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.kernel.statements.Abort) {
-			result = interprete_org_servicifi_gelato_language_kernel_statements_Abort((org.servicifi.gelato.language.kernel.statements.Abort) object, context);
+		if (object instanceof org.servicifi.gelato.language.kernel.statements.ParallelBlock) {
+			result = interprete_org_servicifi_gelato_language_kernel_statements_ParallelBlock((org.servicifi.gelato.language.kernel.statements.ParallelBlock) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -118,8 +112,8 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.kernel.statements.Skip) {
-			result = interprete_org_servicifi_gelato_language_kernel_statements_Skip((org.servicifi.gelato.language.kernel.statements.Skip) object, context);
+		if (object instanceof org.servicifi.gelato.language.kernel.statements.ExpressionStatement) {
+			result = interprete_org_servicifi_gelato_language_kernel_statements_ExpressionStatement((org.servicifi.gelato.language.kernel.statements.ExpressionStatement) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -136,18 +130,6 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.kernel.statements.WhileLoop) {
-			result = interprete_org_servicifi_gelato_language_kernel_statements_WhileLoop((org.servicifi.gelato.language.kernel.statements.WhileLoop) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement) {
-			result = interprete_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement((org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.kernel.statements.StatementContainer) {
 			result = interprete_org_servicifi_gelato_language_kernel_statements_StatementContainer((org.servicifi.gelato.language.kernel.statements.StatementContainer) object, context);
 		}
@@ -160,14 +142,26 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.kernel.statements.Jump) {
+			result = interprete_org_servicifi_gelato_language_kernel_statements_Jump((org.servicifi.gelato.language.kernel.statements.Jump) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock) {
 			result = interprete_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock((org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock) object, context);
 		}
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.kernel.statements.ParallelBlock) {
-			result = interprete_org_servicifi_gelato_language_kernel_statements_ParallelBlock((org.servicifi.gelato.language.kernel.statements.ParallelBlock) object, context);
+		if (object instanceof org.servicifi.gelato.language.kernel.statements.Abort) {
+			result = interprete_org_servicifi_gelato_language_kernel_statements_Abort((org.servicifi.gelato.language.kernel.statements.Abort) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
+		if (object instanceof org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement) {
+			result = interprete_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement((org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -178,14 +172,8 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.kernel.statements.ExpressionStatement) {
-			result = interprete_org_servicifi_gelato_language_kernel_statements_ExpressionStatement((org.servicifi.gelato.language.kernel.statements.ExpressionStatement) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.kernel.statements.ReturnSite) {
-			result = interprete_org_servicifi_gelato_language_kernel_statements_ReturnSite((org.servicifi.gelato.language.kernel.statements.ReturnSite) object, context);
+		if (object instanceof org.servicifi.gelato.language.kernel.statements.Skip) {
+			result = interprete_org_servicifi_gelato_language_kernel_statements_Skip((org.servicifi.gelato.language.kernel.statements.Skip) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -286,18 +274,6 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
-		if (object instanceof org.servicifi.gelato.language.kernel.containers.Start) {
-			result = interprete_org_servicifi_gelato_language_kernel_containers_Start((org.servicifi.gelato.language.kernel.containers.Start) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.kernel.containers.End) {
-			result = interprete_org_servicifi_gelato_language_kernel_containers_End((org.servicifi.gelato.language.kernel.containers.End) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
 		if (object instanceof org.servicifi.gelato.language.kernel.references.ElementReference) {
 			result = interprete_org_servicifi_gelato_language_kernel_references_ElementReference((org.servicifi.gelato.language.kernel.references.ElementReference) object, context);
 		}
@@ -323,10 +299,6 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 			return result;
 		}
 		return result;
-	}
-	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_commons_LabellableElement(org.servicifi.gelato.language.kernel.commons.LabellableElement labellableElement, ContextType context) {
-		return null;
 	}
 	
 	public ResultType interprete_org_servicifi_gelato_language_kernel_commons_NamedElement(org.servicifi.gelato.language.kernel.commons.NamedElement namedElement, ContextType context) {
@@ -409,10 +381,6 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ReturnSite(org.servicifi.gelato.language.kernel.statements.ReturnSite returnSite, ContextType context) {
-		return null;
-	}
-	
 	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Return(org.servicifi.gelato.language.kernel.statements.Return _return, ContextType context) {
 		return null;
 	}
@@ -474,14 +442,6 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 	}
 	
 	public ResultType interprete_org_servicifi_gelato_language_kernel_containers_CompilationUnit(org.servicifi.gelato.language.kernel.containers.CompilationUnit compilationUnit, ContextType context) {
-		return null;
-	}
-	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_containers_Start(org.servicifi.gelato.language.kernel.containers.Start start, ContextType context) {
-		return null;
-	}
-	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_containers_End(org.servicifi.gelato.language.kernel.containers.End end, ContextType context) {
 		return null;
 	}
 	
