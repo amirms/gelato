@@ -29,4 +29,12 @@
             class="org.servicifi.gelato.analysis.framework.commons.CommonsPackage"
             genModel="metamodel/framework.genmodel"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated framework -->
+      <package
+            uri="http://www.servicifi.org/gelato/analysis/framework/procedures"
+            class="org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage"
+            genModel="metamodel/framework.genmodel"/>
+   </extension>
 </plugin>

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see org.servicifi.gelato.analysis.framework.graphs.GraphsPackage#getFlow()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Flow extends EObject {

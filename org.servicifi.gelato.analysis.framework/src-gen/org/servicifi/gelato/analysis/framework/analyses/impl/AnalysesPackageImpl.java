@@ -22,13 +22,14 @@ import org.servicifi.gelato.analysis.framework.analyses.AnalysisType;
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
 import org.servicifi.gelato.analysis.framework.analyses.InterproceduralAnalysis;
 import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
-import org.servicifi.gelato.analysis.framework.analyses.IteratorElement;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisResult;
 import org.servicifi.gelato.analysis.framework.commons.CommonsPackage;
 import org.servicifi.gelato.analysis.framework.commons.impl.CommonsPackageImpl;
 import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
 import org.servicifi.gelato.analysis.framework.graphs.impl.GraphsPackageImpl;
+import org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage;
+import org.servicifi.gelato.analysis.framework.procedures.impl.ProceduresPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,13 +65,6 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * @generated
 	 */
 	private EClass comparableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass iteratorElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,16 +167,20 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		GraphsPackageImpl theGraphsPackage = (GraphsPackageImpl)(registeredPackage instanceof GraphsPackageImpl ? registeredPackage : GraphsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
 		CommonsPackageImpl theCommonsPackage = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : CommonsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI);
+		ProceduresPackageImpl theProceduresPackage = (ProceduresPackageImpl)(registeredPackage instanceof ProceduresPackageImpl ? registeredPackage : ProceduresPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAnalysesPackage.createPackageContents();
 		theGraphsPackage.createPackageContents();
 		theCommonsPackage.createPackageContents();
+		theProceduresPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAnalysesPackage.initializePackageContents();
 		theGraphsPackage.initializePackageContents();
 		theCommonsPackage.initializePackageContents();
+		theProceduresPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAnalysesPackage.freeze();
@@ -260,7 +258,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysis__Entry__LabellableElement_int() {
+	public EOperation getAnalysis__Entry__LabellableElement() {
 		return analysisEClass.getEOperations().get(0);
 	}
 
@@ -269,7 +267,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysis__Exit__LabellableElement_int() {
+	public EOperation getAnalysis__Exit__LabellableElement() {
 		return analysisEClass.getEOperations().get(1);
 	}
 
@@ -287,7 +285,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysis__GetAllNodesWithDirection__LabellableElement_AnalysisDirection_EClass() {
+	public EOperation getAnalysis__GetAllNodesWithDirection__LabellableElement_AnalysisDirection_Class() {
 		return analysisEClass.getEOperations().get(3);
 	}
 
@@ -298,6 +296,15 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 */
 	public EOperation getAnalysis__Meet__EList() {
 		return analysisEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnalysis__GetAllEdgesWithDirection__LabellableElement_AnalysisDirection_Class() {
+		return analysisEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -359,33 +366,6 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIteratorElement() {
-		return iteratorElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIteratorElement_Iteration() {
-		return (EAttribute)iteratorElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIteratorElement_Element() {
-		return (EReference)iteratorElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAnalysisConfiguration() {
 		return analysisConfigurationEClass;
 	}
@@ -415,6 +395,24 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 */
 	public EClass getIntraproceduralAnalysis() {
 		return intraproceduralAnalysisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getIntraproceduralAnalysis__Entry__LabellableElement() {
+		return intraproceduralAnalysisEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getIntraproceduralAnalysis__Exit__LabellableElement() {
+		return intraproceduralAnalysisEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -515,11 +513,12 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		createEAttribute(analysisEClass, ANALYSIS__EXIT_TABLE);
 		createEAttribute(analysisEClass, ANALYSIS__ENTRY_TABLE);
 		createEReference(analysisEClass, ANALYSIS__CONFIGURATION);
-		createEOperation(analysisEClass, ANALYSIS___ENTRY__LABELLABLEELEMENT_INT);
-		createEOperation(analysisEClass, ANALYSIS___EXIT__LABELLABLEELEMENT_INT);
+		createEOperation(analysisEClass, ANALYSIS___ENTRY__LABELLABLEELEMENT);
+		createEOperation(analysisEClass, ANALYSIS___EXIT__LABELLABLEELEMENT);
 		createEOperation(analysisEClass, ANALYSIS___PERFORM_ANALYSIS);
-		createEOperation(analysisEClass, ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_ECLASS);
+		createEOperation(analysisEClass, ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS);
 		createEOperation(analysisEClass, ANALYSIS___MEET__ELIST);
+		createEOperation(analysisEClass, ANALYSIS___GET_ALL_EDGES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS);
 
 		analysisResultEClass = createEClass(ANALYSIS_RESULT);
 		createEAttribute(analysisResultEClass, ANALYSIS_RESULT__LABEL);
@@ -530,15 +529,13 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 
 		comparableEClass = createEClass(COMPARABLE);
 
-		iteratorElementEClass = createEClass(ITERATOR_ELEMENT);
-		createEAttribute(iteratorElementEClass, ITERATOR_ELEMENT__ITERATION);
-		createEReference(iteratorElementEClass, ITERATOR_ELEMENT__ELEMENT);
-
 		analysisConfigurationEClass = createEClass(ANALYSIS_CONFIGURATION);
 		createEAttribute(analysisConfigurationEClass, ANALYSIS_CONFIGURATION__DIRECTION);
 		createEAttribute(analysisConfigurationEClass, ANALYSIS_CONFIGURATION__ANALYSIS_TYPE);
 
 		intraproceduralAnalysisEClass = createEClass(INTRAPROCEDURAL_ANALYSIS);
+		createEOperation(intraproceduralAnalysisEClass, INTRAPROCEDURAL_ANALYSIS___ENTRY__LABELLABLEELEMENT);
+		createEOperation(intraproceduralAnalysisEClass, INTRAPROCEDURAL_ANALYSIS___EXIT__LABELLABLEELEMENT);
 
 		interproceduralAnalysisEClass = createEClass(INTERPROCEDURAL_ANALYSIS);
 
@@ -602,7 +599,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getAnalysis_Result(), g1, "result", null, 1, 1, Analysis.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(this.getIteratorElement());
+		g2 = createEGenericType(theCommonsPackage.getLabellableElement());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEEList());
 		g1.getETypeArguments().add(g2);
@@ -610,7 +607,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		g2.getETypeArguments().add(g3);
 		initEAttribute(getAnalysis_ExitTable(), g1, "exitTable", null, 1, 1, Analysis.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(this.getIteratorElement());
+		g2 = createEGenericType(theCommonsPackage.getLabellableElement());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEEList());
 		g1.getETypeArguments().add(g2);
@@ -619,13 +616,11 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		initEAttribute(getAnalysis_EntryTable(), g1, "entryTable", null, 1, 1, Analysis.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysis_Configuration(), this.getAnalysisConfiguration(), null, "configuration", null, 1, 1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getAnalysis__Entry__LabellableElement_int(), this.getAnalysisResult(), "entry", 1, -1, IS_UNIQUE, !IS_ORDERED);
+		EOperation op = initEOperation(getAnalysis__Entry__LabellableElement(), this.getAnalysisResult(), "entry", 1, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theCommonsPackage.getLabellableElement(), "e", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "iteration", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getAnalysis__Exit__LabellableElement_int(), this.getAnalysisResult(), "exit", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getAnalysis__Exit__LabellableElement(), this.getAnalysisResult(), "exit", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theCommonsPackage.getLabellableElement(), "e", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "iteration", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getAnalysis__PerformAnalysis(), null, "performAnalysis", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
@@ -635,16 +630,31 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = initEOperation(getAnalysis__GetAllNodesWithDirection__LabellableElement_AnalysisDirection_EClass(), theCommonsPackage.getLabellableElement(), "getAllNodesWithDirection", 1, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAnalysis__GetAllNodesWithDirection__LabellableElement_AnalysisDirection_Class(), theCommonsPackage.getLabellableElement(), "getAllNodesWithDirection", 1, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theCommonsPackage.getLabellableElement(), "e", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getAnalysisDirection(), "dir", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEClass(), "flowType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType(theGraphsPackage.getFlow());
+		g2.setEUpperBound(g3);
+		addEParameter(op, g1, "flowType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getAnalysis__Meet__EList(), this.getAnalysisResult(), "meet", 1, -1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEEList());
 		g2 = createEGenericType(this.getAnalysisResult());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "exits", 1, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysis__GetAllEdgesWithDirection__LabellableElement_AnalysisDirection_Class(), theGraphsPackage.getFlow(), "getAllEdgesWithDirection", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theCommonsPackage.getLabellableElement(), "e", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAnalysisDirection(), "dir", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType(theGraphsPackage.getFlow());
+		g2.setEUpperBound(g3);
+		addEParameter(op, g1, "flowType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(analysisResultEClass, AnalysisResult.class, "AnalysisResult", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnalysisResult_Label(), ecorePackage.getELong(), "label", null, 1, 1, AnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -655,15 +665,17 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 
 		initEClass(comparableEClass, Object.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(iteratorElementEClass, IteratorElement.class, "IteratorElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIteratorElement_Iteration(), ecorePackage.getEInt(), "iteration", null, 1, 1, IteratorElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIteratorElement_Element(), theCommonsPackage.getLabellableElement(), null, "element", null, 1, 1, IteratorElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(analysisConfigurationEClass, AnalysisConfiguration.class, "AnalysisConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnalysisConfiguration_Direction(), this.getAnalysisDirection(), "direction", null, 1, 1, AnalysisConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysisConfiguration_AnalysisType(), this.getAnalysisType(), "analysisType", "MUST", 1, 1, AnalysisConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(intraproceduralAnalysisEClass, IntraproceduralAnalysis.class, "IntraproceduralAnalysis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getIntraproceduralAnalysis__Entry__LabellableElement(), this.getAnalysisResult(), "entry", 1, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theCommonsPackage.getLabellableElement(), "e", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getIntraproceduralAnalysis__Exit__LabellableElement(), this.getAnalysisResult(), "exit", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theCommonsPackage.getLabellableElement(), "e", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(interproceduralAnalysisEClass, InterproceduralAnalysis.class, "InterproceduralAnalysis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

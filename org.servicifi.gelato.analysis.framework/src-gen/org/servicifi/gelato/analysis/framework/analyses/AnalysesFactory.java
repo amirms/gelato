@@ -4,7 +4,6 @@ package org.servicifi.gelato.analysis.framework.analyses;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EFactory;
-import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.analysis.framework.commons.Variable;
 
 /**
@@ -32,15 +31,6 @@ public interface AnalysesFactory extends EFactory {
 	 * @generated
 	 */
 	ExitEntryPair createExitEntryPair();
-
-	/**
-	 * Returns a new object of class '<em>Iterator Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Iterator Element</em>'.
-	 * @generated
-	 */
-	IteratorElement createIteratorElement();
 
 	/**
 	 * Returns a new object of class '<em>Intraprocedural Analysis</em>'.
@@ -87,13 +77,6 @@ public interface AnalysesFactory extends EFactory {
 	 */
 	AnalysesPackage getAnalysesPackage();
 
-	/**
-	 * Returns a new object of class '<em>Iterator Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Iterator Element</em>'.
-	 */
-	IteratorElement createIteratorElement(int i, LabellableElement workElement);
 
 	AnalysisResult createReachingDefinitionsResult(Variable v, long i);
 	

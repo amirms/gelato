@@ -2,10 +2,14 @@
  */
 package org.servicifi.gelato.analysis.framework.commons.impl;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.servicifi.gelato.analysis.framework.commons.CommonsPackage;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.analysis.framework.commons.Start;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +36,23 @@ public class StartImpl extends LabellableElementImpl implements Start {
 	@Override
 	protected EClass eStaticClass() {
 		return CommonsPackage.Literals.START;
+	}
+	
+	@Override
+	public LabellableElement first() {
+		return this;
+	}
+
+	@Override
+	public EList<LabellableElement> last() {
+		EList<LabellableElement> res = new BasicEList<>();
+		res.add(this);
+		return res;
+	}
+
+	@Override
+	public EList<Flow> internalFlow() {
+		return new BasicEList<>();
 	}
 
 } //StartImpl

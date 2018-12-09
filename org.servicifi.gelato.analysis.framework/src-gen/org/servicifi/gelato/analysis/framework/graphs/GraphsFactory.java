@@ -22,15 +22,6 @@ public interface GraphsFactory extends EFactory {
 	GraphsFactory eINSTANCE = org.servicifi.gelato.analysis.framework.graphs.impl.GraphsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Flow</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flow</em>'.
-	 * @generated
-	 */
-	Flow createFlow();
-
-	/**
 	 * Returns a new object of class '<em>Regular Flow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,6 +40,15 @@ public interface GraphsFactory extends EFactory {
 	ProcedureFlow createProcedureFlow();
 
 	/**
+	 * Returns a new object of class '<em>Summary Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Summary Flow</em>'.
+	 * @generated
+	 */
+	SummaryFlow createSummaryFlow();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,5 +60,7 @@ public interface GraphsFactory extends EFactory {
 	ProcedureFlow createProcedureFlow(Node from, Node to);
 	
 	RegularFlow createRegularFlow(Node from, Node to);
+	
+	SummaryFlow createSummaryFlow(Node from, Node to); 
 
 } //GraphsFactory

@@ -138,7 +138,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___ENTRY__LABELLABLEELEMENT_INT = 0;
+	int ANALYSIS___ENTRY__LABELLABLEELEMENT = 0;
 
 	/**
 	 * The operation id for the '<em>Exit</em>' operation.
@@ -147,7 +147,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___EXIT__LABELLABLEELEMENT_INT = 1;
+	int ANALYSIS___EXIT__LABELLABLEELEMENT = 1;
 
 	/**
 	 * The operation id for the '<em>Perform Analysis</em>' operation.
@@ -165,7 +165,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_ECLASS = 3;
+	int ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS = 3;
 
 	/**
 	 * The operation id for the '<em>Meet</em>' operation.
@@ -177,13 +177,22 @@ public interface AnalysesPackage extends EPackage {
 	int ANALYSIS___MEET__ELIST = 4;
 
 	/**
+	 * The operation id for the '<em>Get All Edges With Direction</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___GET_ALL_EDGES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS = 5;
+
+	/**
 	 * The number of operations of the '<em>Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_OPERATION_COUNT = 5;
+	int ANALYSIS_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link java.lang.Object <em>Comparable</em>}' class.
@@ -297,52 +306,6 @@ public interface AnalysesPackage extends EPackage {
 	int EXIT_ENTRY_PAIR_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.servicifi.gelato.analysis.framework.analyses.impl.IteratorElementImpl <em>Iterator Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.IteratorElementImpl
-	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getIteratorElement()
-	 * @generated
-	 */
-	int ITERATOR_ELEMENT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Iteration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATOR_ELEMENT__ITERATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATOR_ELEMENT__ELEMENT = 1;
-
-	/**
-	 * The number of structural features of the '<em>Iterator Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATOR_ELEMENT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Iterator Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATOR_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.analysis.framework.analyses.impl.AnalysisConfigurationImpl <em>Analysis Configuration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,7 +313,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getAnalysisConfiguration()
 	 * @generated
 	 */
-	int ANALYSIS_CONFIGURATION = 5;
+	int ANALYSIS_CONFIGURATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -396,7 +359,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getIntraproceduralAnalysis()
 	 * @generated
 	 */
-	int INTRAPROCEDURAL_ANALYSIS = 6;
+	int INTRAPROCEDURAL_ANALYSIS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -462,24 +425,6 @@ public interface AnalysesPackage extends EPackage {
 	int INTRAPROCEDURAL_ANALYSIS_FEATURE_COUNT = ANALYSIS_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Entry</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRAPROCEDURAL_ANALYSIS___ENTRY__LABELLABLEELEMENT_INT = ANALYSIS___ENTRY__LABELLABLEELEMENT_INT;
-
-	/**
-	 * The operation id for the '<em>Exit</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRAPROCEDURAL_ANALYSIS___EXIT__LABELLABLEELEMENT_INT = ANALYSIS___EXIT__LABELLABLEELEMENT_INT;
-
-	/**
 	 * The operation id for the '<em>Perform Analysis</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -495,7 +440,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTRAPROCEDURAL_ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_ECLASS = ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_ECLASS;
+	int INTRAPROCEDURAL_ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS = ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS;
 
 	/**
 	 * The operation id for the '<em>Meet</em>' operation.
@@ -507,13 +452,40 @@ public interface AnalysesPackage extends EPackage {
 	int INTRAPROCEDURAL_ANALYSIS___MEET__ELIST = ANALYSIS___MEET__ELIST;
 
 	/**
+	 * The operation id for the '<em>Get All Edges With Direction</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRAPROCEDURAL_ANALYSIS___GET_ALL_EDGES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS = ANALYSIS___GET_ALL_EDGES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS;
+
+	/**
+	 * The operation id for the '<em>Entry</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRAPROCEDURAL_ANALYSIS___ENTRY__LABELLABLEELEMENT = ANALYSIS_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Exit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRAPROCEDURAL_ANALYSIS___EXIT__LABELLABLEELEMENT = ANALYSIS_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Intraprocedural Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTRAPROCEDURAL_ANALYSIS_OPERATION_COUNT = ANALYSIS_OPERATION_COUNT + 0;
+	int INTRAPROCEDURAL_ANALYSIS_OPERATION_COUNT = ANALYSIS_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.analysis.framework.analyses.impl.InterproceduralAnalysisImpl <em>Interprocedural Analysis</em>}' class.
@@ -523,7 +495,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getInterproceduralAnalysis()
 	 * @generated
 	 */
-	int INTERPROCEDURAL_ANALYSIS = 7;
+	int INTERPROCEDURAL_ANALYSIS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -595,7 +567,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERPROCEDURAL_ANALYSIS___ENTRY__LABELLABLEELEMENT_INT = ANALYSIS___ENTRY__LABELLABLEELEMENT_INT;
+	int INTERPROCEDURAL_ANALYSIS___ENTRY__LABELLABLEELEMENT = ANALYSIS___ENTRY__LABELLABLEELEMENT;
 
 	/**
 	 * The operation id for the '<em>Exit</em>' operation.
@@ -604,7 +576,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERPROCEDURAL_ANALYSIS___EXIT__LABELLABLEELEMENT_INT = ANALYSIS___EXIT__LABELLABLEELEMENT_INT;
+	int INTERPROCEDURAL_ANALYSIS___EXIT__LABELLABLEELEMENT = ANALYSIS___EXIT__LABELLABLEELEMENT;
 
 	/**
 	 * The operation id for the '<em>Perform Analysis</em>' operation.
@@ -622,7 +594,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERPROCEDURAL_ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_ECLASS = ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_ECLASS;
+	int INTERPROCEDURAL_ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS = ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS;
 
 	/**
 	 * The operation id for the '<em>Meet</em>' operation.
@@ -632,6 +604,15 @@ public interface AnalysesPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERPROCEDURAL_ANALYSIS___MEET__ELIST = ANALYSIS___MEET__ELIST;
+
+	/**
+	 * The operation id for the '<em>Get All Edges With Direction</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERPROCEDURAL_ANALYSIS___GET_ALL_EDGES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS = ANALYSIS___GET_ALL_EDGES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS;
 
 	/**
 	 * The number of operations of the '<em>Interprocedural Analysis</em>' class.
@@ -650,7 +631,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getReachingDefinitionsAnalysisConfiguration()
 	 * @generated
 	 */
-	int REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION = 8;
+	int REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Direction</b></em>' attribute.
@@ -705,7 +686,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getReachingDefinitionsAnalysisResult()
 	 * @generated
 	 */
-	int REACHING_DEFINITIONS_ANALYSIS_RESULT = 9;
+	int REACHING_DEFINITIONS_ANALYSIS_RESULT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -751,7 +732,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getAnalysisDirection()
 	 * @generated
 	 */
-	int ANALYSIS_DIRECTION = 10;
+	int ANALYSIS_DIRECTION = 9;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.analysis.framework.analyses.AnalysisType <em>Analysis Type</em>}' enum.
@@ -761,7 +742,7 @@ public interface AnalysesPackage extends EPackage {
 	 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getAnalysisType()
 	 * @generated
 	 */
-	int ANALYSIS_TYPE = 11;
+	int ANALYSIS_TYPE = 10;
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis <em>Analysis</em>}'.
@@ -840,24 +821,24 @@ public interface AnalysesPackage extends EPackage {
 	EReference getAnalysis_Configuration();
 
 	/**
-	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#entry(org.servicifi.gelato.analysis.framework.commons.LabellableElement, int) <em>Entry</em>}' operation.
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#entry(org.servicifi.gelato.analysis.framework.commons.LabellableElement) <em>Entry</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Entry</em>' operation.
-	 * @see org.servicifi.gelato.analysis.framework.analyses.Analysis#entry(org.servicifi.gelato.analysis.framework.commons.LabellableElement, int)
+	 * @see org.servicifi.gelato.analysis.framework.analyses.Analysis#entry(org.servicifi.gelato.analysis.framework.commons.LabellableElement)
 	 * @generated
 	 */
-	EOperation getAnalysis__Entry__LabellableElement_int();
+	EOperation getAnalysis__Entry__LabellableElement();
 
 	/**
-	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#exit(org.servicifi.gelato.analysis.framework.commons.LabellableElement, int) <em>Exit</em>}' operation.
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#exit(org.servicifi.gelato.analysis.framework.commons.LabellableElement) <em>Exit</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Exit</em>' operation.
-	 * @see org.servicifi.gelato.analysis.framework.analyses.Analysis#exit(org.servicifi.gelato.analysis.framework.commons.LabellableElement, int)
+	 * @see org.servicifi.gelato.analysis.framework.analyses.Analysis#exit(org.servicifi.gelato.analysis.framework.commons.LabellableElement)
 	 * @generated
 	 */
-	EOperation getAnalysis__Exit__LabellableElement_int();
+	EOperation getAnalysis__Exit__LabellableElement();
 
 	/**
 	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#performAnalysis() <em>Perform Analysis</em>}' operation.
@@ -870,14 +851,14 @@ public interface AnalysesPackage extends EPackage {
 	EOperation getAnalysis__PerformAnalysis();
 
 	/**
-	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#getAllNodesWithDirection(org.servicifi.gelato.analysis.framework.commons.LabellableElement, org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection, org.eclipse.emf.ecore.EClass) <em>Get All Nodes With Direction</em>}' operation.
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#getAllNodesWithDirection(org.servicifi.gelato.analysis.framework.commons.LabellableElement, org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection, java.lang.Class) <em>Get All Nodes With Direction</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Nodes With Direction</em>' operation.
-	 * @see org.servicifi.gelato.analysis.framework.analyses.Analysis#getAllNodesWithDirection(org.servicifi.gelato.analysis.framework.commons.LabellableElement, org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection, org.eclipse.emf.ecore.EClass)
+	 * @see org.servicifi.gelato.analysis.framework.analyses.Analysis#getAllNodesWithDirection(org.servicifi.gelato.analysis.framework.commons.LabellableElement, org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection, java.lang.Class)
 	 * @generated
 	 */
-	EOperation getAnalysis__GetAllNodesWithDirection__LabellableElement_AnalysisDirection_EClass();
+	EOperation getAnalysis__GetAllNodesWithDirection__LabellableElement_AnalysisDirection_Class();
 
 	/**
 	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#meet(org.eclipse.emf.common.util.EList) <em>Meet</em>}' operation.
@@ -888,6 +869,16 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAnalysis__Meet__EList();
+
+	/**
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#getAllEdgesWithDirection(org.servicifi.gelato.analysis.framework.commons.LabellableElement, org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection, java.lang.Class) <em>Get All Edges With Direction</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Edges With Direction</em>' operation.
+	 * @see org.servicifi.gelato.analysis.framework.analyses.Analysis#getAllEdgesWithDirection(org.servicifi.gelato.analysis.framework.commons.LabellableElement, org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection, java.lang.Class)
+	 * @generated
+	 */
+	EOperation getAnalysis__GetAllEdgesWithDirection__LabellableElement_AnalysisDirection_Class();
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.analyses.AnalysisResult <em>Analysis Result</em>}'.
@@ -954,38 +945,6 @@ public interface AnalysesPackage extends EPackage {
 	EClass getComparable();
 
 	/**
-	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.analyses.IteratorElement <em>Iterator Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Iterator Element</em>'.
-	 * @see org.servicifi.gelato.analysis.framework.analyses.IteratorElement
-	 * @generated
-	 */
-	EClass getIteratorElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.servicifi.gelato.analysis.framework.analyses.IteratorElement#getIteration <em>Iteration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Iteration</em>'.
-	 * @see org.servicifi.gelato.analysis.framework.analyses.IteratorElement#getIteration()
-	 * @see #getIteratorElement()
-	 * @generated
-	 */
-	EAttribute getIteratorElement_Iteration();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.servicifi.gelato.analysis.framework.analyses.IteratorElement#getElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element</em>'.
-	 * @see org.servicifi.gelato.analysis.framework.analyses.IteratorElement#getElement()
-	 * @see #getIteratorElement()
-	 * @generated
-	 */
-	EReference getIteratorElement_Element();
-
-	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration <em>Analysis Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1026,6 +985,26 @@ public interface AnalysesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIntraproceduralAnalysis();
+
+	/**
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis#entry(org.servicifi.gelato.analysis.framework.commons.LabellableElement) <em>Entry</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Entry</em>' operation.
+	 * @see org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis#entry(org.servicifi.gelato.analysis.framework.commons.LabellableElement)
+	 * @generated
+	 */
+	EOperation getIntraproceduralAnalysis__Entry__LabellableElement();
+
+	/**
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis#exit(org.servicifi.gelato.analysis.framework.commons.LabellableElement) <em>Exit</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Exit</em>' operation.
+	 * @see org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis#exit(org.servicifi.gelato.analysis.framework.commons.LabellableElement)
+	 * @generated
+	 */
+	EOperation getIntraproceduralAnalysis__Exit__LabellableElement();
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.analyses.InterproceduralAnalysis <em>Interprocedural Analysis</em>}'.
@@ -1186,7 +1165,7 @@ public interface AnalysesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ANALYSIS___ENTRY__LABELLABLEELEMENT_INT = eINSTANCE.getAnalysis__Entry__LabellableElement_int();
+		EOperation ANALYSIS___ENTRY__LABELLABLEELEMENT = eINSTANCE.getAnalysis__Entry__LabellableElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Exit</b></em>' operation.
@@ -1194,7 +1173,7 @@ public interface AnalysesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ANALYSIS___EXIT__LABELLABLEELEMENT_INT = eINSTANCE.getAnalysis__Exit__LabellableElement_int();
+		EOperation ANALYSIS___EXIT__LABELLABLEELEMENT = eINSTANCE.getAnalysis__Exit__LabellableElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Perform Analysis</b></em>' operation.
@@ -1210,7 +1189,7 @@ public interface AnalysesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_ECLASS = eINSTANCE.getAnalysis__GetAllNodesWithDirection__LabellableElement_AnalysisDirection_EClass();
+		EOperation ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS = eINSTANCE.getAnalysis__GetAllNodesWithDirection__LabellableElement_AnalysisDirection_Class();
 
 		/**
 		 * The meta object literal for the '<em><b>Meet</b></em>' operation.
@@ -1219,6 +1198,14 @@ public interface AnalysesPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ANALYSIS___MEET__ELIST = eINSTANCE.getAnalysis__Meet__EList();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Edges With Direction</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___GET_ALL_EDGES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS = eINSTANCE.getAnalysis__GetAllEdgesWithDirection__LabellableElement_AnalysisDirection_Class();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.analysis.framework.analyses.impl.AnalysisResultImpl <em>Analysis Result</em>}' class.
@@ -1275,32 +1262,6 @@ public interface AnalysesPackage extends EPackage {
 		EClass COMPARABLE = eINSTANCE.getComparable();
 
 		/**
-		 * The meta object literal for the '{@link org.servicifi.gelato.analysis.framework.analyses.impl.IteratorElementImpl <em>Iterator Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.servicifi.gelato.analysis.framework.analyses.impl.IteratorElementImpl
-		 * @see org.servicifi.gelato.analysis.framework.analyses.impl.AnalysesPackageImpl#getIteratorElement()
-		 * @generated
-		 */
-		EClass ITERATOR_ELEMENT = eINSTANCE.getIteratorElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Iteration</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITERATOR_ELEMENT__ITERATION = eINSTANCE.getIteratorElement_Iteration();
-
-		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITERATOR_ELEMENT__ELEMENT = eINSTANCE.getIteratorElement_Element();
-
-		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.analysis.framework.analyses.impl.AnalysisConfigurationImpl <em>Analysis Configuration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1335,6 +1296,22 @@ public interface AnalysesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INTRAPROCEDURAL_ANALYSIS = eINSTANCE.getIntraproceduralAnalysis();
+
+		/**
+		 * The meta object literal for the '<em><b>Entry</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTRAPROCEDURAL_ANALYSIS___ENTRY__LABELLABLEELEMENT = eINSTANCE.getIntraproceduralAnalysis__Entry__LabellableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Exit</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTRAPROCEDURAL_ANALYSIS___EXIT__LABELLABLEELEMENT = eINSTANCE.getIntraproceduralAnalysis__Exit__LabellableElement();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.analysis.framework.analyses.impl.InterproceduralAnalysisImpl <em>Interprocedural Analysis</em>}' class.

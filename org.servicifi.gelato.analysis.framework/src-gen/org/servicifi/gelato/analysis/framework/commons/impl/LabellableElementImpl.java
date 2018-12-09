@@ -5,25 +5,22 @@ package org.servicifi.gelato.analysis.framework.commons.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.servicifi.gelato.analysis.framework.analyses.AnalysesFactory;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
 import org.servicifi.gelato.analysis.framework.commons.CommonsPackage;
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
-import org.servicifi.gelato.analysis.framework.commons.Variable;
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
 
 import org.servicifi.gelato.analysis.framework.graphs.impl.NodeImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Labellable Element</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Labellable Element</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -35,9 +32,9 @@ import org.servicifi.gelato.analysis.framework.graphs.impl.NodeImpl;
  */
 public abstract class LabellableElementImpl extends NodeImpl implements LabellableElement {
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -45,9 +42,9 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	protected static final long LABEL_EDEFAULT = 0L;
 
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -55,8 +52,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	protected long label = LABEL_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected LabellableElementImpl() {
@@ -64,8 +60,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -74,8 +69,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public long getLabel() {
@@ -83,8 +77,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setLabel(long newLabel) {
@@ -93,6 +86,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.LABELLABLE_ELEMENT__LABEL, oldLabel, label));
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,7 +104,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EList<LabellableElement>> last() {
+	public EList<LabellableElement> last() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -121,18 +115,18 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EList<Flow>> internalFlow() {
+	public EList<Flow> internalFlow() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public EList<AnalysisResult> gen(EClass configuration) {
+	public EList<AnalysisResult> gen(AnalysisConfiguration configuration) {
 		EList<AnalysisResult> res = new UniqueEList<>();
 //		if (e instanceof AssignmentStatement) {
 //			DataItem v = (DataItem) ((AssignmentStatement) e).getTarget();
@@ -159,29 +153,29 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 		// }
 		// }
 //		else 
-		if (this instanceof UsageExpression) {
-			// Order matters
-			EList<Variable> vars = ((UsageExpression) e).getUsedVariables();
-			for (Variable v : vars) {
-				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
-				if (assignments.containsKey(v)) {
-					assignments.get(v).add(e.getLabel());
-				} else {
-					EList<Long> i = new BasicEList<>(1);
-					i.add(e.getLabel());
-					assignments.put(v, i);
-				}
-			}
-		}
+//		if (this instanceof UsageExpression) {
+//			// Order matters
+//			EList<Variable> vars = ((UsageExpression) e).getUsedVariables();
+//			for (Variable v : vars) {
+//				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
+//				if (assignments.containsKey(v)) {
+//					assignments.get(v).add(e.getLabel());
+//				} else {
+//					EList<Long> i = new BasicEList<>(1);
+//					i.add(e.getLabel());
+//					assignments.put(v, i);
+//				}
+//			}
+//		}
 		return res;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public EList<AnalysisResult> kill(EClass configuration) {
+	public EList<AnalysisResult> kill(AnalysisConfiguration configuration) {
 		EList<AnalysisResult> res = new UniqueEList<>();
 
 //		if (e instanceof DefinitionExpression) {
@@ -208,25 +202,23 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 		// }
 		// }
 //		else
-			if (this instanceof DefinitionExpression) {
-			// Order matters
-			EList<Variable> vars = ((DefinitionExpression) e).getDefinedVariables();
-			for (Variable v : vars) {
-				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
-				if (assignments.containsKey(v)) {
-					for (Long i : assignments.get(v)) {
-						res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, i));
-					}
-				}
-			}
-		}
+//		if (this instanceof DefinitionExpression) {
+//			// Order matters
+//			EList<Variable> vars = ((DefinitionExpression) e).getDefinedVariables();
+//			for (Variable v : vars) {
+//				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, -1));
+//				if (assignments.containsKey(v)) {
+//					for (Long i : assignments.get(v)) {
+//						res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, i));
+//					}
+//				}
+//			}
+//		}
 		return res;
 	}
-	
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -239,8 +231,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -254,8 +245,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -269,8 +259,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -283,8 +272,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -296,17 +284,16 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 				return last();
 			case CommonsPackage.LABELLABLE_ELEMENT___INTERNAL_FLOW:
 				return internalFlow();
-			case CommonsPackage.LABELLABLE_ELEMENT___GEN__ECLASS:
-				return gen((EClass)arguments.get(0));
-			case CommonsPackage.LABELLABLE_ELEMENT___KILL__ECLASS:
-				return kill((EClass)arguments.get(0));
+			case CommonsPackage.LABELLABLE_ELEMENT___GEN__ANALYSISCONFIGURATION:
+				return gen((AnalysisConfiguration)arguments.get(0));
+			case CommonsPackage.LABELLABLE_ELEMENT___KILL__ANALYSISCONFIGURATION:
+				return kill((AnalysisConfiguration)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -320,4 +307,4 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 		return result.toString();
 	}
 
-} //LabellableElementImpl
+} // LabellableElementImpl

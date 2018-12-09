@@ -55,22 +55,12 @@ public class GraphsFactoryImpl extends EFactoryImpl implements GraphsFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case GraphsPackage.FLOW: return createFlow();
 			case GraphsPackage.REGULAR_FLOW: return createRegularFlow();
 			case GraphsPackage.PROCEDURE_FLOW: return createProcedureFlow();
+			case GraphsPackage.SUMMARY_FLOW: return createSummaryFlow();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Flow createFlow() {
-		FlowImpl flow = new FlowImpl();
-		return flow;
 	}
 
 	/**
@@ -98,9 +88,26 @@ public class GraphsFactoryImpl extends EFactoryImpl implements GraphsFactory {
 		return procedureFlow;
 	}
 	
+
 	public ProcedureFlow createProcedureFlow(Node from, Node to) {
 		ProcedureFlowImpl procedureFlow = new ProcedureFlowImpl(from, to);
 		return procedureFlow;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SummaryFlow createSummaryFlow() {
+		SummaryFlowImpl summaryFlow = new SummaryFlowImpl();
+		return summaryFlow;
+	}
+	
+	@Override
+	public SummaryFlow createSummaryFlow(Node from, Node to) {
+		SummaryFlowImpl summaryFlow = new SummaryFlowImpl(from, to);
+		return summaryFlow;
 	}
 
 	/**

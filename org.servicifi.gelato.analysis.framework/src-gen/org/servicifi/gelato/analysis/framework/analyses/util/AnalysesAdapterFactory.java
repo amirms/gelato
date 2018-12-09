@@ -16,7 +16,6 @@ import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
 import org.servicifi.gelato.analysis.framework.analyses.InterproceduralAnalysis;
 import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
-import org.servicifi.gelato.analysis.framework.analyses.IteratorElement;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisResult;
 
@@ -91,10 +90,6 @@ public class AnalysesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseComparable(Comparable object) {
 				return createComparableAdapter();
-			}
-			@Override
-			public Adapter caseIteratorElement(IteratorElement object) {
-				return createIteratorElementAdapter();
 			}
 			@Override
 			public Adapter caseAnalysisConfiguration(AnalysisConfiguration object) {
@@ -189,20 +184,6 @@ public class AnalysesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComparableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.analysis.framework.analyses.IteratorElement <em>Iterator Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.servicifi.gelato.analysis.framework.analyses.IteratorElement
-	 * @generated
-	 */
-	public Adapter createIteratorElementAdapter() {
 		return null;
 	}
 

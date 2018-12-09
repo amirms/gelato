@@ -16,7 +16,10 @@ Export-Package: org.servicifi.gelato.analysis.framework.analyses,
  org.servicifi.gelato.analysis.framework.commons.util,
  org.servicifi.gelato.analysis.framework.graphs,
  org.servicifi.gelato.analysis.framework.graphs.impl,
- org.servicifi.gelato.analysis.framework.graphs.util
+ org.servicifi.gelato.analysis.framework.graphs.util,
+ org.servicifi.gelato.analysis.framework.procedures,
+ org.servicifi.gelato.analysis.framework.procedures.impl,
+ org.servicifi.gelato.analysis.framework.procedures.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.emfstore.common

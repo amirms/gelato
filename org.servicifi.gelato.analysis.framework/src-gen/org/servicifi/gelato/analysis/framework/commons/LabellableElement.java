@@ -4,8 +4,9 @@ package org.servicifi.gelato.analysis.framework.commons;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EClass;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
+
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.analysis.framework.graphs.Node;
 
@@ -66,7 +67,7 @@ public interface LabellableElement extends Node {
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<EList<LabellableElement>> last();
+	EList<LabellableElement> last();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,7 +75,7 @@ public interface LabellableElement extends Node {
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<EList<Flow>> internalFlow();
+	EList<Flow> internalFlow();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,7 +83,7 @@ public interface LabellableElement extends Node {
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<AnalysisResult> gen(EClass configuration);
+	EList<AnalysisResult> gen(AnalysisConfiguration configuration);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,6 +91,6 @@ public interface LabellableElement extends Node {
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<AnalysisResult> kill(EClass configuration);
+	EList<AnalysisResult> kill(AnalysisConfiguration configuration);
 
 } // LabellableElement

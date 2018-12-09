@@ -3,26 +3,30 @@
 package org.servicifi.gelato.analysis.framework.analyses.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.servicifi.gelato.analysis.framework.analyses.AnalysesFactory;
+
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
 import org.servicifi.gelato.analysis.framework.analyses.Analysis;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
-import org.servicifi.gelato.analysis.framework.analyses.IteratorElement;
 import org.servicifi.gelato.analysis.framework.commons.End;
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.analysis.framework.commons.Start;
@@ -30,8 +34,9 @@ import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.analysis.framework.graphs.Node;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Analysis</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Analysis</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -49,7 +54,8 @@ import org.servicifi.gelato.analysis.framework.graphs.Node;
 public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implements Analysis {
 	/**
 	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDirection()
 	 * @generated
 	 * @ordered
@@ -58,7 +64,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getDirection()
 	 * @generated
 	 * @ordered
@@ -66,9 +73,9 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	protected AnalysisDirection direction = DIRECTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCfg() <em>Cfg</em>}' reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getCfg() <em>Cfg</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getCfg()
 	 * @generated
 	 * @ordered
@@ -77,7 +84,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * The cached value of the '{@link #getResult() <em>Result</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getResult()
 	 * @generated
 	 * @ordered
@@ -86,25 +94,28 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 
 	/**
 	 * The cached value of the '{@link #getExitTable() <em>Exit Table</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getExitTable()
 	 * @generated
 	 * @ordered
 	 */
-	protected Map<IteratorElement, EList<AnalysisResult>> exitTable;
+	protected Map<LabellableElement, EList<AnalysisResult>> exitTable;
 
 	/**
 	 * The cached value of the '{@link #getEntryTable() <em>Entry Table</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getEntryTable()
 	 * @generated
 	 * @ordered
 	 */
-	protected Map<IteratorElement, EList<AnalysisResult>> entryTable;
+	protected Map<LabellableElement, EList<AnalysisResult>> entryTable;
 
 	/**
 	 * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getConfiguration()
 	 * @generated
 	 * @ordered
@@ -112,13 +123,14 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	protected AnalysisConfiguration configuration;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected AnalysisImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
@@ -135,7 +147,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -144,7 +157,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AnalysisDirection getDirection() {
@@ -152,7 +166,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDirection(AnalysisDirection newDirection) {
@@ -163,7 +178,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<Flow> getCfg() {
@@ -174,7 +190,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Map<Long, ExitEntryPair> getResult() {
@@ -182,7 +199,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setResult(Map<Long, ExitEntryPair> newResult) {
@@ -193,45 +211,50 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map<IteratorElement, EList<AnalysisResult>> getExitTable() {
+	public Map<LabellableElement, EList<AnalysisResult>> getExitTable() {
 		return exitTable;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExitTable(Map<IteratorElement, EList<AnalysisResult>> newExitTable) {
-		Map<IteratorElement, EList<AnalysisResult>> oldExitTable = exitTable;
+	public void setExitTable(Map<LabellableElement, EList<AnalysisResult>> newExitTable) {
+		Map<LabellableElement, EList<AnalysisResult>> oldExitTable = exitTable;
 		exitTable = newExitTable;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnalysesPackage.ANALYSIS__EXIT_TABLE, oldExitTable, exitTable));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map<IteratorElement, EList<AnalysisResult>> getEntryTable() {
+	public Map<LabellableElement, EList<AnalysisResult>> getEntryTable() {
 		return entryTable;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEntryTable(Map<IteratorElement, EList<AnalysisResult>> newEntryTable) {
-		Map<IteratorElement, EList<AnalysisResult>> oldEntryTable = entryTable;
+	public void setEntryTable(Map<LabellableElement, EList<AnalysisResult>> newEntryTable) {
+		Map<LabellableElement, EList<AnalysisResult>> oldEntryTable = entryTable;
 		entryTable = newEntryTable;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnalysesPackage.ANALYSIS__ENTRY_TABLE, oldEntryTable, entryTable));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AnalysisConfiguration getConfiguration() {
@@ -239,7 +262,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(AnalysisConfiguration newConfiguration, NotificationChain msgs) {
@@ -253,7 +277,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setConfiguration(AnalysisConfiguration newConfiguration) {
@@ -271,95 +296,36 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<AnalysisResult> entry(LabellableElement e, int i) {
-		if (e instanceof Start) {
-			return new UniqueEList<>();
-		}
-		// res must be TreeSet
-		EList<AnalysisResult> res = new UniqueEList<>();
-		for (LabellableElement workElement : getAllNodesWithDirection(e, AnalysisDirection.BACKWARDS, Flow.class)) {
-			EList<AnalysisResult> x = getExitTable()
-					.get(AnalysesFactory.eINSTANCE.createIteratorElement(i, workElement));
-			if (x == null) {
-				x = new UniqueEList<>();
-			}
-			res.addAll(x);
-		}
-		getEntryTable().put(AnalysesFactory.eINSTANCE.createIteratorElement(i, e), res);
-		return res;
-	}
+	public abstract EList<AnalysisResult> entry(LabellableElement e);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public abstract EList<AnalysisResult> exit(LabellableElement e);
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
-	public EList<AnalysisResult> exit(LabellableElement e, int i) {
-		if (e instanceof Start) {
-			return new UniqueEList<>();
-		}
-		EList<AnalysisResult> res = getEntryTable().get(AnalysesFactory.eINSTANCE.createIteratorElement(i - 1, e));
-		if (res == null) {
-			res = new UniqueEList<>();
-		}
-		for (AnalysisResult ar : this.getConfiguration().kill(e)) {
-			res.remove(ar);
-		}
-		res.addAll(this.getConfiguration().gen(e));
-		// TreeSet or UniqueEList
-		res = new UniqueEList<>(res);
-		getExitTable().put(AnalysesFactory.eINSTANCE.createIteratorElement(i, e), res);
-		return res;
-	}
+	public abstract Map<Long, ExitEntryPair> performAnalysis();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Map<Long, ExitEntryPair> performAnalysis() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<LabellableElement> getAllNodesWithDirection(LabellableElement e, AnalysisDirection dir,
-			EClass flowType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<AnalysisResult> meet(EList<EList<AnalysisResult>> exits) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<LabellableElement> getAllNodesWithDirection(LabellableElement e, AnalysisDirection analysisDirection,
-			Class<? extends Flow> flowType) {
-		// there is a unique pair of start and end nodes
-
-		if ((e instanceof Start) && (analysisDirection == AnalysisDirection.BACKWARDS))
+	public EList<LabellableElement> getAllNodesWithDirection(LabellableElement e, AnalysisDirection dir, Class<? extends Flow> flowType) {
+		if ((e instanceof Start) && (getDirection() == AnalysisDirection.BACKWARDS))
 			return new UniqueEList<>();
 
-		if ((e instanceof End) && (analysisDirection == AnalysisDirection.FORWARDS))
+		if ((e instanceof End) && (getDirection() == AnalysisDirection.FORWARDS))
 			return new UniqueEList<>();
 
 		EList<LabellableElement> res = new UniqueEList<>();
@@ -368,12 +334,12 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 			if (flowType.isInstance(f)) {
 				Node from = f.getFrom();
 				Node to = f.getTo();
-				if (analysisDirection == AnalysisDirection.BACKWARDS && to.equals(e)) {
-					//TODO not sure if LE -|> Node or Node -|> LE
+				if (getDirection() == AnalysisDirection.BACKWARDS && to.equals(e)) {
+					// TODO not sure if LE -|> Node or Node -|> LE
 					if (from instanceof LabellableElement) {
 						res.add((LabellableElement) from);
 					}
-				} else if (analysisDirection == AnalysisDirection.FORWARDS && from.equals(e)) {
+				} else if (getDirection() == AnalysisDirection.FORWARDS && from.equals(e)) {
 					if (to instanceof LabellableElement) {
 						res.add((LabellableElement) to);
 					}
@@ -383,8 +349,20 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 		return res;
 	}
 
-	public EList<Flow> getAllEdgesWithDirection(LabellableElement e, AnalysisDirection dir,
-			Class<? extends Flow> flowType) {
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public abstract EList<AnalysisResult> meet(EList<EList<AnalysisResult>> exits);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Flow> getAllEdgesWithDirection(LabellableElement e, AnalysisDirection dir, Class<? extends Flow> flowType) {
 		if ((e instanceof Start) && (dir == AnalysisDirection.BACKWARDS))
 			return new UniqueEList<>();
 
@@ -406,7 +384,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -419,7 +398,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -442,7 +422,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -460,10 +441,10 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 				setResult((Map<Long, ExitEntryPair>)newValue);
 				return;
 			case AnalysesPackage.ANALYSIS__EXIT_TABLE:
-				setExitTable((Map<IteratorElement, EList<AnalysisResult>>)newValue);
+				setExitTable((Map<LabellableElement, EList<AnalysisResult>>)newValue);
 				return;
 			case AnalysesPackage.ANALYSIS__ENTRY_TABLE:
-				setEntryTable((Map<IteratorElement, EList<AnalysisResult>>)newValue);
+				setEntryTable((Map<LabellableElement, EList<AnalysisResult>>)newValue);
 				return;
 			case AnalysesPackage.ANALYSIS__CONFIGURATION:
 				setConfiguration((AnalysisConfiguration)newValue);
@@ -473,7 +454,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -489,10 +471,10 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 				setResult((Map<Long, ExitEntryPair>)null);
 				return;
 			case AnalysesPackage.ANALYSIS__EXIT_TABLE:
-				setExitTable((Map<IteratorElement, EList<AnalysisResult>>)null);
+				setExitTable((Map<LabellableElement, EList<AnalysisResult>>)null);
 				return;
 			case AnalysesPackage.ANALYSIS__ENTRY_TABLE:
-				setEntryTable((Map<IteratorElement, EList<AnalysisResult>>)null);
+				setEntryTable((Map<LabellableElement, EList<AnalysisResult>>)null);
 				return;
 			case AnalysesPackage.ANALYSIS__CONFIGURATION:
 				setConfiguration((AnalysisConfiguration)null);
@@ -502,7 +484,8 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -525,29 +508,33 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AnalysesPackage.ANALYSIS___ENTRY__LABELLABLEELEMENT_INT:
-				return entry((LabellableElement)arguments.get(0), (Integer)arguments.get(1));
-			case AnalysesPackage.ANALYSIS___EXIT__LABELLABLEELEMENT_INT:
-				return exit((LabellableElement)arguments.get(0), (Integer)arguments.get(1));
+			case AnalysesPackage.ANALYSIS___ENTRY__LABELLABLEELEMENT:
+				return entry((LabellableElement)arguments.get(0));
+			case AnalysesPackage.ANALYSIS___EXIT__LABELLABLEELEMENT:
+				return exit((LabellableElement)arguments.get(0));
 			case AnalysesPackage.ANALYSIS___PERFORM_ANALYSIS:
 				return performAnalysis();
-			case AnalysesPackage.ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_ECLASS:
-				return getAllNodesWithDirection((LabellableElement)arguments.get(0), (AnalysisDirection)arguments.get(1), (EClass)arguments.get(2));
+			case AnalysesPackage.ANALYSIS___GET_ALL_NODES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS:
+				return getAllNodesWithDirection((LabellableElement)arguments.get(0), (AnalysisDirection)arguments.get(1), (Class<? extends Flow>)arguments.get(2));
 			case AnalysesPackage.ANALYSIS___MEET__ELIST:
 				return meet((EList<EList<AnalysisResult>>)arguments.get(0));
+			case AnalysesPackage.ANALYSIS___GET_ALL_EDGES_WITH_DIRECTION__LABELLABLEELEMENT_ANALYSISDIRECTION_CLASS:
+				return getAllEdgesWithDirection((LabellableElement)arguments.get(0), (AnalysisDirection)arguments.get(1), (Class<? extends Flow>)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -567,4 +554,4 @@ public abstract class AnalysisImpl extends MinimalEObjectImpl.Container implemen
 		return result.toString();
 	}
 
-} // AnalysisImpl
+} //AnalysisImpl

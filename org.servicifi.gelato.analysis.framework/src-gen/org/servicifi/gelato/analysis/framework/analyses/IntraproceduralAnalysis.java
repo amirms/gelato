@@ -2,6 +2,9 @@
  */
 package org.servicifi.gelato.analysis.framework.analyses;
 
+import org.eclipse.emf.common.util.EList;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -14,4 +17,20 @@ package org.servicifi.gelato.analysis.framework.analyses;
  * @generated
  */
 public interface IntraproceduralAnalysis extends Analysis {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" eRequired="true"
+	 * @generated
+	 */
+	EList<AnalysisResult> entry(LabellableElement e);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model ordered="false" eRequired="true"
+	 * @generated
+	 */
+	EList<AnalysisResult> exit(LabellableElement e);
 } // IntraproceduralAnalysis

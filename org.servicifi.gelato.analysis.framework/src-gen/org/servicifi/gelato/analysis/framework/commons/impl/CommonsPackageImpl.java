@@ -4,7 +4,6 @@ package org.servicifi.gelato.analysis.framework.commons.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -24,6 +23,8 @@ import org.servicifi.gelato.analysis.framework.commons.Variable;
 import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
 
 import org.servicifi.gelato.analysis.framework.graphs.impl.GraphsPackageImpl;
+import org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage;
+import org.servicifi.gelato.analysis.framework.procedures.impl.ProceduresPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,16 +113,20 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 		GraphsPackageImpl theGraphsPackage = (GraphsPackageImpl)(registeredPackage instanceof GraphsPackageImpl ? registeredPackage : GraphsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI);
 		AnalysesPackageImpl theAnalysesPackage = (AnalysesPackageImpl)(registeredPackage instanceof AnalysesPackageImpl ? registeredPackage : AnalysesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI);
+		ProceduresPackageImpl theProceduresPackage = (ProceduresPackageImpl)(registeredPackage instanceof ProceduresPackageImpl ? registeredPackage : ProceduresPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCommonsPackage.createPackageContents();
 		theGraphsPackage.createPackageContents();
 		theAnalysesPackage.createPackageContents();
+		theProceduresPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCommonsPackage.initializePackageContents();
 		theGraphsPackage.initializePackageContents();
 		theAnalysesPackage.initializePackageContents();
+		theProceduresPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theCommonsPackage.freeze();
@@ -181,7 +186,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getLabellableElement__Gen__EClass() {
+	public EOperation getLabellableElement__Gen__AnalysisConfiguration() {
 		return labellableElementEClass.getEOperations().get(3);
 	}
 
@@ -190,7 +195,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getLabellableElement__Kill__EClass() {
+	public EOperation getLabellableElement__Kill__AnalysisConfiguration() {
 		return labellableElementEClass.getEOperations().get(4);
 	}
 
@@ -254,8 +259,8 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___FIRST);
 		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___LAST);
 		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___INTERNAL_FLOW);
-		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___GEN__ECLASS);
-		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___KILL__ECLASS);
+		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___GEN__ANALYSISCONFIGURATION);
+		createEOperation(labellableElementEClass, LABELLABLE_ELEMENT___KILL__ANALYSISCONFIGURATION);
 
 		variableEClass = createEClass(VARIABLE);
 
@@ -306,23 +311,15 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 
 		initEOperation(getLabellableElement__First(), this.getLabellableElement(), "first", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getLabellableElement__Last(), null, "last", 1, -1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEEList());
-		EGenericType g2 = createEGenericType(this.getLabellableElement());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
+		initEOperation(getLabellableElement__Last(), this.getLabellableElement(), "last", 1, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getLabellableElement__InternalFlow(), null, "internalFlow", 1, -1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEEList());
-		g2 = createEGenericType(theGraphsPackage.getFlow());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
+		initEOperation(getLabellableElement__InternalFlow(), theGraphsPackage.getFlow(), "internalFlow", 1, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getLabellableElement__Gen__EClass(), theAnalysesPackage.getAnalysisResult(), "gen", 1, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEClass(), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getLabellableElement__Gen__AnalysisConfiguration(), theAnalysesPackage.getAnalysisResult(), "gen", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theAnalysesPackage.getAnalysisConfiguration(), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getLabellableElement__Kill__EClass(), theAnalysesPackage.getAnalysisResult(), "kill", 1, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEClass(), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getLabellableElement__Kill__AnalysisConfiguration(), theAnalysesPackage.getAnalysisResult(), "kill", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theAnalysesPackage.getAnalysisConfiguration(), "configuration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableEClass, Variable.class, "Variable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

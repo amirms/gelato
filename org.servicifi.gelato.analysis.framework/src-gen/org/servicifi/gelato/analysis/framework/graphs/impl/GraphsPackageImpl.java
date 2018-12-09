@@ -23,6 +23,9 @@ import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
 import org.servicifi.gelato.analysis.framework.graphs.Node;
 import org.servicifi.gelato.analysis.framework.graphs.ProcedureFlow;
 import org.servicifi.gelato.analysis.framework.graphs.RegularFlow;
+import org.servicifi.gelato.analysis.framework.graphs.SummaryFlow;
+import org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage;
+import org.servicifi.gelato.analysis.framework.procedures.impl.ProceduresPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,6 +61,13 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * @generated
 	 */
 	private EClass nodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass summaryFlowEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -111,16 +121,20 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 		AnalysesPackageImpl theAnalysesPackage = (AnalysesPackageImpl)(registeredPackage instanceof AnalysesPackageImpl ? registeredPackage : AnalysesPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
 		CommonsPackageImpl theCommonsPackage = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : CommonsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI);
+		ProceduresPackageImpl theProceduresPackage = (ProceduresPackageImpl)(registeredPackage instanceof ProceduresPackageImpl ? registeredPackage : ProceduresPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theGraphsPackage.createPackageContents();
 		theAnalysesPackage.createPackageContents();
 		theCommonsPackage.createPackageContents();
+		theProceduresPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGraphsPackage.initializePackageContents();
 		theAnalysesPackage.initializePackageContents();
 		theCommonsPackage.initializePackageContents();
+		theProceduresPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGraphsPackage.freeze();
@@ -216,6 +230,15 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSummaryFlow() {
+		return summaryFlowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GraphsFactory getGraphsFactory() {
 		return (GraphsFactory)getEFactoryInstance();
 	}
@@ -251,6 +274,8 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 		nodeEClass = createEClass(NODE);
 		createEReference(nodeEClass, NODE__PREDECESSORS);
 		createEReference(nodeEClass, NODE__SUCCESSORS);
+
+		summaryFlowEClass = createEClass(SUMMARY_FLOW);
 	}
 
 	/**
@@ -283,9 +308,10 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 		// Add supertypes to classes
 		regularFlowEClass.getESuperTypes().add(this.getFlow());
 		procedureFlowEClass.getESuperTypes().add(this.getFlow());
+		summaryFlowEClass.getESuperTypes().add(this.getFlow());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(flowEClass, Flow.class, "Flow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(flowEClass, Flow.class, "Flow", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFlow_To(), this.getNode(), null, "to", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlow_From(), this.getNode(), null, "from", null, 0, 1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -298,6 +324,8 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNode_Predecessors(), this.getNode(), null, "predecessors", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Successors(), this.getNode(), null, "successors", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(summaryFlowEClass, SummaryFlow.class, "SummaryFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

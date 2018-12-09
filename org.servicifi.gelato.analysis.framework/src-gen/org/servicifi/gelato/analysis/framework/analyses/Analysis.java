@@ -6,9 +6,10 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
 
 /**
@@ -119,7 +120,7 @@ public interface Analysis extends EObject {
 	 * @model required="true" transient="true"
 	 * @generated
 	 */
-	Map<IteratorElement, EList<AnalysisResult>> getExitTable();
+	Map<LabellableElement, EList<AnalysisResult>> getExitTable();
 
 	/**
 	 * Sets the value of the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#getExitTable <em>Exit Table</em>}' attribute.
@@ -129,7 +130,7 @@ public interface Analysis extends EObject {
 	 * @see #getExitTable()
 	 * @generated
 	 */
-	void setExitTable(Map<IteratorElement, EList<AnalysisResult>> value);
+	void setExitTable(Map<LabellableElement, EList<AnalysisResult>> value);
 
 	/**
 	 * Returns the value of the '<em><b>Entry Table</b></em>' attribute.
@@ -145,7 +146,7 @@ public interface Analysis extends EObject {
 	 * @model required="true" transient="true"
 	 * @generated
 	 */
-	Map<IteratorElement, EList<AnalysisResult>> getEntryTable();
+	Map<LabellableElement, EList<AnalysisResult>> getEntryTable();
 
 	/**
 	 * Sets the value of the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#getEntryTable <em>Entry Table</em>}' attribute.
@@ -155,13 +156,13 @@ public interface Analysis extends EObject {
 	 * @see #getEntryTable()
 	 * @generated
 	 */
-	void setEntryTable(Map<IteratorElement, EList<AnalysisResult>> value);
+	void setEntryTable(Map<LabellableElement, EList<AnalysisResult>> value);
 
 	/**
 	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Configuration</em>' reference isn't clear,
+	 * If the meaning of the '<em>Configuration</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -186,18 +187,18 @@ public interface Analysis extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" eRequired="true" iterationRequired="true"
+	 * @model required="true" ordered="false" eRequired="true"
 	 * @generated
 	 */
-	EList<AnalysisResult> entry(LabellableElement e, int iteration);
+	EList<AnalysisResult> entry(LabellableElement e);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model ordered="false" eRequired="true" iterationRequired="true"
+	 * @model ordered="false" eRequired="true"
 	 * @generated
 	 */
-	EList<AnalysisResult> exit(LabellableElement e, int iteration);
+	EList<AnalysisResult> exit(LabellableElement e);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -213,7 +214,7 @@ public interface Analysis extends EObject {
 	 * @model required="true" eRequired="true" dirRequired="true" flowTypeRequired="true"
 	 * @generated
 	 */
-	EList<LabellableElement> getAllNodesWithDirection(LabellableElement e, AnalysisDirection dir, EClass flowType);
+	EList<LabellableElement> getAllNodesWithDirection(LabellableElement e, AnalysisDirection dir, Class<? extends Flow> flowType);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,5 +223,13 @@ public interface Analysis extends EObject {
 	 * @generated
 	 */
 	EList<AnalysisResult> meet(EList<EList<AnalysisResult>> exits);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" eRequired="true" dirRequired="true" flowTypeRequired="true"
+	 * @generated
+	 */
+	EList<Flow> getAllEdgesWithDirection(LabellableElement e, AnalysisDirection dir, Class<? extends Flow> flowType);
 
 } // Analysis

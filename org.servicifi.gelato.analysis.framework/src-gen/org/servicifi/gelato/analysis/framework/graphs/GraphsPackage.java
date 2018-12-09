@@ -269,6 +269,62 @@ public interface GraphsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.servicifi.gelato.analysis.framework.graphs.impl.SummaryFlowImpl <em>Summary Flow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.servicifi.gelato.analysis.framework.graphs.impl.SummaryFlowImpl
+	 * @see org.servicifi.gelato.analysis.framework.graphs.impl.GraphsPackageImpl#getSummaryFlow()
+	 * @generated
+	 */
+	int SUMMARY_FLOW = 4;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUMMARY_FLOW__TO = FLOW__TO;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUMMARY_FLOW__FROM = FLOW__FROM;
+
+	/**
+	 * The number of structural features of the '<em>Summary Flow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUMMARY_FLOW_FEATURE_COUNT = FLOW_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Reverse</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUMMARY_FLOW___REVERSE = FLOW___REVERSE;
+
+	/**
+	 * The number of operations of the '<em>Summary Flow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUMMARY_FLOW_OPERATION_COUNT = FLOW_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.graphs.Flow <em>Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -361,6 +417,16 @@ public interface GraphsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNode_Successors();
+
+	/**
+	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.graphs.SummaryFlow <em>Summary Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Summary Flow</em>'.
+	 * @see org.servicifi.gelato.analysis.framework.graphs.SummaryFlow
+	 * @generated
+	 */
+	EClass getSummaryFlow();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -464,6 +530,16 @@ public interface GraphsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NODE__SUCCESSORS = eINSTANCE.getNode_Successors();
+
+		/**
+		 * The meta object literal for the '{@link org.servicifi.gelato.analysis.framework.graphs.impl.SummaryFlowImpl <em>Summary Flow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.servicifi.gelato.analysis.framework.graphs.impl.SummaryFlowImpl
+		 * @see org.servicifi.gelato.analysis.framework.graphs.impl.GraphsPackageImpl#getSummaryFlow()
+		 * @generated
+		 */
+		EClass SUMMARY_FLOW = eINSTANCE.getSummaryFlow();
 
 	}
 

@@ -18,9 +18,8 @@ import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
 import org.servicifi.gelato.analysis.framework.graphs.Node;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Flow</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Flow</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -31,11 +30,11 @@ import org.servicifi.gelato.analysis.framework.graphs.Node;
  *
  * @generated
  */
-public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
+public abstract class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTo() <em>To</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getTo()
 	 * @generated
 	 * @ordered
@@ -44,17 +43,17 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 
 	/**
 	 * This is true if the To reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean toESet;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getFrom()
 	 * @generated
 	 * @ordered
@@ -62,22 +61,20 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	protected Node from;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected FlowImpl() {
 		super();
 	}
-	
+
 	protected FlowImpl(Node from, Node to) {
 		setFrom(from);
 		setFrom(to);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -86,8 +83,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Node getTo() {
@@ -103,8 +99,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Node basicGetTo() {
@@ -112,8 +107,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTo(Node newTo) {
@@ -126,8 +120,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetTo() {
@@ -140,8 +133,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetTo() {
@@ -149,8 +141,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Node getFrom() {
@@ -166,8 +157,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Node basicGetFrom() {
@@ -175,8 +165,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFrom(Node newFrom) {
@@ -191,13 +180,10 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Flow reverse() {
-		return new FlowImpl(to, from);
-	}
+	public abstract Flow reverse();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -214,8 +200,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -232,8 +217,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -250,8 +234,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -266,8 +249,7 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -279,4 +261,9 @@ public class FlowImpl extends MinimalEObjectImpl.Container implements Flow {
 		return super.eInvoke(operationID, arguments);
 	}
 
-} //FlowImpl
+	@Override
+	public String toString() {
+		return "An edge from " + from + " to " + to;
+	}
+
+} // FlowImpl

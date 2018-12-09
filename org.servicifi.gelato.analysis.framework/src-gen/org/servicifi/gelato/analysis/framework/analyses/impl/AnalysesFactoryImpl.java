@@ -20,10 +20,8 @@ import org.servicifi.gelato.analysis.framework.analyses.AnalysisType;
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
 import org.servicifi.gelato.analysis.framework.analyses.InterproceduralAnalysis;
 import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
-import org.servicifi.gelato.analysis.framework.analyses.IteratorElement;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisResult;
-import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.analysis.framework.commons.Variable;
 
 /**
@@ -71,7 +69,6 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case AnalysesPackage.EXIT_ENTRY_PAIR: return createExitEntryPair();
-			case AnalysesPackage.ITERATOR_ELEMENT: return createIteratorElement();
 			case AnalysesPackage.INTRAPROCEDURAL_ANALYSIS: return createIntraproceduralAnalysis();
 			case AnalysesPackage.INTERPROCEDURAL_ANALYSIS: return createInterproceduralAnalysis();
 			case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION: return createReachingDefinitionsAnalysisConfiguration();
@@ -123,16 +120,6 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 	public ExitEntryPair createExitEntryPair() {
 		ExitEntryPairImpl exitEntryPair = new ExitEntryPairImpl();
 		return exitEntryPair;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IteratorElement createIteratorElement() {
-		IteratorElementImpl iteratorElement = new IteratorElementImpl();
-		return iteratorElement;
 	}
 
 	/**
@@ -235,11 +222,11 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 		return AnalysesPackage.eINSTANCE;
 	}
 
-	@Override
-	public IteratorElement createIteratorElement(int i, LabellableElement workElement) {
-		IteratorElementImpl iteratorElement = new IteratorElementImpl(i, workElement);
-		return iteratorElement;
-	}
+//	@Override
+//	public IteratorElement createIteratorElement(int i, LabellableElement workElement) {
+//		IteratorElementImpl iteratorElement = new IteratorElementImpl(i, workElement);
+//		return iteratorElement;
+//	}
 
 	@Override
 	public AnalysisResult createReachingDefinitionsResult(Variable v, long i) {

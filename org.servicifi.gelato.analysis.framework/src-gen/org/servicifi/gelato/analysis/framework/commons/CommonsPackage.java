@@ -138,7 +138,7 @@ public interface CommonsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABELLABLE_ELEMENT___GEN__ECLASS = GraphsPackage.NODE_OPERATION_COUNT + 3;
+	int LABELLABLE_ELEMENT___GEN__ANALYSISCONFIGURATION = GraphsPackage.NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Kill</em>' operation.
@@ -147,7 +147,7 @@ public interface CommonsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LABELLABLE_ELEMENT___KILL__ECLASS = GraphsPackage.NODE_OPERATION_COUNT + 4;
+	int LABELLABLE_ELEMENT___KILL__ANALYSISCONFIGURATION = GraphsPackage.NODE_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Labellable Element</em>' class.
@@ -267,7 +267,7 @@ public interface CommonsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START___GEN__ECLASS = LABELLABLE_ELEMENT___GEN__ECLASS;
+	int START___GEN__ANALYSISCONFIGURATION = LABELLABLE_ELEMENT___GEN__ANALYSISCONFIGURATION;
 
 	/**
 	 * The operation id for the '<em>Kill</em>' operation.
@@ -276,7 +276,7 @@ public interface CommonsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START___KILL__ECLASS = LABELLABLE_ELEMENT___KILL__ECLASS;
+	int START___KILL__ANALYSISCONFIGURATION = LABELLABLE_ELEMENT___KILL__ANALYSISCONFIGURATION;
 
 	/**
 	 * The number of operations of the '<em>Start</em>' class.
@@ -367,7 +367,7 @@ public interface CommonsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END___GEN__ECLASS = LABELLABLE_ELEMENT___GEN__ECLASS;
+	int END___GEN__ANALYSISCONFIGURATION = LABELLABLE_ELEMENT___GEN__ANALYSISCONFIGURATION;
 
 	/**
 	 * The operation id for the '<em>Kill</em>' operation.
@@ -376,7 +376,7 @@ public interface CommonsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END___KILL__ECLASS = LABELLABLE_ELEMENT___KILL__ECLASS;
+	int END___KILL__ANALYSISCONFIGURATION = LABELLABLE_ELEMENT___KILL__ANALYSISCONFIGURATION;
 
 	/**
 	 * The number of operations of the '<em>End</em>' class.
@@ -440,24 +440,24 @@ public interface CommonsPackage extends EPackage {
 	EOperation getLabellableElement__InternalFlow();
 
 	/**
-	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.commons.LabellableElement#gen(org.eclipse.emf.ecore.EClass) <em>Gen</em>}' operation.
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.commons.LabellableElement#gen(org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration) <em>Gen</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Gen</em>' operation.
-	 * @see org.servicifi.gelato.analysis.framework.commons.LabellableElement#gen(org.eclipse.emf.ecore.EClass)
+	 * @see org.servicifi.gelato.analysis.framework.commons.LabellableElement#gen(org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration)
 	 * @generated
 	 */
-	EOperation getLabellableElement__Gen__EClass();
+	EOperation getLabellableElement__Gen__AnalysisConfiguration();
 
 	/**
-	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.commons.LabellableElement#kill(org.eclipse.emf.ecore.EClass) <em>Kill</em>}' operation.
+	 * Returns the meta object for the '{@link org.servicifi.gelato.analysis.framework.commons.LabellableElement#kill(org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration) <em>Kill</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Kill</em>' operation.
-	 * @see org.servicifi.gelato.analysis.framework.commons.LabellableElement#kill(org.eclipse.emf.ecore.EClass)
+	 * @see org.servicifi.gelato.analysis.framework.commons.LabellableElement#kill(org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration)
 	 * @generated
 	 */
-	EOperation getLabellableElement__Kill__EClass();
+	EOperation getLabellableElement__Kill__AnalysisConfiguration();
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.analysis.framework.commons.Variable <em>Variable</em>}'.
@@ -560,7 +560,7 @@ public interface CommonsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation LABELLABLE_ELEMENT___GEN__ECLASS = eINSTANCE.getLabellableElement__Gen__EClass();
+		EOperation LABELLABLE_ELEMENT___GEN__ANALYSISCONFIGURATION = eINSTANCE.getLabellableElement__Gen__AnalysisConfiguration();
 
 		/**
 		 * The meta object literal for the '<em><b>Kill</b></em>' operation.
@@ -568,7 +568,7 @@ public interface CommonsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation LABELLABLE_ELEMENT___KILL__ECLASS = eINSTANCE.getLabellableElement__Kill__EClass();
+		EOperation LABELLABLE_ELEMENT___KILL__ANALYSISCONFIGURATION = eINSTANCE.getLabellableElement__Kill__AnalysisConfiguration();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.analysis.framework.commons.impl.VariableImpl <em>Variable</em>}' class.
