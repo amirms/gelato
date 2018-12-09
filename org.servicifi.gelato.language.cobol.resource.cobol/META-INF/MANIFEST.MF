@@ -13,11 +13,10 @@ Require-Bundle: org.eclipse.core.runtime;resolution:=optional,
   org.servicifi.gelato.language.cobol
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.servicifi.gelato.language.cobol.resource.cobol,
-  org.servicifi.gelato.language.cobol.resource.cobol.analysis,
-  org.servicifi.gelato.language.cobol.resource.cobol.mopp,
-  org.servicifi.gelato.language.cobol.resource.cobol.debug,
-  org.servicifi.gelato.language.cobol.resource.cobol.launch,
-  org.servicifi.gelato.language.cobol.resource.cobol.grammar,
-  org.servicifi.gelato.language.cobol.resource.cobol.util
+Export-Package: org.servicifi.gelato.language.cobol.resource.cobol.analysis,
+ org.servicifi.gelato.language.cobol.resource.cobol.analysis.decider,
+ org.servicifi.gelato.language.cobol.resource.cobol.analysis.helper,
+ org.servicifi.gelato.language.cobol.resource.cobol.grammar,
+ org.servicifi.gelato.language.cobol.resource.cobol.mopp,
+ org.servicifi.gelato.language.cobol.resource.cobol.util
 Bundle-Activator: org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolPlugin
