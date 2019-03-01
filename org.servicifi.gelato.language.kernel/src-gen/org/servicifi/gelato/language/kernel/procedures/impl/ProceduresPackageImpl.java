@@ -335,6 +335,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 
 		// Obtain other dependent packages
 		CommonsPackage theCommonsPackage = (CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
+		org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage theProceduresPackage_1 = (org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage)EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage.eNS_URI);
 		MembersPackage theMembersPackage = (MembersPackage)EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
 		ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
@@ -346,6 +347,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 
 		// Add supertypes to classes
 		procedureEClass.getESuperTypes().add(theCommonsPackage.getLabellableElement());
+		procedureEClass.getESuperTypes().add(theProceduresPackage_1.getProcedure());
 		procedureEClass.getESuperTypes().add(theMembersPackage.getMember());
 		procedureEClass.getESuperTypes().add(theReferencesPackage.getReferenceableElement());
 		mainProcedureEClass.getESuperTypes().add(theCommonsPackage.getLabellableElement());

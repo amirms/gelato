@@ -13,10 +13,11 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
 import org.servicifi.gelato.language.kernel.containers.KernelRoot;
-import org.servicifi.gelato.language.kernel.flows.Flow;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.analysis.framework.graphs.Node;
 import org.servicifi.gelato.language.kernel.members.Member;
 import org.servicifi.gelato.language.kernel.procedures.MainProcedure;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
@@ -34,7 +35,7 @@ import org.servicifi.gelato.transformation.core.util.TransitiveClosure;
 
 public class CodeAnalytics {
 
-	Set<LabellableElement> lelems = new HashSet<LabellableElement>();
+	Set<Node> lelems = new HashSet<Node>();
 	
 	String filename;
 	
@@ -129,7 +130,7 @@ public class CodeAnalytics {
 			    	//FIXME move this code TransitiveClosure class
 			    	cfgtc.init();
 			    	cfgtc.getTC();
-			    	List<LabellableElement> reached = cfgtc.getReachableCode(program.getStart());
+			    	List<Node> reached = cfgtc.getReachableCode(program.getStart());
 			    	
 			    	System.out.println("All flows");
 			    	System.out.println(cfg.size());
@@ -137,7 +138,7 @@ public class CodeAnalytics {
 			    	System.out.println("Reached Nodes");
 			    	System.out.println(reached.size());
 			    	
-			    	Iterator<LabellableElement> reachedIterator = reached.iterator();
+			    	Iterator<Node> reachedIterator = reached.iterator();
 			    	while(reachedIterator.hasNext()){
 //			    		
 			    		lelems.remove(reachedIterator.next());
@@ -225,7 +226,7 @@ public class CodeAnalytics {
 				    	//FIXME move this code TransitiveClosure class
 				    	cfgtc.init();
 				    	cfgtc.getTC();
-				    	List<LabellableElement> reached = cfgtc.getReachableCode(proc.getStart());
+				    	List<Node> reached = cfgtc.getReachableCode(proc.getStart());
 				    	
 				    	System.out.println("All flows in procedure: " + proc.getName());
 				    	System.out.println(cfg.size());
@@ -233,7 +234,7 @@ public class CodeAnalytics {
 				    	System.out.println("Reached nodes in procedure: " + proc.getName());
 				    	System.out.println(reached.size());
 				    	
-				    	Iterator<LabellableElement> reachedIterator = reached.iterator();
+				    	Iterator<Node> reachedIterator = reached.iterator();
 				    	while(reachedIterator.hasNext()){
 	//			    		
 				    		lelems.remove(reachedIterator.next());

@@ -60,7 +60,6 @@ public class StatementsFactoryImpl extends EFactoryImpl implements StatementsFac
 			case StatementsPackage.CONDITION: return createCondition();
 			case StatementsPackage.WHILE_LOOP: return createWhileLoop();
 			case StatementsPackage.BLOCK: return createBlock();
-			case StatementsPackage.ASSIGNMENT_STATEMENT: return createAssignmentStatement();
 			case StatementsPackage.GOTO: return createGoto();
 			case StatementsPackage.NON_DETERMINISTIC_BLOCK: return createNonDeterministicBlock();
 			case StatementsPackage.PARALLEL_BLOCK: return createParallelBlock();
@@ -134,16 +133,6 @@ public class StatementsFactoryImpl extends EFactoryImpl implements StatementsFac
 	public Block createBlock() {
 		BlockImpl block = new BlockImpl();
 		return block;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssignmentStatement createAssignmentStatement() {
-		AssignmentStatementImpl assignmentStatement = new AssignmentStatementImpl();
-		return assignmentStatement;
 	}
 
 	/**

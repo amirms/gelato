@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.servicifi.gelato.language.kernel.flows.Flow;
-import org.servicifi.gelato.language.kernel.commons.LabellableElement;
+import  org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.analysis.framework.graphs.Node;
 
 
 public class TransitiveClosure {
@@ -24,12 +24,12 @@ public class TransitiveClosure {
 	}
 	
 	
-	private Map<LabellableElement, Integer> label2node = new HashMap<LabellableElement, Integer>();
+	private Map<Node, Integer> label2node = new HashMap<Node, Integer>();
 
 	
 	public void init(){
 		
-		Set<LabellableElement> labels = new HashSet<LabellableElement>();
+		Set<Node> labels = new HashSet<Node>();
 		
 		for (Flow flow : flows)
 		{
@@ -42,7 +42,7 @@ public class TransitiveClosure {
 		
 		int index = 0;
 		
-		for (LabellableElement le : labels) {
+		for (Node le : labels) {
 			label2node.put(le, index);
 			index++;
 			
@@ -54,9 +54,7 @@ public class TransitiveClosure {
 			tc[label2node.get(flow.getFrom())][label2node.get(flow.getTo())] = true;
 			
 		}
-		
-		
-		
+	
 		
 	}
 	
@@ -77,20 +75,20 @@ public class TransitiveClosure {
     }
 	
 	
-	public List<LabellableElement> getReachableCode(LabellableElement start){
+	public List<Node> getReachableCode(Node start){
 		
-		List<LabellableElement> result = new ArrayList<LabellableElement>();
+		List<Node> result = new ArrayList<Node>();
 		
 		int startIndex = label2node.get(start);
 			
 		
 //		 indexIterator = indices.iterator();
 		
-		Iterator<LabellableElement> labelsIterator = label2node.keySet().iterator();
+		Iterator<Node> labelsIterator = label2node.keySet().iterator();
 		
 		
 		while(labelsIterator.hasNext()){
-			LabellableElement curElement = labelsIterator.next();
+			Node curElement = labelsIterator.next();
 			int curNode = label2node.get(curElement);
 			
 			if (tc[startIndex][curNode])

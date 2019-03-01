@@ -57,8 +57,7 @@ RULES {
 
 	//statements
 	
-	containers.CompilationUnit ::= (declarations:dataitems.DataItem )* 
-									
+	containers.CompilationUnit ::= (declarations:dataitems.DataItem )* 				
 									(declarations:procedures.Procedure !0)*
 									mainProcedure
 									 ;
@@ -98,7 +97,7 @@ RULES {
 	statements.NonDeterministicBlock::= ">""|" ( statements )+;
 	
 	//TODO may be I should make the assigned variable to expression
-	statements.AssignmentStatement ::=  label[] ":" target[IDENTIFIER] ":=" value ";";
+	// statements.AssignmentStatement ::=  label[] ":" target[IDENTIFIER] ":=" value ";";
 	
 	statements.ExpressionStatement ::= label[] ":" expression ";";
 	

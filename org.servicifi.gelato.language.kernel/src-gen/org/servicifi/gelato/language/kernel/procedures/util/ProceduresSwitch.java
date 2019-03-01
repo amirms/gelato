@@ -80,6 +80,7 @@ public class ProceduresSwitch<T> extends Switch<T> {
 				Procedure procedure = (Procedure)theEObject;
 				T result = caseProcedure(procedure);
 				if (result == null) result = caseLabellableElement(procedure);
+				if (result == null) result = caseProcedures_Procedure(procedure);
 				if (result == null) result = caseMember(procedure);
 				if (result == null) result = caseReferenceableElement(procedure);
 				if (result == null) result = caseNode(procedure);
@@ -201,6 +202,21 @@ public class ProceduresSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLabellableElement(LabellableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Procedure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Procedure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProcedures_Procedure(org.servicifi.gelato.analysis.framework.procedures.Procedure object) {
 		return null;
 	}
 

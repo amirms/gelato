@@ -94,6 +94,10 @@ public class ProceduresAdapterFactory extends AdapterFactoryImpl {
 				return createLabellableElementAdapter();
 			}
 			@Override
+			public Adapter caseProcedures_Procedure(org.servicifi.gelato.analysis.framework.procedures.Procedure object) {
+				return createProcedures_ProcedureAdapter();
+			}
+			@Override
 			public Adapter caseMember(Member object) {
 				return createMemberAdapter();
 			}
@@ -220,6 +224,20 @@ public class ProceduresAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLabellableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.analysis.framework.procedures.Procedure <em>Procedure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.analysis.framework.procedures.Procedure
+	 * @generated
+	 */
+	public Adapter createProcedures_ProcedureAdapter() {
 		return null;
 	}
 

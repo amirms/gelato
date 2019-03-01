@@ -3,7 +3,6 @@
 package org.servicifi.gelato.analysis.framework.procedures.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.servicifi.gelato.analysis.framework.commons.impl.LabellableElementImpl;
 
 import org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage;

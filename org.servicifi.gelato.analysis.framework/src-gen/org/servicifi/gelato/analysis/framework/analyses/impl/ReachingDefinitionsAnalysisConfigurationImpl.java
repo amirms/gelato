@@ -2,6 +2,7 @@
  */
 package org.servicifi.gelato.analysis.framework.analyses.impl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,34 +16,40 @@ import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnaly
 import org.servicifi.gelato.analysis.framework.commons.Variable;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Reaching Definitions Analysis Configuration</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Reaching Definitions Analysis Configuration</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.servicifi.gelato.analysis.framework.analyses.impl.ReachingDefinitionsAnalysisConfigurationImpl#getAssignments <em>Assignments</em>}</li>
+ * <li>{@link org.servicifi.gelato.analysis.framework.analyses.impl.ReachingDefinitionsAnalysisConfigurationImpl#getAssignments
+ * <em>Assignments</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ReachingDefinitionsAnalysisConfigurationImpl extends AnalysisConfigurationImpl implements ReachingDefinitionsAnalysisConfiguration {
+public class ReachingDefinitionsAnalysisConfigurationImpl extends AnalysisConfigurationImpl
+		implements ReachingDefinitionsAnalysisConfiguration {
 	private Map<Variable, EList<Long>> assignments;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated NOT
+	 * 
+	 * @generated NOT
 	 */
 	protected ReachingDefinitionsAnalysisConfigurationImpl() {
 		super();
-		
+
+		assignments = new HashMap<>();
+
 		setDirection(AnalysisDirection.FORWARDS);
 		setAnalysisType(AnalysisType.MUST);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -51,8 +58,8 @@ public class ReachingDefinitionsAnalysisConfigurationImpl extends AnalysisConfig
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map<Variable, EList<Long>> getAssignments() {
@@ -60,72 +67,74 @@ public class ReachingDefinitionsAnalysisConfigurationImpl extends AnalysisConfig
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setAssignments(Map<Variable, EList<Long>> newAssignments) {
 		Map<Variable, EList<Long>> oldAssignments = assignments;
 		assignments = newAssignments;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS, oldAssignments, assignments));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS, oldAssignments,
+					assignments));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS:
-				return getAssignments();
+		case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS:
+			return getAssignments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS:
-				setAssignments((Map<Variable, EList<Long>>)newValue);
-				return;
+		case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS:
+			setAssignments((Map<Variable, EList<Long>>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS:
-				setAssignments((Map<Variable, EList<Long>>)null);
-				return;
+		case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS:
+			setAssignments((Map<Variable, EList<Long>>) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS:
-				return assignments != null;
+		case AnalysesPackage.REACHING_DEFINITIONS_ANALYSIS_CONFIGURATION__ASSIGNMENTS:
+			return assignments != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -145,4 +154,4 @@ public class ReachingDefinitionsAnalysisConfigurationImpl extends AnalysisConfig
 		return result.toString();
 	}
 
-} //ReachingDefinitionsAnalysisConfigurationImpl
+} // ReachingDefinitionsAnalysisConfigurationImpl

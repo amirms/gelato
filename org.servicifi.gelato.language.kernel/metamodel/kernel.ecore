@@ -27,10 +27,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="WhileLoop" eSuperTypes="#//statements/Statement #//statements/StatementContainer #//statements/Conditional"/>
     <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="#//statements/Statement #//statements/StatementListContainer"/>
-    <eClassifiers xsi:type="ecore:EClass" name="AssignmentStatement" eSuperTypes="#//statements/Statement #//references/ElementReference">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
-          eType="#//expressions/Expression" containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Jump" abstract="true" eSuperTypes="#//statements/Statement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
           eType="ecore:EClass ../../org.servicifi.gelato.analysis.framework/metamodel/framework.ecore#//commons/LabellableElement"/>
@@ -52,7 +48,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//expressions/Expression" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcedureCall" eSuperTypes="#//statements/Statement #//references/ElementReference">
+    <eClassifiers xsi:type="ecore:EClass" name="ProcedureCall" eSuperTypes="#//statements/Statement ../../org.servicifi.gelato.analysis.framework/metamodel/framework.ecore#//procedures/ProcedureCall #//references/ElementReference">
       <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
           eType="#//references/Argument" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="returnSite" lowerBound="1"
@@ -76,7 +72,7 @@
   </eSubpackages>
   <eSubpackages name="procedures" nsURI="http://www.servicifi.org/gelato/language/kernel/procedures"
       nsPrefix="procedures">
-    <eClassifiers xsi:type="ecore:EClass" name="Procedure" eSuperTypes="../../org.servicifi.gelato.analysis.framework/metamodel/framework.ecore#//commons/LabellableElement #//members/Member #//references/ReferenceableElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Procedure" eSuperTypes="../../org.servicifi.gelato.analysis.framework/metamodel/framework.ecore#//commons/LabellableElement ../../org.servicifi.gelato.analysis.framework/metamodel/framework.ecore#//procedures/Procedure #//members/Member #//references/ReferenceableElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
           eType="#//members/Member" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"

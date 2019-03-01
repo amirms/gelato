@@ -353,70 +353,6 @@ public interface StatementsPackage extends EPackage {
 	int BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.AssignmentStatementImpl <em>Assignment Statement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.servicifi.gelato.language.kernel.statements.impl.AssignmentStatementImpl
-	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getAssignmentStatement()
-	 * @generated
-	 */
-	int ASSIGNMENT_STATEMENT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIGNMENT_STATEMENT__PREDECESSORS = STATEMENT__PREDECESSORS;
-
-	/**
-	 * The feature id for the '<em><b>Successors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIGNMENT_STATEMENT__SUCCESSORS = STATEMENT__SUCCESSORS;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIGNMENT_STATEMENT__LABEL = STATEMENT__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIGNMENT_STATEMENT__TARGET = STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIGNMENT_STATEMENT__VALUE = STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Assignment Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSIGNMENT_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.impl.JumpImpl <em>Jump</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -424,7 +360,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getJump()
 	 * @generated
 	 */
-	int JUMP = 7;
+	int JUMP = 6;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -479,7 +415,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getGoto()
 	 * @generated
 	 */
-	int GOTO = 8;
+	int GOTO = 7;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -534,7 +470,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getNonDeterministicBlock()
 	 * @generated
 	 */
-	int NON_DETERMINISTIC_BLOCK = 9;
+	int NON_DETERMINISTIC_BLOCK = 8;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -589,7 +525,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getParallelBlock()
 	 * @generated
 	 */
-	int PARALLEL_BLOCK = 10;
+	int PARALLEL_BLOCK = 9;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -653,7 +589,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getAbort()
 	 * @generated
 	 */
-	int ABORT = 11;
+	int ABORT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -699,7 +635,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getExceptionHandlerStatement()
 	 * @generated
 	 */
-	int EXCEPTION_HANDLER_STATEMENT = 12;
+	int EXCEPTION_HANDLER_STATEMENT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -754,7 +690,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getStatementWithException()
 	 * @generated
 	 */
-	int STATEMENT_WITH_EXCEPTION = 13;
+	int STATEMENT_WITH_EXCEPTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -818,7 +754,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getConditional()
 	 * @generated
 	 */
-	int CONDITIONAL = 14;
+	int CONDITIONAL = 13;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -846,7 +782,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getProcedureCall()
 	 * @generated
 	 */
-	int PROCEDURE_CALL = 15;
+	int PROCEDURE_CALL = 14;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -919,7 +855,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getExpressionStatement()
 	 * @generated
 	 */
-	int EXPRESSION_STATEMENT = 16;
+	int EXPRESSION_STATEMENT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -974,7 +910,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getSkip()
 	 * @generated
 	 */
-	int SKIP = 17;
+	int SKIP = 16;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -1020,7 +956,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getReturn()
 	 * @generated
 	 */
-	int RETURN = 18;
+	int RETURN = 17;
 
 	/**
 	 * The feature id for the '<em><b>Predecessors</b></em>' reference list.
@@ -1075,7 +1011,7 @@ public interface StatementsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getExecutionOrder()
 	 * @generated
 	 */
-	int EXECUTION_ORDER = 19;
+	int EXECUTION_ORDER = 18;
 
 
 	/**
@@ -1170,27 +1106,6 @@ public interface StatementsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBlock();
-
-	/**
-	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.statements.AssignmentStatement <em>Assignment Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Assignment Statement</em>'.
-	 * @see org.servicifi.gelato.language.kernel.statements.AssignmentStatement
-	 * @generated
-	 */
-	EClass getAssignmentStatement();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.kernel.statements.AssignmentStatement#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Value</em>'.
-	 * @see org.servicifi.gelato.language.kernel.statements.AssignmentStatement#getValue()
-	 * @see #getAssignmentStatement()
-	 * @generated
-	 */
-	EReference getAssignmentStatement_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.statements.Jump <em>Jump</em>}'.
@@ -1515,24 +1430,6 @@ public interface StatementsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BLOCK = eINSTANCE.getBlock();
-
-		/**
-		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.statements.impl.AssignmentStatementImpl <em>Assignment Statement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.servicifi.gelato.language.kernel.statements.impl.AssignmentStatementImpl
-		 * @see org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl#getAssignmentStatement()
-		 * @generated
-		 */
-		EClass ASSIGNMENT_STATEMENT = eINSTANCE.getAssignmentStatement();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ASSIGNMENT_STATEMENT__VALUE = eINSTANCE.getAssignmentStatement_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.statements.impl.JumpImpl <em>Jump</em>}' class.

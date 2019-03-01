@@ -11,10 +11,14 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
-import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
-import org.servicifi.gelato.language.kernel.KernelPackage;
 
-import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
+import org.servicifi.gelato.analysis.framework.commons.CommonsPackage;
+
+import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
+
+import org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage;
+
+import org.servicifi.gelato.language.kernel.KernelPackage;
 
 import org.servicifi.gelato.language.kernel.commons.impl.CommonsPackageImpl;
 
@@ -23,7 +27,9 @@ import org.servicifi.gelato.language.kernel.containers.ContainersPackage;
 import org.servicifi.gelato.language.kernel.containers.impl.ContainersPackageImpl;
 
 import org.servicifi.gelato.language.kernel.dataitems.DataitemsPackage;
+
 import org.servicifi.gelato.language.kernel.dataitems.impl.DataitemsPackageImpl;
+
 import org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage;
 
 import org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl;
@@ -38,8 +44,6 @@ import org.servicifi.gelato.language.kernel.parameters.ParametersPackage;
 
 import org.servicifi.gelato.language.kernel.parameters.impl.ParametersPackageImpl;
 
-import org.servicifi.gelato.language.kernel.procedures.ProceduresPackage;
-
 import org.servicifi.gelato.language.kernel.procedures.impl.ProceduresPackageImpl;
 
 import org.servicifi.gelato.language.kernel.references.ReferencesPackage;
@@ -47,7 +51,6 @@ import org.servicifi.gelato.language.kernel.references.ReferencesPackage;
 import org.servicifi.gelato.language.kernel.references.impl.ReferencesPackageImpl;
 
 import org.servicifi.gelato.language.kernel.statements.Abort;
-import org.servicifi.gelato.language.kernel.statements.AssignmentStatement;
 import org.servicifi.gelato.language.kernel.statements.Block;
 import org.servicifi.gelato.language.kernel.statements.Condition;
 import org.servicifi.gelato.language.kernel.statements.Conditional;
@@ -117,13 +120,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * @generated
 	 */
 	private EClass blockEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass assignmentStatementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -266,16 +262,16 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		// Initialize simple dependencies
 		GraphsPackage.eINSTANCE.eClass();
 		AnalysesPackage.eINSTANCE.eClass();
-		org.servicifi.gelato.analysis.framework.commons.CommonsPackage.eINSTANCE.eClass();
-		org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage.eINSTANCE.eClass();
+		CommonsPackage.eINSTANCE.eClass();
+		ProceduresPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(KernelPackage.eNS_URI);
 		KernelPackageImpl theKernelPackage = (KernelPackageImpl)(registeredPackage instanceof KernelPackageImpl ? registeredPackage : KernelPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
-		CommonsPackageImpl theCommonsPackage_1 = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : CommonsPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI);
-		ProceduresPackageImpl theProceduresPackage_1 = (ProceduresPackageImpl)(registeredPackage instanceof ProceduresPackageImpl ? registeredPackage : ProceduresPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.language.kernel.commons.CommonsPackage.eNS_URI);
+		CommonsPackageImpl theCommonsPackage_1 = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : org.servicifi.gelato.language.kernel.commons.CommonsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eNS_URI);
+		ProceduresPackageImpl theProceduresPackage_1 = (ProceduresPackageImpl)(registeredPackage instanceof ProceduresPackageImpl ? registeredPackage : org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
 		ExpressionsPackageImpl theExpressionsPackage = (ExpressionsPackageImpl)(registeredPackage instanceof ExpressionsPackageImpl ? registeredPackage : ExpressionsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI);
@@ -400,24 +396,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 */
 	public EClass getBlock() {
 		return blockEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAssignmentStatement() {
-		return assignmentStatementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssignmentStatement_Value() {
-		return (EReference)assignmentStatementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -652,9 +630,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 
 		blockEClass = createEClass(BLOCK);
 
-		assignmentStatementEClass = createEClass(ASSIGNMENT_STATEMENT);
-		createEReference(assignmentStatementEClass, ASSIGNMENT_STATEMENT__VALUE);
-
 		jumpEClass = createEClass(JUMP);
 		createEReference(jumpEClass, JUMP__TARGET);
 
@@ -715,11 +690,11 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		org.servicifi.gelato.analysis.framework.commons.CommonsPackage theCommonsPackage = (org.servicifi.gelato.analysis.framework.commons.CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.analysis.framework.commons.CommonsPackage.eNS_URI);
+		CommonsPackage theCommonsPackage = (CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
 		MembersPackage theMembersPackage = (MembersPackage)EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
-		ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
 		ExpressionsPackage theExpressionsPackage = (ExpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(ExpressionsPackage.eNS_URI);
-		org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage theProceduresPackage = (org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage)EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage.eNS_URI);
+		ProceduresPackage theProceduresPackage = (ProceduresPackage)EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI);
+		ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -736,8 +711,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		whileLoopEClass.getESuperTypes().add(this.getConditional());
 		blockEClass.getESuperTypes().add(this.getStatement());
 		blockEClass.getESuperTypes().add(this.getStatementListContainer());
-		assignmentStatementEClass.getESuperTypes().add(this.getStatement());
-		assignmentStatementEClass.getESuperTypes().add(theReferencesPackage.getElementReference());
 		jumpEClass.getESuperTypes().add(this.getStatement());
 		gotoEClass.getESuperTypes().add(this.getJump());
 		nonDeterministicBlockEClass.getESuperTypes().add(this.getStatement());
@@ -750,6 +723,7 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		statementWithExceptionEClass.getESuperTypes().add(this.getStatement());
 		statementWithExceptionEClass.getESuperTypes().add(this.getStatementContainer());
 		procedureCallEClass.getESuperTypes().add(this.getStatement());
+		procedureCallEClass.getESuperTypes().add(theProceduresPackage.getProcedureCall());
 		procedureCallEClass.getESuperTypes().add(theReferencesPackage.getElementReference());
 		expressionStatementEClass.getESuperTypes().add(this.getStatement());
 		skipEClass.getESuperTypes().add(this.getStatement());
@@ -770,9 +744,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		initEClass(whileLoopEClass, WhileLoop.class, "WhileLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(assignmentStatementEClass, AssignmentStatement.class, "AssignmentStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAssignmentStatement_Value(), theExpressionsPackage.getExpression(), null, "value", null, 1, 1, AssignmentStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jumpEClass, Jump.class, "Jump", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJump_Target(), theCommonsPackage.getLabellableElement(), null, "target", null, 1, 1, Jump.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

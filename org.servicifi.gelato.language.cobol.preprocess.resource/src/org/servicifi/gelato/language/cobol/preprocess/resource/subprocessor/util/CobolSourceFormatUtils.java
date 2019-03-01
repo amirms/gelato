@@ -8,15 +8,15 @@ import com.google.common.base.Strings;
 
 public class CobolSourceFormatUtils {
 	public static String getBlankComments() {
-		return Strings.repeat(CobolPreprocessorUtil.WS, 8);
+		return Strings.repeat(Character.toString(CobolPreprocessorUtil.WS), 8);
 	}
 
 	public static String getBlankContentArea() {
-		return Strings.repeat(CobolPreprocessorUtil.WS, 65);
+		return Strings.repeat(Character.toString(CobolPreprocessorUtil.WS), 65);
 	}
 
 	public static String getBlankIndicatorArea() {
-		return CobolPreprocessorUtil.WS;
+		return Character.toString(CobolPreprocessorUtil.WS);
 	}
 
 	public static String getBlankLine(final CobolSourceFormat format) {
@@ -56,7 +56,7 @@ public class CobolSourceFormatUtils {
 //		} else if (CobolSourceFormatEnum.TANDEM.equals(format)) {
 //			result = "";
 		} else {
-			result = Strings.repeat(CobolPreprocessorUtil.WS, 6);
+			result = Strings.repeat(Character.toString(CobolPreprocessorUtil.WS), 6);
 		}
 
 		return result;

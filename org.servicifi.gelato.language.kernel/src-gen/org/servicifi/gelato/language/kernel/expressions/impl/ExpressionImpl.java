@@ -225,10 +225,15 @@ public class ExpressionImpl extends LabellableElementImpl implements Expression 
 			ReachingDefinitionsAnalysisConfiguration rdConfig = (ReachingDefinitionsAnalysisConfiguration) configuration;
 			Map<Variable, EList<Long>> assignments = rdConfig.getAssignments();
 
-			// Order matters
-			EList<DataItem> items = getUsedVariables();
-			for (DataItem item : items) {
-				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(item, -1));
+			// TODO: at entry, may be initialize variables with ?
+//			EList<DataItem> usages = getUsedVariables();
+//			for (DataItem item : usages) {
+//				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(item, -1));
+//			}
+//			
+			EList<DataItem> definitions = getDefinedVariables();
+			for (DataItem item : definitions) {
+				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(item, getLabel()));
 				if (assignments.containsKey(item)) {
 					assignments.get(item).add(getLabel());
 				} else {
@@ -252,6 +257,7 @@ public class ExpressionImpl extends LabellableElementImpl implements Expression 
 
 			// Order matters
 			EList<DataItem> items = getDefinedVariables();
+			
 			for (DataItem item : items) {
 				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(item, -1));
 				if (assignments.containsKey(item)) {

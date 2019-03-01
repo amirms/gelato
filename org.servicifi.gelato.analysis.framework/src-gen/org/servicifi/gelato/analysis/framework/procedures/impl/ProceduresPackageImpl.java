@@ -3,6 +3,7 @@
 package org.servicifi.gelato.analysis.framework.procedures.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -19,6 +20,8 @@ import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
 
 import org.servicifi.gelato.analysis.framework.graphs.impl.GraphsPackageImpl;
 
+import org.servicifi.gelato.analysis.framework.procedures.Procedure;
+import org.servicifi.gelato.analysis.framework.procedures.ProcedureCall;
 import org.servicifi.gelato.analysis.framework.procedures.ProceduresFactory;
 import org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage;
 import org.servicifi.gelato.analysis.framework.procedures.ReturnSite;
@@ -36,6 +39,20 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 	 * @generated
 	 */
 	private EClass returnSiteEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass procedureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass procedureCallEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -126,6 +143,42 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProcedure() {
+		return procedureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProcedureCall() {
+		return procedureCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getProcedureCall__AlphaConvert__EList() {
+		return procedureCallEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getProcedureCall__TranslateActualToFormalParameters__EList_Procedure() {
+		return procedureCallEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProceduresFactory getProceduresFactory() {
 		return (ProceduresFactory)getEFactoryInstance();
 	}
@@ -150,6 +203,12 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 
 		// Create classes and their features
 		returnSiteEClass = createEClass(RETURN_SITE);
+
+		procedureEClass = createEClass(PROCEDURE);
+
+		procedureCallEClass = createEClass(PROCEDURE_CALL);
+		createEOperation(procedureCallEClass, PROCEDURE_CALL___ALPHA_CONVERT__ELIST);
+		createEOperation(procedureCallEClass, PROCEDURE_CALL___TRANSLATE_ACTUAL_TO_FORMAL_PARAMETERS__ELIST_PROCEDURE);
 	}
 
 	/**
@@ -177,6 +236,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 
 		// Obtain other dependent packages
 		CommonsPackage theCommonsPackage = (CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
+		AnalysesPackage theAnalysesPackage = (AnalysesPackage)EPackage.Registry.INSTANCE.getEPackage(AnalysesPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -187,6 +247,17 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(returnSiteEClass, ReturnSite.class, "ReturnSite", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(procedureEClass, Procedure.class, "Procedure", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(procedureCallEClass, ProcedureCall.class, "ProcedureCall", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = initEOperation(getProcedureCall__AlphaConvert__EList(), null, "alphaConvert", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theAnalysesPackage.getAnalysisResult(), "results", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getProcedureCall__TranslateActualToFormalParameters__EList_Procedure(), null, "translateActualToFormalParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theAnalysesPackage.getAnalysisResult(), "results", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getProcedure(), "callee", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

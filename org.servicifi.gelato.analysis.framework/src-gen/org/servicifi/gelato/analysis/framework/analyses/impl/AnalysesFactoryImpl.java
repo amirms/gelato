@@ -23,6 +23,8 @@ import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisResult;
 import org.servicifi.gelato.analysis.framework.commons.Variable;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
 
 /**
  * <!-- begin-user-doc -->
@@ -129,6 +131,11 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 	 */
 	public IntraproceduralAnalysis createIntraproceduralAnalysis() {
 		IntraproceduralAnalysisImpl intraproceduralAnalysis = new IntraproceduralAnalysisImpl();
+		return intraproceduralAnalysis;
+	}
+	
+	public IntraproceduralAnalysis createIntraproceduralAnalysis(EList<Flow> cfg, AnalysisConfiguration configuration) {
+		IntraproceduralAnalysisImpl intraproceduralAnalysis = new IntraproceduralAnalysisImpl(cfg, configuration);
 		return intraproceduralAnalysis;
 	}
 

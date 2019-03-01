@@ -35,7 +35,7 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  * @see org.servicifi.gelato.language.kernel.procedures.ProceduresPackage#getProcedure()
  * @generated
  */
-public interface Procedure extends LabellableElement, Member, ReferenceableElement {
+public interface Procedure extends LabellableElement, org.servicifi.gelato.analysis.framework.procedures.Procedure, Member, ReferenceableElement {
 	/**
 	 * Returns the value of the '<em><b>Members</b></em>' containment reference list.
 	 * The list contents are of type {@link org.servicifi.gelato.language.kernel.members.Member}.

@@ -173,5 +173,15 @@
   <eSubpackages name="procedures" nsURI="http://www.servicifi.org/gelato/analysis/framework/procedures"
       nsPrefix="procedures">
     <eClassifiers xsi:type="ecore:EClass" name="ReturnSite" eSuperTypes="#//commons/LabellableElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Procedure" abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcedureCall" abstract="true" interface="true">
+      <eOperations name="alphaConvert">
+        <eParameters name="results" upperBound="-1" eType="#//analyses/AnalysisResult"/>
+      </eOperations>
+      <eOperations name="translateActualToFormalParameters">
+        <eParameters name="results" upperBound="-1" eType="#//analyses/AnalysisResult"/>
+        <eParameters name="callee" eType="#//procedures/Procedure"/>
+      </eOperations>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

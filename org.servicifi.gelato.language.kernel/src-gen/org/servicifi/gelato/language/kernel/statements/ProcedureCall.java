@@ -25,7 +25,7 @@ import org.servicifi.gelato.language.kernel.references.ElementReference;
  * @see org.servicifi.gelato.language.kernel.statements.StatementsPackage#getProcedureCall()
  * @generated
  */
-public interface ProcedureCall extends Statement, ElementReference {
+public interface ProcedureCall extends Statement, org.servicifi.gelato.analysis.framework.procedures.ProcedureCall, ElementReference {
 	/**
 	 * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
 	 * The list contents are of type {@link org.servicifi.gelato.language.kernel.references.Argument}.

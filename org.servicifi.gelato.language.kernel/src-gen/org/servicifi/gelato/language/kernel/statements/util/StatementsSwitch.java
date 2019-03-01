@@ -6,8 +6,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+
 import org.servicifi.gelato.analysis.framework.graphs.Node;
+
 import org.servicifi.gelato.language.kernel.members.Member;
 
 import org.servicifi.gelato.language.kernel.references.ElementReference;
@@ -127,17 +130,6 @@ public class StatementsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StatementsPackage.ASSIGNMENT_STATEMENT: {
-				AssignmentStatement assignmentStatement = (AssignmentStatement)theEObject;
-				T result = caseAssignmentStatement(assignmentStatement);
-				if (result == null) result = caseStatement(assignmentStatement);
-				if (result == null) result = caseElementReference(assignmentStatement);
-				if (result == null) result = caseLabellableElement(assignmentStatement);
-				if (result == null) result = caseMember(assignmentStatement);
-				if (result == null) result = caseNode(assignmentStatement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case StatementsPackage.JUMP: {
 				Jump jump = (Jump)theEObject;
 				T result = caseJump(jump);
@@ -221,6 +213,7 @@ public class StatementsSwitch<T> extends Switch<T> {
 				ProcedureCall procedureCall = (ProcedureCall)theEObject;
 				T result = caseProcedureCall(procedureCall);
 				if (result == null) result = caseStatement(procedureCall);
+				if (result == null) result = caseProcedures_ProcedureCall(procedureCall);
 				if (result == null) result = caseElementReference(procedureCall);
 				if (result == null) result = caseLabellableElement(procedureCall);
 				if (result == null) result = caseMember(procedureCall);
@@ -349,21 +342,6 @@ public class StatementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBlock(Block object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assignment Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assignment Statement</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAssignmentStatement(AssignmentStatement object) {
 		return null;
 	}
 
@@ -548,21 +526,6 @@ public class StatementsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Member</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMember(Member object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -589,6 +552,36 @@ public class StatementsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLabellableElement(LabellableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMember(Member object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Procedure Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Procedure Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProcedures_ProcedureCall(org.servicifi.gelato.analysis.framework.procedures.ProcedureCall object) {
 		return null;
 	}
 

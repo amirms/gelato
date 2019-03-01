@@ -5,6 +5,7 @@ package org.servicifi.gelato.analysis.framework.analyses;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EFactory;
 import org.servicifi.gelato.analysis.framework.commons.Variable;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +41,8 @@ public interface AnalysesFactory extends EFactory {
 	 * @generated
 	 */
 	IntraproceduralAnalysis createIntraproceduralAnalysis();
+	
+	IntraproceduralAnalysis createIntraproceduralAnalysis(EList<Flow> cfg, AnalysisConfiguration configuration);
 
 	/**
 	 * Returns a new object of class '<em>Interprocedural Analysis</em>'.

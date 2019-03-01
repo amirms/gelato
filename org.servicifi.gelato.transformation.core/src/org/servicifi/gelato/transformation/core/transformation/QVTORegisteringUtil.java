@@ -7,8 +7,6 @@ public class QVTORegisteringUtil {
 
 	public void registerQVTResourceFactory(ResourceSetImpl rs) {
 		System.out.println("Regitering qvtotrace");
-		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
-			    "qvtotrace", new XMIResourceFactoryImpl());
+		rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("qvtotrace", new XMIResourceFactoryImpl());
 	}
-	
 }

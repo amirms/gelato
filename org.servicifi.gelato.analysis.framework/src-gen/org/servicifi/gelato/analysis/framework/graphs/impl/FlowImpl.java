@@ -70,7 +70,7 @@ public abstract class FlowImpl extends MinimalEObjectImpl.Container implements F
 
 	protected FlowImpl(Node from, Node to) {
 		setFrom(from);
-		setFrom(to);
+		setTo(to);
 	}
 
 	/**

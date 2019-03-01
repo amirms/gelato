@@ -35,13 +35,15 @@ import org.eclipse.m2m.qvt.oml.ExecutionDiagnostic;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
 import org.servicifi.gelato.transformation.core.util.QVTOModelExtentHelper;
 
+import static org.eclipse.m2m.internal.qvt.oml.emf.util.EmfUtilPlugin.isSuccess;
+
 @SuppressWarnings("restriction")
 public class QVTOTransformationRunner extends TransformationRunner {
 
 	protected static class Executor extends InternalTransformationExecutor {
-		
+
 		Trace fTraces;
-		
+
 		public Executor(URI uri, Registry registry) {
 			super(uri, registry);
 		}
@@ -51,57 +53,54 @@ public class QVTOTransformationRunner extends TransformationRunner {
 		}
 
 		@Override
-		protected void handleExecutionTraces(Trace traces) {				
+		protected void handleExecutionTraces(Trace traces) {
 			super.handleExecutionTraces(traces);
 			fTraces = traces;
 		};
 	}
-		
-	//private final URI fTransformationURI;	
+
+	// private final URI fTransformationURI;
 	private final Executor fExecutor;
 	private final List<URI> fModelParamURIs;
 	private URI fTraceFileURI;
-	
+
 	private BasicDiagnostic fDiagnostic;
-	private List<ModelExtent> fModelParams;		
+	private List<ModelExtent> fModelParams;
 	private QVTOModelExtentHelper fExtentHelper;
 	private EPackage.Registry fPackageRegistry;
 	private ResourceSet rs;
-	private boolean writeTraceFile; 
-	
-	public QVTOTransformationRunner(URI transformationURI, 
-			Registry packageRegistry,
-			List<URI> modelParamURIs,
-			boolean writeTraceFile,
-			ResourceSetImpl rs) {
-		
+	private boolean writeTraceFile;
+
+	public QVTOTransformationRunner(URI transformationURI, Registry packageRegistry, List<URI> modelParamURIs,
+			boolean writeTraceFile, ResourceSetImpl rs) {
+
 		super(transformationURI, packageRegistry, modelParamURIs);
 
 		fExecutor = new Executor(transformationURI, packageRegistry);
 		fPackageRegistry = packageRegistry;
-		//fTransformationURI = transformationURI;
+		// fTransformationURI = transformationURI;
 		fModelParamURIs = modelParamURIs;
 		this.rs = rs;
 		createResourceSet(rs, fPackageRegistry);
 		this.writeTraceFile = writeTraceFile;
 	}
-	
+
 	@Override
 	public Diagnostic initialize() {
-		if(fDiagnostic != null) {
+		if (fDiagnostic != null) {
 			return fDiagnostic;
 		}
 		fDiagnostic = QvtPlugin.createDiagnostic("Transformation runner initialize");
 
-		//monitor = new NullProgressMonitor();
+		// monitor = new NullProgressMonitor();
 		Diagnostic loadDiagnostic = fExecutor.loadTransformation(new NullProgressMonitor());
 
-		if (!QvtPlugin.isSuccess(loadDiagnostic)) {
+		if (!isSuccess(loadDiagnostic)) {
 			fDiagnostic.add(loadDiagnostic);
 		}
-		
+
 		if (writeTraceFile) {
-			//System.out.println("Load diagnostic: " + loadDiagnostic);
+			// System.out.println("Load diagnostic: " + loadDiagnostic);
 		}
 
 		handleLoadTransformation(loadDiagnostic);
@@ -121,36 +120,28 @@ public class QVTOTransformationRunner extends TransformationRunner {
 //		extentsDiagnostic = Diagnostic.OK_INSTANCE;
 
 		try {
-
 			fModelParams = fExtentHelper.loadExtents();
-			
-			
-			
-			
-
 		} catch (DiagnosticException e) {
 			extentsDiagnostic = e.getDiagnostic();
 		}
-		
+
 		handleLoadExtents(extentsDiagnostic);
 		if (extentsDiagnostic != null) {
-			if (!QvtPlugin.isSuccess(extentsDiagnostic)) {
+			if (!isSuccess(extentsDiagnostic)) {
 				System.err.println("MyTransformationExecutor.initialize() failed");
 				fDiagnostic.add(extentsDiagnostic);
 			}
 		}
 		return fDiagnostic;
 	}
-	
-	
-	
+
 	@Override
 	public Diagnostic execute(ExecutionContext context) {
-		
+
 		fExecutor.fTraces = null;
-		
+
 		Diagnostic diagnostic = initialize();
-		
+
 		if (!isSuccess(diagnostic)) {
 			return diagnostic;
 		}
@@ -159,14 +150,14 @@ public class QVTOTransformationRunner extends TransformationRunner {
 		try {
 //			System.out.println("fModel Parameters");
 //			System.out.println(fModelParams.size());
-			
+
 			ModelExtent[] params = fModelParams.toArray(new ModelExtent[fModelParams.size()]);
-			
+
 			ExecutionDiagnostic execDiagnostic = fExecutor.execute(context, params);
 			handleExecution(execDiagnostic);
-			
+
 			Trace traces = fExecutor.fTraces;
-			
+
 			if (!isSuccess(execDiagnostic)) {
 				// skip saving any output
 				return execDiagnostic;
@@ -175,7 +166,7 @@ public class QVTOTransformationRunner extends TransformationRunner {
 			// can continue and save output
 			Diagnostic saveExtentsDiagnostic = fExtentHelper.saveExtents();
 			handleSaveExtents(saveExtentsDiagnostic);
-			
+
 			if (!isSuccess(saveExtentsDiagnostic)) {
 				return saveExtentsDiagnostic;
 			}
@@ -193,37 +184,34 @@ public class QVTOTransformationRunner extends TransformationRunner {
 			return null;
 		} finally {
 			fExecutor.setEnvironmentFactory(null);
-		}			
+		}
 	}
-	
-	
-	
+
 	public void setTraceFile(URI traceFileURI) {
 		fTraceFileURI = traceFileURI;
 	}
-	
-	public Trace getTrace(){
+
+	public Trace getTrace() {
 		return fExecutor.fTraces;
 	}
-	
-	private Diagnostic saveTraces(Trace trace) { 
-		if(fTraceFileURI != null) {
+
+	private Diagnostic saveTraces(Trace trace) {
+		if (fTraceFileURI != null) {
 			Resource resource = rs.createResource(fTraceFileURI);
 			resource.getContents().add(trace);
 			try {
-		        Map<String, String> options = new HashMap<String, String>();
-		        options.put(XMLResource.OPTION_PROCESS_DANGLING_HREF, XMLResource.OPTION_PROCESS_DANGLING_HREF_DISCARD);
+				Map<String, String> options = new HashMap<String, String>();
+				options.put(XMLResource.OPTION_PROCESS_DANGLING_HREF, XMLResource.OPTION_PROCESS_DANGLING_HREF_DISCARD);
 				resource.save(options);
 			} catch (IOException e) {
 				String message = NLS.bind("Failed to save trace model uri={0}", fTraceFileURI);
-				return new BasicDiagnostic(Diagnostic.ERROR, QvtPlugin.ID, 0,
-						message, new Object[] { e });
+				return new BasicDiagnostic(Diagnostic.ERROR, QvtPlugin.ID, 0, message, new Object[] { e });
 			}
 		}
-		
+
 		return Diagnostic.OK_INSTANCE;
 	}
-	
+
 	private void createResourceSet(ResourceSetImpl rs, EPackage.Registry registry) {
 		Map<URI, Resource> resourceMap = new HashMap<URI, Resource>();
 		for (String key : registry.keySet()) {
@@ -238,11 +226,13 @@ public class QVTOTransformationRunner extends TransformationRunner {
 		}
 //		ResourceSetImpl rs = new ResourceSetImpl();
 		rs.setURIResourceMap(resourceMap);
-		/*rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
-			    Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());*/
-		//return rs;
+		/*
+		 * rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+		 * Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
+		 */
+		// return rs;
 	}
-	
+
 	private static boolean isSuccess(Diagnostic diagnostic) {
 		int severity = diagnostic.getSeverity();
 		return severity != Diagnostic.ERROR && severity != Diagnostic.CANCEL;

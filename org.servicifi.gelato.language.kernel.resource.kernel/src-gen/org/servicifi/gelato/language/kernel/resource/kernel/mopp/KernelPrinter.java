@@ -88,10 +88,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 			print_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock((org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock) element, globaltab, out);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.statements.AssignmentStatement) {
-			print_org_servicifi_gelato_language_kernel_statements_AssignmentStatement((org.servicifi.gelato.language.kernel.statements.AssignmentStatement) element, globaltab, out);
-			return;
-		}
 		if (element instanceof org.servicifi.gelato.language.kernel.statements.ExpressionStatement) {
 			print_org_servicifi_gelato_language_kernel_statements_ExpressionStatement((org.servicifi.gelato.language.kernel.statements.ExpressionStatement) element, globaltab, out);
 			return;
@@ -1139,72 +1135,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 			}
 			printCountingMap.put("statements", count - 1);
 		}
-	}
-	
-	
-	public void print_org_servicifi_gelato_language_kernel_statements_AssignmentStatement(org.servicifi.gelato.language.kernel.statements.AssignmentStatement element, String outertab, java.io.PrintWriter out) {
-		String localtab = outertab;
-		// The printCountingMap contains a mapping from feature names to the number of
-		// remaining elements that still need to be printed. The map is initialized with
-		// the number of elements stored in each structural feature. For lists this is the
-		// list size. For non-multiple features it is either 1 (if the feature is set) or
-		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(5);
-		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__PREDECESSORS));
-		printCountingMap.put("predecessors", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__SUCCESSORS));
-		printCountingMap.put("successors", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__LABEL));
-		printCountingMap.put("label", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__TARGET));
-		printCountingMap.put("target", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__VALUE));
-		printCountingMap.put("value", temp == null ? 0 : 1);
-		// print collected hidden tokens
-		int count;
-		// DEFINITION PART BEGINS (PlaceholderUsingDefaultToken)
-		count = printCountingMap.get("label");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__LABEL));
-			if (o != null) {
-				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver resolver = tokenResolverFactory.createTokenResolver("CHARACTER_LITERAL");
-				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve((Object) o, element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__LABEL), element));
-				out.print(" ");
-			}
-			printCountingMap.put("label", count - 1);
-		}
-		// DEFINITION PART BEGINS (CsString)
-		out.print(":");
-		out.print(" ");
-		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
-		count = printCountingMap.get("target");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__TARGET));
-			if (o != null) {
-				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver resolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getElementReferenceTargetReferenceResolver().deResolve((org.servicifi.gelato.language.kernel.references.ReferenceableElement) o, element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__TARGET)), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__TARGET), element));
-				out.print(" ");
-			}
-			printCountingMap.put("target", count - 1);
-		}
-		// DEFINITION PART BEGINS (CsString)
-		out.print(":=");
-		out.print(" ");
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("value");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.ASSIGNMENT_STATEMENT__VALUE));
-			if (o != null) {
-				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
-			}
-			printCountingMap.put("value", count - 1);
-		}
-		// DEFINITION PART BEGINS (CsString)
-		out.print(";");
-		out.print(" ");
 	}
 	
 	

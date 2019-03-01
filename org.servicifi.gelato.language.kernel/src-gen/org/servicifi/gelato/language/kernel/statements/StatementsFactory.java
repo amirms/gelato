@@ -49,15 +49,6 @@ public interface StatementsFactory extends EFactory {
 	Block createBlock();
 
 	/**
-	 * Returns a new object of class '<em>Assignment Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assignment Statement</em>'.
-	 * @generated
-	 */
-	AssignmentStatement createAssignmentStatement();
-
-	/**
 	 * Returns a new object of class '<em>Goto</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

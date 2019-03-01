@@ -76,6 +76,14 @@ public class ProceduresAdapterFactory extends AdapterFactoryImpl {
 				return createReturnSiteAdapter();
 			}
 			@Override
+			public Adapter caseProcedure(Procedure object) {
+				return createProcedureAdapter();
+			}
+			@Override
+			public Adapter caseProcedureCall(ProcedureCall object) {
+				return createProcedureCallAdapter();
+			}
+			@Override
 			public Adapter caseNode(Node object) {
 				return createNodeAdapter();
 			}
@@ -114,6 +122,34 @@ public class ProceduresAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createReturnSiteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.analysis.framework.procedures.Procedure <em>Procedure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.analysis.framework.procedures.Procedure
+	 * @generated
+	 */
+	public Adapter createProcedureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.analysis.framework.procedures.ProcedureCall <em>Procedure Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.analysis.framework.procedures.ProcedureCall
+	 * @generated
+	 */
+	public Adapter createProcedureCallAdapter() {
 		return null;
 	}
 

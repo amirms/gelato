@@ -344,7 +344,7 @@ public class MainProcedureImpl extends LabellableElementImpl implements MainProc
 
 		if (getEnd() == null)
 			this.setEnd(CommonsFactory.eINSTANCE.createEnd());
-
+		
 		// set labels for start and end
 		getStart().setLabel(0 - getLabel());
 		getEnd().setLabel(Long.MAX_VALUE - getLabel());
@@ -353,7 +353,6 @@ public class MainProcedureImpl extends LabellableElementImpl implements MainProc
 		if (getMembers().isEmpty()) {
 			res.add(GraphsFactory.eINSTANCE.createRegularFlow(getStart(), getEnd()));
 			return res;
-
 		}
 
 		LabellableElement firstMember = (LabellableElement) getMembers().get(0);

@@ -8,8 +8,11 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+
 import org.servicifi.gelato.analysis.framework.graphs.Node;
+
 import org.servicifi.gelato.language.kernel.members.Member;
 
 import org.servicifi.gelato.language.kernel.references.ElementReference;
@@ -97,10 +100,6 @@ public class StatementsAdapterFactory extends AdapterFactoryImpl {
 				return createBlockAdapter();
 			}
 			@Override
-			public Adapter caseAssignmentStatement(AssignmentStatement object) {
-				return createAssignmentStatementAdapter();
-			}
-			@Override
 			public Adapter caseJump(Jump object) {
 				return createJumpAdapter();
 			}
@@ -159,6 +158,10 @@ public class StatementsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMember(Member object) {
 				return createMemberAdapter();
+			}
+			@Override
+			public Adapter caseProcedures_ProcedureCall(org.servicifi.gelato.analysis.framework.procedures.ProcedureCall object) {
+				return createProcedures_ProcedureCallAdapter();
 			}
 			@Override
 			public Adapter caseElementReference(ElementReference object) {
@@ -265,20 +268,6 @@ public class StatementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBlockAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.statements.AssignmentStatement <em>Assignment Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.servicifi.gelato.language.kernel.statements.AssignmentStatement
-	 * @generated
-	 */
-	public Adapter createAssignmentStatementAdapter() {
 		return null;
 	}
 
@@ -451,20 +440,6 @@ public class StatementsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.members.Member <em>Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.servicifi.gelato.language.kernel.members.Member
-	 * @generated
-	 */
-	public Adapter createMemberAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.analysis.framework.graphs.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -489,6 +464,34 @@ public class StatementsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLabellableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.members.Member <em>Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.language.kernel.members.Member
+	 * @generated
+	 */
+	public Adapter createMemberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.analysis.framework.procedures.ProcedureCall <em>Procedure Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.analysis.framework.procedures.ProcedureCall
+	 * @generated
+	 */
+	public Adapter createProcedures_ProcedureCallAdapter() {
 		return null;
 	}
 

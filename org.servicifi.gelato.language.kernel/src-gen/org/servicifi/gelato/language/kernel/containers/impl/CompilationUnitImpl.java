@@ -34,26 +34,29 @@ import org.servicifi.gelato.language.kernel.procedures.Procedure;
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Compilation Unit</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Compilation Unit</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getMainProcedure <em>Main Procedure</em>}</li>
- *   <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getDeclarations <em>Declarations</em>}</li>
- *   <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getStart <em>Start</em>}</li>
- *   <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getEnd <em>End</em>}</li>
+ * <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getMainProcedure
+ * <em>Main Procedure</em>}</li>
+ * <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getDeclarations
+ * <em>Declarations</em>}</li>
+ * <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getStart
+ * <em>Start</em>}</li>
+ * <li>{@link org.servicifi.gelato.language.kernel.containers.impl.CompilationUnitImpl#getEnd
+ * <em>End</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CompilationUnitImpl extends KernelRootImpl implements CompilationUnit {
 	/**
-	 * The cached value of the '{@link #getMainProcedure() <em>Main Procedure</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMainProcedure() <em>Main Procedure</em>}'
+	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getMainProcedure()
 	 * @generated
 	 * @ordered
@@ -61,9 +64,9 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	protected MainProcedure mainProcedure;
 
 	/**
-	 * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getDeclarations()
 	 * @generated
 	 * @ordered
@@ -71,9 +74,9 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	protected EList<Member> declarations;
 
 	/**
-	 * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getStart() <em>Start</em>}' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getStart()
 	 * @generated
 	 * @ordered
@@ -81,9 +84,9 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	protected Start start;
 
 	/**
-	 * The cached value of the '{@link #getEnd() <em>End</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getEnd() <em>End</em>}' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getEnd()
 	 * @generated
 	 * @ordered
@@ -91,8 +94,8 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	protected End end;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CompilationUnitImpl() {
@@ -100,8 +103,8 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -110,8 +113,8 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MainProcedure getMainProcedure() {
@@ -119,54 +122,62 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetMainProcedure(MainProcedure newMainProcedure, NotificationChain msgs) {
 		MainProcedure oldMainProcedure = mainProcedure;
 		mainProcedure = newMainProcedure;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE, oldMainProcedure, newMainProcedure);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE, oldMainProcedure, newMainProcedure);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMainProcedure(MainProcedure newMainProcedure) {
 		if (newMainProcedure != mainProcedure) {
 			NotificationChain msgs = null;
 			if (mainProcedure != null)
-				msgs = ((InternalEObject)mainProcedure).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE, null, msgs);
+				msgs = ((InternalEObject) mainProcedure).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE, null, msgs);
 			if (newMainProcedure != null)
-				msgs = ((InternalEObject)newMainProcedure).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE, null, msgs);
+				msgs = ((InternalEObject) newMainProcedure).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE, null, msgs);
 			msgs = basicSetMainProcedure(newMainProcedure, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE, newMainProcedure, newMainProcedure));
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE,
+					newMainProcedure, newMainProcedure));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Member> getDeclarations() {
 		if (declarations == null) {
-			declarations = new EObjectContainmentEList<Member>(Member.class, this, ContainersPackage.COMPILATION_UNIT__DECLARATIONS);
+			declarations = new EObjectContainmentEList<Member>(Member.class, this,
+					ContainersPackage.COMPILATION_UNIT__DECLARATIONS);
 		}
 		return declarations;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Start getStart() {
@@ -174,42 +185,49 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetStart(Start newStart, NotificationChain msgs) {
 		Start oldStart = start;
 		start = newStart;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__START, oldStart, newStart);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ContainersPackage.COMPILATION_UNIT__START, oldStart, newStart);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setStart(Start newStart) {
 		if (newStart != start) {
 			NotificationChain msgs = null;
 			if (start != null)
-				msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__START, null, msgs);
+				msgs = ((InternalEObject) start).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__START, null, msgs);
 			if (newStart != null)
-				msgs = ((InternalEObject)newStart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__START, null, msgs);
+				msgs = ((InternalEObject) newStart).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__START, null, msgs);
 			msgs = basicSetStart(newStart, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__START, newStart, newStart));
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__START, newStart,
+					newStart));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public End getEnd() {
@@ -217,149 +235,156 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetEnd(End newEnd, NotificationChain msgs) {
 		End oldEnd = end;
 		end = newEnd;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__END, oldEnd, newEnd);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					ContainersPackage.COMPILATION_UNIT__END, oldEnd, newEnd);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setEnd(End newEnd) {
 		if (newEnd != end) {
 			NotificationChain msgs = null;
 			if (end != null)
-				msgs = ((InternalEObject)end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__END, null, msgs);
+				msgs = ((InternalEObject) end).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__END, null, msgs);
 			if (newEnd != null)
-				msgs = ((InternalEObject)newEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__END, null, msgs);
+				msgs = ((InternalEObject) newEnd).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - ContainersPackage.COMPILATION_UNIT__END, null, msgs);
 			msgs = basicSetEnd(newEnd, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__END, newEnd, newEnd));
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContainersPackage.COMPILATION_UNIT__END, newEnd,
+					newEnd));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
-				return basicSetMainProcedure(null, msgs);
-			case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
-				return ((InternalEList<?>)getDeclarations()).basicRemove(otherEnd, msgs);
-			case ContainersPackage.COMPILATION_UNIT__START:
-				return basicSetStart(null, msgs);
-			case ContainersPackage.COMPILATION_UNIT__END:
-				return basicSetEnd(null, msgs);
+		case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
+			return basicSetMainProcedure(null, msgs);
+		case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
+			return ((InternalEList<?>) getDeclarations()).basicRemove(otherEnd, msgs);
+		case ContainersPackage.COMPILATION_UNIT__START:
+			return basicSetStart(null, msgs);
+		case ContainersPackage.COMPILATION_UNIT__END:
+			return basicSetEnd(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
-				return getMainProcedure();
-			case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
-				return getDeclarations();
-			case ContainersPackage.COMPILATION_UNIT__START:
-				return getStart();
-			case ContainersPackage.COMPILATION_UNIT__END:
-				return getEnd();
+		case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
+			return getMainProcedure();
+		case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
+			return getDeclarations();
+		case ContainersPackage.COMPILATION_UNIT__START:
+			return getStart();
+		case ContainersPackage.COMPILATION_UNIT__END:
+			return getEnd();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
-				setMainProcedure((MainProcedure)newValue);
-				return;
-			case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
-				getDeclarations().clear();
-				getDeclarations().addAll((Collection<? extends Member>)newValue);
-				return;
-			case ContainersPackage.COMPILATION_UNIT__START:
-				setStart((Start)newValue);
-				return;
-			case ContainersPackage.COMPILATION_UNIT__END:
-				setEnd((End)newValue);
-				return;
+		case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
+			setMainProcedure((MainProcedure) newValue);
+			return;
+		case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
+			getDeclarations().clear();
+			getDeclarations().addAll((Collection<? extends Member>) newValue);
+			return;
+		case ContainersPackage.COMPILATION_UNIT__START:
+			setStart((Start) newValue);
+			return;
+		case ContainersPackage.COMPILATION_UNIT__END:
+			setEnd((End) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
-				setMainProcedure((MainProcedure)null);
-				return;
-			case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
-				getDeclarations().clear();
-				return;
-			case ContainersPackage.COMPILATION_UNIT__START:
-				setStart((Start)null);
-				return;
-			case ContainersPackage.COMPILATION_UNIT__END:
-				setEnd((End)null);
-				return;
+		case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
+			setMainProcedure((MainProcedure) null);
+			return;
+		case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
+			getDeclarations().clear();
+			return;
+		case ContainersPackage.COMPILATION_UNIT__START:
+			setStart((Start) null);
+			return;
+		case ContainersPackage.COMPILATION_UNIT__END:
+			setEnd((End) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
-				return mainProcedure != null;
-			case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
-				return declarations != null && !declarations.isEmpty();
-			case ContainersPackage.COMPILATION_UNIT__START:
-				return start != null;
-			case ContainersPackage.COMPILATION_UNIT__END:
-				return end != null;
+		case ContainersPackage.COMPILATION_UNIT__MAIN_PROCEDURE:
+			return mainProcedure != null;
+		case ContainersPackage.COMPILATION_UNIT__DECLARATIONS:
+			return declarations != null && !declarations.isEmpty();
+		case ContainersPackage.COMPILATION_UNIT__START:
+			return start != null;
+		case ContainersPackage.COMPILATION_UNIT__END:
+			return end != null;
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -403,6 +428,7 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 
 		// Main Procedure
 		result.add(GraphsFactory.eINSTANCE.createRegularFlow(getStart(), mainproc.first()));
+
 		result.addAll(mainproc.internalFlow());
 		EList<LabellableElement> endmainproc = new BasicEList<LabellableElement>();
 		endmainproc.addAll(mainproc.last());
@@ -425,7 +451,10 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 				result.add(GraphsFactory.eINSTANCE.createProcedureFlow(procedureCall.first(), callee.first()));
 				for (LabellableElement e : callee.last()) {
 					// FIXME is this a procedure flow, or just a regular flow
-					result.add(GraphsFactory.eINSTANCE.createRegularFlow(e, procedureCall.first())); 
+					// FIXME should the flow connect the ends of callee procedure to the last of
+					// procedure call (i.e. return site)
+					for (LabellableElement r : procedureCall.last())
+						result.add(GraphsFactory.eINSTANCE.createRegularFlow(e, r));
 				}
 			}
 		}
@@ -433,4 +462,4 @@ public class CompilationUnitImpl extends KernelRootImpl implements CompilationUn
 		return result;
 	}
 
-} //CompilationUnitImpl
+} // CompilationUnitImpl

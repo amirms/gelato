@@ -119,6 +119,16 @@
     <nestedGenPackages prefix="Procedures" basePackage="org.servicifi.gelato.analysis.framework"
         disposableProviderFactory="true" ecorePackage="framework.ecore#//procedures">
       <genClasses ecoreClass="framework.ecore#//procedures/ReturnSite"/>
+      <genClasses image="false" ecoreClass="framework.ecore#//procedures/Procedure"/>
+      <genClasses image="false" ecoreClass="framework.ecore#//procedures/ProcedureCall">
+        <genOperations ecoreOperation="framework.ecore#//procedures/ProcedureCall/alphaConvert">
+          <genParameters ecoreParameter="framework.ecore#//procedures/ProcedureCall/alphaConvert/results"/>
+        </genOperations>
+        <genOperations ecoreOperation="framework.ecore#//procedures/ProcedureCall/translateActualToFormalParameters">
+          <genParameters ecoreParameter="framework.ecore#//procedures/ProcedureCall/translateActualToFormalParameters/results"/>
+          <genParameters ecoreParameter="framework.ecore#//procedures/ProcedureCall/translateActualToFormalParameters/callee"/>
+        </genOperations>
+      </genClasses>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

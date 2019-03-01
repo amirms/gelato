@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessUIMetaInformation" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessUIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="preprocess" icon="icons/editor_icon.gif" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessEditor" name="EMFText preprocess Editor">
+			<contentTypeBinding contentTypeId="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess">
+			</contentTypeBinding>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessPreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Preprocess Text Editor" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessPreferencePage" class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessSyntaxColoringPreferencePage" class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessSyntaxColoringPreferencePage" category="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessPreferencePage">
+		</page>
+		<page name="Brackets" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessBracketPreferencePage" class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessBracketPreferencePage" category="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessPreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessNewFileWizard" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessNewFileWizard" name="EMFText .preprocess file">
+		</wizard>
+		<category id="org.emftext.runtime.ui.EMFTextProjectCategory" name="EMFText Project">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextProjectCategory" icon="/icons/default_new_icon.gif" class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessNewProjectWizard" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessNewProjectWizard" name="EMFText preprocess project" project="true">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessMarkerResolutionGenerator" markerType="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.problem">
+		</markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessAnnotationModelFactory" extensions="preprocess">
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess" name=".preprocess File" base-type="org.eclipse.core.runtime.text" file-extensions="preprocess">
+		</content-type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="preprocess" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.provider">
+		</provider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.occurences">
+		</type>
+		<type name="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.occurences.declaration" super="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.occurences">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.occurences" label="Occurrences (in .preprocess files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="preprocess.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="preprocess.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="preprocess.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="preprocess.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="preprocess.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="preprocess.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="preprocess.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="preprocess.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="preprocess.occurrenceTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+		<specification annotationType="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.occurences.declaration" label="Declarations (in .preprocess files)" textPreferenceKey="preprocess.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="preprocess.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="preprocess.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="preprocess.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="preprocess.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="preprocess.declarationTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+</plugin>

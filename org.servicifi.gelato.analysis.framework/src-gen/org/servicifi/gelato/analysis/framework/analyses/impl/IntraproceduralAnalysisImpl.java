@@ -12,18 +12,21 @@ import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesFactory;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
+
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisDirection;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisType;
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
 import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
-import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisResult;
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.analysis.framework.commons.ReturnSite;
 import org.servicifi.gelato.analysis.framework.commons.Start;
-import org.servicifi.gelato.analysis.framework.commons.Variable;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.analysis.framework.graphs.ProcedureFlow;
 import org.servicifi.gelato.analysis.framework.graphs.RegularFlow;
+import org.servicifi.gelato.analysis.framework.procedures.Procedure;
+import org.servicifi.gelato.analysis.framework.procedures.ProcedureCall;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -34,14 +37,20 @@ import org.servicifi.gelato.analysis.framework.graphs.RegularFlow;
 public class IntraproceduralAnalysisImpl extends AnalysisImpl implements IntraproceduralAnalysis {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IntraproceduralAnalysisImpl() {
 		super();
 	}
 
+	protected IntraproceduralAnalysisImpl(EList<Flow> cfg, AnalysisConfiguration configuration) {
+		super(cfg, configuration);
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -61,14 +70,20 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 
 		// for every node in cfg, insert in the worklist
 		// The first edge must be from START
+		// TODO depends on the direction of analysis. correct?
 
-		worklist.add((LabellableElement) cfg.get(0).getFrom());
+//		System.out.println("cfg.get(0): " + cfg.get(0));
+
+		// FIXME if direction is backwards??????
+		worklist.add((LabellableElement) cfg.get(0).getTo());
 
 		LabellableElement workElement = null;
 
 		while (!worklist.isEmpty()) {
 
 			workElement = worklist.poll();
+
+			System.out.println("Polling worklist. Current element is " + workElement);
 
 			// get the last iteration
 //			int curIteration = 0;
@@ -87,21 +102,25 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 				System.out.println("map size is: " + map.size());
 				System.out.println(map.get(workElement.getLabel()));
 
+				System.out.println("Exit[" + workElement.getLabel() + "]:" + map.get(workElement.getLabel()).getExit());
+				System.out.println("pair.exit:" + pair.getExit());
+
+				// Same information, stop propagating. Nothing has changed.
 				if (map.get(workElement.getLabel()).getExit().equals(pair.getExit()))
 					continue;
-
 			}
 
 			map.put(workElement.getLabel(), pair);
-			System.out.println(workElement);
+//			System.out.println(workElement);
 			EList<LabellableElement> nodes = getAllNodesWithDirection(workElement, configuration.getDirection(),
 					Flow.class);
 
-			System.out.println(nodes.size());
+			System.out.println("Adding nodes: " + nodes);
+//			System.out.println(nodes.size());
 
 			worklist.addAll(nodes);
 		}
-		
+
 		// FIXME remove all start and end nodes
 		map.remove(new Long(0)); // the label for the start node
 		map.remove(new Long(Long.MAX_VALUE)); // the label for the start node
@@ -114,30 +133,38 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 		if (e instanceof Start) {
 			return new UniqueEList<>();
 		}
-		
+
 		// res must be TreeSet
 		EList<AnalysisResult> res = new UniqueEList<>();
-		for (LabellableElement workElement : getAllNodesWithDirection(e, AnalysisDirection.BACKWARDS,
-				RegularFlow.class)) {
-			EList<AnalysisResult> x = getExitTable().get(workElement);
+		// TODO should this be `configuration.getDirection()`?
+		// configuration.getDirection().reverse()
+		// if configuration.getDirection().equals(AnalysisDirection.Forwards)
+		// return AnalysisDirection.Backwards else return AnalysisDirection.Forwards
 
+		// reverse the direction of the analysis
+		AnalysisDirection direction = configuration.getDirection().equals(AnalysisDirection.BACKWARDS)
+				? AnalysisDirection.FORWARDS
+				: AnalysisDirection.BACKWARDS;
+
+		for (LabellableElement workElement : getAllNodesWithDirection(e, direction, RegularFlow.class)) {
+			EList<AnalysisResult> x = getExitTable().get(workElement);
 			if (x == null) {
 				x = new UniqueEList<>();
 			}
-
+			
 			res.addAll(x);
 
 			if (workElement instanceof ReturnSite)
-				res.addAll(alphaConvert((ReturnSite) workElement));
+				res.addAll(alphaConvert((ReturnSite) workElement, direction));
 		}
 
 		// if this is entry to a procedure,
 		// first add results through translation of actual parameters (arguments) to
 		// formal parameters
 
+		// TODO
 		if (e instanceof Procedure)
-			for (LabellableElement workElement : getAllNodesWithDirection(e, AnalysisDirection.BACKWARDS,
-					ProcedureFlow.class)) {
+			for (LabellableElement workElement : getAllNodesWithDirection(e, direction, ProcedureFlow.class)) {
 				EList<AnalysisResult> x = getExitTable().get(workElement); // this must be just before calling the
 																			// procedure call
 				// Consider scoping rules
@@ -148,39 +175,23 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 					ProcedureCall call = (ProcedureCall) workElement;
 					Procedure callee = (Procedure) e;
 
-					for (int i = 0; i < call.getArguments().size(); i++) {
-						Variable a = (Variable) call.getArguments().get(i).getTarget();
-
-						// replace in the x and add to result
-						for (int j = 0; j < x.size(); j++) {
-
-							ReachingDefinitionsAnalysisResult result = (ReachingDefinitionsAnalysisResult) x.get(j);
-
-							if (result.getVariable().equals(a)) {
-								// remove analysis result
-								x.remove(j);
-								// get the ith formal parameter
-								Variable v = callee.getParameters().get(i);
-								System.out.println(v);
-								x.add(j, AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v,
-										result.getLabel()));
-							}
-						}
-					}
+					call.translateActualToFormalParameters(x, callee);
 				}
+
 				res.addAll(x);
 			}
 
 		// join them with the current new ones
+		// this is the meet operator
+		// TODO ask the analysis meet() to join analysis results
 		EList<AnalysisResult> curEntry = new UniqueEList<AnalysisResult>();
 		if (getEntryTable().containsKey(e))
 			curEntry.addAll(getEntryTable().get(e));
 
-		System.out.print("current size: " + curEntry.size());
 		curEntry.addAll(res);
-		System.out.println("After join size: " + curEntry.size());
 
 		getEntryTable().put(e, curEntry);
+
 		return res;
 	}
 
@@ -198,24 +209,35 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 		for (AnalysisResult ar : e.kill(configuration)) {
 			res.remove(ar);
 		}
+
 		res.addAll(e.gen(configuration));
+
 		// TreeSet or UniqueEList
 		res = new UniqueEList<>(res);
+
 		getExitTable().put(e, res);
+
 		return res;
 	}
 
 	@Override
 	public EList<AnalysisResult> meet(EList<EList<AnalysisResult>> exits) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public EList<AnalysisResult> alphaConvert(ReturnSite returnsite) {
 		EList<AnalysisResult> res = new UniqueEList<>();
 
-		for (LabellableElement workElement : getAllNodesWithDirection(returnsite, AnalysisDirection.BACKWARDS,
-				ProcedureFlow.class)) {
+		// TODO implemet me
+		if (this.configuration.getAnalysisType().equals(AnalysisType.MUST)) {
+
+		} else { // if it is a may analysis
+
+		}
+
+		return res;
+	}
+
+	public EList<AnalysisResult> alphaConvert(ReturnSite returnsite, AnalysisDirection direction) {
+		EList<AnalysisResult> res = new UniqueEList<>();
+
+		for (LabellableElement workElement : getAllNodesWithDirection(returnsite, direction, ProcedureFlow.class)) {
 			EList<AnalysisResult> x = getExitTable().get(workElement); // this must be from the callee procedure
 			// Consider scoping rules
 			if (x == null) {
@@ -227,30 +249,8 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 //					while (!(container instanceof Procedure))
 //						container = container.eContainer();
 				ProcedureCall call = (ProcedureCall) returnsite.eContainer();
-				Procedure callee = (Procedure) call.getTarget();
 
-				// Assuming parameters match
-				for (int i = 0; i < callee.getParameters().size(); i++) {
-					Variable a = callee.getParameters().get(i);
-
-					// replace in the x and add to result
-					// go through all the results to find the ones corresponding to each argument
-					// variable
-					for (int j = 0; j < x.size(); j++) {
-
-						ReachingDefinitionsAnalysisResult result = (ReachingDefinitionsAnalysisResult) x.get(j);
-
-						if (result.getVariable().equals(a)) {
-							// remove analysis result
-							x.remove(j);
-							// get the ith actual parameter
-							Variable v = (Variable) call.getArguments().get(i).getTarget();
-							System.out.println("Aasdasda");
-							System.out.println(v);
-							x.add(j, AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, result.getLabel()));
-						}
-					}
-				}
+				call.alphaConvert(x);
 			}
 
 			res.addAll(x);

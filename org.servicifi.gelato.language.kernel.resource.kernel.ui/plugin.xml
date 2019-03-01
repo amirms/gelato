@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelUIMetaInformation" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelUIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="kernel" icon="icons/editor_icon.gif" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelEditor" name="EMFText kernel Editor">
+			<contentTypeBinding contentTypeId="org.servicifi.gelato.language.kernel.resource.kernel">
+			</contentTypeBinding>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelPreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Kernel Text Editor" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelPreferencePage" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringPreferencePage" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringPreferencePage" category="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelPreferencePage">
+		</page>
+		<page name="Brackets" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelBracketPreferencePage" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelBracketPreferencePage" category="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelPreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelNewFileWizard" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelNewFileWizard" name="EMFText .kernel file">
+		</wizard>
+		<category id="org.emftext.runtime.ui.EMFTextProjectCategory" name="EMFText Project">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextProjectCategory" icon="/icons/default_new_icon.gif" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelNewProjectWizard" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelNewProjectWizard" name="EMFText kernel project" project="true">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelMarkerResolutionGenerator" markerType="org.servicifi.gelato.language.kernel.resource.kernel.problem">
+		</markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelAnnotationModelFactory" extensions="kernel">
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="org.servicifi.gelato.language.kernel.resource.kernel" name=".kernel File" base-type="org.eclipse.core.runtime.text" file-extensions="kernel">
+		</content-type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="kernel" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.provider">
+		</provider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="org.servicifi.gelato.language.kernel.resource.kernel.ui.occurences">
+		</type>
+		<type name="org.servicifi.gelato.language.kernel.resource.kernel.ui.occurences.declaration" super="org.servicifi.gelato.language.kernel.resource.kernel.ui.occurences">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.servicifi.gelato.language.kernel.resource.kernel.ui.occurences" label="Occurrences (in .kernel files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="kernel.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="kernel.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="kernel.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="kernel.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="kernel.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="kernel.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="kernel.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="kernel.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="kernel.occurrenceTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+		<specification annotationType="org.servicifi.gelato.language.kernel.resource.kernel.ui.occurences.declaration" label="Declarations (in .kernel files)" textPreferenceKey="kernel.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="kernel.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="kernel.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="kernel.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="kernel.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="kernel.declarationTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+		<launchConfigurationTypeImage icon="/icons/launch_type_icon.gif" configTypeID="org.servicifi.gelato.language.kernel.resource.kernel.ui.launchConfigurationType" id="org.servicifi.gelato.language.kernel.launchImage">
+		</launchConfigurationTypeImage>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+		<launchConfigurationTabGroup type="org.servicifi.gelato.language.kernel.resource.kernel.ui.launchConfigurationType" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.launch.KernelLaunchConfigurationTabGroup" id="org.servicifi.gelato.language.kernel.launchConfigurationTabGroup" helpContextId="org.servicifi.gelato.language.kernel.launchConfigHelpContext">
+			<launchMode mode="debug" perspective="org.eclipse.debug.ui.DebugPerspective" description="Debug kernel model.">
+			</launchMode>
+			<launchMode mode="run" description="Run kernel model.">
+			</launchMode>
+		</launchConfigurationTabGroup>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+		<shortcut label="kernel Application" icon="/icons/launch_shortcut_icon.gif" helpContextId="org.servicifi.gelato.language.kernel.launch" modes="run,debug" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.launch.KernelLaunchShortcut" description="Launch a kernel model" id="org.servicifi.gelato.language.kernel.launchShortcut">
+			<description description="Run kernel model" mode="run">
+			</description>
+			<description description="Debug kernel model" mode="debug">
+			</description>
+			<contextualLaunch>
+				<enablement>
+					<with variable="selection">
+						<count value="1">
+						</count>
+						<iterate>
+							<test property="org.servicifi.gelato.language.kernel.isLaunchable">
+							</test>
+						</iterate>
+					</with>
+				</enablement>
+			</contextualLaunch>
+			<configurationType id="org.servicifi.gelato.language.kernel.resource.kernel.ui.launchConfigurationType">
+			</configurationType>
+		</shortcut>
+	</extension>
+	
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+		<propertyTester id="org.servicifi.gelato.language.kernel.PropertyTester" type="java.lang.Object" namespace="org.servicifi.gelato.language.kernel" properties="isLaunchable" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelPropertyTester">
+		</propertyTester>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="org.servicifi.gelato.language.kernel.resource.kernel.ui.debug.lineBreakpoint" markerType="org.servicifi.gelato.language.kernel.resource.kernel.debug.lineBreakpoint.marker" super="org.eclipse.debug.core.breakpoint">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.servicifi.gelato.language.kernel.resource.kernel.ui.debug.lineBreakpoint" label="Breakpoints (in .kernel files)" icon="/icons/breakpoint_icon.gif" textPreferenceKey="org.servicifi.gelato.language.kernel.resource.kernel.ui.lineBreakpoint" textPreferenceValue="false" highlightPreferenceKey="org.servicifi.gelato.language.kernel.resource.kernel.ui.lineBreakpointHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="org.servicifi.gelato.language.kernel.resource.kernel.ui.lineBreakpointIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="org.servicifi.gelato.language.kernel.resource.kernel.ui.lineBreakpointIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="org.servicifi.gelato.language.kernel.resource.kernel.ui.lineBreakpointColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="org.servicifi.gelato.language.kernel.resource.kernel.ui.showLineBreakpointInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="org.servicifi.gelato.language.kernel.resource.kernel.ui.isLineBreakpointGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="org.servicifi.gelato.language.kernel.resource.kernel.ui.isLineBreakpointGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="org.servicifi.gelato.language.kernel.resource.kernel.ui.lineBreakpointTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.adapters">
+		<factory adaptableType="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelEditor" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.debug.KernelAdapterFactory">
+			<adapter type="org.eclipse.debug.ui.actions.IToggleBreakpointsTarget">
+			</adapter>
+		</factory>
+		<factory adaptableType="org.servicifi.gelato.language.kernel.resource.kernel.debug.KernelDebugVariable" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.debug.KernelAdapterFactory">
+			<adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IElementLabelProvider">
+			</adapter>
+		</factory>
+		<factory adaptableType="org.servicifi.gelato.language.kernel.resource.kernel.debug.KernelDebugVariable" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.debug.KernelAdapterFactory">
+			<adapter type="org.eclipse.debug.internal.ui.viewers.model.provisional.IElementContentProvider">
+			</adapter>
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution id="org.servicifi.gelato.language.kernel.resource.kernel.ui.RulerPopupActions" targetID="org.servicifi.gelato.language.kernel.resource.kernel.EditorRuler">
+			<action id="org.servicifi.gelato.language.kernel.resource.kernel.ui.toggleBreakpointAction" icon="icons/breakpoint_icon.gif" label="Toggle Breakpoint" class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate" menubarPath="debug">
+			</action>
+		</viewerContribution>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editorActions">
+		<editorContribution targetID="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelEditor" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.BreakpointRulerActions">
+			<action id="org.servicifi.gelato.language.kernel.resource.kernel.ui.debug.RulerToggleBreakpointAction" label="Add breakpoint" class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate" actionID="RulerDoubleClick">
+			</action>
+		</editorContribution>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.debugModelPresentations">
+		<debugModelPresentation id="org.servicifi.gelato.language.kernel.resource.kernel.debugModel" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.debug.KernelDebugModelPresentation">
+		</debugModelPresentation>
+	</extension>
+	
+</plugin>

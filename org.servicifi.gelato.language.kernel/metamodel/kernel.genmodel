@@ -35,9 +35,6 @@
       </genClasses>
       <genClasses ecoreClass="kernel.ecore#//statements/WhileLoop"/>
       <genClasses ecoreClass="kernel.ecore#//statements/Block"/>
-      <genClasses ecoreClass="kernel.ecore#//statements/AssignmentStatement">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kernel.ecore#//statements/AssignmentStatement/value"/>
-      </genClasses>
       <genClasses image="false" ecoreClass="kernel.ecore#//statements/Jump">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference kernel.ecore#//statements/Jump/target"/>

@@ -567,7 +567,6 @@ public class ProcedureImpl extends LabellableElementImpl implements Procedure {
 		if (getMembers().isEmpty()){
 			res.add(GraphsFactory.eINSTANCE.createRegularFlow(getStart(), getEnd()));
 			return res;
-		
 		}
 		
 		LabellableElement firstMember = (LabellableElement) getMembers().get(0);
