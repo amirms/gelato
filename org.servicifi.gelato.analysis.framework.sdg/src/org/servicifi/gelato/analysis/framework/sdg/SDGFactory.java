@@ -19,7 +19,15 @@ public final class SDGFactory {
 	}
 
 	private static void addDataDependencies(SDG sdg, Map<Long, ExitEntryPair> label2Maps) {
-		sdg.vertexSet().stream().forEach(vertex -> setDataDependencies(vertex, label2Maps.get(vertex.getLabel()), sdg));
+		for (long label : label2Maps.keySet()) {
+			Node node = sdg.getVertex(label);
+			
+			if(node == null) {
+				continue;
+			}
+			
+			setDataDependencies(node, label2Maps.get(label), sdg);
+		}
 	}
 
 	private static void setDataDependencies(Node vertex, ExitEntryPair exitEntryPair, SDG sdg) {
@@ -49,7 +57,7 @@ public final class SDGFactory {
 				if (source == null) {
 					return;
 				}
-				
+
 				sdg.addEdge(source, vertex, new Edge(source, vertex, EdgeType.DATA));
 			});
 		}

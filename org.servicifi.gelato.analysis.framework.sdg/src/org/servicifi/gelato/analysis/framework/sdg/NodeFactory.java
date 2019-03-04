@@ -12,10 +12,11 @@ import org.servicifi.gelato.language.kernel.statements.ExpressionStatement;
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 import org.servicifi.gelato.language.kernel.statements.Return;
 import org.servicifi.gelato.language.kernel.statements.WhileLoop;
-import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
-
 
 public class NodeFactory {
+
+	private static final String OUT_POSTFIX = "_out";
+	private static final String IN_POSTFIX = "_in";
 
 	private SDGFactoryConfig sdgConfig;
 
@@ -25,14 +26,6 @@ public class NodeFactory {
 		this.sdgConfig = sdgConfig;
 	}
 
-	public Node exit() {
-		// TODO calculate exit label
-		final String label = "End";
-		Node result = new Node(label, NodeType.EXIT);
-		setId(result);
-		return result;
-	}
-
 	private void setId(Node result) {
 		// TODO Auto-generated method stub
 
@@ -40,7 +33,7 @@ public class NodeFactory {
 
 	public Node whileLoop(WhileLoop n) {
 		final Expression cond = n.getCondition();
-		final String label = cond.getLabel() +"";
+		final String label = cond.getLabel() + "";
 		final Node result = new Node(label, NodeType.CTRL, cond);
 		setId(result);
 //	    setLine(result, n);
@@ -50,18 +43,20 @@ public class NodeFactory {
 	}
 
 	public Node procedure(Procedure n) {
-		final String label = n.getLabel() +"";
+		final String label = n.getLabel() + "";
 		final Node result = new Node(label, NodeType.ENTRY, n);
 		setId(result);
 //	    setLine(result, n);
 		return result;
 	}
 
-	public Node parameter(Parameter n) {
-		final String label = getParameterLabel(n);
-		final Node result = new Node(label, NodeType.FORMAL_IN);
-		setId(result);
-		setDef(n, result);
+	public Node parameter(Parameter parameter) {
+		final String label = getParameterLabel(parameter);
+		final Node result = new Node(label, NodeType.FORMAL_IN, (Procedure) parameter.eContainer());
+
+		result.addUsage(parameter.getName() + IN_POSTFIX);
+		result.setDef(parameter.getName());
+
 		return result;
 	}
 
@@ -74,39 +69,36 @@ public class NodeFactory {
 		EList<Parameter> parameters = procedure.getParameters();
 		for (int i = 0; i < parameters.size(); i++) {
 			if (parameters.get(i).equals(parameter)) {
-				return procedure.getLabel() + "." + (i+1);
+				return procedure.getLabel() + "." + (i + 1);
 			}
 		}
 
 		throw new Error("Parameter " + parameter + " could not be found");
 	}
 
-	private void setDef(Parameter n, final Node v) {
-		String def = n.getName();
-		v.setDef(def);
-	}
-
-	public Node formalOut() {
-		// TODO calculate formal out label
-		final String label = "FO";
-		final Node result = new Node(label, NodeType.FORMAL_OUT);
-		setId(result);
+	public Node formalOut(Parameter parameter, Procedure procedure) {
+		final String label = "FO" + getParameterLabel(parameter);
+		final Node result = new Node(label, NodeType.FORMAL_OUT, procedure);
+		// formal out: parameter name + "_out"
+		result.addUsage(parameter.getName());
+		result.setDef(parameter.getName() + OUT_POSTFIX);
 		return result;
 	}
 
-	public Node actualOut(final Node n) {
+	public Node actualOut(Argument argument, ProcedureCall call) {
 		// TODO calculate actual out label
-		final String label = n.getLabel() +"";
-		final Node result = new Node(label, NodeType.ACTUAL_OUT);
-		setId(result);
-//		setLine(result, n);
-//		setDef(n, result);
+		final String label = "AO" + getArgumentLabel(argument);
+		final Node result = new Node(label, NodeType.ACTUAL_OUT, call);
+
+		// formal out: parameter name + "_out"
+		result.addUsage(argument.getCorrespondingParameter().getName() + OUT_POSTFIX);
+		result.setDef(argument.getTarget().getName());
 		return result;
 	}
 
 	public Node ifStmt(Condition n) {
 		final Expression cond = n.getCondition();
-		final String label = cond.getLabel() +"";
+		final String label = cond.getLabel() + "";
 		final Node result = new Node(label, NodeType.CTRL, cond);
 		setId(result);
 		setRefs(cond, result);
@@ -125,7 +117,7 @@ public class NodeFactory {
 	}
 
 	public Node procedureCall(ProcedureCall statement) {
-		final String label = statement.getLabel() +"";
+		final String label = statement.getLabel() + "";
 		final Node result = new Node(label, NodeType.CALL, statement);
 		setId(result);
 //	    setLine(result, n);
@@ -140,8 +132,8 @@ public class NodeFactory {
 //	    setRefs(n.getValue(), result);
 //	    setSubtypes(result, n);
 		final Expression value = n.getExpression();
-		
-		final String label = value.getLabel() +"";
+
+		final String label = value.getLabel() + "";
 		final Node result = new Node(label, NodeType.NORMAL, n);
 
 		EList<DataItem> definedVariables = value.getDefinedVariables();
@@ -159,8 +151,9 @@ public class NodeFactory {
 	}
 
 	public Node returnStmt(Return statement) {
-		// TODO Auto-generated method stub
-		return null;
+		final String label = statement.getLabel() + "";
+		final Node result = new Node(label, NodeType.RETURN, statement);
+		return result;
 	}
 
 	public Node mainprocedure(MainProcedure proc) {
@@ -171,18 +164,19 @@ public class NodeFactory {
 		return result;
 	}
 
-	public Node argumentExpr(Argument argument) {
+	public Node argument(Argument argument) {
 		final String label = getArgumentLabel(argument);
-	    final Node result = new Node(label, NodeType.ACTUAL_IN);
-	    result.setDef(argument.getTarget().getName());
-	    return result;
+		final Node result = new Node(label, NodeType.ACTUAL_IN, (ProcedureCall) argument.eContainer());
+
+		result.addUsage(argument.getTarget().getName());
+		result.setDef(argument.getCorrespondingParameter().getName() + IN_POSTFIX);
+		return result;
 	}
 
 	// here how to map nodes from control dependencies
 
 	// may be build control dependencies first.
 
-	
 	public static String getArgumentLabel(Argument argument) {
 		ProcedureCall pc = (ProcedureCall) argument.eContainer();
 		if (pc == null) {
@@ -192,7 +186,7 @@ public class NodeFactory {
 		EList<Argument> arguments = pc.getArguments();
 		for (int i = 0; i < arguments.size(); i++) {
 			if (arguments.get(i).equals(argument)) {
-				return pc.getLabel() + "." + (i+1);
+				return pc.getLabel() + "." + (i + 1);
 			}
 		}
 

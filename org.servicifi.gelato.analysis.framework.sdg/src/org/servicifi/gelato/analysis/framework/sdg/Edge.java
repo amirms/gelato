@@ -14,11 +14,13 @@ public class Edge implements Serializable{
 	public Edge(final Node source, final Node target) {
 		this.source = source;
 		this.target = target;
+		
+		source.addOut(target);
+		target.addIn(source);
 	}
 
 	public Edge(final Node source, final Node target, final EdgeType type) {
-		this.source = source;
-		this.target = target;
+		this(source, target);
 		this.type = type;
 	}
 

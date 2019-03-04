@@ -34,11 +34,9 @@ public class CDGBuilder {
 
 	private final CompilationUnit cu;
 	private NodeFactory nodeCreator;
-	private Deque<String> clsStack;
+
 	private HashMap<String, Pair<Node, List<Node>>> procedureParams;
 	private HashMap<String, Set<Pair<Node, List<Node>>>> calls;
-	
-	private HashMap<Node, Node> procedureFormalOut;
 
 	// TODO I can just find it in cdg.vertexset()
 	private Map<String, Node> procedure2nodes;
@@ -46,15 +44,16 @@ public class CDGBuilder {
 	private Map<String, Node> argument2nodes;
 	private Map<String, Node> parameter2nodes;
 
+	private Map<Parameter, Node> formalOuts;
+	private Map<Argument, Node> actualOuts;
 
 	public SDG cdg;
 	private Deque<List<Node>> inScopeStack;
 	private List<Node> inScope;
 	private Deque<Node> loopStack;
-	private Deque<Node> formalOutStack;
 
 	// FIXME Think about label
-	private static final Node EXIT = new Node("Main Exit", NodeType.EXIT);
+//	private static final Node EXIT = new Node("Main Exit", NodeType.EXIT);
 
 	public CDGBuilder(final CompilationUnit cu) {
 		this.cu = cu;
@@ -64,18 +63,17 @@ public class CDGBuilder {
 		unmatchedAstNodes = new HashMap<>();
 		nodeCreator = new NodeFactory(sdgConfig);
 		cdg = new SDG();
-		clsStack = new ArrayDeque<>();
 		inScopeStack = new ArrayDeque<>();
 		inScope = new ArrayList<>();
 		loopStack = new ArrayDeque<>();
-		formalOutStack = new ArrayDeque<>();
 		procedureParams = new HashMap<>();
 		calls = new HashMap<>();
-		procedureFormalOut = new HashMap<>();
 		procedure2nodes = new HashMap<>();
 		call2nodes = new HashMap<>();
 		argument2nodes = new HashMap<>();
 		parameter2nodes = new HashMap<>();
+		formalOuts = new HashMap<>();
+		actualOuts = new HashMap<>();
 
 		final MainProcedure mainProcedure = cu.getMainProcedure();
 		_build(mainProcedure);
@@ -101,34 +99,37 @@ public class CDGBuilder {
 			if (element instanceof ProcedureCall) {
 				ProcedureCall procedureCall = (ProcedureCall) element;
 				Procedure procedure = (Procedure) procedureCall.getTarget();
-				
-				Node caller = call2nodes.get(procedureCall.getLabel()+"");
-				Node callee = procedure2nodes.get(procedure.getLabel()+"");
-				
+
+				Node caller = call2nodes.get(procedureCall.getLabel() + "");
+				Node callee = procedure2nodes.get(procedure.getLabel() + "");
+
 				if (caller == null) {
 					call2nodes.keySet().stream().forEach(s -> System.out.println(s));
-					throw new Error("Caller "+ procedureCall.getLabel() + " doesnot exist");
+					throw new Error("Caller " + procedureCall.getLabel() + " doesnot exist");
 				} else if (callee == null) {
-					throw new Error("Callee "+ procedure + " doesnot exist");
+					throw new Error("Callee " + procedure + " doesnot exist");
 				}
-				
+
 				cdg.addEdge(caller, callee, new Edge(caller, callee, EdgeType.CALL));
 				for (int i = 0; i < procedureCall.getArguments().size(); i++) {
 					Argument argument = procedureCall.getArguments().get(i);
 					final Node callArg = getArgumentNode(argument);
-					
+
 					Parameter correspondingParameter = procedure.getParameters().get(i);
 					final Node defParam = getParameterNode(correspondingParameter);
-					
+
 					cdg.addEdge(callArg, defParam, new Edge(callArg, defParam, EdgeType.PARAM_IN));
+
+					if (correspondingParameter.isByReference()) {
+						final Node actualOut = actualOuts.get(argument);
+
+						final Node formalOut = formalOuts.get(correspondingParameter);
+
+						cdg.addEdge(formalOut, actualOut, new Edge(formalOut, actualOut, EdgeType.PARAM_OUT));
+					}
+
 				}
-				final Node actualOut = cdg.actualOut(caller);
-				if (actualOut == null) {
-					continue;
-				}
-				// FIXME formalOut
-				Node formalOut = procedureFormalOut.get(callee);
-				cdg.addEdge(formalOut, actualOut, new Edge(formalOut, actualOut, EdgeType.PARAM_OUT));
+
 			}
 		}
 	}
@@ -192,16 +193,18 @@ public class CDGBuilder {
 		final Node v = nodeCreator.returnStmt(statement);
 		cdg.addVertex(v);
 		inScope.add(v);
-		// TODO also include by ref parameters
-		if (statement.getReturnValue() != null) {
-			final Node formalOut = formalOutStack.peek();
-			if (formalOut == null)
-				throw new IllegalStateException("Is " + statement + " inside a method that returns void?");
-			else
-				addEdge(EdgeType.DATA, v, formalOut);
-		}
+		// TODO only include by ref parameters
+//		if (statement.getReturnValue() != null) {
+		// FIXME the following is not correct
+//		if (statement != null) {
+//			final Node formalOut = formalOutStack.peek();
+//			if (formalOut == null)
+//				throw new IllegalStateException("Is " + statement + " inside a method that returns void?");
+//			else
+//				addEdge(EdgeType.DATA, v, formalOut);
+//		}
 
-		addEdge(EdgeType.CTRL_TRUE, v, CDGBuilder.EXIT);
+		// addEdge(EdgeType.CTRL_TRUE, v, CDGBuilder.EXIT);
 	}
 
 	private void expressionStatement(ExpressionStatement n) {
@@ -225,10 +228,11 @@ public class CDGBuilder {
 		final Node v = nodeCreator.procedureCall(statement);
 		cdg.addVertex(v);
 		inScope.add(v);
-		
+
 		call2nodes.put(v.getLabel(), v);
-	
+
 		buildArgs(v, statement);
+
 	}
 
 	private void whileStmt(final WhileLoop n) {
@@ -254,13 +258,12 @@ public class CDGBuilder {
 		cdg.addVertex(v);
 		inScope.add(v);
 		pushScope();
-		final Node out = formalOut(proc);
-		if (out != null) {
-			formalOutStack.push(out);
-			procedureFormalOut.put(v, out);
-		}
+
 		final EList<Parameter> params = proc.getParameters();
 		buildParameters(params, v, proc.getName());
+
+		buildFormalOuts(params, v);
+
 		final EList<Member> body = proc.getMembers();
 
 		for (Member member : body) {
@@ -269,15 +272,17 @@ public class CDGBuilder {
 		}
 		addEdges(EdgeType.CTRL_TRUE, v, inScope);
 		popScope();
-		// CFG
-//	    Vertex exit = vtxCreator.exit();
-//	    ControlFlow exitFlow = new ControlFlow(exit, exit);
-//	    bodyFlow = cfgBuilder.seq(bodyFlow, exitFlow);
-//	    final ControlFlow result = cfgBuilder.methodDeclaration(v, paramFlow, bodyFlow);
-//	    cfgBuilder.put(v);
-		if (out != null)
-			formalOutStack.pop();
 		// return result;
+	}
+
+	private void buildFormalOuts(EList<Parameter> params, Node v) {
+
+		for (Parameter parameter : params) {
+			if (parameter.isByReference()) {
+				final Node formalOut = formalOut(parameter, (Procedure) parameter.eContainer());
+				formalOuts.put(parameter, formalOut);
+			}
+		}
 	}
 
 	private Node getProcedureNode(Procedure proc) {
@@ -314,36 +319,33 @@ public class CDGBuilder {
 			final Node paramVtx = buildParameter(p);
 			paramVtcs.add(paramVtx);
 		}
+
 		procedureParams.put(procedureName, new Pair<>(v, paramVtcs));
 	}
 
-	private Node buildParameter(final Parameter n) {
-		final Node v = nodeCreator.parameter(n);
+	private Node buildParameter(final Parameter parameter) {
+		final Node v = nodeCreator.parameter(parameter);
 		cdg.addVertex(v);
 		inScope.add(v);
-		
+
 		parameter2nodes.put(v.getLabel(), v);
-		// self reference edge
-		// return new ControlFlow(v, v);
+
 		return v;
 	}
 
-	private Node formalOut(final Procedure n) {
-//	    if ("void".equals(n.getType().asString()))
-//	      return null;
-		final Node v = nodeCreator.formalOut();
+	private Node formalOut(final Parameter parameter, final Procedure procedure) {
+		final Node v = nodeCreator.formalOut(parameter, procedure);
 		cdg.addVertex(v);
 		inScope.add(v);
 		return v;
 	}
 
-	// TODO this should come in from return statement
-	private void actualOut(final Node v, final Node n) {
-		final Node a = nodeCreator.actualOut(n);
+	private Node actualOut(final Node v, final Argument argument, final ProcedureCall call) {
+		final Node a = nodeCreator.actualOut(argument, call);
 		cdg.addVertex(a);
 		addEdge(EdgeType.CTRL_TRUE, v, a);
-		// self reference edge????
-		// return new ControlFlow(a, a);
+
+		return a;
 	}
 
 	private void ifStmt(final Condition n) {
@@ -368,29 +370,31 @@ public class CDGBuilder {
 		popScope();
 	}
 
-	private void buildArgs(final Node v, final ProcedureCall n) {
-		args(v, n.getArguments(), n.getTarget().getName());// , n.o().orElse(null));
-	}
-
-	private void args(final Node v, final EList<Argument> args, final String procedureName) {// , final Expression
-																								// scope) {
-		final List<Edge> result = new ArrayList<>();
+	private void buildArgs(final Node v, final ProcedureCall call) {
+		// , final Expression, scope) {
 		final List<Node> paramVtcs = new ArrayList<>();
-		result.add(new Edge(v, v));
-		for (final Argument e : args) {
-			final Node a = argumentExpr(e);
-			addEdge(EdgeType.CTRL_TRUE, v, a);
-			result.add(new Edge(a, a));
-			paramVtcs.add(a);
+		for (final Argument argument : call.getArguments()) {
+			final Node actualIn = actualIn(argument);
+			addEdge(EdgeType.CTRL_TRUE, v, actualIn);
+			paramVtcs.add(actualIn);
+
+			Parameter correspondingParameter = argument.getCorrespondingParameter();
+			if (correspondingParameter.isByReference()) {
+				final Node actualOut = actualOut(v, argument, call);
+				actualOuts.put(argument, actualOut);
+				
+				addEdge(EdgeType.CTRL_TRUE, v, actualOut);
+				paramVtcs.add(actualIn);
+			}
 		}
-//		final String methodName = callName(name, scope);
-//		final String methodName = callName(name);
-		putCall(procedureName, new Pair<>(v, paramVtcs));
-		// return cfgBuilder.seq(result);
+		// final String methodName = callName(name, scope);
+		// final String methodName = callName(name);
+		putCall(call.getTarget().getName(), new Pair<>(v, paramVtcs));
+		// return cfgBuilder.seq(result);// , n.o().orElse(null));
 	}
 
-	private Node argumentExpr(Argument argument) {
-		final Node v = nodeCreator.argumentExpr(argument);
+	private Node actualIn(Argument argument) {
+		final Node v = nodeCreator.argument(argument);
 		argument2nodes.put(v.getLabel(), v);
 		cdg.addVertex(v);
 		return v;

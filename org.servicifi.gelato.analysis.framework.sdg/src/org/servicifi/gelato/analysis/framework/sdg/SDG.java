@@ -55,4 +55,11 @@ public class SDG extends DefaultDirectedGraph<Node, Edge> {
 
 	}
 
+	public Node getVertex(long label) {
+		return vertexSet().stream()
+				  .filter(v -> v.getLabel().equals(label+""))
+				  .findAny()
+				  .orElse(null);
+	}
+
 }

@@ -9,7 +9,6 @@ import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
 import org.servicifi.gelato.language.kernel.procedures.MainProcedure;
 
-
 public class Node implements Serializable {
 	/**
 	 * 
@@ -18,8 +17,8 @@ public class Node implements Serializable {
 
 	private String label;
 	private NodeType type;
-	private final transient Set<Node> in;
-	private transient Set<Node> out;
+	private final transient Set<Node> ins;
+	private final transient Set<Node> outs;
 
 	private boolean visited;
 	private String fillColor;
@@ -30,11 +29,11 @@ public class Node implements Serializable {
 
 	private Set<String> usages;
 
-	public Node(final String label, final NodeType type) {
+	private Node(final String label, final NodeType type) {
 		this.label = label;
 		this.type = type;
-		in = new HashSet<>();
-		out = new HashSet<>();
+		ins = new HashSet<>();
+		outs = new HashSet<>();
 
 		clearDefUses();
 	}
@@ -44,7 +43,7 @@ public class Node implements Serializable {
 
 		this.le = le;
 	}
-	
+
 	public LabellableElement getLabellableElement() {
 		return this.le;
 	}
@@ -64,29 +63,17 @@ public class Node implements Serializable {
 	public void setLabel(final String label) {
 		this.label = label;
 	}
-	
-	public LabellableElement getContainer() {
-		if (le == null) {
-			return null;
-		}
-		
-		EObject container = le.eContainer();
-		while (container != null && (container instanceof Procedure &&  container instanceof MainProcedure)) {
+
+	public String getContainerName() {
+		EObject container = le;
+		while (container != null && !(container instanceof Procedure || container instanceof MainProcedure)) {
 			container = container.eContainer();
 		}
-		
-		return (LabellableElement) container;
-	}
-	
-	private String getContainerName() {
-		LabellableElement container = getContainer();
+
 		if (container instanceof MainProcedure) {
 			return "main";
-		} else if (container instanceof Procedure) {
-			return ((Procedure) container).getName();
 		}
-		
-		return "";
+		return ((Procedure) container).getName();
 	}
 
 	@Override
@@ -95,13 +82,13 @@ public class Node implements Serializable {
 		if (getDef() != null) {
 			defuse = getDef() + ":";
 		}
-		
+
 		if (!getUsages().isEmpty()) {
-			for(String usage: getUsages())
-			defuse +=  ";" + usage;
+			for (String usage : getUsages())
+				defuse += ";" + usage;
 		}
-		
-		String result = label + "-" + type + "-" + getContainerName() + "-" +defuse;
+
+		String result = label + "-" + type + "-" + getContainerName() + "-" + defuse;
 		return result;
 	}
 
@@ -132,5 +119,21 @@ public class Node implements Serializable {
 	public void clearDefUses() {
 		def = null;
 		usages = new HashSet<>();
+	}
+
+	public void addOut(Node target) {
+		outs.add(target);
+	}
+
+	public Set<Node> getOuts() {
+		return outs;
+	}
+
+	public void addIn(Node source) {
+		ins.add(source);
+	}
+
+	public Set<Node> getIns() {
+		return ins;
 	}
 }
