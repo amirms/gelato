@@ -24,6 +24,8 @@ import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.commons.Variable;
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
+import org.servicifi.gelato.analysis.framework.sdg.Node;
+import org.servicifi.gelato.analysis.framework.sdg.RandomPathGenerator;
 import org.servicifi.gelato.analysis.framework.sdg.SDG;
 import org.servicifi.gelato.analysis.framework.sdg.SDGFactory;
 import org.servicifi.gelato.analysis.framework.sdg.util.GraphExporter;
@@ -142,17 +144,23 @@ public class KernelSourceFileLoader {
 			IntraproceduralAnalysis analysis = AnalysesFactory.eINSTANCE.createIntraproceduralAnalysis(cfg,
 					configuration);
 			res.putAll(analysis.performAnalysis());
-
-//			SDG sdg = SDGFactory.createSDG(cfg, res);
-//			GraphExporter.exportAsDot(sdg, "/Users/asa/Desktop", "sdg");
 			
 			SDG sdg = SDGFactory.createSDG(program, res);
 			GraphExporter.exportAsDot(sdg, "/Users/asa/Desktop", "sdg");
 
-			Map<Variable, EList<Long>> assignments = configuration.getAssignments();
-
-			for (Variable var : assignments.keySet()) {
-				System.out.println("variable: " + var + ", " + assignments.get(var));
+//			Map<Variable, EList<Long>> assignments = configuration.getAssignments();
+//
+//			for (Variable var : assignments.keySet()) {
+//				System.out.println("variable: " + var + ", " + assignments.get(var));
+//			}
+			
+			Map<Node, List<Node>> paths = RandomPathGenerator.generate(sdg, 0.2);
+			
+			for(List<Node> path : paths.values()) {
+				for (Node node : path) {
+					System.out.print(node.toString() + "->");
+				}
+				System.out.println();
 			}
 		}
 

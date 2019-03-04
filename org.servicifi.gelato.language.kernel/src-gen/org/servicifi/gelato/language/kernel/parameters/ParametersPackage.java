@@ -84,13 +84,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER__CORRESPONDING_ARGUMENT = DataitemsPackage.DATA_ITEM_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>By Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__BY_REFERENCE = DataitemsPackage.DATA_ITEM_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = DataitemsPackage.DATA_ITEM_FEATURE_COUNT + 1;
+	int PARAMETER_FEATURE_COUNT = DataitemsPackage.DATA_ITEM_FEATURE_COUNT + 2;
 
 
 	/**
@@ -113,6 +122,17 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getParameter_CorrespondingArgument();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.servicifi.gelato.language.kernel.parameters.Parameter#isByReference <em>By Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>By Reference</em>'.
+	 * @see org.servicifi.gelato.language.kernel.parameters.Parameter#isByReference()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_ByReference();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -153,6 +173,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER__CORRESPONDING_ARGUMENT = eINSTANCE.getParameter_CorrespondingArgument();
+
+		/**
+		 * The meta object literal for the '<em><b>By Reference</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__BY_REFERENCE = eINSTANCE.getParameter_ByReference();
 
 	}
 

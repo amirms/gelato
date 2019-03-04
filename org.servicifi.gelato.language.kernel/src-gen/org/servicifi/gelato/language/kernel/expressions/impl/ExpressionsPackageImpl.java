@@ -2,7 +2,6 @@
  */
 package org.servicifi.gelato.language.kernel.expressions.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -10,10 +9,14 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.servicifi.gelato.analysis.framework.analyses.AnalysesPackage;
-import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
-import org.servicifi.gelato.language.kernel.KernelPackage;
 
-import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
+import org.servicifi.gelato.analysis.framework.commons.CommonsPackage;
+
+import org.servicifi.gelato.analysis.framework.graphs.GraphsPackage;
+
+import org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage;
+
+import org.servicifi.gelato.language.kernel.KernelPackage;
 
 import org.servicifi.gelato.language.kernel.commons.impl.CommonsPackageImpl;
 
@@ -22,16 +25,15 @@ import org.servicifi.gelato.language.kernel.containers.ContainersPackage;
 import org.servicifi.gelato.language.kernel.containers.impl.ContainersPackageImpl;
 
 import org.servicifi.gelato.language.kernel.dataitems.DataitemsPackage;
+
 import org.servicifi.gelato.language.kernel.dataitems.impl.DataitemsPackageImpl;
+
 import org.servicifi.gelato.language.kernel.expressions.Affects;
 import org.servicifi.gelato.language.kernel.expressions.Defines;
 import org.servicifi.gelato.language.kernel.expressions.Definition;
 import org.servicifi.gelato.language.kernel.expressions.Expression;
 import org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory;
 import org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage;
-import org.servicifi.gelato.language.kernel.expressions.PostAffects;
-import org.servicifi.gelato.language.kernel.expressions.PostDefines;
-import org.servicifi.gelato.language.kernel.expressions.PreUses;
 import org.servicifi.gelato.language.kernel.expressions.SubExpression;
 import org.servicifi.gelato.language.kernel.expressions.Usage;
 import org.servicifi.gelato.language.kernel.expressions.Uses;
@@ -46,8 +48,6 @@ import org.servicifi.gelato.language.kernel.parameters.ParametersPackage;
 
 import org.servicifi.gelato.language.kernel.parameters.impl.ParametersPackageImpl;
 
-import org.servicifi.gelato.language.kernel.procedures.ProceduresPackage;
-
 import org.servicifi.gelato.language.kernel.procedures.impl.ProceduresPackageImpl;
 
 import org.servicifi.gelato.language.kernel.references.ReferencesPackage;
@@ -59,67 +59,57 @@ import org.servicifi.gelato.language.kernel.statements.StatementsPackage;
 import org.servicifi.gelato.language.kernel.statements.impl.StatementsPackageImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Package</b>.
+ * <!-- end-user-doc -->
  * @generated
  */
 public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsPackage {
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass expressionEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass subExpressionEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass definesEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass postDefinesEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass affectsEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass postAffectsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass usesEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass preUsesEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass definitionEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass usageEClass = null;
@@ -132,8 +122,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 * factory method {@link #init init()}, which also performs
 	 * initialization of the package, or returns the registered package,
 	 * if one already exists.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage#eNS_URI
 	 * @see #init()
@@ -144,7 +134,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static boolean isInited = false;
@@ -154,8 +145,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	 *
 	 * <p>This method is used to initialize {@link ExpressionsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -173,18 +164,18 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		// Initialize simple dependencies
 		GraphsPackage.eINSTANCE.eClass();
 		AnalysesPackage.eINSTANCE.eClass();
-		org.servicifi.gelato.analysis.framework.commons.CommonsPackage.eINSTANCE.eClass();
-		org.servicifi.gelato.analysis.framework.procedures.ProceduresPackage.eINSTANCE.eClass();
+		CommonsPackage.eINSTANCE.eClass();
+		ProceduresPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(KernelPackage.eNS_URI);
 		KernelPackageImpl theKernelPackage = (KernelPackageImpl)(registeredPackage instanceof KernelPackageImpl ? registeredPackage : KernelPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
-		CommonsPackageImpl theCommonsPackage_1 = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : CommonsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.language.kernel.commons.CommonsPackage.eNS_URI);
+		CommonsPackageImpl theCommonsPackage_1 = (CommonsPackageImpl)(registeredPackage instanceof CommonsPackageImpl ? registeredPackage : org.servicifi.gelato.language.kernel.commons.CommonsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatementsPackage.eNS_URI);
 		StatementsPackageImpl theStatementsPackage = (StatementsPackageImpl)(registeredPackage instanceof StatementsPackageImpl ? registeredPackage : StatementsPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ProceduresPackage.eNS_URI);
-		ProceduresPackageImpl theProceduresPackage_1 = (ProceduresPackageImpl)(registeredPackage instanceof ProceduresPackageImpl ? registeredPackage : ProceduresPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eNS_URI);
+		ProceduresPackageImpl theProceduresPackage_1 = (ProceduresPackageImpl)(registeredPackage instanceof ProceduresPackageImpl ? registeredPackage : org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ContainersPackage.eNS_URI);
 		ContainersPackageImpl theContainersPackage = (ContainersPackageImpl)(registeredPackage instanceof ContainersPackageImpl ? registeredPackage : ContainersPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(MembersPackage.eNS_URI);
@@ -229,7 +220,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getExpression() {
@@ -237,7 +229,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getExpression_Children() {
@@ -245,7 +238,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getSubExpression() {
@@ -253,7 +247,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getDefines() {
@@ -261,15 +256,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPostDefines() {
-		return postDefinesEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getAffects() {
@@ -277,15 +265,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPostAffects() {
-		return postAffectsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getUses() {
@@ -293,15 +274,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPreUses() {
-		return preUsesEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getDefinition() {
@@ -309,7 +283,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EReference getDefinition_Reaches() {
@@ -317,7 +292,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getUsage() {
@@ -325,7 +301,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ExpressionsFactory getExpressionsFactory() {
@@ -333,7 +310,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -341,8 +319,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	/**
 	 * Creates the meta-model objects for the package.  This method is
 	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -357,15 +335,9 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 
 		definesEClass = createEClass(DEFINES);
 
-		postDefinesEClass = createEClass(POST_DEFINES);
-
 		affectsEClass = createEClass(AFFECTS);
 
-		postAffectsEClass = createEClass(POST_AFFECTS);
-
 		usesEClass = createEClass(USES);
-
-		preUsesEClass = createEClass(PRE_USES);
 
 		definitionEClass = createEClass(DEFINITION);
 		createEReference(definitionEClass, DEFINITION__REACHES);
@@ -374,16 +346,17 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This method is
-	 * guarded to have no affect on any invocation but its first. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -396,7 +369,7 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		org.servicifi.gelato.analysis.framework.commons.CommonsPackage theCommonsPackage = (org.servicifi.gelato.analysis.framework.commons.CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(org.servicifi.gelato.analysis.framework.commons.CommonsPackage.eNS_URI);
+		CommonsPackage theCommonsPackage = (CommonsPackage)EPackage.Registry.INSTANCE.getEPackage(CommonsPackage.eNS_URI);
 		DataitemsPackage theDataitemsPackage = (DataitemsPackage)EPackage.Registry.INSTANCE.getEPackage(DataitemsPackage.eNS_URI);
 		ReferencesPackage theReferencesPackage = (ReferencesPackage)EPackage.Registry.INSTANCE.getEPackage(ReferencesPackage.eNS_URI);
 
@@ -408,11 +381,8 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		expressionEClass.getESuperTypes().add(theCommonsPackage.getLabellableElement());
 		subExpressionEClass.getESuperTypes().add(theReferencesPackage.getElementReference());
 		definesEClass.getESuperTypes().add(this.getDefinition());
-		postDefinesEClass.getESuperTypes().add(this.getDefinition());
 		affectsEClass.getESuperTypes().add(this.getDefinition());
-		postAffectsEClass.getESuperTypes().add(this.getDefinition());
 		usesEClass.getESuperTypes().add(this.getUsage());
-		preUsesEClass.getESuperTypes().add(this.getUsage());
 		definitionEClass.getESuperTypes().add(this.getSubExpression());
 		usageEClass.getESuperTypes().add(this.getSubExpression());
 
@@ -428,15 +398,9 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 
 		initEClass(definesEClass, Defines.class, "Defines", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(postDefinesEClass, PostDefines.class, "PostDefines", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(affectsEClass, Affects.class, "Affects", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(postAffectsEClass, PostAffects.class, "PostAffects", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(usesEClass, Uses.class, "Uses", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(preUsesEClass, PreUses.class, "PreUses", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(definitionEClass, Definition.class, "Definition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDefinition_Reaches(), this.getUsage(), null, "reaches", null, 0, -1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -444,4 +408,4 @@ public class ExpressionsPackageImpl extends EPackageImpl implements ExpressionsP
 		initEClass(usageEClass, Usage.class, "Usage", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
-} // ExpressionsPackageImpl
+} //ExpressionsPackageImpl

@@ -2,12 +2,12 @@
  */
 package org.servicifi.gelato.language.kernel.expressions;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
-import org.servicifi.gelato.language.kernel.commons.CommonsPackage;
+import org.servicifi.gelato.analysis.framework.commons.CommonsPackage;
+
 import org.servicifi.gelato.language.kernel.references.ReferencesPackage;
 
 /**
@@ -74,7 +74,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION__PREDECESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__PREDECESSORS;
+	int EXPRESSION__PREDECESSORS = CommonsPackage.LABELLABLE_ELEMENT__PREDECESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Successors</b></em>' reference list.
@@ -83,7 +83,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION__SUCCESSORS = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__SUCCESSORS;
+	int EXPRESSION__SUCCESSORS = CommonsPackage.LABELLABLE_ELEMENT__SUCCESSORS;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -92,7 +92,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION__LABEL = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT__LABEL;
+	int EXPRESSION__LABEL = CommonsPackage.LABELLABLE_ELEMENT__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -101,7 +101,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION__CHILDREN = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
+	int EXPRESSION__CHILDREN = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
@@ -110,7 +110,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPRESSION_FEATURE_COUNT = org.servicifi.gelato.analysis.framework.commons.CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
+	int EXPRESSION_FEATURE_COUNT = CommonsPackage.LABELLABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.SubExpressionImpl <em>Sub Expression</em>}' class.
@@ -148,7 +148,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getDefinition()
 	 * @generated
 	 */
-	int DEFINITION = 8;
+	int DEFINITION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -215,43 +215,6 @@ public interface ExpressionsPackage extends EPackage {
 	int DEFINES_FEATURE_COUNT = DEFINITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.PostDefinesImpl <em>Post Defines</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.servicifi.gelato.language.kernel.expressions.impl.PostDefinesImpl
-	 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getPostDefines()
-	 * @generated
-	 */
-	int POST_DEFINES = 3;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POST_DEFINES__TARGET = DEFINITION__TARGET;
-
-	/**
-	 * The feature id for the '<em><b>Reaches</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POST_DEFINES__REACHES = DEFINITION__REACHES;
-
-	/**
-	 * The number of structural features of the '<em>Post Defines</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POST_DEFINES_FEATURE_COUNT = DEFINITION_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.AffectsImpl <em>Affects</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,7 +222,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getAffects()
 	 * @generated
 	 */
-	int AFFECTS = 4;
+	int AFFECTS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -289,43 +252,6 @@ public interface ExpressionsPackage extends EPackage {
 	int AFFECTS_FEATURE_COUNT = DEFINITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.PostAffectsImpl <em>Post Affects</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.servicifi.gelato.language.kernel.expressions.impl.PostAffectsImpl
-	 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getPostAffects()
-	 * @generated
-	 */
-	int POST_AFFECTS = 5;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POST_AFFECTS__TARGET = DEFINITION__TARGET;
-
-	/**
-	 * The feature id for the '<em><b>Reaches</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POST_AFFECTS__REACHES = DEFINITION__REACHES;
-
-	/**
-	 * The number of structural features of the '<em>Post Affects</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POST_AFFECTS_FEATURE_COUNT = DEFINITION_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.UsageImpl <em>Usage</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -333,7 +259,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getUsage()
 	 * @generated
 	 */
-	int USAGE = 9;
+	int USAGE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -361,7 +287,7 @@ public interface ExpressionsPackage extends EPackage {
 	 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getUses()
 	 * @generated
 	 */
-	int USES = 6;
+	int USES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -380,34 +306,6 @@ public interface ExpressionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int USES_FEATURE_COUNT = USAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.PreUsesImpl <em>Pre Uses</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.servicifi.gelato.language.kernel.expressions.impl.PreUsesImpl
-	 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getPreUses()
-	 * @generated
-	 */
-	int PRE_USES = 7;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRE_USES__TARGET = USAGE__TARGET;
-
-	/**
-	 * The number of structural features of the '<em>Pre Uses</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRE_USES_FEATURE_COUNT = USAGE_FEATURE_COUNT + 0;
 
 
 	/**
@@ -452,16 +350,6 @@ public interface ExpressionsPackage extends EPackage {
 	EClass getDefines();
 
 	/**
-	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.expressions.PostDefines <em>Post Defines</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Post Defines</em>'.
-	 * @see org.servicifi.gelato.language.kernel.expressions.PostDefines
-	 * @generated
-	 */
-	EClass getPostDefines();
-
-	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.expressions.Affects <em>Affects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -472,16 +360,6 @@ public interface ExpressionsPackage extends EPackage {
 	EClass getAffects();
 
 	/**
-	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.expressions.PostAffects <em>Post Affects</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Post Affects</em>'.
-	 * @see org.servicifi.gelato.language.kernel.expressions.PostAffects
-	 * @generated
-	 */
-	EClass getPostAffects();
-
-	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.expressions.Uses <em>Uses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -490,16 +368,6 @@ public interface ExpressionsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUses();
-
-	/**
-	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.expressions.PreUses <em>Pre Uses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Pre Uses</em>'.
-	 * @see org.servicifi.gelato.language.kernel.expressions.PreUses
-	 * @generated
-	 */
-	EClass getPreUses();
 
 	/**
 	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.expressions.Definition <em>Definition</em>}'.
@@ -593,16 +461,6 @@ public interface ExpressionsPackage extends EPackage {
 		EClass DEFINES = eINSTANCE.getDefines();
 
 		/**
-		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.PostDefinesImpl <em>Post Defines</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.servicifi.gelato.language.kernel.expressions.impl.PostDefinesImpl
-		 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getPostDefines()
-		 * @generated
-		 */
-		EClass POST_DEFINES = eINSTANCE.getPostDefines();
-
-		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.AffectsImpl <em>Affects</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -613,16 +471,6 @@ public interface ExpressionsPackage extends EPackage {
 		EClass AFFECTS = eINSTANCE.getAffects();
 
 		/**
-		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.PostAffectsImpl <em>Post Affects</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.servicifi.gelato.language.kernel.expressions.impl.PostAffectsImpl
-		 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getPostAffects()
-		 * @generated
-		 */
-		EClass POST_AFFECTS = eINSTANCE.getPostAffects();
-
-		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.UsesImpl <em>Uses</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -631,16 +479,6 @@ public interface ExpressionsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass USES = eINSTANCE.getUses();
-
-		/**
-		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.PreUsesImpl <em>Pre Uses</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.servicifi.gelato.language.kernel.expressions.impl.PreUsesImpl
-		 * @see org.servicifi.gelato.language.kernel.expressions.impl.ExpressionsPackageImpl#getPreUses()
-		 * @generated
-		 */
-		EClass PRE_USES = eINSTANCE.getPreUses();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.expressions.impl.DefinitionImpl <em>Definition</em>}' class.

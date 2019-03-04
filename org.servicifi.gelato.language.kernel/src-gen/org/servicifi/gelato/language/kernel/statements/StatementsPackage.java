@@ -986,22 +986,13 @@ public interface StatementsPackage extends EPackage {
 	int RETURN__LABEL = STATEMENT__LABEL;
 
 	/**
-	 * The feature id for the '<em><b>Return Value</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RETURN__RETURN_VALUE = STATEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Return</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RETURN_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+	int RETURN_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.statements.ExecutionOrder <em>Execution Order</em>}' enum.
@@ -1305,17 +1296,6 @@ public interface StatementsPackage extends EPackage {
 	EClass getReturn();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.servicifi.gelato.language.kernel.statements.Return#getReturnValue <em>Return Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Return Value</em>'.
-	 * @see org.servicifi.gelato.language.kernel.statements.Return#getReturnValue()
-	 * @see #getReturn()
-	 * @generated
-	 */
-	EReference getReturn_ReturnValue();
-
-	/**
 	 * Returns the meta object for enum '{@link org.servicifi.gelato.language.kernel.statements.ExecutionOrder <em>Execution Order</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1606,14 +1586,6 @@ public interface StatementsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RETURN = eINSTANCE.getReturn();
-
-		/**
-		 * The meta object literal for the '<em><b>Return Value</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RETURN__RETURN_VALUE = eINSTANCE.getReturn_ReturnValue();
 
 		/**
 		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.statements.ExecutionOrder <em>Execution Order</em>}' enum.

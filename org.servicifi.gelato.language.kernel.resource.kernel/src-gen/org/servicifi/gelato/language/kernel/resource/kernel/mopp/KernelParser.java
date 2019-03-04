@@ -13,7 +13,7 @@ import java.util.HashMap;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class KernelParser extends KernelANTLRParserBase {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "CHARACTER_LITERAL", "IDENTIFIER", "SL_COMMENT", "WHITESPACE", "'('", "')'", "'*}'", "','", "':'", "';'", "'='", "'>'", "'Procedure'", "'['", "']'", "'abort'", "'affects'", "'call'", "'defines'", "'do'", "'else'", "'exception'", "'goto'", "'if'", "'interleaved'", "'l2r'", "'main'", "'order'", "'postaffects'", "'postdefines'", "'preuses'", "'r2l'", "'ref'", "'return'", "'skip'", "'then'", "'try'", "'uses'", "'val'", "'var'", "'while'", "'with'", "'{'", "'{*'", "'|'", "'}'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "CHARACTER_LITERAL", "IDENTIFIER", "SL_COMMENT", "WHITESPACE", "'('", "')'", "'*}'", "','", "':'", "';'", "'='", "'>'", "'Procedure'", "'['", "']'", "'abort'", "'affects'", "'call'", "'defines'", "'do'", "'else'", "'exception'", "'goto'", "'if'", "'interleaved'", "'l2r'", "'main'", "'order'", "'r2l'", "'ref'", "'return'", "'skip'", "'then'", "'try'", "'uses'", "'val'", "'var'", "'while'", "'with'", "'{'", "'{*'", "'|'", "'}'"
     };
 
     public static final int EOF=-1;
@@ -56,9 +56,6 @@ public class KernelParser extends KernelANTLRParserBase {
     public static final int T__44=44;
     public static final int T__45=45;
     public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__48=48;
-    public static final int T__49=49;
     public static final int CHARACTER_LITERAL=4;
     public static final int IDENTIFIER=5;
     public static final int SL_COMMENT=6;
@@ -362,15 +359,6 @@ public class KernelParser extends KernelANTLRParserBase {
     			if (type.getInstanceClass() == org.servicifi.gelato.language.kernel.expressions.Affects.class) {
     				return parse_org_servicifi_gelato_language_kernel_expressions_Affects();
     			}
-    			if (type.getInstanceClass() == org.servicifi.gelato.language.kernel.expressions.PostDefines.class) {
-    				return parse_org_servicifi_gelato_language_kernel_expressions_PostDefines();
-    			}
-    			if (type.getInstanceClass() == org.servicifi.gelato.language.kernel.expressions.PreUses.class) {
-    				return parse_org_servicifi_gelato_language_kernel_expressions_PreUses();
-    			}
-    			if (type.getInstanceClass() == org.servicifi.gelato.language.kernel.expressions.PostAffects.class) {
-    				return parse_org_servicifi_gelato_language_kernel_expressions_PostAffects();
-    			}
     		}
     		throw new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelUnexpectedContentTypeException(typeObject);
     	}
@@ -465,7 +453,7 @@ public class KernelParser extends KernelANTLRParserBase {
     				break;
     			}
     		}
-    		int followSetID = 151;
+    		int followSetID = 138;
     		int i;
     		for (i = tokenIndexOfLastCompleteElement; i < tokenStream.size(); i++) {
     			org.antlr.runtime3_4_0.CommonToken nextToken = (org.antlr.runtime3_4_0.CommonToken) tokenStream.get(i);
@@ -632,7 +620,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "start"
-    // Kernel.g:574:1: start returns [ org.eclipse.emf.ecore.EObject element = null] : (c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit ) EOF ;
+    // Kernel.g:565:1: start returns [ org.eclipse.emf.ecore.EObject element = null] : (c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit ) EOF ;
     public final org.eclipse.emf.ecore.EObject start() throws RecognitionException {
         org.eclipse.emf.ecore.EObject element =  null;
 
@@ -641,8 +629,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:575:2: ( (c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit ) EOF )
-            // Kernel.g:576:2: (c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit ) EOF
+            // Kernel.g:566:2: ( (c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit ) EOF )
+            // Kernel.g:567:2: (c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit ) EOF
             {
             if ( state.backtracking==0 ) {
             		// follow set for start rule(s)
@@ -653,8 +641,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		expectedElementsIndexOfLastCompleteElement = 0;
             	}
 
-            // Kernel.g:584:2: (c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit )
-            // Kernel.g:585:3: c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit
+            // Kernel.g:575:2: (c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit )
+            // Kernel.g:576:3: c0= parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit
             {
             pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit_in_start82);
             c0=parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit();
@@ -691,7 +679,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit"
-    // Kernel.g:593:1: parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit returns [org.servicifi.gelato.language.kernel.containers.CompilationUnit element = null] : ( ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) ) )* ( ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) ) )* (a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure ) ;
+    // Kernel.g:584:1: parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit returns [org.servicifi.gelato.language.kernel.containers.CompilationUnit element = null] : ( ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) ) )* ( ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) ) )* (a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure ) ;
     public final org.servicifi.gelato.language.kernel.containers.CompilationUnit parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit() throws RecognitionException {
         org.servicifi.gelato.language.kernel.containers.CompilationUnit element =  null;
 
@@ -706,29 +694,29 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:596:2: ( ( ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) ) )* ( ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) ) )* (a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure ) )
-            // Kernel.g:597:2: ( ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) ) )* ( ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) ) )* (a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure )
+            // Kernel.g:587:2: ( ( ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) ) )* ( ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) ) )* (a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure ) )
+            // Kernel.g:588:2: ( ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) ) )* ( ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) ) )* (a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure )
             {
-            // Kernel.g:597:2: ( ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) ) )*
+            // Kernel.g:588:2: ( ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) ) )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==IDENTIFIER||LA1_0==43) ) {
+                if ( (LA1_0==33||(LA1_0 >= 39 && LA1_0 <= 40)) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // Kernel.g:598:3: ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) )
+            	    // Kernel.g:589:3: ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) )
             	    {
-            	    // Kernel.g:598:3: ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) )
-            	    // Kernel.g:599:4: (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem )
+            	    // Kernel.g:589:3: ( (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem ) )
+            	    // Kernel.g:590:4: (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem )
             	    {
-            	    // Kernel.g:599:4: (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem )
-            	    // Kernel.g:600:5: a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem
+            	    // Kernel.g:590:4: (a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem )
+            	    // Kernel.g:591:5: a0_0= parse_org_servicifi_gelato_language_kernel_dataitems_DataItem
             	    {
             	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem_in_parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit130);
             	    a0_0=parse_org_servicifi_gelato_language_kernel_dataitems_DataItem();
@@ -787,7 +775,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[11]);
             	}
 
-            // Kernel.g:638:2: ( ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) ) )*
+            // Kernel.g:629:2: ( ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) ) )*
             loop2:
             do {
                 int alt2=2;
@@ -818,13 +806,13 @@ public class KernelParser extends KernelANTLRParserBase {
 
                 switch (alt2) {
             	case 1 :
-            	    // Kernel.g:639:3: ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) )
+            	    // Kernel.g:630:3: ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) )
             	    {
-            	    // Kernel.g:639:3: ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) )
-            	    // Kernel.g:640:4: (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure )
+            	    // Kernel.g:630:3: ( (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure ) )
+            	    // Kernel.g:631:4: (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure )
             	    {
-            	    // Kernel.g:640:4: (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure )
-            	    // Kernel.g:641:5: a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure
+            	    // Kernel.g:631:4: (a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure )
+            	    // Kernel.g:632:5: a1_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure
             	    {
             	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_procedures_Procedure_in_parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit186);
             	    a1_0=parse_org_servicifi_gelato_language_kernel_procedures_Procedure();
@@ -879,8 +867,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[15]);
             	}
 
-            // Kernel.g:675:2: (a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure )
-            // Kernel.g:676:3: a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure
+            // Kernel.g:666:2: (a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure )
+            // Kernel.g:667:3: a2_0= parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure
             {
             pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure_in_parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit231);
             a2_0=parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure();
@@ -933,7 +921,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_dataitems_DataItem"
-    // Kernel.g:702:1: parse_org_servicifi_gelato_language_kernel_dataitems_DataItem returns [org.servicifi.gelato.language.kernel.dataitems.DataItem element = null] : (a0= 'var' (a1= IDENTIFIER ) a2= ';' |c0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter );
+    // Kernel.g:693:1: parse_org_servicifi_gelato_language_kernel_dataitems_DataItem returns [org.servicifi.gelato.language.kernel.dataitems.DataItem element = null] : (a0= 'var' (a1= IDENTIFIER ) a2= ';' |c0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter );
     public final org.servicifi.gelato.language.kernel.dataitems.DataItem parse_org_servicifi_gelato_language_kernel_dataitems_DataItem() throws RecognitionException {
         org.servicifi.gelato.language.kernel.dataitems.DataItem element =  null;
 
@@ -947,14 +935,14 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:705:2: (a0= 'var' (a1= IDENTIFIER ) a2= ';' |c0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter )
+            // Kernel.g:696:2: (a0= 'var' (a1= IDENTIFIER ) a2= ';' |c0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==43) ) {
+            if ( (LA3_0==40) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==IDENTIFIER) ) {
+            else if ( (LA3_0==33||LA3_0==39) ) {
                 alt3=2;
             }
             else {
@@ -967,9 +955,9 @@ public class KernelParser extends KernelANTLRParserBase {
             }
             switch (alt3) {
                 case 1 :
-                    // Kernel.g:706:2: a0= 'var' (a1= IDENTIFIER ) a2= ';'
+                    // Kernel.g:697:2: a0= 'var' (a1= IDENTIFIER ) a2= ';'
                     {
-                    a0=(Token)match(input,43,FOLLOW_43_in_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem264); if (state.failed) return element;
+                    a0=(Token)match(input,40,FOLLOW_40_in_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem264); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     		if (element == null) {
@@ -986,8 +974,8 @@ public class KernelParser extends KernelANTLRParserBase {
                     		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[16]);
                     	}
 
-                    // Kernel.g:720:2: (a1= IDENTIFIER )
-                    // Kernel.g:721:3: a1= IDENTIFIER
+                    // Kernel.g:711:2: (a1= IDENTIFIER )
+                    // Kernel.g:712:3: a1= IDENTIFIER
                     {
                     a1=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem282); if (state.failed) return element;
 
@@ -1051,7 +1039,7 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Kernel.g:775:2: c0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter
+                    // Kernel.g:766:2: c0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter
                     {
                     pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_parameters_Parameter_in_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem322);
                     c0=parse_org_servicifi_gelato_language_kernel_parameters_Parameter();
@@ -1081,7 +1069,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_procedures_Procedure"
-    // Kernel.g:779:1: parse_org_servicifi_gelato_language_kernel_procedures_Procedure returns [org.servicifi.gelato.language.kernel.procedures.Procedure element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' ( ( (a3= IDENTIFIER ) ) )? a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* ) )? a8= ')' a9= '{' ( ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a11= '}' ;
+    // Kernel.g:770:1: parse_org_servicifi_gelato_language_kernel_procedures_Procedure returns [org.servicifi.gelato.language.kernel.procedures.Procedure element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' ( ( (a3= IDENTIFIER ) ) )? a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* ) )? a8= ')' a9= '{' ( ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a11= '}' ;
     public final org.servicifi.gelato.language.kernel.procedures.Procedure parse_org_servicifi_gelato_language_kernel_procedures_Procedure() throws RecognitionException {
         org.servicifi.gelato.language.kernel.procedures.Procedure element =  null;
 
@@ -1107,11 +1095,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:782:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' ( ( (a3= IDENTIFIER ) ) )? a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* ) )? a8= ')' a9= '{' ( ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a11= '}' )
-            // Kernel.g:783:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' ( ( (a3= IDENTIFIER ) ) )? a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* ) )? a8= ')' a9= '{' ( ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a11= '}'
+            // Kernel.g:773:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' ( ( (a3= IDENTIFIER ) ) )? a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* ) )? a8= ')' a9= '{' ( ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a11= '}' )
+            // Kernel.g:774:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' ( ( (a3= IDENTIFIER ) ) )? a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* ) )? a8= ')' a9= '{' ( ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a11= '}'
             {
-            // Kernel.g:783:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:784:3: a0= CHARACTER_LITERAL
+            // Kernel.g:774:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:775:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure351); if (state.failed) return element;
 
@@ -1187,7 +1175,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[25]);
             	}
 
-            // Kernel.g:848:2: ( ( (a3= IDENTIFIER ) ) )?
+            // Kernel.g:839:2: ( ( (a3= IDENTIFIER ) ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1196,13 +1184,13 @@ public class KernelParser extends KernelANTLRParserBase {
             }
             switch (alt4) {
                 case 1 :
-                    // Kernel.g:849:3: ( (a3= IDENTIFIER ) )
+                    // Kernel.g:840:3: ( (a3= IDENTIFIER ) )
                     {
-                    // Kernel.g:849:3: ( (a3= IDENTIFIER ) )
-                    // Kernel.g:850:4: (a3= IDENTIFIER )
+                    // Kernel.g:840:3: ( (a3= IDENTIFIER ) )
+                    // Kernel.g:841:4: (a3= IDENTIFIER )
                     {
-                    // Kernel.g:850:4: (a3= IDENTIFIER )
-                    // Kernel.g:851:5: a3= IDENTIFIER
+                    // Kernel.g:841:4: (a3= IDENTIFIER )
+                    // Kernel.g:842:5: a3= IDENTIFIER
                     {
                     a3=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure415); if (state.failed) return element;
 
@@ -1275,22 +1263,22 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[29]);
             	}
 
-            // Kernel.g:908:2: ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* ) )?
+            // Kernel.g:899:2: ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==IDENTIFIER) ) {
+            if ( (LA6_0==33||LA6_0==39) ) {
                 alt6=1;
             }
             switch (alt6) {
                 case 1 :
-                    // Kernel.g:909:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* )
+                    // Kernel.g:900:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* )
                     {
-                    // Kernel.g:909:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* )
-                    // Kernel.g:910:4: (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )*
+                    // Kernel.g:900:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )* )
+                    // Kernel.g:901:4: (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )*
                     {
-                    // Kernel.g:910:4: (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter )
-                    // Kernel.g:911:5: a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter
+                    // Kernel.g:901:4: (a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter )
+                    // Kernel.g:902:5: a5_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter
                     {
                     pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_parameters_Parameter_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure490);
                     a5_0=parse_org_servicifi_gelato_language_kernel_parameters_Parameter();
@@ -1327,7 +1315,7 @@ public class KernelParser extends KernelANTLRParserBase {
                     				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[31]);
                     			}
 
-                    // Kernel.g:937:4: ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )*
+                    // Kernel.g:928:4: ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) ) )*
                     loop5:
                     do {
                         int alt5=2;
@@ -1340,10 +1328,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // Kernel.g:938:5: (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) )
+                    	    // Kernel.g:929:5: (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) )
                     	    {
-                    	    // Kernel.g:938:5: (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) )
-                    	    // Kernel.g:939:6: a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter )
+                    	    // Kernel.g:929:5: (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter ) )
+                    	    // Kernel.g:930:6: a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter )
                     	    {
                     	    a6=(Token)match(input,11,FOLLOW_11_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure531); if (state.failed) return element;
 
@@ -1362,8 +1350,8 @@ public class KernelParser extends KernelANTLRParserBase {
                     	    						addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[32]);
                     	    					}
 
-                    	    // Kernel.g:953:6: (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter )
-                    	    // Kernel.g:954:7: a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter
+                    	    // Kernel.g:944:6: (a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter )
+                    	    // Kernel.g:945:7: a7_0= parse_org_servicifi_gelato_language_kernel_parameters_Parameter
                     	    {
                     	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_parameters_Parameter_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure565);
                     	    a7_0=parse_org_servicifi_gelato_language_kernel_parameters_Parameter();
@@ -1449,7 +1437,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[38]);
             	}
 
-            a9=(Token)match(input,46,FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure653); if (state.failed) return element;
+            a9=(Token)match(input,43,FOLLOW_43_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure653); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -1479,25 +1467,25 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[52]);
             	}
 
-            // Kernel.g:1036:2: ( ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )*
+            // Kernel.g:1027:2: ( ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )*
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==CHARACTER_LITERAL||LA8_0==15||LA8_0==47) ) {
+                if ( (LA8_0==CHARACTER_LITERAL||LA8_0==15||LA8_0==44) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // Kernel.g:1037:3: ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+            	    // Kernel.g:1028:3: ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
             	    {
-            	    // Kernel.g:1037:3: ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
-            	    // Kernel.g:1038:4: (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:1028:3: ( (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+            	    // Kernel.g:1029:4: (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement )
             	    {
-            	    // Kernel.g:1038:4: (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:1029:4: (a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure |a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement )
             	    int alt7=2;
             	    int LA7_0 = input.LA(1);
 
@@ -1510,7 +1498,7 @@ public class KernelParser extends KernelANTLRParserBase {
             	            if ( (LA7_3==16) ) {
             	                alt7=1;
             	            }
-            	            else if ( (LA7_3==CHARACTER_LITERAL||LA7_3==19||LA7_3==21||(LA7_3 >= 26 && LA7_3 <= 27)||(LA7_3 >= 37 && LA7_3 <= 38)||LA7_3==40||LA7_3==44||LA7_3==46) ) {
+            	            else if ( (LA7_3==CHARACTER_LITERAL||LA7_3==19||LA7_3==21||(LA7_3 >= 26 && LA7_3 <= 27)||(LA7_3 >= 34 && LA7_3 <= 35)||LA7_3==37||LA7_3==41||LA7_3==43) ) {
             	                alt7=2;
             	            }
             	            else {
@@ -1531,7 +1519,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
             	        }
             	    }
-            	    else if ( (LA7_0==15||LA7_0==47) ) {
+            	    else if ( (LA7_0==15||LA7_0==44) ) {
             	        alt7=2;
             	    }
             	    else {
@@ -1544,7 +1532,7 @@ public class KernelParser extends KernelANTLRParserBase {
             	    }
             	    switch (alt7) {
             	        case 1 :
-            	            // Kernel.g:1039:5: a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure
+            	            // Kernel.g:1030:5: a10_0= parse_org_servicifi_gelato_language_kernel_procedures_Procedure
             	            {
             	            pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_procedures_Procedure_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure682);
             	            a10_0=parse_org_servicifi_gelato_language_kernel_procedures_Procedure();
@@ -1575,7 +1563,7 @@ public class KernelParser extends KernelANTLRParserBase {
             	            }
             	            break;
             	        case 2 :
-            	            // Kernel.g:1058:10: a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement
+            	            // Kernel.g:1049:10: a10_1= parse_org_servicifi_gelato_language_kernel_statements_Statement
             	            {
             	            pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure702);
             	            a10_1=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -1657,7 +1645,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[80]);
             	}
 
-            a11=(Token)match(input,49,FOLLOW_49_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure743); if (state.failed) return element;
+            a11=(Token)match(input,46,FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure743); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -1706,7 +1694,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure"
-    // Kernel.g:1146:1: parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure returns [org.servicifi.gelato.language.kernel.procedures.MainProcedure element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' a3= 'main' a4= '(' a5= ')' a6= '{' ( ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a8= '}' ;
+    // Kernel.g:1137:1: parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure returns [org.servicifi.gelato.language.kernel.procedures.MainProcedure element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' a3= 'main' a4= '(' a5= ')' a6= '{' ( ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a8= '}' ;
     public final org.servicifi.gelato.language.kernel.procedures.MainProcedure parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure() throws RecognitionException {
         org.servicifi.gelato.language.kernel.procedures.MainProcedure element =  null;
 
@@ -1725,11 +1713,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:1149:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' a3= 'main' a4= '(' a5= ')' a6= '{' ( ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a8= '}' )
-            // Kernel.g:1150:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' a3= 'main' a4= '(' a5= ')' a6= '{' ( ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a8= '}'
+            // Kernel.g:1140:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' a3= 'main' a4= '(' a5= ')' a6= '{' ( ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a8= '}' )
+            // Kernel.g:1141:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'Procedure' a3= 'main' a4= '(' a5= ')' a6= '{' ( ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )* a8= '}'
             {
-            // Kernel.g:1150:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:1151:3: a0= CHARACTER_LITERAL
+            // Kernel.g:1141:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:1142:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure776); if (state.failed) return element;
 
@@ -1855,7 +1843,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[101]);
             	}
 
-            a6=(Token)match(input,46,FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure867); if (state.failed) return element;
+            a6=(Token)match(input,43,FOLLOW_43_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure867); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -1884,26 +1872,26 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[114]);
             	}
 
-            // Kernel.g:1282:2: ( ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )*
+            // Kernel.g:1273:2: ( ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )*
             loop9:
             do {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0==CHARACTER_LITERAL||LA9_0==15||LA9_0==47) ) {
+                if ( (LA9_0==CHARACTER_LITERAL||LA9_0==15||LA9_0==44) ) {
                     alt9=1;
                 }
 
 
                 switch (alt9) {
             	case 1 :
-            	    // Kernel.g:1283:3: ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+            	    // Kernel.g:1274:3: ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
             	    {
-            	    // Kernel.g:1283:3: ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
-            	    // Kernel.g:1284:4: (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:1274:3: ( (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+            	    // Kernel.g:1275:4: (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
             	    {
-            	    // Kernel.g:1284:4: (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-            	    // Kernel.g:1285:5: a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+            	    // Kernel.g:1275:4: (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:1276:5: a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
             	    {
             	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure896);
             	    a7_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -1980,7 +1968,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[140]);
             	}
 
-            a8=(Token)match(input,49,FOLLOW_49_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure937); if (state.failed) return element;
+            a8=(Token)match(input,46,FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure937); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -2014,7 +2002,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_WhileLoop"
-    // Kernel.g:1356:1: parse_org_servicifi_gelato_language_kernel_statements_WhileLoop returns [org.servicifi.gelato.language.kernel.statements.WhileLoop element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'while' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'do' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a8= ';' ;
+    // Kernel.g:1347:1: parse_org_servicifi_gelato_language_kernel_statements_WhileLoop returns [org.servicifi.gelato.language.kernel.statements.WhileLoop element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'while' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'do' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a8= ';' ;
     public final org.servicifi.gelato.language.kernel.statements.WhileLoop parse_org_servicifi_gelato_language_kernel_statements_WhileLoop() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.WhileLoop element =  null;
 
@@ -2034,11 +2022,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:1359:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'while' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'do' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a8= ';' )
-            // Kernel.g:1360:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'while' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'do' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a8= ';'
+            // Kernel.g:1350:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'while' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'do' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a8= ';' )
+            // Kernel.g:1351:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'while' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'do' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a8= ';'
             {
-            // Kernel.g:1360:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:1361:3: a0= CHARACTER_LITERAL
+            // Kernel.g:1351:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:1352:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop970); if (state.failed) return element;
 
@@ -2096,7 +2084,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[142]);
             	}
 
-            a2=(Token)match(input,44,FOLLOW_44_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1005); if (state.failed) return element;
+            a2=(Token)match(input,41,FOLLOW_41_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1005); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -2130,8 +2118,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getWhileLoop(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[144]);
             	}
 
-            // Kernel.g:1438:2: (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression )
-            // Kernel.g:1439:3: a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression
+            // Kernel.g:1429:2: (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression )
+            // Kernel.g:1430:3: a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression
             {
             pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Expression_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1037);
             a4_0=parse_org_servicifi_gelato_language_kernel_expressions_Expression();
@@ -2212,8 +2200,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getWhileLoop(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[158]);
             	}
 
-            // Kernel.g:1503:2: (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-            // Kernel.g:1504:3: a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+            // Kernel.g:1494:2: (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            // Kernel.g:1495:3: a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
             {
             pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1087);
             a7_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -2304,7 +2292,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_Condition"
-    // Kernel.g:1565:1: parse_org_servicifi_gelato_language_kernel_statements_Condition returns [org.servicifi.gelato.language.kernel.statements.Condition element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'if' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'then' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ( (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )? a10= ';' ;
+    // Kernel.g:1556:1: parse_org_servicifi_gelato_language_kernel_statements_Condition returns [org.servicifi.gelato.language.kernel.statements.Condition element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'if' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'then' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ( (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )? a10= ';' ;
     public final org.servicifi.gelato.language.kernel.statements.Condition parse_org_servicifi_gelato_language_kernel_statements_Condition() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.Condition element =  null;
 
@@ -2327,11 +2315,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:1568:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'if' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'then' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ( (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )? a10= ';' )
-            // Kernel.g:1569:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'if' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'then' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ( (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )? a10= ';'
+            // Kernel.g:1559:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'if' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'then' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ( (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )? a10= ';' )
+            // Kernel.g:1560:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'if' a3= '(' (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a5= ')' a6= 'then' (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ( (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )? a10= ';'
             {
-            // Kernel.g:1569:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:1570:3: a0= CHARACTER_LITERAL
+            // Kernel.g:1560:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:1561:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1138); if (state.failed) return element;
 
@@ -2423,8 +2411,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getCondition(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[184]);
             	}
 
-            // Kernel.g:1647:2: (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression )
-            // Kernel.g:1648:3: a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression
+            // Kernel.g:1638:2: (a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression )
+            // Kernel.g:1639:3: a4_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression
             {
             pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Expression_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1205);
             a4_0=parse_org_servicifi_gelato_language_kernel_expressions_Expression();
@@ -2477,7 +2465,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[186]);
             	}
 
-            a6=(Token)match(input,39,FOLLOW_39_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1237); if (state.failed) return element;
+            a6=(Token)match(input,36,FOLLOW_36_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1237); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -2505,8 +2493,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getCondition(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[198]);
             	}
 
-            // Kernel.g:1712:2: (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-            // Kernel.g:1713:3: a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+            // Kernel.g:1703:2: (a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            // Kernel.g:1704:3: a7_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
             {
             pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1255);
             a7_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -2543,7 +2531,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[200]);
             	}
 
-            // Kernel.g:1739:2: ( (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )?
+            // Kernel.g:1730:2: ( (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -2552,10 +2540,10 @@ public class KernelParser extends KernelANTLRParserBase {
             }
             switch (alt10) {
                 case 1 :
-                    // Kernel.g:1740:3: (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+                    // Kernel.g:1731:3: (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
                     {
-                    // Kernel.g:1740:3: (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
-                    // Kernel.g:1741:4: a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+                    // Kernel.g:1731:3: (a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+                    // Kernel.g:1732:4: a8= 'else' (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
                     {
                     a8=(Token)match(input,24,FOLLOW_24_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1282); if (state.failed) return element;
 
@@ -2585,8 +2573,8 @@ public class KernelParser extends KernelANTLRParserBase {
                     				addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getCondition(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[212]);
                     			}
 
-                    // Kernel.g:1766:4: (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-                    // Kernel.g:1767:5: a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+                    // Kernel.g:1757:4: (a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+                    // Kernel.g:1758:5: a9_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
                     {
                     pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1308);
                     a9_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -2691,7 +2679,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_Goto"
-    // Kernel.g:1835:1: parse_org_servicifi_gelato_language_kernel_statements_Goto returns [org.servicifi.gelato.language.kernel.statements.Goto element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'goto' (a3= IDENTIFIER ) a4= ';' ;
+    // Kernel.g:1826:1: parse_org_servicifi_gelato_language_kernel_statements_Goto returns [org.servicifi.gelato.language.kernel.statements.Goto element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'goto' (a3= IDENTIFIER ) a4= ';' ;
     public final org.servicifi.gelato.language.kernel.statements.Goto parse_org_servicifi_gelato_language_kernel_statements_Goto() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.Goto element =  null;
 
@@ -2705,11 +2693,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:1838:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'goto' (a3= IDENTIFIER ) a4= ';' )
-            // Kernel.g:1839:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'goto' (a3= IDENTIFIER ) a4= ';'
+            // Kernel.g:1829:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'goto' (a3= IDENTIFIER ) a4= ';' )
+            // Kernel.g:1830:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'goto' (a3= IDENTIFIER ) a4= ';'
             {
-            // Kernel.g:1839:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:1840:3: a0= CHARACTER_LITERAL
+            // Kernel.g:1830:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:1831:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Goto1382); if (state.failed) return element;
 
@@ -2784,8 +2772,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[238]);
             	}
 
-            // Kernel.g:1903:2: (a3= IDENTIFIER )
-            // Kernel.g:1904:3: a3= IDENTIFIER
+            // Kernel.g:1894:2: (a3= IDENTIFIER )
+            // Kernel.g:1895:3: a3= IDENTIFIER
             {
             a3=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_statements_Goto1435); if (state.failed) return element;
 
@@ -2885,7 +2873,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_Block"
-    // Kernel.g:1979:1: parse_org_servicifi_gelato_language_kernel_statements_Block returns [org.servicifi.gelato.language.kernel.statements.Block element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= '{' ( (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )* a4= '}' ;
+    // Kernel.g:1970:1: parse_org_servicifi_gelato_language_kernel_statements_Block returns [org.servicifi.gelato.language.kernel.statements.Block element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= '{' ( (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )* a4= '}' ;
     public final org.servicifi.gelato.language.kernel.statements.Block parse_org_servicifi_gelato_language_kernel_statements_Block() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.Block element =  null;
 
@@ -2900,11 +2888,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:1982:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= '{' ( (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )* a4= '}' )
-            // Kernel.g:1983:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= '{' ( (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )* a4= '}'
+            // Kernel.g:1973:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= '{' ( (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )* a4= '}' )
+            // Kernel.g:1974:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= '{' ( (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )* a4= '}'
             {
-            // Kernel.g:1983:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:1984:3: a0= CHARACTER_LITERAL
+            // Kernel.g:1974:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:1975:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Block1489); if (state.failed) return element;
 
@@ -2962,7 +2950,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[262]);
             	}
 
-            a2=(Token)match(input,46,FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_statements_Block1524); if (state.failed) return element;
+            a2=(Token)match(input,43,FOLLOW_43_in_parse_org_servicifi_gelato_language_kernel_statements_Block1524); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -2991,23 +2979,23 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[275]);
             	}
 
-            // Kernel.g:2059:2: ( (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )*
+            // Kernel.g:2050:2: ( (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )*
             loop11:
             do {
                 int alt11=2;
                 int LA11_0 = input.LA(1);
 
-                if ( (LA11_0==CHARACTER_LITERAL||LA11_0==15||LA11_0==47) ) {
+                if ( (LA11_0==CHARACTER_LITERAL||LA11_0==15||LA11_0==44) ) {
                     alt11=1;
                 }
 
 
                 switch (alt11) {
             	case 1 :
-            	    // Kernel.g:2060:3: (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:2051:3: (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
             	    {
-            	    // Kernel.g:2060:3: (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-            	    // Kernel.g:2061:4: a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+            	    // Kernel.g:2051:3: (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:2052:4: a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
             	    {
             	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_Block1547);
             	    a3_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -3064,7 +3052,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[288]);
             	}
 
-            a4=(Token)match(input,49,FOLLOW_49_in_parse_org_servicifi_gelato_language_kernel_statements_Block1573); if (state.failed) return element;
+            a4=(Token)match(input,46,FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_statements_Block1573); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -3119,7 +3107,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock"
-    // Kernel.g:2135:1: parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock returns [org.servicifi.gelato.language.kernel.statements.ParallelBlock element = null] : a0= '{*' a1= 'order' a2= '=' ( (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' ) ) ( (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )+ a9= '*}' ;
+    // Kernel.g:2126:1: parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock returns [org.servicifi.gelato.language.kernel.statements.ParallelBlock element = null] : a0= '{*' a1= 'order' a2= '=' ( (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' ) ) ( (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )+ a9= '*}' ;
     public final org.servicifi.gelato.language.kernel.statements.ParallelBlock parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.ParallelBlock element =  null;
 
@@ -3137,10 +3125,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:2138:2: (a0= '{*' a1= 'order' a2= '=' ( (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' ) ) ( (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )+ a9= '*}' )
-            // Kernel.g:2139:2: a0= '{*' a1= 'order' a2= '=' ( (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' ) ) ( (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )+ a9= '*}'
+            // Kernel.g:2129:2: (a0= '{*' a1= 'order' a2= '=' ( (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' ) ) ( (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )+ a9= '*}' )
+            // Kernel.g:2130:2: a0= '{*' a1= 'order' a2= '=' ( (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' ) ) ( (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )+ a9= '*}'
             {
-            a0=(Token)match(input,47,FOLLOW_47_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1602); if (state.failed) return element;
+            a0=(Token)match(input,44,FOLLOW_44_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1602); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -3191,10 +3179,10 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[312]);
             	}
 
-            // Kernel.g:2181:2: ( (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' ) )
-            // Kernel.g:2182:3: (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' )
+            // Kernel.g:2172:2: ( (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' ) )
+            // Kernel.g:2173:3: (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' )
             {
-            // Kernel.g:2182:3: (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' )
+            // Kernel.g:2173:3: (a3= 'l2r' |a4= 'r2l' |a5= 'interleaved' )
             int alt12=3;
             switch ( input.LA(1) ) {
             case 29:
@@ -3202,7 +3190,7 @@ public class KernelParser extends KernelANTLRParserBase {
                 alt12=1;
                 }
                 break;
-            case 35:
+            case 32:
                 {
                 alt12=2;
                 }
@@ -3223,7 +3211,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
             switch (alt12) {
                 case 1 :
-                    // Kernel.g:2183:4: a3= 'l2r'
+                    // Kernel.g:2174:4: a3= 'l2r'
                     {
                     a3=(Token)match(input,29,FOLLOW_29_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1653); if (state.failed) return element;
 
@@ -3244,9 +3232,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Kernel.g:2196:8: a4= 'r2l'
+                    // Kernel.g:2187:8: a4= 'r2l'
                     {
-                    a4=(Token)match(input,35,FOLLOW_35_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1668); if (state.failed) return element;
+                    a4=(Token)match(input,32,FOLLOW_32_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1668); if (state.failed) return element;
 
                     if ( state.backtracking==0 ) {
                     				if (element == null) {
@@ -3265,7 +3253,7 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Kernel.g:2209:8: a5= 'interleaved'
+                    // Kernel.g:2200:8: a5= 'interleaved'
                     {
                     a5=(Token)match(input,28,FOLLOW_28_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1683); if (state.failed) return element;
 
@@ -3308,24 +3296,24 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getParallelBlock(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[324]);
             	}
 
-            // Kernel.g:2240:2: ( (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )+
+            // Kernel.g:2231:2: ( (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )+
             int cnt13=0;
             loop13:
             do {
                 int alt13=2;
                 int LA13_0 = input.LA(1);
 
-                if ( (LA13_0==CHARACTER_LITERAL||LA13_0==15||LA13_0==47) ) {
+                if ( (LA13_0==CHARACTER_LITERAL||LA13_0==15||LA13_0==44) ) {
                     alt13=1;
                 }
 
 
                 switch (alt13) {
             	case 1 :
-            	    // Kernel.g:2241:3: (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:2232:3: (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
             	    {
-            	    // Kernel.g:2241:3: (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-            	    // Kernel.g:2242:4: a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+            	    // Kernel.g:2232:3: (a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:2233:4: a8_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
             	    {
             	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1713);
             	    a8_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -3442,7 +3430,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock"
-    // Kernel.g:2316:1: parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock returns [org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock element = null] : a0= '>' a1= '|' ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )+ ;
+    // Kernel.g:2307:1: parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock returns [org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock element = null] : a0= '>' a1= '|' ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )+ ;
     public final org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock element =  null;
 
@@ -3455,8 +3443,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:2319:2: (a0= '>' a1= '|' ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )+ )
-            // Kernel.g:2320:2: a0= '>' a1= '|' ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )+
+            // Kernel.g:2310:2: (a0= '>' a1= '|' ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )+ )
+            // Kernel.g:2311:2: a0= '>' a1= '|' ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )+
             {
             a0=(Token)match(input,15,FOLLOW_15_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1768); if (state.failed) return element;
 
@@ -3475,7 +3463,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[359]);
             	}
 
-            a1=(Token)match(input,48,FOLLOW_48_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1782); if (state.failed) return element;
+            a1=(Token)match(input,45,FOLLOW_45_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1782); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -3503,7 +3491,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getNonDeterministicBlock(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[371]);
             	}
 
-            // Kernel.g:2359:2: ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )+
+            // Kernel.g:2350:2: ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )+
             int cnt14=0;
             loop14:
             do {
@@ -3520,7 +3508,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
                     }
                     break;
-                case 47:
+                case 44:
                     {
                     int LA14_3 = input.LA(2);
 
@@ -3547,13 +3535,13 @@ public class KernelParser extends KernelANTLRParserBase {
 
                 switch (alt14) {
             	case 1 :
-            	    // Kernel.g:2360:3: ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+            	    // Kernel.g:2351:3: ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
             	    {
-            	    // Kernel.g:2360:3: ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
-            	    // Kernel.g:2361:4: (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:2351:3: ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+            	    // Kernel.g:2352:4: (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
             	    {
-            	    // Kernel.g:2361:4: (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-            	    // Kernel.g:2362:5: a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+            	    // Kernel.g:2352:4: (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            	    // Kernel.g:2353:5: a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
             	    {
             	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1811);
             	    a2_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -3669,7 +3657,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement"
-    // Kernel.g:2436:1: parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement returns [org.servicifi.gelato.language.kernel.statements.ExpressionStatement element = null] : (a0= CHARACTER_LITERAL ) a1= ':' (a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a3= ';' ;
+    // Kernel.g:2427:1: parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement returns [org.servicifi.gelato.language.kernel.statements.ExpressionStatement element = null] : (a0= CHARACTER_LITERAL ) a1= ':' (a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a3= ';' ;
     public final org.servicifi.gelato.language.kernel.statements.ExpressionStatement parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.ExpressionStatement element =  null;
 
@@ -3683,11 +3671,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:2439:2: ( (a0= CHARACTER_LITERAL ) a1= ':' (a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a3= ';' )
-            // Kernel.g:2440:2: (a0= CHARACTER_LITERAL ) a1= ':' (a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a3= ';'
+            // Kernel.g:2430:2: ( (a0= CHARACTER_LITERAL ) a1= ':' (a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a3= ';' )
+            // Kernel.g:2431:2: (a0= CHARACTER_LITERAL ) a1= ':' (a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) a3= ';'
             {
-            // Kernel.g:2440:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:2441:3: a0= CHARACTER_LITERAL
+            // Kernel.g:2431:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:2432:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement1871); if (state.failed) return element;
 
@@ -3745,8 +3733,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getExpressionStatement(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[415]);
             	}
 
-            // Kernel.g:2490:2: (a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression )
-            // Kernel.g:2491:3: a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression
+            // Kernel.g:2481:2: (a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression )
+            // Kernel.g:2482:3: a2_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression
             {
             pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Expression_in_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement1910);
             a2_0=parse_org_servicifi_gelato_language_kernel_expressions_Expression();
@@ -3837,7 +3825,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_StatementWithException"
-    // Kernel.g:2552:1: parse_org_servicifi_gelato_language_kernel_statements_StatementWithException returns [org.servicifi.gelato.language.kernel.statements.StatementWithException element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'try' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a4= 'with' ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )+ ;
+    // Kernel.g:2543:1: parse_org_servicifi_gelato_language_kernel_statements_StatementWithException returns [org.servicifi.gelato.language.kernel.statements.StatementWithException element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'try' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a4= 'with' ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )+ ;
     public final org.servicifi.gelato.language.kernel.statements.StatementWithException parse_org_servicifi_gelato_language_kernel_statements_StatementWithException() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.StatementWithException element =  null;
 
@@ -3854,11 +3842,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:2555:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'try' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a4= 'with' ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )+ )
-            // Kernel.g:2556:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'try' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a4= 'with' ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )+
+            // Kernel.g:2546:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'try' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a4= 'with' ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )+ )
+            // Kernel.g:2547:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'try' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) a4= 'with' ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )+
             {
-            // Kernel.g:2556:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:2557:3: a0= CHARACTER_LITERAL
+            // Kernel.g:2547:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:2548:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException1961); if (state.failed) return element;
 
@@ -3916,7 +3904,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[439]);
             	}
 
-            a2=(Token)match(input,40,FOLLOW_40_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException1996); if (state.failed) return element;
+            a2=(Token)match(input,37,FOLLOW_37_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException1996); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -3944,8 +3932,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatementWithException(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[451]);
             	}
 
-            // Kernel.g:2631:2: (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-            // Kernel.g:2632:3: a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+            // Kernel.g:2622:2: (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            // Kernel.g:2623:3: a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
             {
             pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException2014);
             a3_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -3981,7 +3969,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[452]);
             	}
 
-            a4=(Token)match(input,45,FOLLOW_45_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException2032); if (state.failed) return element;
+            a4=(Token)match(input,42,FOLLOW_42_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException2032); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -3998,7 +3986,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatementWithException(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[453]);
             	}
 
-            // Kernel.g:2671:2: ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )+
+            // Kernel.g:2662:2: ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )+
             int cnt15=0;
             loop15:
             do {
@@ -4018,10 +4006,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
                 switch (alt15) {
             	case 1 :
-            	    // Kernel.g:2672:3: (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement )
+            	    // Kernel.g:2663:3: (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement )
             	    {
-            	    // Kernel.g:2672:3: (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement )
-            	    // Kernel.g:2673:4: a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement
+            	    // Kernel.g:2663:3: (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement )
+            	    // Kernel.g:2664:4: a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement
             	    {
             	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException2055);
             	    a5_0=parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement();
@@ -4110,7 +4098,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement"
-    // Kernel.g:2722:1: parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement returns [org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'exception' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ;
+    // Kernel.g:2713:1: parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement returns [org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'exception' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ;
     public final org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement element =  null;
 
@@ -4124,11 +4112,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:2725:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'exception' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
-            // Kernel.g:2726:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'exception' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            // Kernel.g:2716:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'exception' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+            // Kernel.g:2717:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'exception' (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
             {
-            // Kernel.g:2726:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:2727:3: a0= CHARACTER_LITERAL
+            // Kernel.g:2717:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:2718:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement2100); if (state.failed) return element;
 
@@ -4214,8 +4202,8 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getExceptionHandlerStatement(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[489]);
             	}
 
-            // Kernel.g:2801:2: (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-            // Kernel.g:2802:3: a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+            // Kernel.g:2792:2: (a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+            // Kernel.g:2793:3: a3_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
             {
             pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement2153);
             a3_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -4289,7 +4277,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_Abort"
-    // Kernel.g:2849:1: parse_org_servicifi_gelato_language_kernel_statements_Abort returns [org.servicifi.gelato.language.kernel.statements.Abort element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'abort' a3= ';' ;
+    // Kernel.g:2840:1: parse_org_servicifi_gelato_language_kernel_statements_Abort returns [org.servicifi.gelato.language.kernel.statements.Abort element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'abort' a3= ';' ;
     public final org.servicifi.gelato.language.kernel.statements.Abort parse_org_servicifi_gelato_language_kernel_statements_Abort() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.Abort element =  null;
 
@@ -4302,11 +4290,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:2852:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'abort' a3= ';' )
-            // Kernel.g:2853:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'abort' a3= ';'
+            // Kernel.g:2843:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'abort' a3= ';' )
+            // Kernel.g:2844:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'abort' a3= ';'
             {
-            // Kernel.g:2853:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:2854:3: a0= CHARACTER_LITERAL
+            // Kernel.g:2844:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:2845:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Abort2190); if (state.failed) return element;
 
@@ -4436,7 +4424,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_Skip"
-    // Kernel.g:2953:1: parse_org_servicifi_gelato_language_kernel_statements_Skip returns [org.servicifi.gelato.language.kernel.statements.Skip element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'skip' a3= ';' ;
+    // Kernel.g:2944:1: parse_org_servicifi_gelato_language_kernel_statements_Skip returns [org.servicifi.gelato.language.kernel.statements.Skip element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'skip' a3= ';' ;
     public final org.servicifi.gelato.language.kernel.statements.Skip parse_org_servicifi_gelato_language_kernel_statements_Skip() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.Skip element =  null;
 
@@ -4449,11 +4437,11 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:2956:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'skip' a3= ';' )
-            // Kernel.g:2957:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'skip' a3= ';'
+            // Kernel.g:2947:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'skip' a3= ';' )
+            // Kernel.g:2948:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'skip' a3= ';'
             {
-            // Kernel.g:2957:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:2958:3: a0= CHARACTER_LITERAL
+            // Kernel.g:2948:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:2949:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Skip2272); if (state.failed) return element;
 
@@ -4511,7 +4499,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[536]);
             	}
 
-            a2=(Token)match(input,38,FOLLOW_38_in_parse_org_servicifi_gelato_language_kernel_statements_Skip2307); if (state.failed) return element;
+            a2=(Token)match(input,35,FOLLOW_35_in_parse_org_servicifi_gelato_language_kernel_statements_Skip2307); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -4583,7 +4571,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_Return"
-    // Kernel.g:3057:1: parse_org_servicifi_gelato_language_kernel_statements_Return returns [org.servicifi.gelato.language.kernel.statements.Return element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'return' ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) )? a4= ';' ;
+    // Kernel.g:3048:1: parse_org_servicifi_gelato_language_kernel_statements_Return returns [org.servicifi.gelato.language.kernel.statements.Return element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'return' a3= ';' ;
     public final org.servicifi.gelato.language.kernel.statements.Return parse_org_servicifi_gelato_language_kernel_statements_Return() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.Return element =  null;
 
@@ -4591,18 +4579,16 @@ public class KernelParser extends KernelANTLRParserBase {
         Token a0=null;
         Token a1=null;
         Token a2=null;
-        Token a4=null;
-        org.servicifi.gelato.language.kernel.expressions.Expression a3_0 =null;
-
+        Token a3=null;
 
 
 
         try {
-            // Kernel.g:3060:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'return' ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) )? a4= ';' )
-            // Kernel.g:3061:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'return' ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) )? a4= ';'
+            // Kernel.g:3051:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'return' a3= ';' )
+            // Kernel.g:3052:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'return' a3= ';'
             {
-            // Kernel.g:3061:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:3062:3: a0= CHARACTER_LITERAL
+            // Kernel.g:3052:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:3053:3: a0= CHARACTER_LITERAL
             {
             a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Return2354); if (state.failed) return element;
 
@@ -4660,7 +4646,7 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[560]);
             	}
 
-            a2=(Token)match(input,37,FOLLOW_37_in_parse_org_servicifi_gelato_language_kernel_statements_Return2389); if (state.failed) return element;
+            a2=(Token)match(input,34,FOLLOW_34_in_parse_org_servicifi_gelato_language_kernel_statements_Return2389); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -4674,65 +4660,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[561]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[562]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[561]);
             	}
 
-            // Kernel.g:3126:2: ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression ) )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
-
-            if ( (LA16_0==CHARACTER_LITERAL) ) {
-                alt16=1;
-            }
-            switch (alt16) {
-                case 1 :
-                    // Kernel.g:3127:3: (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression )
-                    {
-                    // Kernel.g:3127:3: (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression )
-                    // Kernel.g:3128:4: a3_0= parse_org_servicifi_gelato_language_kernel_expressions_Expression
-                    {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Expression_in_parse_org_servicifi_gelato_language_kernel_statements_Return2412);
-                    a3_0=parse_org_servicifi_gelato_language_kernel_expressions_Expression();
-
-                    state._fsp--;
-                    if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (terminateParsing) {
-                    					throw new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTerminateParsingException();
-                    				}
-                    				if (element == null) {
-                    					element = org.servicifi.gelato.language.kernel.statements.StatementsFactory.eINSTANCE.createReturn();
-                    					startIncompleteElement(element);
-                    				}
-                    				if (a3_0 != null) {
-                    					if (a3_0 != null) {
-                    						Object value = a3_0;
-                    						element.eSet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__RETURN_VALUE), value);
-                    						completedElement(value, true);
-                    					}
-                    					collectHiddenTokens(element);
-                    					retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_15_0_0_3, a3_0, true);
-                    					copyLocalizationInfos(a3_0, element);
-                    				}
-                    			}
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[563]);
-            	}
-
-            a4=(Token)match(input,13,FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_Return2438); if (state.failed) return element;
+            a3=(Token)match(input,13,FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_Return2403); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -4740,12 +4671,14 @@ public class KernelParser extends KernelANTLRParserBase {
             			startIncompleteElement(element);
             		}
             		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_15_0_0_4, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a4, element);
+            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_15_0_0_3, null, true);
+            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a3, element);
             	}
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
+            		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[562]);
+            		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[563]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[564]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[565]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[566]);
@@ -4757,16 +4690,14 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[572]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[573]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[574]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[575]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[576]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[575]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[576]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[577]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[578]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[579]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[580]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[581]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[582]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[583]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[584]);
             	}
 
             }
@@ -4787,7 +4718,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall"
-    // Kernel.g:3190:1: parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall returns [org.servicifi.gelato.language.kernel.statements.ProcedureCall element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'call' (a3= IDENTIFIER ) a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* ) )? a8= ')' a9= ';' ;
+    // Kernel.g:3152:1: parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall returns [org.servicifi.gelato.language.kernel.statements.ProcedureCall element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= 'call' (a3= IDENTIFIER ) a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* ) )? a8= ')' a9= ';' ;
     public final org.servicifi.gelato.language.kernel.statements.ProcedureCall parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.ProcedureCall element =  null;
 
@@ -4808,13 +4739,13 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:3193:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'call' (a3= IDENTIFIER ) a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* ) )? a8= ')' a9= ';' )
-            // Kernel.g:3194:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'call' (a3= IDENTIFIER ) a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* ) )? a8= ')' a9= ';'
+            // Kernel.g:3155:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= 'call' (a3= IDENTIFIER ) a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* ) )? a8= ')' a9= ';' )
+            // Kernel.g:3156:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= 'call' (a3= IDENTIFIER ) a4= '(' ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* ) )? a8= ')' a9= ';'
             {
-            // Kernel.g:3194:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:3195:3: a0= CHARACTER_LITERAL
+            // Kernel.g:3156:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:3157:3: a0= CHARACTER_LITERAL
             {
-            a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2471); if (state.failed) return element;
+            a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2436); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -4850,10 +4781,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[585]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[583]);
             	}
 
-            a1=(Token)match(input,12,FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2492); if (state.failed) return element;
+            a1=(Token)match(input,12,FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2457); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -4867,10 +4798,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[586]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[584]);
             	}
 
-            a2=(Token)match(input,21,FOLLOW_21_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2506); if (state.failed) return element;
+            a2=(Token)match(input,21,FOLLOW_21_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2471); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -4884,13 +4815,13 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[587]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[585]);
             	}
 
-            // Kernel.g:3258:2: (a3= IDENTIFIER )
-            // Kernel.g:3259:3: a3= IDENTIFIER
+            // Kernel.g:3220:2: (a3= IDENTIFIER )
+            // Kernel.g:3221:3: a3= IDENTIFIER
             {
-            a3=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2524); if (state.failed) return element;
+            a3=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2489); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -4930,10 +4861,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[588]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[586]);
             	}
 
-            a4=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2545); if (state.failed) return element;
+            a4=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2510); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -4947,28 +4878,28 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[589]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[590]);
+            		addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[587]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[588]);
             	}
 
-            // Kernel.g:3313:2: ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* ) )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // Kernel.g:3275:2: ( ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* ) )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA18_0==36||LA18_0==42) ) {
-                alt18=1;
+            if ( (LA17_0==IDENTIFIER) ) {
+                alt17=1;
             }
-            switch (alt18) {
+            switch (alt17) {
                 case 1 :
-                    // Kernel.g:3314:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* )
+                    // Kernel.g:3276:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* )
                     {
-                    // Kernel.g:3314:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* )
-                    // Kernel.g:3315:4: (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )*
+                    // Kernel.g:3276:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )* )
+                    // Kernel.g:3277:4: (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )*
                     {
-                    // Kernel.g:3315:4: (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument )
-                    // Kernel.g:3316:5: a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument
+                    // Kernel.g:3277:4: (a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument )
+                    // Kernel.g:3278:5: a5_0= parse_org_servicifi_gelato_language_kernel_references_Argument
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_references_Argument_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2574);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_references_Argument_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2539);
                     a5_0=parse_org_servicifi_gelato_language_kernel_references_Argument();
 
                     state._fsp--;
@@ -4999,29 +4930,29 @@ public class KernelParser extends KernelANTLRParserBase {
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[591]);
-                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[592]);
+                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[589]);
+                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[590]);
                     			}
 
-                    // Kernel.g:3342:4: ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )*
-                    loop17:
+                    // Kernel.g:3304:4: ( (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) ) )*
+                    loop16:
                     do {
-                        int alt17=2;
-                        int LA17_0 = input.LA(1);
+                        int alt16=2;
+                        int LA16_0 = input.LA(1);
 
-                        if ( (LA17_0==11) ) {
-                            alt17=1;
+                        if ( (LA16_0==11) ) {
+                            alt16=1;
                         }
 
 
-                        switch (alt17) {
+                        switch (alt16) {
                     	case 1 :
-                    	    // Kernel.g:3343:5: (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) )
+                    	    // Kernel.g:3305:5: (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) )
                     	    {
-                    	    // Kernel.g:3343:5: (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) )
-                    	    // Kernel.g:3344:6: a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument )
+                    	    // Kernel.g:3305:5: (a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument ) )
+                    	    // Kernel.g:3306:6: a6= ',' (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument )
                     	    {
-                    	    a6=(Token)match(input,11,FOLLOW_11_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2615); if (state.failed) return element;
+                    	    a6=(Token)match(input,11,FOLLOW_11_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2580); if (state.failed) return element;
 
                     	    if ( state.backtracking==0 ) {
                     	    						if (element == null) {
@@ -5035,13 +4966,13 @@ public class KernelParser extends KernelANTLRParserBase {
 
                     	    if ( state.backtracking==0 ) {
                     	    						// expected elements (follow set)
-                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[593]);
+                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[591]);
                     	    					}
 
-                    	    // Kernel.g:3358:6: (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument )
-                    	    // Kernel.g:3359:7: a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument
+                    	    // Kernel.g:3320:6: (a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument )
+                    	    // Kernel.g:3321:7: a7_0= parse_org_servicifi_gelato_language_kernel_references_Argument
                     	    {
-                    	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_references_Argument_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2649);
+                    	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_references_Argument_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2614);
                     	    a7_0=parse_org_servicifi_gelato_language_kernel_references_Argument();
 
                     	    state._fsp--;
@@ -5072,8 +5003,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
                     	    if ( state.backtracking==0 ) {
                     	    						// expected elements (follow set)
-                    	    						addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[594]);
-                    	    						addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[595]);
+                    	    						addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[592]);
+                    	    						addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[593]);
                     	    					}
 
                     	    }
@@ -5083,15 +5014,15 @@ public class KernelParser extends KernelANTLRParserBase {
                     	    break;
 
                     	default :
-                    	    break loop17;
+                    	    break loop16;
                         }
                     } while (true);
 
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[596]);
-                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[597]);
+                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[594]);
+                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[595]);
                     			}
 
                     }
@@ -5105,10 +5036,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[598]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[596]);
             	}
 
-            a8=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2723); if (state.failed) return element;
+            a8=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2688); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5122,10 +5053,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[599]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[597]);
             	}
 
-            a9=(Token)match(input,13,FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2737); if (state.failed) return element;
+            a9=(Token)match(input,13,FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2702); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5139,6 +5070,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
+            		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[598]);
+            		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[599]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[600]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[601]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[602]);
@@ -5150,16 +5083,14 @@ public class KernelParser extends KernelANTLRParserBase {
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[608]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[609]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[610]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[611]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[612]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[611]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[612]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[613]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[614]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[615]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[616]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[617]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[618]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[619]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[620]);
             	}
 
             }
@@ -5180,23 +5111,101 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_parameters_Parameter"
-    // Kernel.g:3450:1: parse_org_servicifi_gelato_language_kernel_parameters_Parameter returns [org.servicifi.gelato.language.kernel.parameters.Parameter element = null] : (a0= IDENTIFIER ) ;
+    // Kernel.g:3412:1: parse_org_servicifi_gelato_language_kernel_parameters_Parameter returns [org.servicifi.gelato.language.kernel.parameters.Parameter element = null] : ( (a0= 'ref' |a1= 'val' ) ) (a3= IDENTIFIER ) ;
     public final org.servicifi.gelato.language.kernel.parameters.Parameter parse_org_servicifi_gelato_language_kernel_parameters_Parameter() throws RecognitionException {
         org.servicifi.gelato.language.kernel.parameters.Parameter element =  null;
 
 
         Token a0=null;
+        Token a1=null;
+        Token a3=null;
 
 
 
         try {
-            // Kernel.g:3453:2: ( (a0= IDENTIFIER ) )
-            // Kernel.g:3454:2: (a0= IDENTIFIER )
+            // Kernel.g:3415:2: ( ( (a0= 'ref' |a1= 'val' ) ) (a3= IDENTIFIER ) )
+            // Kernel.g:3416:2: ( (a0= 'ref' |a1= 'val' ) ) (a3= IDENTIFIER )
             {
-            // Kernel.g:3454:2: (a0= IDENTIFIER )
-            // Kernel.g:3455:3: a0= IDENTIFIER
+            // Kernel.g:3416:2: ( (a0= 'ref' |a1= 'val' ) )
+            // Kernel.g:3417:3: (a0= 'ref' |a1= 'val' )
             {
-            a0=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_parameters_Parameter2770); if (state.failed) return element;
+            // Kernel.g:3417:3: (a0= 'ref' |a1= 'val' )
+            int alt18=2;
+            int LA18_0 = input.LA(1);
+
+            if ( (LA18_0==33) ) {
+                alt18=1;
+            }
+            else if ( (LA18_0==39) ) {
+                alt18=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return element;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 18, 0, input);
+
+                throw nvae;
+
+            }
+            switch (alt18) {
+                case 1 :
+                    // Kernel.g:3418:4: a0= 'ref'
+                    {
+                    a0=(Token)match(input,33,FOLLOW_33_in_parse_org_servicifi_gelato_language_kernel_parameters_Parameter2740); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.servicifi.gelato.language.kernel.parameters.ParametersFactory.eINSTANCE.createParameter();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_17_0_0_0, true, true);
+                    				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a0, element);
+                    				// set value of boolean attribute
+                    				Object value = true;
+                    				element.eSet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__BY_REFERENCE), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+                case 2 :
+                    // Kernel.g:3431:8: a1= 'val'
+                    {
+                    a1=(Token)match(input,39,FOLLOW_39_in_parse_org_servicifi_gelato_language_kernel_parameters_Parameter2755); if (state.failed) return element;
+
+                    if ( state.backtracking==0 ) {
+                    				if (element == null) {
+                    					element = org.servicifi.gelato.language.kernel.parameters.ParametersFactory.eINSTANCE.createParameter();
+                    					startIncompleteElement(element);
+                    				}
+                    				collectHiddenTokens(element);
+                    				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_17_0_0_0, false, true);
+                    				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
+                    				// set value of boolean attribute
+                    				Object value = false;
+                    				element.eSet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__BY_REFERENCE), value);
+                    				completedElement(value, false);
+                    			}
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            if ( state.backtracking==0 ) {
+            		// expected elements (follow set)
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[619]);
+            	}
+
+            // Kernel.g:3451:2: (a3= IDENTIFIER )
+            // Kernel.g:3452:3: a3= IDENTIFIER
+            {
+            a3=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_parameters_Parameter2780); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -5206,14 +5215,14 @@ public class KernelParser extends KernelANTLRParserBase {
             				element = org.servicifi.gelato.language.kernel.parameters.ParametersFactory.eINSTANCE.createParameter();
             				startIncompleteElement(element);
             			}
-            			if (a0 != null) {
+            			if (a3 != null) {
             				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
             				tokenResolver.setOptions(getOptions());
             				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolveResult result = getFreshTokenResolveResult();
-            				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__NAME), result);
+            				tokenResolver.resolve(a3.getText(), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__NAME), result);
             				Object resolvedObject = result.getResolvedToken();
             				if (resolvedObject == null) {
-            					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_4_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_4_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_4_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_4_0.CommonToken) a0).getStopIndex());
+            					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_4_0.CommonToken) a3).getLine(), ((org.antlr.runtime3_4_0.CommonToken) a3).getCharPositionInLine(), ((org.antlr.runtime3_4_0.CommonToken) a3).getStartIndex(), ((org.antlr.runtime3_4_0.CommonToken) a3).getStopIndex());
             				}
             				java.lang.String resolved = (java.lang.String) resolvedObject;
             				if (resolved != null) {
@@ -5222,8 +5231,8 @@ public class KernelParser extends KernelANTLRParserBase {
             					completedElement(value, false);
             				}
             				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_17_0_0_0, resolved, true);
-            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a0, element);
+            				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_17_0_0_1, resolved, true);
+            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a3, element);
             			}
             		}
 
@@ -5232,12 +5241,12 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
+            		addExpectedElement(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[620]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[621]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[622]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[623]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[624]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[624]);
             		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[625]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[626]);
             	}
 
             }
@@ -5258,101 +5267,23 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_references_Argument"
-    // Kernel.g:3497:1: parse_org_servicifi_gelato_language_kernel_references_Argument returns [org.servicifi.gelato.language.kernel.references.Argument element = null] : ( (a0= 'ref' |a1= 'val' ) ) (a3= IDENTIFIER ) ;
+    // Kernel.g:3494:1: parse_org_servicifi_gelato_language_kernel_references_Argument returns [org.servicifi.gelato.language.kernel.references.Argument element = null] : (a0= IDENTIFIER ) ;
     public final org.servicifi.gelato.language.kernel.references.Argument parse_org_servicifi_gelato_language_kernel_references_Argument() throws RecognitionException {
         org.servicifi.gelato.language.kernel.references.Argument element =  null;
 
 
         Token a0=null;
-        Token a1=null;
-        Token a3=null;
 
 
 
         try {
-            // Kernel.g:3500:2: ( ( (a0= 'ref' |a1= 'val' ) ) (a3= IDENTIFIER ) )
-            // Kernel.g:3501:2: ( (a0= 'ref' |a1= 'val' ) ) (a3= IDENTIFIER )
+            // Kernel.g:3497:2: ( (a0= IDENTIFIER ) )
+            // Kernel.g:3498:2: (a0= IDENTIFIER )
             {
-            // Kernel.g:3501:2: ( (a0= 'ref' |a1= 'val' ) )
-            // Kernel.g:3502:3: (a0= 'ref' |a1= 'val' )
+            // Kernel.g:3498:2: (a0= IDENTIFIER )
+            // Kernel.g:3499:3: a0= IDENTIFIER
             {
-            // Kernel.g:3502:3: (a0= 'ref' |a1= 'val' )
-            int alt19=2;
-            int LA19_0 = input.LA(1);
-
-            if ( (LA19_0==36) ) {
-                alt19=1;
-            }
-            else if ( (LA19_0==42) ) {
-                alt19=2;
-            }
-            else {
-                if (state.backtracking>0) {state.failed=true; return element;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
-
-                throw nvae;
-
-            }
-            switch (alt19) {
-                case 1 :
-                    // Kernel.g:3503:4: a0= 'ref'
-                    {
-                    a0=(Token)match(input,36,FOLLOW_36_in_parse_org_servicifi_gelato_language_kernel_references_Argument2815); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.servicifi.gelato.language.kernel.references.ReferencesFactory.eINSTANCE.createArgument();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_18_0_0_0, true, true);
-                    				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a0, element);
-                    				// set value of boolean attribute
-                    				Object value = true;
-                    				element.eSet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__BY_REFERENCE), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-                case 2 :
-                    // Kernel.g:3516:8: a1= 'val'
-                    {
-                    a1=(Token)match(input,42,FOLLOW_42_in_parse_org_servicifi_gelato_language_kernel_references_Argument2830); if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) {
-                    				if (element == null) {
-                    					element = org.servicifi.gelato.language.kernel.references.ReferencesFactory.eINSTANCE.createArgument();
-                    					startIncompleteElement(element);
-                    				}
-                    				collectHiddenTokens(element);
-                    				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_18_0_0_0, false, true);
-                    				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
-                    				// set value of boolean attribute
-                    				Object value = false;
-                    				element.eSet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__BY_REFERENCE), value);
-                    				completedElement(value, false);
-                    			}
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[627]);
-            	}
-
-            // Kernel.g:3536:2: (a3= IDENTIFIER )
-            // Kernel.g:3537:3: a3= IDENTIFIER
-            {
-            a3=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_references_Argument2855); if (state.failed) return element;
+            a0=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_references_Argument2820); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -5362,14 +5293,14 @@ public class KernelParser extends KernelANTLRParserBase {
             				element = org.servicifi.gelato.language.kernel.references.ReferencesFactory.eINSTANCE.createArgument();
             				startIncompleteElement(element);
             			}
-            			if (a3 != null) {
+            			if (a0 != null) {
             				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
             				tokenResolver.setOptions(getOptions());
             				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolveResult result = getFreshTokenResolveResult();
-            				tokenResolver.resolve(a3.getText(), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__TARGET), result);
+            				tokenResolver.resolve(a0.getText(), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__TARGET), result);
             				Object resolvedObject = result.getResolvedToken();
             				if (resolvedObject == null) {
-            					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_4_0.CommonToken) a3).getLine(), ((org.antlr.runtime3_4_0.CommonToken) a3).getCharPositionInLine(), ((org.antlr.runtime3_4_0.CommonToken) a3).getStartIndex(), ((org.antlr.runtime3_4_0.CommonToken) a3).getStopIndex());
+            					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_4_0.CommonToken) a0).getLine(), ((org.antlr.runtime3_4_0.CommonToken) a0).getCharPositionInLine(), ((org.antlr.runtime3_4_0.CommonToken) a0).getStartIndex(), ((org.antlr.runtime3_4_0.CommonToken) a0).getStopIndex());
             				}
             				String resolved = (String) resolvedObject;
             				org.servicifi.gelato.language.kernel.references.ReferenceableElement proxy = org.servicifi.gelato.language.kernel.procedures.ProceduresFactory.eINSTANCE.createProcedure();
@@ -5381,9 +5312,9 @@ public class KernelParser extends KernelANTLRParserBase {
             					completedElement(value, false);
             				}
             				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_18_0_0_1, proxy, true);
-            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a3, element);
-            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a3, proxy);
+            				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_18_0_0_0, proxy, true);
+            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a0, element);
+            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a0, proxy);
             			}
             		}
 
@@ -5392,8 +5323,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[628]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[629]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[626]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[627]);
             	}
 
             }
@@ -5414,7 +5345,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_expressions_Expression"
-    // Kernel.g:3579:1: parse_org_servicifi_gelato_language_kernel_expressions_Expression returns [org.servicifi.gelato.language.kernel.expressions.Expression element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= '[' ( ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* ) )? a6= ']' ;
+    // Kernel.g:3541:1: parse_org_servicifi_gelato_language_kernel_expressions_Expression returns [org.servicifi.gelato.language.kernel.expressions.Expression element = null] : (a0= CHARACTER_LITERAL ) a1= ':' a2= '[' ( ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* ) )? a6= ']' ;
     public final org.servicifi.gelato.language.kernel.expressions.Expression parse_org_servicifi_gelato_language_kernel_expressions_Expression() throws RecognitionException {
         org.servicifi.gelato.language.kernel.expressions.Expression element =  null;
 
@@ -5432,13 +5363,13 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:3582:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= '[' ( ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* ) )? a6= ']' )
-            // Kernel.g:3583:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= '[' ( ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* ) )? a6= ']'
+            // Kernel.g:3544:2: ( (a0= CHARACTER_LITERAL ) a1= ':' a2= '[' ( ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* ) )? a6= ']' )
+            // Kernel.g:3545:2: (a0= CHARACTER_LITERAL ) a1= ':' a2= '[' ( ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* ) )? a6= ']'
             {
-            // Kernel.g:3583:2: (a0= CHARACTER_LITERAL )
-            // Kernel.g:3584:3: a0= CHARACTER_LITERAL
+            // Kernel.g:3545:2: (a0= CHARACTER_LITERAL )
+            // Kernel.g:3546:3: a0= CHARACTER_LITERAL
             {
-            a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2895); if (state.failed) return element;
+            a0=(Token)match(input,CHARACTER_LITERAL,FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2860); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -5474,10 +5405,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[630]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[628]);
             	}
 
-            a1=(Token)match(input,12,FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2916); if (state.failed) return element;
+            a1=(Token)match(input,12,FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2881); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5491,10 +5422,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[631]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[629]);
             	}
 
-            a2=(Token)match(input,17,FOLLOW_17_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2930); if (state.failed) return element;
+            a2=(Token)match(input,17,FOLLOW_17_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2895); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5508,33 +5439,30 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
+            		addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[630]);
+            		addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[631]);
             		addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[632]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[633]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[634]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[635]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[636]);
-            		addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[637]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[638]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[633]);
             	}
 
-            // Kernel.g:3653:2: ( ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* ) )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // Kernel.g:3612:2: ( ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* ) )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA21_0==20||LA21_0==22||(LA21_0 >= 32 && LA21_0 <= 34)||LA21_0==41) ) {
-                alt21=1;
+            if ( (LA20_0==20||LA20_0==22||LA20_0==38) ) {
+                alt20=1;
             }
-            switch (alt21) {
+            switch (alt20) {
                 case 1 :
-                    // Kernel.g:3654:3: ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* )
+                    // Kernel.g:3613:3: ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* )
                     {
-                    // Kernel.g:3654:3: ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* )
-                    // Kernel.g:3655:4: (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )*
+                    // Kernel.g:3613:3: ( (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )* )
+                    // Kernel.g:3614:4: (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )*
                     {
-                    // Kernel.g:3655:4: (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression )
-                    // Kernel.g:3656:5: a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression
+                    // Kernel.g:3614:4: (a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression )
+                    // Kernel.g:3615:5: a3_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2959);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2924);
                     a3_0=parse_org_servicifi_gelato_language_kernel_expressions_SubExpression();
 
                     state._fsp--;
@@ -5565,29 +5493,29 @@ public class KernelParser extends KernelANTLRParserBase {
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[639]);
-                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[640]);
+                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[634]);
+                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[635]);
                     			}
 
-                    // Kernel.g:3682:4: ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )*
-                    loop20:
+                    // Kernel.g:3641:4: ( (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) ) )*
+                    loop19:
                     do {
-                        int alt20=2;
-                        int LA20_0 = input.LA(1);
+                        int alt19=2;
+                        int LA19_0 = input.LA(1);
 
-                        if ( (LA20_0==13) ) {
-                            alt20=1;
+                        if ( (LA19_0==13) ) {
+                            alt19=1;
                         }
 
 
-                        switch (alt20) {
+                        switch (alt19) {
                     	case 1 :
-                    	    // Kernel.g:3683:5: (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) )
+                    	    // Kernel.g:3642:5: (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) )
                     	    {
-                    	    // Kernel.g:3683:5: (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) )
-                    	    // Kernel.g:3684:6: a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression )
+                    	    // Kernel.g:3642:5: (a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression ) )
+                    	    // Kernel.g:3643:6: a4= ';' (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression )
                     	    {
-                    	    a4=(Token)match(input,13,FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression3000); if (state.failed) return element;
+                    	    a4=(Token)match(input,13,FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2965); if (state.failed) return element;
 
                     	    if ( state.backtracking==0 ) {
                     	    						if (element == null) {
@@ -5601,18 +5529,15 @@ public class KernelParser extends KernelANTLRParserBase {
 
                     	    if ( state.backtracking==0 ) {
                     	    						// expected elements (follow set)
-                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[641]);
-                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[642]);
-                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[643]);
-                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[644]);
-                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[645]);
-                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[646]);
+                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[636]);
+                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[637]);
+                    	    						addExpectedElement(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[638]);
                     	    					}
 
-                    	    // Kernel.g:3703:6: (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression )
-                    	    // Kernel.g:3704:7: a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression
+                    	    // Kernel.g:3659:6: (a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression )
+                    	    // Kernel.g:3660:7: a5_0= parse_org_servicifi_gelato_language_kernel_expressions_SubExpression
                     	    {
-                    	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression3034);
+                    	    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2999);
                     	    a5_0=parse_org_servicifi_gelato_language_kernel_expressions_SubExpression();
 
                     	    state._fsp--;
@@ -5643,8 +5568,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
                     	    if ( state.backtracking==0 ) {
                     	    						// expected elements (follow set)
-                    	    						addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[647]);
-                    	    						addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[648]);
+                    	    						addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[639]);
+                    	    						addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[640]);
                     	    					}
 
                     	    }
@@ -5654,15 +5579,15 @@ public class KernelParser extends KernelANTLRParserBase {
                     	    break;
 
                     	default :
-                    	    break loop20;
+                    	    break loop19;
                         }
                     } while (true);
 
 
                     if ( state.backtracking==0 ) {
                     				// expected elements (follow set)
-                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[649]);
-                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[650]);
+                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[641]);
+                    				addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[642]);
                     			}
 
                     }
@@ -5676,10 +5601,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[651]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[643]);
             	}
 
-            a6=(Token)match(input,18,FOLLOW_18_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression3108); if (state.failed) return element;
+            a6=(Token)match(input,18,FOLLOW_18_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression3073); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5693,10 +5618,9 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[652]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[653]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[654]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[655]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[644]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[645]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[646]);
             	}
 
             }
@@ -5717,7 +5641,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_expressions_Defines"
-    // Kernel.g:3764:1: parse_org_servicifi_gelato_language_kernel_expressions_Defines returns [org.servicifi.gelato.language.kernel.expressions.Defines element = null] : a0= 'defines' a1= '(' (a2= IDENTIFIER ) a3= ')' ;
+    // Kernel.g:3719:1: parse_org_servicifi_gelato_language_kernel_expressions_Defines returns [org.servicifi.gelato.language.kernel.expressions.Defines element = null] : a0= 'defines' a1= '(' (a2= IDENTIFIER ) a3= ')' ;
     public final org.servicifi.gelato.language.kernel.expressions.Defines parse_org_servicifi_gelato_language_kernel_expressions_Defines() throws RecognitionException {
         org.servicifi.gelato.language.kernel.expressions.Defines element =  null;
 
@@ -5730,10 +5654,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:3767:2: (a0= 'defines' a1= '(' (a2= IDENTIFIER ) a3= ')' )
-            // Kernel.g:3768:2: a0= 'defines' a1= '(' (a2= IDENTIFIER ) a3= ')'
+            // Kernel.g:3722:2: (a0= 'defines' a1= '(' (a2= IDENTIFIER ) a3= ')' )
+            // Kernel.g:3723:2: a0= 'defines' a1= '(' (a2= IDENTIFIER ) a3= ')'
             {
-            a0=(Token)match(input,22,FOLLOW_22_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3137); if (state.failed) return element;
+            a0=(Token)match(input,22,FOLLOW_22_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3102); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5747,10 +5671,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[656]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[647]);
             	}
 
-            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3151); if (state.failed) return element;
+            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3116); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5764,13 +5688,13 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[657]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[648]);
             	}
 
-            // Kernel.g:3796:2: (a2= IDENTIFIER )
-            // Kernel.g:3797:3: a2= IDENTIFIER
+            // Kernel.g:3751:2: (a2= IDENTIFIER )
+            // Kernel.g:3752:3: a2= IDENTIFIER
             {
-            a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3169); if (state.failed) return element;
+            a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3134); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -5810,10 +5734,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[658]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[649]);
             	}
 
-            a3=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3190); if (state.failed) return element;
+            a3=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3155); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5827,8 +5751,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[659]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[660]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[650]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[651]);
             	}
 
             }
@@ -5849,7 +5773,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_expressions_Uses"
-    // Kernel.g:3853:1: parse_org_servicifi_gelato_language_kernel_expressions_Uses returns [org.servicifi.gelato.language.kernel.expressions.Uses element = null] : a0= 'uses' a1= '(' (a2= IDENTIFIER ) a3= ')' ;
+    // Kernel.g:3808:1: parse_org_servicifi_gelato_language_kernel_expressions_Uses returns [org.servicifi.gelato.language.kernel.expressions.Uses element = null] : a0= 'uses' a1= '(' (a2= IDENTIFIER ) a3= ')' ;
     public final org.servicifi.gelato.language.kernel.expressions.Uses parse_org_servicifi_gelato_language_kernel_expressions_Uses() throws RecognitionException {
         org.servicifi.gelato.language.kernel.expressions.Uses element =  null;
 
@@ -5862,10 +5786,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:3856:2: (a0= 'uses' a1= '(' (a2= IDENTIFIER ) a3= ')' )
-            // Kernel.g:3857:2: a0= 'uses' a1= '(' (a2= IDENTIFIER ) a3= ')'
+            // Kernel.g:3811:2: (a0= 'uses' a1= '(' (a2= IDENTIFIER ) a3= ')' )
+            // Kernel.g:3812:2: a0= 'uses' a1= '(' (a2= IDENTIFIER ) a3= ')'
             {
-            a0=(Token)match(input,41,FOLLOW_41_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3219); if (state.failed) return element;
+            a0=(Token)match(input,38,FOLLOW_38_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3184); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5879,10 +5803,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[661]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[652]);
             	}
 
-            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3233); if (state.failed) return element;
+            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3198); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5896,13 +5820,13 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[662]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[653]);
             	}
 
-            // Kernel.g:3885:2: (a2= IDENTIFIER )
-            // Kernel.g:3886:3: a2= IDENTIFIER
+            // Kernel.g:3840:2: (a2= IDENTIFIER )
+            // Kernel.g:3841:3: a2= IDENTIFIER
             {
-            a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3251); if (state.failed) return element;
+            a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3216); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -5942,10 +5866,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[663]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[654]);
             	}
 
-            a3=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3272); if (state.failed) return element;
+            a3=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3237); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -5959,8 +5883,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[664]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[665]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[655]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[656]);
             	}
 
             }
@@ -5981,7 +5905,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_expressions_Affects"
-    // Kernel.g:3942:1: parse_org_servicifi_gelato_language_kernel_expressions_Affects returns [org.servicifi.gelato.language.kernel.expressions.Affects element = null] : a0= 'affects' a1= '(' (a2= IDENTIFIER ) a3= ')' ;
+    // Kernel.g:3897:1: parse_org_servicifi_gelato_language_kernel_expressions_Affects returns [org.servicifi.gelato.language.kernel.expressions.Affects element = null] : a0= 'affects' a1= '(' (a2= IDENTIFIER ) a3= ')' ;
     public final org.servicifi.gelato.language.kernel.expressions.Affects parse_org_servicifi_gelato_language_kernel_expressions_Affects() throws RecognitionException {
         org.servicifi.gelato.language.kernel.expressions.Affects element =  null;
 
@@ -5994,10 +5918,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:3945:2: (a0= 'affects' a1= '(' (a2= IDENTIFIER ) a3= ')' )
-            // Kernel.g:3946:2: a0= 'affects' a1= '(' (a2= IDENTIFIER ) a3= ')'
+            // Kernel.g:3900:2: (a0= 'affects' a1= '(' (a2= IDENTIFIER ) a3= ')' )
+            // Kernel.g:3901:2: a0= 'affects' a1= '(' (a2= IDENTIFIER ) a3= ')'
             {
-            a0=(Token)match(input,20,FOLLOW_20_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3301); if (state.failed) return element;
+            a0=(Token)match(input,20,FOLLOW_20_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3266); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -6011,10 +5935,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[666]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[657]);
             	}
 
-            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3315); if (state.failed) return element;
+            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3280); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -6028,13 +5952,13 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[667]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[658]);
             	}
 
-            // Kernel.g:3974:2: (a2= IDENTIFIER )
-            // Kernel.g:3975:3: a2= IDENTIFIER
+            // Kernel.g:3929:2: (a2= IDENTIFIER )
+            // Kernel.g:3930:3: a2= IDENTIFIER
             {
-            a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3333); if (state.failed) return element;
+            a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3298); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             			if (terminateParsing) {
@@ -6074,10 +5998,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[668]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[659]);
             	}
 
-            a3=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3354); if (state.failed) return element;
+            a3=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3319); if (state.failed) return element;
 
             if ( state.backtracking==0 ) {
             		if (element == null) {
@@ -6091,8 +6015,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
             if ( state.backtracking==0 ) {
             		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[669]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[670]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[660]);
+            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[661]);
             	}
 
             }
@@ -6112,404 +6036,8 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
 
-    // $ANTLR start "parse_org_servicifi_gelato_language_kernel_expressions_PostDefines"
-    // Kernel.g:4031:1: parse_org_servicifi_gelato_language_kernel_expressions_PostDefines returns [org.servicifi.gelato.language.kernel.expressions.PostDefines element = null] : a0= 'postdefines' a1= '(' (a2= IDENTIFIER ) a3= ')' ;
-    public final org.servicifi.gelato.language.kernel.expressions.PostDefines parse_org_servicifi_gelato_language_kernel_expressions_PostDefines() throws RecognitionException {
-        org.servicifi.gelato.language.kernel.expressions.PostDefines element =  null;
-
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a3=null;
-
-
-
-        try {
-            // Kernel.g:4034:2: (a0= 'postdefines' a1= '(' (a2= IDENTIFIER ) a3= ')' )
-            // Kernel.g:4035:2: a0= 'postdefines' a1= '(' (a2= IDENTIFIER ) a3= ')'
-            {
-            a0=(Token)match(input,33,FOLLOW_33_in_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines3383); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPostDefines();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23_0_0_0, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a0, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[671]);
-            	}
-
-            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines3397); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPostDefines();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23_0_0_1, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[672]);
-            	}
-
-            // Kernel.g:4063:2: (a2= IDENTIFIER )
-            // Kernel.g:4064:3: a2= IDENTIFIER
-            {
-            a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines3415); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPostDefines();
-            				startIncompleteElement(element);
-            			}
-            			if (a2 != null) {
-            				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-            				tokenResolver.setOptions(getOptions());
-            				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolveResult result = getFreshTokenResolveResult();
-            				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__TARGET), result);
-            				Object resolvedObject = result.getResolvedToken();
-            				if (resolvedObject == null) {
-            					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_4_0.CommonToken) a2).getLine(), ((org.antlr.runtime3_4_0.CommonToken) a2).getCharPositionInLine(), ((org.antlr.runtime3_4_0.CommonToken) a2).getStartIndex(), ((org.antlr.runtime3_4_0.CommonToken) a2).getStopIndex());
-            				}
-            				String resolved = (String) resolvedObject;
-            				org.servicifi.gelato.language.kernel.references.ReferenceableElement proxy = org.servicifi.gelato.language.kernel.procedures.ProceduresFactory.eINSTANCE.createProcedure();
-            				collectHiddenTokens(element);
-            				registerContextDependentProxy(new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContextDependentURIFragmentFactory<org.servicifi.gelato.language.kernel.references.ElementReference, org.servicifi.gelato.language.kernel.references.ReferenceableElement>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getElementReferenceTargetReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__TARGET), resolved, proxy);
-            				if (proxy != null) {
-            					Object value = proxy;
-            					element.eSet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__TARGET), value);
-            					completedElement(value, false);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23_0_0_2, proxy, true);
-            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a2, element);
-            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a2, proxy);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[673]);
-            	}
-
-            a3=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines3436); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPostDefines();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23_0_0_3, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a3, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[674]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[675]);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_servicifi_gelato_language_kernel_expressions_PostDefines"
-
-
-
-    // $ANTLR start "parse_org_servicifi_gelato_language_kernel_expressions_PreUses"
-    // Kernel.g:4120:1: parse_org_servicifi_gelato_language_kernel_expressions_PreUses returns [org.servicifi.gelato.language.kernel.expressions.PreUses element = null] : a0= 'preuses' a1= '(' (a2= IDENTIFIER ) a3= ')' ;
-    public final org.servicifi.gelato.language.kernel.expressions.PreUses parse_org_servicifi_gelato_language_kernel_expressions_PreUses() throws RecognitionException {
-        org.servicifi.gelato.language.kernel.expressions.PreUses element =  null;
-
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a3=null;
-
-
-
-        try {
-            // Kernel.g:4123:2: (a0= 'preuses' a1= '(' (a2= IDENTIFIER ) a3= ')' )
-            // Kernel.g:4124:2: a0= 'preuses' a1= '(' (a2= IDENTIFIER ) a3= ')'
-            {
-            a0=(Token)match(input,34,FOLLOW_34_in_parse_org_servicifi_gelato_language_kernel_expressions_PreUses3465); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPreUses();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24_0_0_0, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a0, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[676]);
-            	}
-
-            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_PreUses3479); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPreUses();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24_0_0_1, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[677]);
-            	}
-
-            // Kernel.g:4152:2: (a2= IDENTIFIER )
-            // Kernel.g:4153:3: a2= IDENTIFIER
-            {
-            a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_PreUses3497); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPreUses();
-            				startIncompleteElement(element);
-            			}
-            			if (a2 != null) {
-            				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-            				tokenResolver.setOptions(getOptions());
-            				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolveResult result = getFreshTokenResolveResult();
-            				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.PRE_USES__TARGET), result);
-            				Object resolvedObject = result.getResolvedToken();
-            				if (resolvedObject == null) {
-            					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_4_0.CommonToken) a2).getLine(), ((org.antlr.runtime3_4_0.CommonToken) a2).getCharPositionInLine(), ((org.antlr.runtime3_4_0.CommonToken) a2).getStartIndex(), ((org.antlr.runtime3_4_0.CommonToken) a2).getStopIndex());
-            				}
-            				String resolved = (String) resolvedObject;
-            				org.servicifi.gelato.language.kernel.references.ReferenceableElement proxy = org.servicifi.gelato.language.kernel.procedures.ProceduresFactory.eINSTANCE.createProcedure();
-            				collectHiddenTokens(element);
-            				registerContextDependentProxy(new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContextDependentURIFragmentFactory<org.servicifi.gelato.language.kernel.references.ElementReference, org.servicifi.gelato.language.kernel.references.ReferenceableElement>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getElementReferenceTargetReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.PRE_USES__TARGET), resolved, proxy);
-            				if (proxy != null) {
-            					Object value = proxy;
-            					element.eSet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.PRE_USES__TARGET), value);
-            					completedElement(value, false);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24_0_0_2, proxy, true);
-            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a2, element);
-            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a2, proxy);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[678]);
-            	}
-
-            a3=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_PreUses3518); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPreUses();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24_0_0_3, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a3, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[679]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[680]);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_servicifi_gelato_language_kernel_expressions_PreUses"
-
-
-
-    // $ANTLR start "parse_org_servicifi_gelato_language_kernel_expressions_PostAffects"
-    // Kernel.g:4209:1: parse_org_servicifi_gelato_language_kernel_expressions_PostAffects returns [org.servicifi.gelato.language.kernel.expressions.PostAffects element = null] : a0= 'postaffects' a1= '(' (a2= IDENTIFIER ) a3= ')' ;
-    public final org.servicifi.gelato.language.kernel.expressions.PostAffects parse_org_servicifi_gelato_language_kernel_expressions_PostAffects() throws RecognitionException {
-        org.servicifi.gelato.language.kernel.expressions.PostAffects element =  null;
-
-
-        Token a0=null;
-        Token a1=null;
-        Token a2=null;
-        Token a3=null;
-
-
-
-        try {
-            // Kernel.g:4212:2: (a0= 'postaffects' a1= '(' (a2= IDENTIFIER ) a3= ')' )
-            // Kernel.g:4213:2: a0= 'postaffects' a1= '(' (a2= IDENTIFIER ) a3= ')'
-            {
-            a0=(Token)match(input,32,FOLLOW_32_in_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects3547); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPostAffects();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25_0_0_0, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a0, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[681]);
-            	}
-
-            a1=(Token)match(input,8,FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects3561); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPostAffects();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25_0_0_1, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a1, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[682]);
-            	}
-
-            // Kernel.g:4241:2: (a2= IDENTIFIER )
-            // Kernel.g:4242:3: a2= IDENTIFIER
-            {
-            a2=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects3579); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            			if (terminateParsing) {
-            				throw new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTerminateParsingException();
-            			}
-            			if (element == null) {
-            				element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPostAffects();
-            				startIncompleteElement(element);
-            			}
-            			if (a2 != null) {
-            				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-            				tokenResolver.setOptions(getOptions());
-            				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolveResult result = getFreshTokenResolveResult();
-            				tokenResolver.resolve(a2.getText(), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__TARGET), result);
-            				Object resolvedObject = result.getResolvedToken();
-            				if (resolvedObject == null) {
-            					addErrorToResource(result.getErrorMessage(), ((org.antlr.runtime3_4_0.CommonToken) a2).getLine(), ((org.antlr.runtime3_4_0.CommonToken) a2).getCharPositionInLine(), ((org.antlr.runtime3_4_0.CommonToken) a2).getStartIndex(), ((org.antlr.runtime3_4_0.CommonToken) a2).getStopIndex());
-            				}
-            				String resolved = (String) resolvedObject;
-            				org.servicifi.gelato.language.kernel.references.ReferenceableElement proxy = org.servicifi.gelato.language.kernel.procedures.ProceduresFactory.eINSTANCE.createProcedure();
-            				collectHiddenTokens(element);
-            				registerContextDependentProxy(new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContextDependentURIFragmentFactory<org.servicifi.gelato.language.kernel.references.ElementReference, org.servicifi.gelato.language.kernel.references.ReferenceableElement>(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getElementReferenceTargetReferenceResolver()), element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__TARGET), resolved, proxy);
-            				if (proxy != null) {
-            					Object value = proxy;
-            					element.eSet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__TARGET), value);
-            					completedElement(value, false);
-            				}
-            				collectHiddenTokens(element);
-            				retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25_0_0_2, proxy, true);
-            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a2, element);
-            				copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken) a2, proxy);
-            			}
-            		}
-
-            }
-
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[683]);
-            	}
-
-            a3=(Token)match(input,9,FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects3600); if (state.failed) return element;
-
-            if ( state.backtracking==0 ) {
-            		if (element == null) {
-            			element = org.servicifi.gelato.language.kernel.expressions.ExpressionsFactory.eINSTANCE.createPostAffects();
-            			startIncompleteElement(element);
-            		}
-            		collectHiddenTokens(element);
-            		retrieveLayoutInformation(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25_0_0_3, null, true);
-            		copyLocalizationInfos((org.antlr.runtime3_4_0.CommonToken)a3, element);
-            	}
-
-            if ( state.backtracking==0 ) {
-            		// expected elements (follow set)
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[684]);
-            		addExpectedElement(null, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectationConstants.EXPECTATIONS[685]);
-            	}
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-
-        finally {
-        	// do for sure before leaving
-        }
-        return element;
-    }
-    // $ANTLR end "parse_org_servicifi_gelato_language_kernel_expressions_PostAffects"
-
-
-
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_statements_Statement"
-    // Kernel.g:4298:1: parse_org_servicifi_gelato_language_kernel_statements_Statement returns [org.servicifi.gelato.language.kernel.statements.Statement element = null] : (c0= parse_org_servicifi_gelato_language_kernel_statements_WhileLoop |c1= parse_org_servicifi_gelato_language_kernel_statements_Condition |c2= parse_org_servicifi_gelato_language_kernel_statements_Goto |c3= parse_org_servicifi_gelato_language_kernel_statements_Block |c4= parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock |c5= parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock |c6= parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement |c7= parse_org_servicifi_gelato_language_kernel_statements_StatementWithException |c8= parse_org_servicifi_gelato_language_kernel_statements_Abort |c9= parse_org_servicifi_gelato_language_kernel_statements_Skip |c10= parse_org_servicifi_gelato_language_kernel_statements_Return |c11= parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall );
+    // Kernel.g:3986:1: parse_org_servicifi_gelato_language_kernel_statements_Statement returns [org.servicifi.gelato.language.kernel.statements.Statement element = null] : (c0= parse_org_servicifi_gelato_language_kernel_statements_WhileLoop |c1= parse_org_servicifi_gelato_language_kernel_statements_Condition |c2= parse_org_servicifi_gelato_language_kernel_statements_Goto |c3= parse_org_servicifi_gelato_language_kernel_statements_Block |c4= parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock |c5= parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock |c6= parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement |c7= parse_org_servicifi_gelato_language_kernel_statements_StatementWithException |c8= parse_org_servicifi_gelato_language_kernel_statements_Abort |c9= parse_org_servicifi_gelato_language_kernel_statements_Skip |c10= parse_org_servicifi_gelato_language_kernel_statements_Return |c11= parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall );
     public final org.servicifi.gelato.language.kernel.statements.Statement parse_org_servicifi_gelato_language_kernel_statements_Statement() throws RecognitionException {
         org.servicifi.gelato.language.kernel.statements.Statement element =  null;
 
@@ -6540,69 +6068,69 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
         try {
-            // Kernel.g:4299:2: (c0= parse_org_servicifi_gelato_language_kernel_statements_WhileLoop |c1= parse_org_servicifi_gelato_language_kernel_statements_Condition |c2= parse_org_servicifi_gelato_language_kernel_statements_Goto |c3= parse_org_servicifi_gelato_language_kernel_statements_Block |c4= parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock |c5= parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock |c6= parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement |c7= parse_org_servicifi_gelato_language_kernel_statements_StatementWithException |c8= parse_org_servicifi_gelato_language_kernel_statements_Abort |c9= parse_org_servicifi_gelato_language_kernel_statements_Skip |c10= parse_org_servicifi_gelato_language_kernel_statements_Return |c11= parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall )
-            int alt22=12;
+            // Kernel.g:3987:2: (c0= parse_org_servicifi_gelato_language_kernel_statements_WhileLoop |c1= parse_org_servicifi_gelato_language_kernel_statements_Condition |c2= parse_org_servicifi_gelato_language_kernel_statements_Goto |c3= parse_org_servicifi_gelato_language_kernel_statements_Block |c4= parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock |c5= parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock |c6= parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement |c7= parse_org_servicifi_gelato_language_kernel_statements_StatementWithException |c8= parse_org_servicifi_gelato_language_kernel_statements_Abort |c9= parse_org_servicifi_gelato_language_kernel_statements_Skip |c10= parse_org_servicifi_gelato_language_kernel_statements_Return |c11= parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall )
+            int alt21=12;
             switch ( input.LA(1) ) {
             case CHARACTER_LITERAL:
                 {
-                int LA22_1 = input.LA(2);
+                int LA21_1 = input.LA(2);
 
-                if ( (LA22_1==12) ) {
+                if ( (LA21_1==12) ) {
                     switch ( input.LA(3) ) {
-                    case 44:
+                    case 41:
                         {
-                        alt22=1;
+                        alt21=1;
                         }
                         break;
                     case 27:
                         {
-                        alt22=2;
+                        alt21=2;
                         }
                         break;
                     case 26:
                         {
-                        alt22=3;
+                        alt21=3;
                         }
                         break;
-                    case 46:
+                    case 43:
                         {
-                        alt22=4;
+                        alt21=4;
                         }
                         break;
                     case CHARACTER_LITERAL:
                         {
-                        alt22=7;
-                        }
-                        break;
-                    case 40:
-                        {
-                        alt22=8;
-                        }
-                        break;
-                    case 19:
-                        {
-                        alt22=9;
-                        }
-                        break;
-                    case 38:
-                        {
-                        alt22=10;
+                        alt21=7;
                         }
                         break;
                     case 37:
                         {
-                        alt22=11;
+                        alt21=8;
+                        }
+                        break;
+                    case 19:
+                        {
+                        alt21=9;
+                        }
+                        break;
+                    case 35:
+                        {
+                        alt21=10;
+                        }
+                        break;
+                    case 34:
+                        {
+                        alt21=11;
                         }
                         break;
                     case 21:
                         {
-                        alt22=12;
+                        alt21=12;
                         }
                         break;
                     default:
                         if (state.backtracking>0) {state.failed=true; return element;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 22, 4, input);
+                            new NoViableAltException("", 21, 4, input);
 
                         throw nvae;
 
@@ -6612,37 +6140,37 @@ public class KernelParser extends KernelANTLRParserBase {
                 else {
                     if (state.backtracking>0) {state.failed=true; return element;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 22, 1, input);
+                        new NoViableAltException("", 21, 1, input);
 
                     throw nvae;
 
                 }
                 }
                 break;
-            case 47:
+            case 44:
                 {
-                alt22=5;
+                alt21=5;
                 }
                 break;
             case 15:
                 {
-                alt22=6;
+                alt21=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 21, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt22) {
+            switch (alt21) {
                 case 1 :
-                    // Kernel.g:4300:2: c0= parse_org_servicifi_gelato_language_kernel_statements_WhileLoop
+                    // Kernel.g:3988:2: c0= parse_org_servicifi_gelato_language_kernel_statements_WhileLoop
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3625);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3344);
                     c0=parse_org_servicifi_gelato_language_kernel_statements_WhileLoop();
 
                     state._fsp--;
@@ -6653,9 +6181,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Kernel.g:4301:4: c1= parse_org_servicifi_gelato_language_kernel_statements_Condition
+                    // Kernel.g:3989:4: c1= parse_org_servicifi_gelato_language_kernel_statements_Condition
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Condition_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3635);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Condition_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3354);
                     c1=parse_org_servicifi_gelato_language_kernel_statements_Condition();
 
                     state._fsp--;
@@ -6666,9 +6194,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Kernel.g:4302:4: c2= parse_org_servicifi_gelato_language_kernel_statements_Goto
+                    // Kernel.g:3990:4: c2= parse_org_servicifi_gelato_language_kernel_statements_Goto
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Goto_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3645);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Goto_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3364);
                     c2=parse_org_servicifi_gelato_language_kernel_statements_Goto();
 
                     state._fsp--;
@@ -6679,9 +6207,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 4 :
-                    // Kernel.g:4303:4: c3= parse_org_servicifi_gelato_language_kernel_statements_Block
+                    // Kernel.g:3991:4: c3= parse_org_servicifi_gelato_language_kernel_statements_Block
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Block_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3655);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Block_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3374);
                     c3=parse_org_servicifi_gelato_language_kernel_statements_Block();
 
                     state._fsp--;
@@ -6692,9 +6220,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 5 :
-                    // Kernel.g:4304:4: c4= parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock
+                    // Kernel.g:3992:4: c4= parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3665);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3384);
                     c4=parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock();
 
                     state._fsp--;
@@ -6705,9 +6233,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 6 :
-                    // Kernel.g:4305:4: c5= parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock
+                    // Kernel.g:3993:4: c5= parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3675);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3394);
                     c5=parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock();
 
                     state._fsp--;
@@ -6718,9 +6246,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 7 :
-                    // Kernel.g:4306:4: c6= parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement
+                    // Kernel.g:3994:4: c6= parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3685);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3404);
                     c6=parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement();
 
                     state._fsp--;
@@ -6731,9 +6259,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 8 :
-                    // Kernel.g:4307:4: c7= parse_org_servicifi_gelato_language_kernel_statements_StatementWithException
+                    // Kernel.g:3995:4: c7= parse_org_servicifi_gelato_language_kernel_statements_StatementWithException
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3695);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3414);
                     c7=parse_org_servicifi_gelato_language_kernel_statements_StatementWithException();
 
                     state._fsp--;
@@ -6744,9 +6272,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 9 :
-                    // Kernel.g:4308:4: c8= parse_org_servicifi_gelato_language_kernel_statements_Abort
+                    // Kernel.g:3996:4: c8= parse_org_servicifi_gelato_language_kernel_statements_Abort
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Abort_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3705);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Abort_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3424);
                     c8=parse_org_servicifi_gelato_language_kernel_statements_Abort();
 
                     state._fsp--;
@@ -6757,9 +6285,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 10 :
-                    // Kernel.g:4309:4: c9= parse_org_servicifi_gelato_language_kernel_statements_Skip
+                    // Kernel.g:3997:4: c9= parse_org_servicifi_gelato_language_kernel_statements_Skip
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Skip_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3715);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Skip_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3434);
                     c9=parse_org_servicifi_gelato_language_kernel_statements_Skip();
 
                     state._fsp--;
@@ -6770,9 +6298,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 11 :
-                    // Kernel.g:4310:4: c10= parse_org_servicifi_gelato_language_kernel_statements_Return
+                    // Kernel.g:3998:4: c10= parse_org_servicifi_gelato_language_kernel_statements_Return
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Return_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3725);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Return_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3444);
                     c10=parse_org_servicifi_gelato_language_kernel_statements_Return();
 
                     state._fsp--;
@@ -6783,9 +6311,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 12 :
-                    // Kernel.g:4311:4: c11= parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall
+                    // Kernel.g:3999:4: c11= parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3735);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3454);
                     c11=parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall();
 
                     state._fsp--;
@@ -6813,7 +6341,7 @@ public class KernelParser extends KernelANTLRParserBase {
 
 
     // $ANTLR start "parse_org_servicifi_gelato_language_kernel_expressions_SubExpression"
-    // Kernel.g:4315:1: parse_org_servicifi_gelato_language_kernel_expressions_SubExpression returns [org.servicifi.gelato.language.kernel.expressions.SubExpression element = null] : (c0= parse_org_servicifi_gelato_language_kernel_expressions_Defines |c1= parse_org_servicifi_gelato_language_kernel_expressions_Uses |c2= parse_org_servicifi_gelato_language_kernel_expressions_Affects |c3= parse_org_servicifi_gelato_language_kernel_expressions_PostDefines |c4= parse_org_servicifi_gelato_language_kernel_expressions_PreUses |c5= parse_org_servicifi_gelato_language_kernel_expressions_PostAffects );
+    // Kernel.g:4003:1: parse_org_servicifi_gelato_language_kernel_expressions_SubExpression returns [org.servicifi.gelato.language.kernel.expressions.SubExpression element = null] : (c0= parse_org_servicifi_gelato_language_kernel_expressions_Defines |c1= parse_org_servicifi_gelato_language_kernel_expressions_Uses |c2= parse_org_servicifi_gelato_language_kernel_expressions_Affects );
     public final org.servicifi.gelato.language.kernel.expressions.SubExpression parse_org_servicifi_gelato_language_kernel_expressions_SubExpression() throws RecognitionException {
         org.servicifi.gelato.language.kernel.expressions.SubExpression element =  null;
 
@@ -6824,61 +6352,40 @@ public class KernelParser extends KernelANTLRParserBase {
 
         org.servicifi.gelato.language.kernel.expressions.Affects c2 =null;
 
-        org.servicifi.gelato.language.kernel.expressions.PostDefines c3 =null;
-
-        org.servicifi.gelato.language.kernel.expressions.PreUses c4 =null;
-
-        org.servicifi.gelato.language.kernel.expressions.PostAffects c5 =null;
-
 
         try {
-            // Kernel.g:4316:2: (c0= parse_org_servicifi_gelato_language_kernel_expressions_Defines |c1= parse_org_servicifi_gelato_language_kernel_expressions_Uses |c2= parse_org_servicifi_gelato_language_kernel_expressions_Affects |c3= parse_org_servicifi_gelato_language_kernel_expressions_PostDefines |c4= parse_org_servicifi_gelato_language_kernel_expressions_PreUses |c5= parse_org_servicifi_gelato_language_kernel_expressions_PostAffects )
-            int alt23=6;
+            // Kernel.g:4004:2: (c0= parse_org_servicifi_gelato_language_kernel_expressions_Defines |c1= parse_org_servicifi_gelato_language_kernel_expressions_Uses |c2= parse_org_servicifi_gelato_language_kernel_expressions_Affects )
+            int alt22=3;
             switch ( input.LA(1) ) {
             case 22:
                 {
-                alt23=1;
+                alt22=1;
                 }
                 break;
-            case 41:
+            case 38:
                 {
-                alt23=2;
+                alt22=2;
                 }
                 break;
             case 20:
                 {
-                alt23=3;
-                }
-                break;
-            case 33:
-                {
-                alt23=4;
-                }
-                break;
-            case 34:
-                {
-                alt23=5;
-                }
-                break;
-            case 32:
-                {
-                alt23=6;
+                alt22=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return element;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 23, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
 
             }
 
-            switch (alt23) {
+            switch (alt22) {
                 case 1 :
-                    // Kernel.g:4317:2: c0= parse_org_servicifi_gelato_language_kernel_expressions_Defines
+                    // Kernel.g:4005:2: c0= parse_org_servicifi_gelato_language_kernel_expressions_Defines
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Defines_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3756);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Defines_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3475);
                     c0=parse_org_servicifi_gelato_language_kernel_expressions_Defines();
 
                     state._fsp--;
@@ -6889,9 +6396,9 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 2 :
-                    // Kernel.g:4318:4: c1= parse_org_servicifi_gelato_language_kernel_expressions_Uses
+                    // Kernel.g:4006:4: c1= parse_org_servicifi_gelato_language_kernel_expressions_Uses
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Uses_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3766);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Uses_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3485);
                     c1=parse_org_servicifi_gelato_language_kernel_expressions_Uses();
 
                     state._fsp--;
@@ -6902,54 +6409,15 @@ public class KernelParser extends KernelANTLRParserBase {
                     }
                     break;
                 case 3 :
-                    // Kernel.g:4319:4: c2= parse_org_servicifi_gelato_language_kernel_expressions_Affects
+                    // Kernel.g:4007:4: c2= parse_org_servicifi_gelato_language_kernel_expressions_Affects
                     {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Affects_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3776);
+                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Affects_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3495);
                     c2=parse_org_servicifi_gelato_language_kernel_expressions_Affects();
 
                     state._fsp--;
                     if (state.failed) return element;
 
                     if ( state.backtracking==0 ) { element = c2; /* this is a subclass or primitive expression choice */ }
-
-                    }
-                    break;
-                case 4 :
-                    // Kernel.g:4320:4: c3= parse_org_servicifi_gelato_language_kernel_expressions_PostDefines
-                    {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3786);
-                    c3=parse_org_servicifi_gelato_language_kernel_expressions_PostDefines();
-
-                    state._fsp--;
-                    if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) { element = c3; /* this is a subclass or primitive expression choice */ }
-
-                    }
-                    break;
-                case 5 :
-                    // Kernel.g:4321:4: c4= parse_org_servicifi_gelato_language_kernel_expressions_PreUses
-                    {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_PreUses_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3796);
-                    c4=parse_org_servicifi_gelato_language_kernel_expressions_PreUses();
-
-                    state._fsp--;
-                    if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) { element = c4; /* this is a subclass or primitive expression choice */ }
-
-                    }
-                    break;
-                case 6 :
-                    // Kernel.g:4322:4: c5= parse_org_servicifi_gelato_language_kernel_expressions_PostAffects
-                    {
-                    pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3806);
-                    c5=parse_org_servicifi_gelato_language_kernel_expressions_PostAffects();
-
-                    state._fsp--;
-                    if (state.failed) return element;
-
-                    if ( state.backtracking==0 ) { element = c5; /* this is a subclass or primitive expression choice */ }
 
                     }
                     break;
@@ -6973,14 +6441,14 @@ public class KernelParser extends KernelANTLRParserBase {
         org.servicifi.gelato.language.kernel.statements.Statement a2_0 =null;
 
 
-        // Kernel.g:2360:3: ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )
-        // Kernel.g:2360:3: ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+        // Kernel.g:2351:3: ( ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) ) )
+        // Kernel.g:2351:3: ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
         {
-        // Kernel.g:2360:3: ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
-        // Kernel.g:2361:4: (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+        // Kernel.g:2351:3: ( (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement ) )
+        // Kernel.g:2352:4: (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
         {
-        // Kernel.g:2361:4: (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
-        // Kernel.g:2362:5: a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
+        // Kernel.g:2352:4: (a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement )
+        // Kernel.g:2353:5: a2_0= parse_org_servicifi_gelato_language_kernel_statements_Statement
         {
         pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_synpred15_Kernel1811);
         a2_0=parse_org_servicifi_gelato_language_kernel_statements_Statement();
@@ -7004,11 +6472,11 @@ public class KernelParser extends KernelANTLRParserBase {
         org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement a5_0 =null;
 
 
-        // Kernel.g:2672:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )
-        // Kernel.g:2672:3: (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement )
+        // Kernel.g:2663:3: ( (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement ) )
+        // Kernel.g:2663:3: (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement )
         {
-        // Kernel.g:2672:3: (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement )
-        // Kernel.g:2673:4: a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement
+        // Kernel.g:2663:3: (a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement )
+        // Kernel.g:2664:4: a5_0= parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement
         {
         pushFollow(FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement_in_synpred16_Kernel2055);
         a5_0=parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement();
@@ -7060,10 +6528,10 @@ public class KernelParser extends KernelANTLRParserBase {
 
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit_in_start82 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_start89 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem_in_parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit130 = new BitSet(new long[]{0x0000080000000030L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem_in_parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit130 = new BitSet(new long[]{0x0000018200000010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_procedures_Procedure_in_parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit186 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure_in_parse_org_servicifi_gelato_language_kernel_containers_CompilationUnit231 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem264 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_40_in_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem264 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem282 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem303 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_parameters_Parameter_in_parse_org_servicifi_gelato_language_kernel_dataitems_DataItem322 = new BitSet(new long[]{0x0000000000000002L});
@@ -7071,31 +6539,31 @@ public class KernelParser extends KernelANTLRParserBase {
     public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure372 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_16_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure386 = new BitSet(new long[]{0x0000000000000120L});
     public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure415 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure461 = new BitSet(new long[]{0x0000000000000220L});
+    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure461 = new BitSet(new long[]{0x0000008200000200L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_parameters_Parameter_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure490 = new BitSet(new long[]{0x0000000000000A00L});
-    public static final BitSet FOLLOW_11_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure531 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_11_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure531 = new BitSet(new long[]{0x0000008200000000L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_parameters_Parameter_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure565 = new BitSet(new long[]{0x0000000000000A00L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure639 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure653 = new BitSet(new long[]{0x0002800000008010L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_procedures_Procedure_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure682 = new BitSet(new long[]{0x0002800000008010L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure702 = new BitSet(new long[]{0x0002800000008010L});
-    public static final BitSet FOLLOW_49_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure743 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure639 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure653 = new BitSet(new long[]{0x0000500000008010L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_procedures_Procedure_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure682 = new BitSet(new long[]{0x0000500000008010L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure702 = new BitSet(new long[]{0x0000500000008010L});
+    public static final BitSet FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_procedures_Procedure743 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure776 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure797 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_16_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure811 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_30_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure825 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure839 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure853 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure867 = new BitSet(new long[]{0x0002800000008010L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure896 = new BitSet(new long[]{0x0002800000008010L});
-    public static final BitSet FOLLOW_49_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure937 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure853 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure867 = new BitSet(new long[]{0x0000500000008010L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure896 = new BitSet(new long[]{0x0000500000008010L});
+    public static final BitSet FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_procedures_MainProcedure937 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop970 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop991 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_44_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1005 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop991 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1005 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1019 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Expression_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1037 = new BitSet(new long[]{0x0000000000000200L});
     public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1055 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1069 = new BitSet(new long[]{0x0000800000008010L});
+    public static final BitSet FOLLOW_23_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1069 = new BitSet(new long[]{0x0000100000008010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1087 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop1105 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1138 = new BitSet(new long[]{0x0000000000001000L});
@@ -7103,10 +6571,10 @@ public class KernelParser extends KernelANTLRParserBase {
     public static final BitSet FOLLOW_27_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1173 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1187 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Expression_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1205 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1223 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_39_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1237 = new BitSet(new long[]{0x0000800000008010L});
+    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1223 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_36_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1237 = new BitSet(new long[]{0x0000100000008010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1255 = new BitSet(new long[]{0x0000000001002000L});
-    public static final BitSet FOLLOW_24_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1282 = new BitSet(new long[]{0x0000800000008010L});
+    public static final BitSet FOLLOW_24_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1282 = new BitSet(new long[]{0x0000100000008010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1308 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_Condition1349 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Goto1382 = new BitSet(new long[]{0x0000000000001000L});
@@ -7115,111 +6583,95 @@ public class KernelParser extends KernelANTLRParserBase {
     public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_statements_Goto1435 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_Goto1456 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Block1489 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_Block1510 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_statements_Block1524 = new BitSet(new long[]{0x0002800000008010L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_Block1547 = new BitSet(new long[]{0x0002800000008010L});
-    public static final BitSet FOLLOW_49_in_parse_org_servicifi_gelato_language_kernel_statements_Block1573 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1602 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_Block1510 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_parse_org_servicifi_gelato_language_kernel_statements_Block1524 = new BitSet(new long[]{0x0000500000008010L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_Block1547 = new BitSet(new long[]{0x0000500000008010L});
+    public static final BitSet FOLLOW_46_in_parse_org_servicifi_gelato_language_kernel_statements_Block1573 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1602 = new BitSet(new long[]{0x0000000080000000L});
     public static final BitSet FOLLOW_31_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1616 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1630 = new BitSet(new long[]{0x0000000830000000L});
-    public static final BitSet FOLLOW_29_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1653 = new BitSet(new long[]{0x0000800000008010L});
-    public static final BitSet FOLLOW_35_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1668 = new BitSet(new long[]{0x0000800000008010L});
-    public static final BitSet FOLLOW_28_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1683 = new BitSet(new long[]{0x0000800000008010L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1713 = new BitSet(new long[]{0x0000800000008410L});
+    public static final BitSet FOLLOW_14_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1630 = new BitSet(new long[]{0x0000000130000000L});
+    public static final BitSet FOLLOW_29_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1653 = new BitSet(new long[]{0x0000100000008010L});
+    public static final BitSet FOLLOW_32_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1668 = new BitSet(new long[]{0x0000100000008010L});
+    public static final BitSet FOLLOW_28_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1683 = new BitSet(new long[]{0x0000100000008010L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1713 = new BitSet(new long[]{0x0000100000008410L});
     public static final BitSet FOLLOW_10_in_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock1739 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1768 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_48_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1782 = new BitSet(new long[]{0x0000800000008010L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1811 = new BitSet(new long[]{0x0000800000008012L});
+    public static final BitSet FOLLOW_15_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1768 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_45_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1782 = new BitSet(new long[]{0x0000100000008010L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock1811 = new BitSet(new long[]{0x0000100000008012L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement1871 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement1892 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Expression_in_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement1910 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement1928 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException1961 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException1982 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException1996 = new BitSet(new long[]{0x0000800000008010L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException2014 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_45_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException2032 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException1982 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_37_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException1996 = new BitSet(new long[]{0x0000100000008010L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException2014 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException2032 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement_in_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException2055 = new BitSet(new long[]{0x0000000000000012L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement2100 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement2121 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement2135 = new BitSet(new long[]{0x0000800000008010L});
+    public static final BitSet FOLLOW_25_in_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement2135 = new BitSet(new long[]{0x0000100000008010L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement2153 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Abort2190 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_Abort2211 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_19_in_parse_org_servicifi_gelato_language_kernel_statements_Abort2225 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_Abort2239 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Skip2272 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_Skip2293 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_38_in_parse_org_servicifi_gelato_language_kernel_statements_Skip2307 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_Skip2293 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_35_in_parse_org_servicifi_gelato_language_kernel_statements_Skip2307 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_Skip2321 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_Return2354 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_Return2375 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_37_in_parse_org_servicifi_gelato_language_kernel_statements_Return2389 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Expression_in_parse_org_servicifi_gelato_language_kernel_statements_Return2412 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_Return2438 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2471 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2492 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2506 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2524 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2545 = new BitSet(new long[]{0x0000041000000200L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_references_Argument_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2574 = new BitSet(new long[]{0x0000000000000A00L});
-    public static final BitSet FOLLOW_11_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2615 = new BitSet(new long[]{0x0000041000000000L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_references_Argument_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2649 = new BitSet(new long[]{0x0000000000000A00L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2723 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_parameters_Parameter2770 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_parse_org_servicifi_gelato_language_kernel_references_Argument2815 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_42_in_parse_org_servicifi_gelato_language_kernel_references_Argument2830 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_references_Argument2855 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2895 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2916 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2930 = new BitSet(new long[]{0x0000020700540000L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2959 = new BitSet(new long[]{0x0000000000042000L});
-    public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression3000 = new BitSet(new long[]{0x0000020700500000L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression3034 = new BitSet(new long[]{0x0000000000042000L});
-    public static final BitSet FOLLOW_18_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression3108 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3137 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3151 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3169 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3190 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3219 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3233 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3251 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3301 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3315 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3333 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines3383 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines3397 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines3415 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines3436 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_parse_org_servicifi_gelato_language_kernel_expressions_PreUses3465 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_PreUses3479 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_PreUses3497 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_PreUses3518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects3547 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects3561 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects3579 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects3600 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Condition_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Goto_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3645 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Block_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3655 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3665 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3675 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3685 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3695 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Abort_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3705 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Skip_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Return_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3725 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3735 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Defines_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Uses_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Affects_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3776 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_PostDefines_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3786 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_PreUses_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_PostAffects_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3806 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_Return2375 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_parse_org_servicifi_gelato_language_kernel_statements_Return2389 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_Return2403 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2436 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2457 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2471 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2489 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2510 = new BitSet(new long[]{0x0000000000000220L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_references_Argument_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2539 = new BitSet(new long[]{0x0000000000000A00L});
+    public static final BitSet FOLLOW_11_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2580 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_references_Argument_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2614 = new BitSet(new long[]{0x0000000000000A00L});
+    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2688 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall2702 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_parse_org_servicifi_gelato_language_kernel_parameters_Parameter2740 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_39_in_parse_org_servicifi_gelato_language_kernel_parameters_Parameter2755 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_parameters_Parameter2780 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_references_Argument2820 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CHARACTER_LITERAL_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2860 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2881 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2895 = new BitSet(new long[]{0x0000004000540000L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2924 = new BitSet(new long[]{0x0000000000042000L});
+    public static final BitSet FOLLOW_13_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2965 = new BitSet(new long[]{0x0000004000500000L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression2999 = new BitSet(new long[]{0x0000000000042000L});
+    public static final BitSet FOLLOW_18_in_parse_org_servicifi_gelato_language_kernel_expressions_Expression3073 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3102 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3116 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3134 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Defines3155 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3184 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3198 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3216 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Uses3237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3266 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_8_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3280 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3298 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_9_in_parse_org_servicifi_gelato_language_kernel_expressions_Affects3319 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_WhileLoop_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3344 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Condition_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3354 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Goto_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3364 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Block_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3374 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ParallelBlock_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ExpressionStatement_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3404 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_StatementWithException_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Abort_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Skip_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3434 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Return_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3444 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ProcedureCall_in_parse_org_servicifi_gelato_language_kernel_statements_Statement3454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Defines_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Uses_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3485 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_expressions_Affects_in_parse_org_servicifi_gelato_language_kernel_expressions_SubExpression3495 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_Statement_in_synpred15_Kernel1811 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_parse_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement_in_synpred16_Kernel2055 = new BitSet(new long[]{0x0000000000000002L});
 

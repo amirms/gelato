@@ -96,15 +96,6 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExpressionsPackage.POST_DEFINES: {
-				PostDefines postDefines = (PostDefines)theEObject;
-				T result = casePostDefines(postDefines);
-				if (result == null) result = caseDefinition(postDefines);
-				if (result == null) result = caseSubExpression(postDefines);
-				if (result == null) result = caseElementReference(postDefines);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ExpressionsPackage.AFFECTS: {
 				Affects affects = (Affects)theEObject;
 				T result = caseAffects(affects);
@@ -114,30 +105,12 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExpressionsPackage.POST_AFFECTS: {
-				PostAffects postAffects = (PostAffects)theEObject;
-				T result = casePostAffects(postAffects);
-				if (result == null) result = caseDefinition(postAffects);
-				if (result == null) result = caseSubExpression(postAffects);
-				if (result == null) result = caseElementReference(postAffects);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ExpressionsPackage.USES: {
 				Uses uses = (Uses)theEObject;
 				T result = caseUses(uses);
 				if (result == null) result = caseUsage(uses);
 				if (result == null) result = caseSubExpression(uses);
 				if (result == null) result = caseElementReference(uses);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExpressionsPackage.PRE_USES: {
-				PreUses preUses = (PreUses)theEObject;
-				T result = casePreUses(preUses);
-				if (result == null) result = caseUsage(preUses);
-				if (result == null) result = caseSubExpression(preUses);
-				if (result == null) result = caseElementReference(preUses);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,21 +180,6 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Post Defines</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Post Defines</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePostDefines(PostDefines object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Affects</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -237,21 +195,6 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Post Affects</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Post Affects</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePostAffects(PostAffects object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Uses</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -263,21 +206,6 @@ public class ExpressionsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUses(Uses object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pre Uses</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pre Uses</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePreUses(PreUses object) {
 		return null;
 	}
 

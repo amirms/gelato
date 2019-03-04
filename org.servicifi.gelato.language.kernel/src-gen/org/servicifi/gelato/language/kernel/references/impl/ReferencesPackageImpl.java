@@ -246,24 +246,6 @@ public class ReferencesPackageImpl extends EPackageImpl implements ReferencesPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArgument_ByReference() {
-		return (EAttribute)argumentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getArgument_CorrespondingParameter() {
-		return (EReference)argumentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ReferencesFactory getReferencesFactory() {
 		return (ReferencesFactory)getEFactoryInstance();
 	}
@@ -295,8 +277,6 @@ public class ReferencesPackageImpl extends EPackageImpl implements ReferencesPac
 		referenceEClass = createEClass(REFERENCE);
 
 		argumentEClass = createEClass(ARGUMENT);
-		createEAttribute(argumentEClass, ARGUMENT__BY_REFERENCE);
-		createEReference(argumentEClass, ARGUMENT__CORRESPONDING_PARAMETER);
 	}
 
 	/**
@@ -343,8 +323,8 @@ public class ReferencesPackageImpl extends EPackageImpl implements ReferencesPac
 		initEClass(referenceEClass, Reference.class, "Reference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(argumentEClass, Argument.class, "Argument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getArgument_ByReference(), ecorePackage.getEBoolean(), "byReference", null, 1, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArgument_CorrespondingParameter(), theParametersPackage.getParameter(), null, "correspondingParameter", null, 1, 1, Argument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(argumentEClass, theParametersPackage.getParameter(), "getCorrespondingParameter", 1, 1, IS_UNIQUE, IS_ORDERED);
 	}
 
 } //ReferencesPackageImpl

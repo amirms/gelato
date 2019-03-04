@@ -140,18 +140,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 			print_org_servicifi_gelato_language_kernel_expressions_Affects((org.servicifi.gelato.language.kernel.expressions.Affects) element, globaltab, out);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PostDefines) {
-			print_org_servicifi_gelato_language_kernel_expressions_PostDefines((org.servicifi.gelato.language.kernel.expressions.PostDefines) element, globaltab, out);
-			return;
-		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PreUses) {
-			print_org_servicifi_gelato_language_kernel_expressions_PreUses((org.servicifi.gelato.language.kernel.expressions.PreUses) element, globaltab, out);
-			return;
-		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PostAffects) {
-			print_org_servicifi_gelato_language_kernel_expressions_PostAffects((org.servicifi.gelato.language.kernel.expressions.PostAffects) element, globaltab, out);
-			return;
-		}
 		if (element instanceof org.servicifi.gelato.language.kernel.dataitems.DataItem) {
 			print_org_servicifi_gelato_language_kernel_dataitems_DataItem((org.servicifi.gelato.language.kernel.dataitems.DataItem) element, globaltab, out);
 			return;
@@ -1390,13 +1378,12 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 	
 	
 	public void print_org_servicifi_gelato_language_kernel_statements_Return(org.servicifi.gelato.language.kernel.statements.Return element, String outertab, java.io.PrintWriter out) {
-		String localtab = outertab;
 		// The printCountingMap contains a mapping from feature names to the number of
 		// remaining elements that still need to be printed. The map is initialized with
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(4);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__PREDECESSORS));
 		printCountingMap.put("predecessors", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
@@ -1404,8 +1391,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 		printCountingMap.put("successors", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__LABEL));
 		printCountingMap.put("label", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__RETURN_VALUE));
-		printCountingMap.put("returnValue", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
 		// DEFINITION PART BEGINS (PlaceholderUsingDefaultToken)
@@ -1426,15 +1411,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 		// DEFINITION PART BEGINS (CsString)
 		out.print("return");
 		out.print(" ");
-		// DEFINITION PART BEGINS (Containment)
-		count = printCountingMap.get("returnValue");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__RETURN_VALUE));
-			if (o != null) {
-				doPrint((org.eclipse.emf.ecore.EObject) o, out, localtab);
-			}
-			printCountingMap.put("returnValue", count - 1);
-		}
 		// DEFINITION PART BEGINS (CsString)
 		out.print(";");
 		out.print(" ");
@@ -1594,14 +1570,24 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__NAME));
 		printCountingMap.put("name", temp == null ? 0 : 1);
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__CORRESPONDING_ARGUMENT));
 		printCountingMap.put("correspondingArgument", temp == null ? 0 : 1);
+		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__BY_REFERENCE));
+		printCountingMap.put("byReference", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
+		// DEFINITION PART BEGINS (BooleanTerminal)
+		count = printCountingMap.get("byReference");
+		if (count > 0) {
+			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.PARAMETER__BY_REFERENCE));
+			if (o != null) {
+			}
+			printCountingMap.put("byReference", count - 1);
+		}
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("name");
 		if (count > 0) {
@@ -1623,24 +1609,12 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(3);
+		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(1);
 		Object temp;
 		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__TARGET));
 		printCountingMap.put("target", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__BY_REFERENCE));
-		printCountingMap.put("byReference", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__CORRESPONDING_PARAMETER));
-		printCountingMap.put("correspondingParameter", temp == null ? 0 : 1);
 		// print collected hidden tokens
 		int count;
-		// DEFINITION PART BEGINS (BooleanTerminal)
-		count = printCountingMap.get("byReference");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.ARGUMENT__BY_REFERENCE));
-			if (o != null) {
-			}
-			printCountingMap.put("byReference", count - 1);
-		}
 		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
 		count = printCountingMap.get("target");
 		if (count > 0) {
@@ -1883,118 +1857,6 @@ public class KernelPrinter implements org.servicifi.gelato.language.kernel.resou
 				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver resolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
 				resolver.setOptions(getOptions());
 				out.print(resolver.deResolve(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getElementReferenceTargetReferenceResolver().deResolve((org.servicifi.gelato.language.kernel.references.ReferenceableElement) o, element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.AFFECTS__TARGET)), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.AFFECTS__TARGET), element));
-				out.print(" ");
-			}
-			printCountingMap.put("target", count - 1);
-		}
-		// DEFINITION PART BEGINS (CsString)
-		out.print(")");
-		out.print(" ");
-	}
-	
-	
-	public void print_org_servicifi_gelato_language_kernel_expressions_PostDefines(org.servicifi.gelato.language.kernel.expressions.PostDefines element, String outertab, java.io.PrintWriter out) {
-		// The printCountingMap contains a mapping from feature names to the number of
-		// remaining elements that still need to be printed. The map is initialized with
-		// the number of elements stored in each structural feature. For lists this is the
-		// list size. For non-multiple features it is either 1 (if the feature is set) or
-		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
-		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__TARGET));
-		printCountingMap.put("target", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__REACHES));
-		printCountingMap.put("reaches", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		// print collected hidden tokens
-		int count;
-		// DEFINITION PART BEGINS (CsString)
-		out.print("postdefines");
-		out.print(" ");
-		// DEFINITION PART BEGINS (CsString)
-		out.print("(");
-		out.print(" ");
-		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
-		count = printCountingMap.get("target");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__TARGET));
-			if (o != null) {
-				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver resolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getElementReferenceTargetReferenceResolver().deResolve((org.servicifi.gelato.language.kernel.references.ReferenceableElement) o, element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__TARGET)), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_DEFINES__TARGET), element));
-				out.print(" ");
-			}
-			printCountingMap.put("target", count - 1);
-		}
-		// DEFINITION PART BEGINS (CsString)
-		out.print(")");
-		out.print(" ");
-	}
-	
-	
-	public void print_org_servicifi_gelato_language_kernel_expressions_PreUses(org.servicifi.gelato.language.kernel.expressions.PreUses element, String outertab, java.io.PrintWriter out) {
-		// The printCountingMap contains a mapping from feature names to the number of
-		// remaining elements that still need to be printed. The map is initialized with
-		// the number of elements stored in each structural feature. For lists this is the
-		// list size. For non-multiple features it is either 1 (if the feature is set) or
-		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(1);
-		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.PRE_USES__TARGET));
-		printCountingMap.put("target", temp == null ? 0 : 1);
-		// print collected hidden tokens
-		int count;
-		// DEFINITION PART BEGINS (CsString)
-		out.print("preuses");
-		out.print(" ");
-		// DEFINITION PART BEGINS (CsString)
-		out.print("(");
-		out.print(" ");
-		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
-		count = printCountingMap.get("target");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.PRE_USES__TARGET));
-			if (o != null) {
-				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver resolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getElementReferenceTargetReferenceResolver().deResolve((org.servicifi.gelato.language.kernel.references.ReferenceableElement) o, element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.PRE_USES__TARGET)), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.PRE_USES__TARGET), element));
-				out.print(" ");
-			}
-			printCountingMap.put("target", count - 1);
-		}
-		// DEFINITION PART BEGINS (CsString)
-		out.print(")");
-		out.print(" ");
-	}
-	
-	
-	public void print_org_servicifi_gelato_language_kernel_expressions_PostAffects(org.servicifi.gelato.language.kernel.expressions.PostAffects element, String outertab, java.io.PrintWriter out) {
-		// The printCountingMap contains a mapping from feature names to the number of
-		// remaining elements that still need to be printed. The map is initialized with
-		// the number of elements stored in each structural feature. For lists this is the
-		// list size. For non-multiple features it is either 1 (if the feature is set) or
-		// 0 (if the feature is null).
-		java.util.Map<String, Integer> printCountingMap = new java.util.LinkedHashMap<String, Integer>(2);
-		Object temp;
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__TARGET));
-		printCountingMap.put("target", temp == null ? 0 : 1);
-		temp = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__REACHES));
-		printCountingMap.put("reaches", temp == null ? 0 : ((java.util.Collection<?>) temp).size());
-		// print collected hidden tokens
-		int count;
-		// DEFINITION PART BEGINS (CsString)
-		out.print("postaffects");
-		out.print(" ");
-		// DEFINITION PART BEGINS (CsString)
-		out.print("(");
-		out.print(" ");
-		// DEFINITION PART BEGINS (PlaceholderUsingSpecifiedToken)
-		count = printCountingMap.get("target");
-		if (count > 0) {
-			Object o = element.eGet(element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__TARGET));
-			if (o != null) {
-				org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver resolver = tokenResolverFactory.createTokenResolver("IDENTIFIER");
-				resolver.setOptions(getOptions());
-				out.print(resolver.deResolve(getReferenceResolverSwitch() == null ? null : getReferenceResolverSwitch().getElementReferenceTargetReferenceResolver().deResolve((org.servicifi.gelato.language.kernel.references.ReferenceableElement) o, element, (org.eclipse.emf.ecore.EReference) element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__TARGET)), element.eClass().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.POST_AFFECTS__TARGET), element));
 				out.print(" ");
 			}
 			printCountingMap.put("target", count - 1);

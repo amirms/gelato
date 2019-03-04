@@ -152,31 +152,13 @@ public interface ReferencesPackage extends EPackage {
 	int ARGUMENT__TARGET = ELEMENT_REFERENCE__TARGET;
 
 	/**
-	 * The feature id for the '<em><b>By Reference</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARGUMENT__BY_REFERENCE = ELEMENT_REFERENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Corresponding Parameter</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARGUMENT__CORRESPONDING_PARAMETER = ELEMENT_REFERENCE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARGUMENT_FEATURE_COUNT = ELEMENT_REFERENCE_FEATURE_COUNT + 2;
+	int ARGUMENT_FEATURE_COUNT = ELEMENT_REFERENCE_FEATURE_COUNT + 0;
 
 
 	/**
@@ -229,28 +211,6 @@ public interface ReferencesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getArgument();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.servicifi.gelato.language.kernel.references.Argument#isByReference <em>By Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>By Reference</em>'.
-	 * @see org.servicifi.gelato.language.kernel.references.Argument#isByReference()
-	 * @see #getArgument()
-	 * @generated
-	 */
-	EAttribute getArgument_ByReference();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.servicifi.gelato.language.kernel.references.Argument#getCorrespondingParameter <em>Corresponding Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Corresponding Parameter</em>'.
-	 * @see org.servicifi.gelato.language.kernel.references.Argument#getCorrespondingParameter()
-	 * @see #getArgument()
-	 * @generated
-	 */
-	EReference getArgument_CorrespondingParameter();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -321,22 +281,6 @@ public interface ReferencesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ARGUMENT = eINSTANCE.getArgument();
-
-		/**
-		 * The meta object literal for the '<em><b>By Reference</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ARGUMENT__BY_REFERENCE = eINSTANCE.getArgument_ByReference();
-
-		/**
-		 * The meta object literal for the '<em><b>Corresponding Parameter</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARGUMENT__CORRESPONDING_PARAMETER = eINSTANCE.getArgument_CorrespondingParameter();
 
 	}
 

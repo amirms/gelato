@@ -24,6 +24,7 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.kernel.parameters.impl.ParameterImpl#getCorrespondingArgument <em>Corresponding Argument</em>}</li>
+ *   <li>{@link org.servicifi.gelato.language.kernel.parameters.impl.ParameterImpl#isByReference <em>By Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,6 +39,25 @@ public class ParameterImpl extends DataItemImpl implements Parameter {
 	 * @ordered
 	 */
 	protected Map<ProcedureCall, Argument> correspondingArgument;
+
+	/**
+	 * The default value of the '{@link #isByReference() <em>By Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isByReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BY_REFERENCE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isByReference() <em>By Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isByReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean byReference = BY_REFERENCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,7 +87,7 @@ public class ParameterImpl extends DataItemImpl implements Parameter {
 		return correspondingArgument;
 	}
 
-	//	/**
+//	/**
 //	 * <!-- begin-user-doc -->
 //	 * <!-- end-user-doc -->
 //	 * @generated NOT
@@ -102,11 +122,34 @@ public class ParameterImpl extends DataItemImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isByReference() {
+		return byReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setByReference(boolean newByReference) {
+		boolean oldByReference = byReference;
+		byReference = newByReference;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__BY_REFERENCE, oldByReference, byReference));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ParametersPackage.PARAMETER__CORRESPONDING_ARGUMENT:
 				return getCorrespondingArgument();
+			case ParametersPackage.PARAMETER__BY_REFERENCE:
+				return isByReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +166,9 @@ public class ParameterImpl extends DataItemImpl implements Parameter {
 			case ParametersPackage.PARAMETER__CORRESPONDING_ARGUMENT:
 				setCorrespondingArgument((Map<ProcedureCall, Argument>)newValue);
 				return;
+			case ParametersPackage.PARAMETER__BY_REFERENCE:
+				setByReference((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -138,6 +184,9 @@ public class ParameterImpl extends DataItemImpl implements Parameter {
 			case ParametersPackage.PARAMETER__CORRESPONDING_ARGUMENT:
 				setCorrespondingArgument((Map<ProcedureCall, Argument>)null);
 				return;
+			case ParametersPackage.PARAMETER__BY_REFERENCE:
+				setByReference(BY_REFERENCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,6 +201,8 @@ public class ParameterImpl extends DataItemImpl implements Parameter {
 		switch (featureID) {
 			case ParametersPackage.PARAMETER__CORRESPONDING_ARGUMENT:
 				return correspondingArgument != null;
+			case ParametersPackage.PARAMETER__BY_REFERENCE:
+				return byReference != BY_REFERENCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

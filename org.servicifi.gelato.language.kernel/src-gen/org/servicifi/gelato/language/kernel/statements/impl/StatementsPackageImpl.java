@@ -574,15 +574,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReturn_ReturnValue() {
-		return (EReference)returnEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getExecutionOrder() {
 		return executionOrderEEnum;
 	}
@@ -660,7 +651,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		skipEClass = createEClass(SKIP);
 
 		returnEClass = createEClass(RETURN);
-		createEReference(returnEClass, RETURN__RETURN_VALUE);
 
 		// Create enums
 		executionOrderEEnum = createEEnum(EXECUTION_ORDER);
@@ -775,7 +765,6 @@ public class StatementsPackageImpl extends EPackageImpl implements StatementsPac
 		initEClass(skipEClass, Skip.class, "Skip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReturn_ReturnValue(), theExpressionsPackage.getExpression(), null, "returnValue", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(executionOrderEEnum, ExecutionOrder.class, "ExecutionOrder");

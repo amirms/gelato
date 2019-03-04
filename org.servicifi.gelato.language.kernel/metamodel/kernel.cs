@@ -113,16 +113,16 @@ RULES {
 	statements.Skip ::= label[] ":" "skip" ";";
 	
 	//ReturnValue is an expression
-	statements.Return ::= label[] ":" "return" returnValue? ";" ;
+	statements.Return ::= label[] ":" "return" ";" ;
 	
 	//target is to procedure
 	statements.ProcedureCall ::= label[] ":" "call" target[IDENTIFIER] "(" ( arguments ("," arguments)* )? ")" ";" ;
 	
 	//parameters
-	parameters.Parameter ::= name[IDENTIFIER];
+	parameters.Parameter ::= byReference["ref" : "val"] name[IDENTIFIER];
 	
 	//references
-	references.Argument ::= byReference["ref" : "val"] target[IDENTIFIER];
+	references.Argument ::= target[IDENTIFIER];
 	
 	//expressions
 	
@@ -136,11 +136,11 @@ RULES {
 	
 	expressions.Affects ::= "affects" "(" target[IDENTIFIER] ")";
 	
-	expressions.PostDefines ::= "postdefines" "(" target[IDENTIFIER] ")";
+	//expressions.PostDefines ::= "postdefines" "(" target[IDENTIFIER] ")";
 	
-	expressions.PreUses ::= "preuses" "(" target[IDENTIFIER] ")";
+	//expressions.PreUses ::= "preuses" "(" target[IDENTIFIER] ")";
 	
-	expressions.PostAffects ::= "postaffects" "(" target[IDENTIFIER] ")";
+	//expressions.PostAffects ::= "postaffects" "(" target[IDENTIFIER] ")";
 	
 	
 }

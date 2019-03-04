@@ -12,17 +12,17 @@ package org.servicifi.gelato.language.kernel.resource.kernel.grammar;
  */
 public class KernelFollowSetProvider {
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement TERMINALS[] = new org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement[113];
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement TERMINALS[] = new org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement[101];
 	
-	public final static org.eclipse.emf.ecore.EStructuralFeature[] FEATURES = new org.eclipse.emf.ecore.EStructuralFeature[14];
+	public final static org.eclipse.emf.ecore.EStructuralFeature[] FEATURES = new org.eclipse.emf.ecore.EStructuralFeature[13];
 	
-	public final static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[] LINKS = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[438];
+	public final static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[] LINKS = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[431];
 	
 	public final static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[] EMPTY_LINK_ARRAY = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[0];
 	
 	public static void initializeTerminals0() {
 		TERMINALS[0] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_1_0_0_0);
-		TERMINALS[1] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_17_0_0_0);
+		TERMINALS[1] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedBooleanTerminal(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_17_0_0_0);
 		TERMINALS[2] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_2_0_0_0);
 		TERMINALS[3] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_3_0_0_0);
 		TERMINALS[4] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_1_0_0_1);
@@ -96,44 +96,32 @@ public class KernelFollowSetProvider {
 		TERMINALS[72] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_14_0_0_3);
 		TERMINALS[73] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_15_0_0_1);
 		TERMINALS[74] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_15_0_0_2);
-		TERMINALS[75] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_15_0_0_4);
+		TERMINALS[75] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_15_0_0_3);
 		TERMINALS[76] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_16_0_0_1);
 		TERMINALS[77] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_16_0_0_2);
 		TERMINALS[78] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_16_0_0_3);
 		TERMINALS[79] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_16_0_0_4);
-		TERMINALS[80] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedBooleanTerminal(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_18_0_0_0);
+		TERMINALS[80] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_18_0_0_0);
 		TERMINALS[81] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_16_0_0_6);
 		TERMINALS[82] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_16_0_0_5_0_0_1_0_0_0);
 		TERMINALS[83] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_16_0_0_7);
-		TERMINALS[84] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_18_0_0_1);
+		TERMINALS[84] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_17_0_0_1);
 		TERMINALS[85] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_19_0_0_1);
 		TERMINALS[86] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_19_0_0_2);
 		TERMINALS[87] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_20_0_0_0);
 		TERMINALS[88] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_21_0_0_0);
 		TERMINALS[89] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22_0_0_0);
-		TERMINALS[90] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23_0_0_0);
-		TERMINALS[91] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24_0_0_0);
-		TERMINALS[92] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25_0_0_0);
-		TERMINALS[93] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_19_0_0_4);
-		TERMINALS[94] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_19_0_0_3_0_0_1_0_0_0);
-		TERMINALS[95] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_20_0_0_1);
-		TERMINALS[96] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_20_0_0_2);
-		TERMINALS[97] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_20_0_0_3);
-		TERMINALS[98] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_21_0_0_1);
-		TERMINALS[99] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_21_0_0_2);
-		TERMINALS[100] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_21_0_0_3);
-		TERMINALS[101] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22_0_0_1);
-		TERMINALS[102] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22_0_0_2);
-		TERMINALS[103] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22_0_0_3);
-		TERMINALS[104] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23_0_0_1);
-		TERMINALS[105] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23_0_0_2);
-		TERMINALS[106] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23_0_0_3);
-		TERMINALS[107] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24_0_0_1);
-		TERMINALS[108] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24_0_0_2);
-		TERMINALS[109] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24_0_0_3);
-		TERMINALS[110] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25_0_0_1);
-		TERMINALS[111] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25_0_0_2);
-		TERMINALS[112] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25_0_0_3);
+		TERMINALS[90] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_19_0_0_4);
+		TERMINALS[91] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_19_0_0_3_0_0_1_0_0_0);
+		TERMINALS[92] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_20_0_0_1);
+		TERMINALS[93] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_20_0_0_2);
+		TERMINALS[94] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_20_0_0_3);
+		TERMINALS[95] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_21_0_0_1);
+		TERMINALS[96] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_21_0_0_2);
+		TERMINALS[97] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_21_0_0_3);
+		TERMINALS[98] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22_0_0_1);
+		TERMINALS[99] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedStructuralFeature(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22_0_0_2);
+		TERMINALS[100] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedCsString(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22_0_0_3);
 	}
 	
 	public static void initializeTerminals() {
@@ -152,9 +140,8 @@ public class KernelFollowSetProvider {
 		FEATURES[8] = org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatementListContainer().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.STATEMENT_LIST_CONTAINER__STATEMENTS);
 		FEATURES[9] = org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getExpressionStatement().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.EXPRESSION_STATEMENT__EXPRESSION);
 		FEATURES[10] = org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatementWithException().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.STATEMENT_WITH_EXCEPTION__EXCEPTION_STATEMENTS);
-		FEATURES[11] = org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.RETURN__RETURN_VALUE);
-		FEATURES[12] = org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__ARGUMENTS);
-		FEATURES[13] = org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.EXPRESSION__CHILDREN);
+		FEATURES[11] = org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall().getEStructuralFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.PROCEDURE_CALL__ARGUMENTS);
+		FEATURES[12] = org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression().getEStructuralFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.EXPRESSION__CHILDREN);
 	}
 	
 	public static void initializeFeatures() {
@@ -555,51 +542,44 @@ public class KernelFollowSetProvider {
 		LINKS[390] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getSkip(), FEATURES[3]);
 		LINKS[391] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn(), FEATURES[3]);
 		LINKS[392] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), FEATURES[3]);
-		LINKS[393] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(), FEATURES[11]);
-		LINKS[394] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), FEATURES[3]);
-		LINKS[395] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getWhileLoop(), FEATURES[3]);
-		LINKS[396] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getCondition(), FEATURES[3]);
-		LINKS[397] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getGoto(), FEATURES[3]);
-		LINKS[398] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getBlock(), FEATURES[3]);
-		LINKS[399] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getParallelBlock(), FEATURES[3]);
-		LINKS[400] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getNonDeterministicBlock(), FEATURES[3]);
-		LINKS[401] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getExpressionStatement(), FEATURES[3]);
-		LINKS[402] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatementWithException(), FEATURES[3]);
-		LINKS[403] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getAbort(), FEATURES[3]);
-		LINKS[404] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getSkip(), FEATURES[3]);
-		LINKS[405] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn(), FEATURES[3]);
-		LINKS[406] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), FEATURES[3]);
-		LINKS[407] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), FEATURES[12]);
-		LINKS[408] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), FEATURES[12]);
-		LINKS[409] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), FEATURES[3]);
-		LINKS[410] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getWhileLoop(), FEATURES[3]);
-		LINKS[411] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getCondition(), FEATURES[3]);
-		LINKS[412] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getGoto(), FEATURES[3]);
-		LINKS[413] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getBlock(), FEATURES[3]);
-		LINKS[414] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getParallelBlock(), FEATURES[3]);
-		LINKS[415] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getNonDeterministicBlock(), FEATURES[3]);
-		LINKS[416] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getExpressionStatement(), FEATURES[3]);
-		LINKS[417] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatementWithException(), FEATURES[3]);
-		LINKS[418] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getAbort(), FEATURES[3]);
-		LINKS[419] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getSkip(), FEATURES[3]);
-		LINKS[420] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn(), FEATURES[3]);
-		LINKS[421] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), FEATURES[3]);
-		LINKS[422] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.dataitems.DataitemsPackage.eINSTANCE.getDataItem(), FEATURES[0]);
-		LINKS[423] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter(), FEATURES[0]);
-		LINKS[424] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), FEATURES[0]);
-		LINKS[425] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getMainProcedure(), FEATURES[1]);
-		LINKS[426] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines(), FEATURES[13]);
-		LINKS[427] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses(), FEATURES[13]);
-		LINKS[428] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getAffects(), FEATURES[13]);
-		LINKS[429] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostDefines(), FEATURES[13]);
-		LINKS[430] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPreUses(), FEATURES[13]);
-		LINKS[431] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostAffects(), FEATURES[13]);
-		LINKS[432] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines(), FEATURES[13]);
-		LINKS[433] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses(), FEATURES[13]);
-		LINKS[434] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getAffects(), FEATURES[13]);
-		LINKS[435] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostDefines(), FEATURES[13]);
-		LINKS[436] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPreUses(), FEATURES[13]);
-		LINKS[437] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostAffects(), FEATURES[13]);
+		LINKS[393] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), FEATURES[3]);
+		LINKS[394] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getWhileLoop(), FEATURES[3]);
+		LINKS[395] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getCondition(), FEATURES[3]);
+		LINKS[396] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getGoto(), FEATURES[3]);
+		LINKS[397] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getBlock(), FEATURES[3]);
+		LINKS[398] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getParallelBlock(), FEATURES[3]);
+		LINKS[399] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getNonDeterministicBlock(), FEATURES[3]);
+		LINKS[400] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getExpressionStatement(), FEATURES[3]);
+		LINKS[401] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatementWithException(), FEATURES[3]);
+		LINKS[402] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getAbort(), FEATURES[3]);
+		LINKS[403] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getSkip(), FEATURES[3]);
+		LINKS[404] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn(), FEATURES[3]);
+		LINKS[405] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), FEATURES[3]);
+		LINKS[406] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), FEATURES[11]);
+		LINKS[407] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(), FEATURES[11]);
+		LINKS[408] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), FEATURES[3]);
+		LINKS[409] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getWhileLoop(), FEATURES[3]);
+		LINKS[410] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getCondition(), FEATURES[3]);
+		LINKS[411] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getGoto(), FEATURES[3]);
+		LINKS[412] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getBlock(), FEATURES[3]);
+		LINKS[413] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getParallelBlock(), FEATURES[3]);
+		LINKS[414] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getNonDeterministicBlock(), FEATURES[3]);
+		LINKS[415] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getExpressionStatement(), FEATURES[3]);
+		LINKS[416] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getStatementWithException(), FEATURES[3]);
+		LINKS[417] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getAbort(), FEATURES[3]);
+		LINKS[418] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getSkip(), FEATURES[3]);
+		LINKS[419] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn(), FEATURES[3]);
+		LINKS[420] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(), FEATURES[3]);
+		LINKS[421] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.dataitems.DataitemsPackage.eINSTANCE.getDataItem(), FEATURES[0]);
+		LINKS[422] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter(), FEATURES[0]);
+		LINKS[423] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(), FEATURES[0]);
+		LINKS[424] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getMainProcedure(), FEATURES[1]);
+		LINKS[425] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines(), FEATURES[12]);
+		LINKS[426] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses(), FEATURES[12]);
+		LINKS[427] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getAffects(), FEATURES[12]);
+		LINKS[428] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines(), FEATURES[12]);
+		LINKS[429] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses(), FEATURES[12]);
+		LINKS[430] = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature(org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getAffects(), FEATURES[12]);
 	}
 	
 	public static void initializeLinks() {

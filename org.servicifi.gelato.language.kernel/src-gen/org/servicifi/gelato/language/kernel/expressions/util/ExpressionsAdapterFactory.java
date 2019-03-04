@@ -86,24 +86,12 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 				return createDefinesAdapter();
 			}
 			@Override
-			public Adapter casePostDefines(PostDefines object) {
-				return createPostDefinesAdapter();
-			}
-			@Override
 			public Adapter caseAffects(Affects object) {
 				return createAffectsAdapter();
 			}
 			@Override
-			public Adapter casePostAffects(PostAffects object) {
-				return createPostAffectsAdapter();
-			}
-			@Override
 			public Adapter caseUses(Uses object) {
 				return createUsesAdapter();
-			}
-			@Override
-			public Adapter casePreUses(PreUses object) {
-				return createPreUsesAdapter();
 			}
 			@Override
 			public Adapter caseDefinition(Definition object) {
@@ -188,20 +176,6 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.expressions.PostDefines <em>Post Defines</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.servicifi.gelato.language.kernel.expressions.PostDefines
-	 * @generated
-	 */
-	public Adapter createPostDefinesAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.expressions.Affects <em>Affects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -216,20 +190,6 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.expressions.PostAffects <em>Post Affects</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.servicifi.gelato.language.kernel.expressions.PostAffects
-	 * @generated
-	 */
-	public Adapter createPostAffectsAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.expressions.Uses <em>Uses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -240,20 +200,6 @@ public class ExpressionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUsesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.expressions.PreUses <em>Pre Uses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.servicifi.gelato.language.kernel.expressions.PreUses
-	 * @generated
-	 */
-	public Adapter createPreUsesAdapter() {
 		return null;
 	}
 

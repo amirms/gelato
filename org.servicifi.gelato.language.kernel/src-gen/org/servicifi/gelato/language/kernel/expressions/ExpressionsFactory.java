@@ -40,15 +40,6 @@ public interface ExpressionsFactory extends EFactory {
 	Defines createDefines();
 
 	/**
-	 * Returns a new object of class '<em>Post Defines</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Post Defines</em>'.
-	 * @generated
-	 */
-	PostDefines createPostDefines();
-
-	/**
 	 * Returns a new object of class '<em>Affects</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,15 +49,6 @@ public interface ExpressionsFactory extends EFactory {
 	Affects createAffects();
 
 	/**
-	 * Returns a new object of class '<em>Post Affects</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Post Affects</em>'.
-	 * @generated
-	 */
-	PostAffects createPostAffects();
-
-	/**
 	 * Returns a new object of class '<em>Uses</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,15 +56,6 @@ public interface ExpressionsFactory extends EFactory {
 	 * @generated
 	 */
 	Uses createUses();
-
-	/**
-	 * Returns a new object of class '<em>Pre Uses</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pre Uses</em>'.
-	 * @generated
-	 */
-	PreUses createPreUses();
 
 	/**
 	 * Returns the package supported by this factory.

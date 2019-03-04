@@ -18,6 +18,7 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  * </p>
  * <ul>
  *   <li>{@link org.servicifi.gelato.language.kernel.parameters.Parameter#getCorrespondingArgument <em>Corresponding Argument</em>}</li>
+ *   <li>{@link org.servicifi.gelato.language.kernel.parameters.Parameter#isByReference <em>By Reference</em>}</li>
  * </ul>
  *
  * @see org.servicifi.gelato.language.kernel.parameters.ParametersPackage#getParameter()
@@ -44,5 +45,30 @@ public interface Parameter extends DataItem {
 	 * @generated
 	 */
 	void setCorrespondingArgument(Map<ProcedureCall, Argument> value);
+
+	/**
+	 * Returns the value of the '<em><b>By Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>By Reference</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>By Reference</em>' attribute.
+	 * @see #setByReference(boolean)
+	 * @see org.servicifi.gelato.language.kernel.parameters.ParametersPackage#getParameter_ByReference()
+	 * @generated
+	 */
+	boolean isByReference();
+
+	/**
+	 * Sets the value of the '{@link org.servicifi.gelato.language.kernel.parameters.Parameter#isByReference <em>By Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>By Reference</em>' attribute.
+	 * @see #isByReference()
+	 * @generated
+	 */
+	void setByReference(boolean value);
 
 } // Parameter

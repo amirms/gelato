@@ -61,10 +61,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kernel.ecore#//statements/ExpressionStatement/expression"/>
       </genClasses>
       <genClasses ecoreClass="kernel.ecore#//statements/Skip"/>
-      <genClasses ecoreClass="kernel.ecore#//statements/Return">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference kernel.ecore#//statements/Return/returnValue"/>
-      </genClasses>
+      <genClasses ecoreClass="kernel.ecore#//statements/Return"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Procedures" basePackage="org.servicifi.gelato.language.kernel"
         disposableProviderFactory="true" ecorePackage="kernel.ecore#//procedures">
@@ -93,11 +90,8 @@
       </genClasses>
       <genClasses image="false" ecoreClass="kernel.ecore#//expressions/SubExpression"/>
       <genClasses ecoreClass="kernel.ecore#//expressions/Defines"/>
-      <genClasses ecoreClass="kernel.ecore#//expressions/PostDefines"/>
       <genClasses ecoreClass="kernel.ecore#//expressions/Affects"/>
-      <genClasses ecoreClass="kernel.ecore#//expressions/PostAffects"/>
       <genClasses ecoreClass="kernel.ecore#//expressions/Uses"/>
-      <genClasses ecoreClass="kernel.ecore#//expressions/PreUses"/>
       <genClasses image="false" ecoreClass="kernel.ecore#//expressions/Definition">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference kernel.ecore#//expressions/Definition/reaches"/>
@@ -127,6 +121,7 @@
         disposableProviderFactory="true" ecorePackage="kernel.ecore#//parameters">
       <genClasses ecoreClass="kernel.ecore#//parameters/Parameter">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kernel.ecore#//parameters/Parameter/correspondingArgument"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kernel.ecore#//parameters/Parameter/byReference"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="References" basePackage="org.servicifi.gelato.language.kernel"
@@ -138,9 +133,7 @@
       <genClasses image="false" ecoreClass="kernel.ecore#//references/ReferenceableElement"/>
       <genClasses image="false" ecoreClass="kernel.ecore#//references/Reference"/>
       <genClasses ecoreClass="kernel.ecore#//references/Argument">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kernel.ecore#//references/Argument/byReference"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference kernel.ecore#//references/Argument/correspondingParameter"/>
+        <genOperations ecoreOperation="kernel.ecore#//references/Argument/getCorrespondingParameter"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

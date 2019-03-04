@@ -280,18 +280,6 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PostDefines) {
-			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23, foundFormattingElements);
-			return;
-		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PreUses) {
-			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_24, foundFormattingElements);
-			return;
-		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.PostAffects) {
-			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_25, foundFormattingElements);
-			return;
-		}
 		if (element instanceof org.servicifi.gelato.language.kernel.dataitems.DataItem) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_1, foundFormattingElements);
 			return;

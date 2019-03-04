@@ -95,15 +95,6 @@ public class KernelTokenStyleInformationProvider {
 		if ("affects".equals(tokenName)) {
 			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
-		if ("postdefines".equals(tokenName)) {
-			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
-		}
-		if ("preuses".equals(tokenName)) {
-			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
-		}
-		if ("postaffects".equals(tokenName)) {
-			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
-		}
 		if ("TASK_ITEM".equals(tokenName)) {
 			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x7F, 0x9F, 0xBF}, null, true, false, false, false);
 		}

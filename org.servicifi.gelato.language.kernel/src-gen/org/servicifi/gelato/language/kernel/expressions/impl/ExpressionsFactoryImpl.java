@@ -58,11 +58,8 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 		switch (eClass.getClassifierID()) {
 			case ExpressionsPackage.EXPRESSION: return createExpression();
 			case ExpressionsPackage.DEFINES: return createDefines();
-			case ExpressionsPackage.POST_DEFINES: return createPostDefines();
 			case ExpressionsPackage.AFFECTS: return createAffects();
-			case ExpressionsPackage.POST_AFFECTS: return createPostAffects();
 			case ExpressionsPackage.USES: return createUses();
-			case ExpressionsPackage.PRE_USES: return createPreUses();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,16 +90,6 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PostDefines createPostDefines() {
-		PostDefinesImpl postDefines = new PostDefinesImpl();
-		return postDefines;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Affects createAffects() {
 		AffectsImpl affects = new AffectsImpl();
 		return affects;
@@ -113,29 +100,9 @@ public class ExpressionsFactoryImpl extends EFactoryImpl implements ExpressionsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PostAffects createPostAffects() {
-		PostAffectsImpl postAffects = new PostAffectsImpl();
-		return postAffects;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Uses createUses() {
 		UsesImpl uses = new UsesImpl();
 		return uses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PreUses createPreUses() {
-		PreUsesImpl preUses = new PreUsesImpl();
-		return preUses;
 	}
 
 	/**

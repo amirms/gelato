@@ -65,10 +65,7 @@
           eType="#//expressions/Expression" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Skip" eSuperTypes="#//statements/Statement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Return" eSuperTypes="#//statements/Statement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//expressions/Expression"
-          containment="true"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Return" eSuperTypes="#//statements/Statement"/>
   </eSubpackages>
   <eSubpackages name="procedures" nsURI="http://www.servicifi.org/gelato/language/kernel/procedures"
       nsPrefix="procedures">
@@ -105,11 +102,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SubExpression" abstract="true" eSuperTypes="#//references/ElementReference"/>
     <eClassifiers xsi:type="ecore:EClass" name="Defines" eSuperTypes="#//expressions/Definition"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PostDefines" eSuperTypes="#//expressions/Definition"/>
     <eClassifiers xsi:type="ecore:EClass" name="Affects" eSuperTypes="#//expressions/Definition"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PostAffects" eSuperTypes="#//expressions/Definition"/>
     <eClassifiers xsi:type="ecore:EClass" name="Uses" eSuperTypes="#//expressions/Usage"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PreUses" eSuperTypes="#//expressions/Usage"/>
     <eClassifiers xsi:type="ecore:EClass" name="Definition" abstract="true" eSuperTypes="#//expressions/SubExpression">
       <eStructuralFeatures xsi:type="ecore:EReference" name="reaches" upperBound="-1"
           eType="#//expressions/Usage"/>
@@ -149,6 +143,8 @@
           <eTypeArguments eClassifier="#//references/Argument"/>
         </eGenericType>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="byReference" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="references" nsURI="http://www.servicifi.org/gelato/language/kernel/references"
@@ -161,10 +157,7 @@
         eSuperTypes="#//commons/NamedElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Reference" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="#//references/ElementReference">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="byReference" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="correspondingParameter"
-          lowerBound="1" eType="#//parameters/Parameter"/>
+      <eOperations name="getCorrespondingParameter" lowerBound="1" eType="#//parameters/Parameter"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

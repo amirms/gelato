@@ -6,8 +6,6 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.ui;
 
-import java.util.Comparator;
-
 public class KernelOutlinePageTreeViewerComparator extends org.eclipse.jface.viewers.ViewerComparator {
 	
 	private static java.util.Map<org.eclipse.emf.ecore.EPackage, Integer> ePackageMap = new java.util.LinkedHashMap<org.eclipse.emf.ecore.EPackage, Integer>();
@@ -66,7 +64,7 @@ public class KernelOutlinePageTreeViewerComparator extends org.eclipse.jface.vie
 		return packageID;
 	}
 	
-	public Comparator<? super String> getComparator() {
+	public java.util.Comparator getComparator() {
 		return this.comparator;
 	}
 	

@@ -33,9 +33,6 @@ public class KernelSyntaxCoverageInformationProvider {
 			org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines(),
 			org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses(),
 			org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getAffects(),
-			org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostDefines(),
-			org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPreUses(),
-			org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getPostAffects(),
 		};
 	}
 	

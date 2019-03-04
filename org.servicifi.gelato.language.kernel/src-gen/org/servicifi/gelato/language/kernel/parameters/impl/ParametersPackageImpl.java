@@ -191,6 +191,15 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getParameter_ByReference() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ParametersFactory getParametersFactory() {
 		return (ParametersFactory)getEFactoryInstance();
 	}
@@ -216,6 +225,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		// Create classes and their features
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__CORRESPONDING_ARGUMENT);
+		createEAttribute(parameterEClass, PARAMETER__BY_REFERENCE);
 	}
 
 	/**
@@ -261,6 +271,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g2 = createEGenericType(theReferencesPackage.getArgument());
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getParameter_CorrespondingArgument(), g1, "correspondingArgument", null, 1, 1, Parameter.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_ByReference(), ecorePackage.getEBoolean(), "byReference", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //ParametersPackageImpl
