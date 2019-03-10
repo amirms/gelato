@@ -1,7 +1,9 @@
 package org.servicifi.gelato.analysis.framework.sdg;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
@@ -32,6 +34,8 @@ public class Node implements Serializable {
 	private Node(final String label, final NodeType type) {
 		this.label = label;
 		this.type = type;
+		this.fillColor = null;
+		
 		ins = new HashSet<>();
 		outs = new HashSet<>();
 
@@ -78,18 +82,25 @@ public class Node implements Serializable {
 
 	@Override
 	public String toString() {
+		String result = label + "-" + type + "-" + getContainerName() + "-" + toDefUse();
+		return result;
+	}
+	
+	public String toDefUse() {
 		String defuse = "";
 		if (getDef() != null) {
 			defuse = getDef() + ":";
 		}
 
-		if (!getUsages().isEmpty()) {
-			for (String usage : getUsages())
-				defuse += ";" + usage;
+		List<String> usagesList = getUsages();
+		if (!usagesList.isEmpty()) {
+			defuse += usagesList.get(0);
+
+			for (int i =1; i< usagesList.size(); i++)
+				defuse += ";" + usagesList.get(i);
 		}
 
-		String result = label + "-" + type + "-" + getContainerName() + "-" + defuse;
-		return result;
+		return defuse;
 	}
 
 	public String getFillColor() {
@@ -108,8 +119,8 @@ public class Node implements Serializable {
 		def = assignedVariable;
 	}
 
-	public Set<String> getUsages() {
-		return usages;
+	public List<String> getUsages() {
+		return new ArrayList<>(usages);
 	}
 
 	public void addUsage(final String usedVariable) {

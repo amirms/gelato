@@ -97,7 +97,6 @@ public class KernelSourceFileLoader {
 		}
 
 		return cu;
-
 	}
 
 	public KernelResource getResource() throws IOException {
@@ -116,7 +115,7 @@ public class KernelSourceFileLoader {
 
 	}
 
-	public Map<Long, ExitEntryPair> parse() throws IOException {
+	public SDG parse() throws IOException {
 
 		Map<Long, ExitEntryPair> res = new HashMap<Long, ExitEntryPair>();
 
@@ -154,19 +153,20 @@ public class KernelSourceFileLoader {
 //				System.out.println("variable: " + var + ", " + assignments.get(var));
 //			}
 			
-			Map<Node, List<Node>> paths = RandomPathGenerator.generate(sdg, 0.2);
+			Map<Node, List<Node>> paths = RandomPathGenerator.generate(sdg, 0.4);
 			
 			for(List<Node> path : paths.values()) {
 				for (Node node : path) {
-					System.out.print(node.toString() + "->");
+					System.out.print(node.toDefUse() + "->");
 				}
 				System.out.println();
 			}
+			
+			return sdg;
 		}
 
-		return res;
+		return null;
 
-//	    root.
 
 	}
 

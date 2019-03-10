@@ -86,6 +86,5 @@ public class RandomPathGenerator {
 		}
 		
 		return path;
-
 	}
 }

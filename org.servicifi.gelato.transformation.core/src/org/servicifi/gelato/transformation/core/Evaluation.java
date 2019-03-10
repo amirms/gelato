@@ -44,10 +44,10 @@ public class Evaluation {
 				collector.setStartTime(System.currentTimeMillis(), 2);
 				collector.setStartMemory(Runtime.getRuntime().freeMemory(), 2);
 
-				Map<Long, ExitEntryPair> results = loader.parse();
+				loader.parse();
 				collector.setEndTime(System.currentTimeMillis(), 2);
 				collector.setEndMemory(Runtime.getRuntime().freeMemory(), 2);
-				System.out.println(results);
+//				System.out.println(results);
 
 				Map<EObject, List<EObject>> call2kernels = new TraceAnalyzer()
 						.getKernelStatements4CobolCall(projectName);
@@ -66,7 +66,7 @@ public class Evaluation {
 
 						ExpressionStatement expressionsStatement = (ExpressionStatement) resolved;
 
-						System.out.println(results.get(expressionsStatement.getExpression().getLabel()));
+						//System.out.println(results.get(expressionsStatement.getExpression().getLabel()));
 
 					}
 

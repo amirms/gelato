@@ -24,10 +24,10 @@ public class AnalysisEvaluation {
 			collector.setStartTime(System.currentTimeMillis(), 2);
 			collector.setStartMemory(Runtime.getRuntime().freeMemory(), 2);
 
-			Map<Long, ExitEntryPair> results = loader.parse();
+			loader.parse();
 			collector.setEndTime(System.currentTimeMillis(), 2);
 			collector.setEndMemory(Runtime.getRuntime().freeMemory(), 2);
-			System.out.println(results);
+//			System.out.println(results);
 			
 //			Map<EObject, List<EObject>> call2kernels = new TraceAnalyzer().getKernelStatements4CobolCall(projectName);
 //			Iterator<EObject> callIterator = call2kernels.keySet().iterator();
@@ -56,8 +56,8 @@ public class AnalysisEvaluation {
 
 	public static void main(String[] args) {
 		File currentDirFile = new File("input\\new_file3.kernel");
-		String helper = currentDirFile.getAbsolutePath();
+		String filename = currentDirFile.getAbsolutePath();
 
-		new AnalysisEvaluation().evaluate("XX", currentDirFile.getAbsolutePath());
+		new AnalysisEvaluation().evaluate("XX", filename);
 	}
 }

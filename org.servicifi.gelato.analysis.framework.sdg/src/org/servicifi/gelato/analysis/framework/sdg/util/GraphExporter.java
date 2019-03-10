@@ -49,10 +49,12 @@ public class GraphExporter {
 		@Override
 		public Map<String, Attribute> getComponentAttributes(final Node component) {
 			final Map<String, Attribute> result = new HashMap<>();
-			final Attribute fillColor = DefaultAttribute.createAttribute(component.getFillColor());
+
+			final String fillColor = component.getFillColor();
 			if (fillColor != null) {
-				//result.put("style", DefaultAttribute.createAttribute("filled"));
-				//result.put("fillcolor", fillColor);
+				final Attribute fillColorAttr = DefaultAttribute.createAttribute(fillColor);
+				result.put("style", DefaultAttribute.createAttribute("filled"));
+				result.put("fillcolor", fillColorAttr);
 			}
 			if (component.getType() != null) {
 				switch (component.getType()) {
@@ -124,7 +126,7 @@ public class GraphExporter {
 			final String filePath = path + "/" + fileName + ".dot";
 			final File dotFile = new File(filePath);
 			exporter.exportGraph(graph, dotFile);
-			
+
 			final Graphviz gv = new Graphviz();
 			gv.readSource(filePath);
 

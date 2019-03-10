@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DirectedAcyclicGraph;
+import org.servicifi.gelato.analysis.framework.sdg.slicer.SDGSlicer;
 
 public class SDG extends DefaultDirectedGraph<Node, Edge> {	
 	
@@ -45,14 +46,11 @@ public class SDG extends DefaultDirectedGraph<Node, Edge> {
 	}
 
 	public Set<Node> backwardSlice(final Set<Node> S) {
-//		return PDGSlicer.backward(this, S);
-		return new HashSet<>();
+		return SDGSlicer.backward(this, S);
 	}
 
 	public Set<Node> forwardSlice(final Set<Node> S) {
-//		return PDGSlicer.forward(this, S);
-		return new HashSet<>();
-
+		return SDGSlicer.forward(this, S);
 	}
 
 	public Node getVertex(long label) {
@@ -61,5 +59,4 @@ public class SDG extends DefaultDirectedGraph<Node, Edge> {
 				  .findAny()
 				  .orElse(null);
 	}
-
 }
