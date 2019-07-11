@@ -6,36 +6,65 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.preference.PreferenceConverter;
+import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.TextAttribute;
+import org.eclipse.jface.text.rules.IToken;
+import org.eclipse.jface.text.rules.Token;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
+
 /**
  * An adapter from the Eclipse
  * <code>org.eclipse.jface.text.rules.ITokenScanner</code> interface to the
  * generated lexer.
  */
-public class KernelTokenScanner implements org.eclipse.jface.text.rules.ITokenScanner {
+public class KernelTokenScanner implements org.servicifi.gelato.language.kernel.resource.kernel.ui.IKernelTokenScanner {
 	
 	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextScanner lexer;
 	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken currentToken;
-	private java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken> nextTokens;
+	private List<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken> nextTokens;
 	private int offset;
 	private String languageId;
-	private org.eclipse.jface.preference.IPreferenceStore store;
+	private IPreferenceStore store;
 	private org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelColorManager colorManager;
 	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource;
 	
 	/**
+	 * <p>
+	 * Creates a new KernelTokenScanner. Uses the preference store belonging to the
+	 * corresponding
+	 * org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelUIPlugin.
+	 * </p>
 	 * 
+	 * @param resource The resource to scan
 	 * @param colorManager A manager to obtain color objects
 	 */
 	public KernelTokenScanner(org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelColorManager colorManager) {
+		this(resource, colorManager, (org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelUIPlugin.getDefault() == null ? null : org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelUIPlugin.getDefault().getPreferenceStore()));
+	}
+	
+	/**
+	 * <p>
+	 * Creates a new KernelTokenScanner.
+	 * </p>
+	 * 
+	 * @param resource The resource to scan
+	 * @param colorManager A manager to obtain color objects
+	 * @param preferenceStore The preference store to retrieve the defined token colors
+	 */
+	public KernelTokenScanner(org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelColorManager colorManager, IPreferenceStore preferenceStore) {
 		this.resource = resource;
 		this.colorManager = colorManager;
 		this.lexer = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelMetaInformation().createLexer();
 		this.languageId = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelMetaInformation().getSyntaxName();
-		org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelUIPlugin plugin = org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelUIPlugin.getDefault();
-		if (plugin != null) {
-			this.store = plugin.getPreferenceStore();
-		}
-		this.nextTokens = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken>();
+		this.store = preferenceStore;
+		this.nextTokens = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken>();
 	}
 	
 	public int getTokenLength() {
@@ -46,7 +75,7 @@ public class KernelTokenScanner implements org.eclipse.jface.text.rules.ITokenSc
 		return offset + currentToken.getOffset();
 	}
 	
-	public org.eclipse.jface.text.rules.IToken nextToken() {
+	public IToken nextToken() {
 		boolean isOriginalToken = true;
 		if (!nextTokens.isEmpty()) {
 			currentToken = nextTokens.remove(0);
@@ -55,14 +84,14 @@ public class KernelTokenScanner implements org.eclipse.jface.text.rules.ITokenSc
 			currentToken = lexer.getNextToken();
 		}
 		if (currentToken == null || !currentToken.canBeUsedForSyntaxHighlighting()) {
-			return org.eclipse.jface.text.rules.Token.EOF;
+			return Token.EOF;
 		}
 		
 		if (isOriginalToken) {
 			splitCurrentToken();
 		}
 		
-		org.eclipse.jface.text.TextAttribute textAttribute = null;
+		TextAttribute textAttribute = null;
 		String tokenName = currentToken.getName();
 		if (tokenName != null) {
 			org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenStyle staticStyle = getStaticTokenStyle();
@@ -74,14 +103,14 @@ public class KernelTokenScanner implements org.eclipse.jface.text.rules.ITokenSc
 			}
 		}
 		
-		return new org.eclipse.jface.text.rules.Token(textAttribute);
+		return new Token(textAttribute);
 	}
 	
-	public void setRange(org.eclipse.jface.text.IDocument document, int offset, int length) {
+	public void setRange(IDocument document, int offset, int length) {
 		this.offset = offset;
 		try {
 			lexer.setText(document.get(offset, length));
-		} catch (org.eclipse.jface.text.BadLocationException e) {
+		} catch (BadLocationException e) {
 			// ignore this error. It might occur during editing when locations are outdated
 			// quickly.
 		}
@@ -91,7 +120,7 @@ public class KernelTokenScanner implements org.eclipse.jface.text.rules.ITokenSc
 		return currentToken.getText();
 	}
 	
-	public int[] convertToIntArray(org.eclipse.swt.graphics.RGB rgb) {
+	public int[] convertToIntArray(RGB rgb) {
 		if (rgb == null) {
 			return null;
 		}
@@ -99,57 +128,62 @@ public class KernelTokenScanner implements org.eclipse.jface.text.rules.ITokenSc
 	}
 	
 	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenStyle getStaticTokenStyle() {
-		org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenStyle staticStyle = null;
 		String tokenName = currentToken.getName();
 		String enableKey = org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.ENABLE);
-		boolean enabled = store.getBoolean(enableKey);
-		if (enabled) {
-			String colorKey = org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.COLOR);
-			org.eclipse.swt.graphics.RGB foregroundRGB = org.eclipse.jface.preference.PreferenceConverter.getColor(store, colorKey);
-			org.eclipse.swt.graphics.RGB backgroundRGB = null;
-			boolean bold = store.getBoolean(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.BOLD));
-			boolean italic = store.getBoolean(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.ITALIC));
-			boolean strikethrough = store.getBoolean(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.STRIKETHROUGH));
-			boolean underline = store.getBoolean(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.UNDERLINE));
-			staticStyle = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(convertToIntArray(foregroundRGB), convertToIntArray(backgroundRGB), bold, italic, strikethrough, underline);
+		if (store == null) {
+			return null;
 		}
-		return staticStyle;
+		
+		boolean enabled = store.getBoolean(enableKey);
+		if (!enabled) {
+			return null;
+		}
+		
+		String colorKey = org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.COLOR);
+		RGB foregroundRGB = PreferenceConverter.getColor(store, colorKey);
+		RGB backgroundRGB = null;
+		boolean bold = store.getBoolean(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.BOLD));
+		boolean italic = store.getBoolean(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.ITALIC));
+		boolean strikethrough = store.getBoolean(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.STRIKETHROUGH));
+		boolean underline = store.getBoolean(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.getPreferenceKey(languageId, tokenName, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelSyntaxColoringHelper.StyleProperty.UNDERLINE));
+		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(convertToIntArray(foregroundRGB), convertToIntArray(backgroundRGB), bold, italic, strikethrough, underline);
 	}
 	
 	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenStyle getDynamicTokenStyle(org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenStyle staticStyle) {
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelDynamicTokenStyler dynamicTokenStyler = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelDynamicTokenStyler();
+		dynamicTokenStyler.setOffset(offset);
 		org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenStyle dynamicStyle = dynamicTokenStyler.getDynamicTokenStyle(resource, currentToken, staticStyle);
 		return dynamicStyle;
 	}
 	
-	public org.eclipse.jface.text.TextAttribute getTextAttribute(org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenStyle tokeStyle) {
+	public TextAttribute getTextAttribute(org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenStyle tokeStyle) {
 		int[] foregroundColorArray = tokeStyle.getColorAsRGB();
-		org.eclipse.swt.graphics.Color foregroundColor = null;
+		Color foregroundColor = null;
 		if (colorManager != null) {
-			foregroundColor = colorManager.getColor(new org.eclipse.swt.graphics.RGB(foregroundColorArray[0], foregroundColorArray[1], foregroundColorArray[2]));
+			foregroundColor = colorManager.getColor(new RGB(foregroundColorArray[0], foregroundColorArray[1], foregroundColorArray[2]));
 		}
 		int[] backgroundColorArray = tokeStyle.getBackgroundColorAsRGB();
-		org.eclipse.swt.graphics.Color backgroundColor = null;
+		Color backgroundColor = null;
 		if (backgroundColorArray != null) {
-			org.eclipse.swt.graphics.RGB backgroundRGB = new org.eclipse.swt.graphics.RGB(backgroundColorArray[0], backgroundColorArray[1], backgroundColorArray[2]);
+			RGB backgroundRGB = new RGB(backgroundColorArray[0], backgroundColorArray[1], backgroundColorArray[2]);
 			if (colorManager != null) {
 				backgroundColor = colorManager.getColor(backgroundRGB);
 			}
 		}
-		int style = org.eclipse.swt.SWT.NORMAL;
+		int style = SWT.NORMAL;
 		if (tokeStyle.isBold()) {
-			style = style | org.eclipse.swt.SWT.BOLD;
+			style = style | SWT.BOLD;
 		}
 		if (tokeStyle.isItalic()) {
-			style = style | org.eclipse.swt.SWT.ITALIC;
+			style = style | SWT.ITALIC;
 		}
 		if (tokeStyle.isStrikethrough()) {
-			style = style | org.eclipse.jface.text.TextAttribute.STRIKETHROUGH;
+			style = style | TextAttribute.STRIKETHROUGH;
 		}
 		if (tokeStyle.isUnderline()) {
-			style = style | org.eclipse.jface.text.TextAttribute.UNDERLINE;
+			style = style | TextAttribute.UNDERLINE;
 		}
-		return new org.eclipse.jface.text.TextAttribute(foregroundColor, backgroundColor, style);
+		return new TextAttribute(foregroundColor, backgroundColor, style);
 	}
 	
 	/**
@@ -162,19 +196,19 @@ public class KernelTokenScanner implements org.eclipse.jface.text.rules.ITokenSc
 		final int charStart = currentToken.getOffset();
 		final int column = currentToken.getColumn();
 		
-		java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTaskItem> taskItems = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTaskItemDetector().findTaskItems(text, line, charStart);
+		List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTaskItem> taskItems = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTaskItemDetector().findTaskItems(text, line, charStart);
 		
 		// this is the offset for the next token to be added
 		int offset = charStart;
 		int itemBeginRelative;
-		java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken> newItems = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken>();
+		List<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken> newItems = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken>();
 		for (org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTaskItem taskItem : taskItems) {
 			int itemBegin = taskItem.getCharStart();
 			int itemLine = taskItem.getLine();
 			int itemColumn = 0;
 			
 			itemBeginRelative = itemBegin - charStart;
-			// create token before task item (TODO if required)
+			// create token before task item
 			String textBefore = text.substring(offset - charStart, itemBeginRelative);
 			int textBeforeLength = textBefore.length();
 			newItems.add(new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTextToken(name, textBefore, offset, textBeforeLength, line, column, true));
@@ -189,7 +223,7 @@ public class KernelTokenScanner implements org.eclipse.jface.text.rules.ITokenSc
 		}
 		
 		if (!taskItems.isEmpty()) {
-			// create token after last task item (TODO if required)
+			// create token after last task item
 			String textAfter = text.substring(offset - charStart);
 			newItems.add(new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTextToken(name, textAfter, offset, textAfter.length(), line, column, true));
 		}

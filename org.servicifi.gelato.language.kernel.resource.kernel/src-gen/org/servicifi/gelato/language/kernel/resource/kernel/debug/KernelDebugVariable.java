@@ -6,13 +6,20 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.debug;
 
-public class KernelDebugVariable extends org.servicifi.gelato.language.kernel.resource.kernel.debug.KernelDebugElement implements org.eclipse.debug.core.model.IVariable {
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.debug.core.DebugException;
+import org.eclipse.debug.core.model.IDebugTarget;
+import org.eclipse.debug.core.model.IValue;
+import org.eclipse.debug.core.model.IVariable;
+
+public class KernelDebugVariable extends org.servicifi.gelato.language.kernel.resource.kernel.debug.KernelDebugElement implements IVariable {
 	
 	private String name;
-	private org.eclipse.debug.core.model.IValue value;
+	private IValue value;
 	private String referenceTypeName;
 	
-	public KernelDebugVariable(org.eclipse.debug.core.model.IDebugTarget debugTarget, String name, org.eclipse.debug.core.model.IValue value, String referenceTypeName) {
+	public KernelDebugVariable(IDebugTarget debugTarget, String name, IValue value, String referenceTypeName) {
 		super(debugTarget);
 		this.name = name;
 		this.value = value;
@@ -23,35 +30,35 @@ public class KernelDebugVariable extends org.servicifi.gelato.language.kernel.re
 		return false;
 	}
 	
-	public void setValue(org.eclipse.debug.core.model.IValue value) throws org.eclipse.debug.core.DebugException {
-		throw new org.eclipse.debug.core.DebugException(new org.eclipse.core.runtime.Status(org.eclipse.core.runtime.IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.PLUGIN_ID, "Can't set variable."));
+	public void setValue(IValue value) throws DebugException {
+		throw new DebugException(new Status(IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.PLUGIN_ID, "Can't set variable."));
 	}
 	
-	public void setValue(String expression) throws org.eclipse.debug.core.DebugException {
-		throw new org.eclipse.debug.core.DebugException(new org.eclipse.core.runtime.Status(org.eclipse.core.runtime.IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.PLUGIN_ID, "Can't set variable."));
+	public void setValue(String expression) throws DebugException {
+		throw new DebugException(new Status(IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.PLUGIN_ID, "Can't set variable."));
 	}
 	
-	public boolean verifyValue(org.eclipse.debug.core.model.IValue value) throws org.eclipse.debug.core.DebugException {
-		throw new org.eclipse.debug.core.DebugException(new org.eclipse.core.runtime.Status(org.eclipse.core.runtime.IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.PLUGIN_ID, "Can't set variable."));
+	public boolean verifyValue(IValue value) throws DebugException {
+		throw new DebugException(new Status(IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.PLUGIN_ID, "Can't set variable."));
 	}
 	
-	public boolean verifyValue(String expression) throws org.eclipse.debug.core.DebugException {
-		throw new org.eclipse.debug.core.DebugException(new org.eclipse.core.runtime.Status(org.eclipse.core.runtime.IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.PLUGIN_ID, "Can't set variable."));
+	public boolean verifyValue(String expression) throws DebugException {
+		throw new DebugException(new Status(IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.PLUGIN_ID, "Can't set variable."));
 	}
 	
-	public org.eclipse.debug.core.model.IValue getValue() throws org.eclipse.debug.core.DebugException {
+	public IValue getValue() throws DebugException {
 		return value;
 	}
 	
-	public String getName() throws org.eclipse.debug.core.DebugException {
+	public String getName() throws DebugException {
 		return name;
 	}
 	
-	public String getReferenceTypeName() throws org.eclipse.debug.core.DebugException {
+	public String getReferenceTypeName() throws DebugException {
 		return referenceTypeName;
 	}
 	
-	public boolean hasValueChanged() throws org.eclipse.debug.core.DebugException {
+	public boolean hasValueChanged() throws DebugException {
 		return true;
 	}
 	

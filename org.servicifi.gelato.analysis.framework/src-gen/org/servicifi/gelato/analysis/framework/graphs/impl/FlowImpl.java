@@ -86,6 +86,7 @@ public abstract class FlowImpl extends MinimalEObjectImpl.Container implements F
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Node getTo() {
 		if (to != null && to.eIsProxy()) {
 			InternalEObject oldTo = (InternalEObject)to;
@@ -110,6 +111,7 @@ public abstract class FlowImpl extends MinimalEObjectImpl.Container implements F
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTo(Node newTo) {
 		Node oldTo = to;
 		to = newTo;
@@ -123,6 +125,7 @@ public abstract class FlowImpl extends MinimalEObjectImpl.Container implements F
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void unsetTo() {
 		Node oldTo = to;
 		boolean oldToESet = toESet;
@@ -136,6 +139,7 @@ public abstract class FlowImpl extends MinimalEObjectImpl.Container implements F
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSetTo() {
 		return toESet;
 	}
@@ -144,6 +148,7 @@ public abstract class FlowImpl extends MinimalEObjectImpl.Container implements F
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Node getFrom() {
 		if (from != null && from.eIsProxy()) {
 			InternalEObject oldFrom = (InternalEObject)from;
@@ -168,6 +173,7 @@ public abstract class FlowImpl extends MinimalEObjectImpl.Container implements F
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFrom(Node newFrom) {
 		Node oldFrom = from;
 		from = newFrom;

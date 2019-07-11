@@ -1,0 +1,32 @@
+Mappings for procedure readEmployeeDetails
+input: var4
+#return_readEmployeeDetails: var1
+num: var0
+i: var9
+infile: var6
+es: var5
+-----------------------------
+Mappings for procedure updateEmployeeDetails
+input: var10
+e: var2
+outfile: var11
+-----------------------------
+Mappings for procedure main1
+empId: var17
+flag: var16
+emps: var20
+ch: var14
+e: var21
+num: var15
+i: var13
+taxes: var19
+byPercent: var18
+-----------------------------
+Mappings for GLOBAL
+ACCOUNTS_FILE: var7
+HIGH_RATE: var23
+SEEK_CUR: var12
+LOW_RATE: var24
+stderr: var8
+SALARY_TAX_THRESHOLD: var22
+-----------------------------

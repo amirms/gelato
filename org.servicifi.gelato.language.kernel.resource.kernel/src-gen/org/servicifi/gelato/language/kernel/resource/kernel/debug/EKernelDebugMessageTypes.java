@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.debug;
 
+
 public enum EKernelDebugMessageTypes {
 	
 	// An enumeration of all commands that can be sent to the debug server from debug

@@ -9,6 +9,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
+import org.servicifi.gelato.analysis.framework.sdg.Node;
+import org.servicifi.gelato.analysis.framework.sdg.RandomPathGenerator;
+import org.servicifi.gelato.analysis.framework.sdg.SDG;
+import org.servicifi.gelato.analysis.framework.sdg.SDGFactory;
+import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
 import org.servicifi.gelato.language.kernel.statements.ExpressionStatement;
 import org.servicifi.gelato.transformation.core.resource.KernelSourceFileLoader;
 import org.servicifi.gelato.transformation.core.statistics.StatisticsCollector;
@@ -23,8 +28,21 @@ public class AnalysisEvaluation {
 		try {
 			collector.setStartTime(System.currentTimeMillis(), 2);
 			collector.setStartMemory(Runtime.getRuntime().freeMemory(), 2);
+			CompilationUnit program = loader.parse();
 
-			loader.parse();
+			SDG sdg = SDGFactory.createSDG(program);
+			sdg.exportAsDot("./output", "sdg");
+
+
+			Map<Node, List<Node>> paths = RandomPathGenerator.generateRandomly(sdg, 0.4);
+
+			for (List<Node> path : paths.values()) {
+				for (Node node : path) {
+					System.out.print(node.toDefUse() + "->");
+				}
+				System.out.println();
+			}
+			
 			collector.setEndTime(System.currentTimeMillis(), 2);
 			collector.setEndMemory(Runtime.getRuntime().freeMemory(), 2);
 //			System.out.println(results);
@@ -55,7 +73,7 @@ public class AnalysisEvaluation {
 	}
 
 	public static void main(String[] args) {
-		File currentDirFile = new File("input\\new_file3.kernel");
+		File currentDirFile = new File("input/program.kernel");
 		String filename = currentDirFile.getAbsolutePath();
 
 		new AnalysisEvaluation().evaluate("XX", filename);

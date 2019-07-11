@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentUIMetaInformation" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentUIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentEditor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="comment" icon="icons/editor_icon.gif" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentEditor" name="EMFText comment Editor">
+			<contentTypeBinding contentTypeId="org.servicifi.gelato.language.cobol.comment.resource.comment">
+			</contentTypeBinding>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentPreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Comment Text Editor" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentPreferencePage" class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentPreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentSyntaxColoringPreferencePage" class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentSyntaxColoringPreferencePage" category="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentPreferencePage">
+		</page>
+		<page name="Brackets" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentBracketPreferencePage" class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentBracketPreferencePage" category="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentPreferencePage">
+		</page>
+		<page name="Content Assist" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentContentAssistPreferencePage" class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentContentAssistPreferencePage" category="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentPreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentNewFileWizard" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentNewFileWizard" name="EMFText .comment file">
+		</wizard>
+		<category id="org.emftext.runtime.ui.EMFTextProjectCategory" name="EMFText Project">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextProjectCategory" icon="/icons/default_new_icon.gif" class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentNewProjectWizard" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentNewProjectWizard" name="EMFText comment project" project="true">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentMarkerResolutionGenerator" markerType="org.servicifi.gelato.language.cobol.comment.resource.comment.problem">
+		</markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentAnnotationModelFactory" extensions="comment">
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="org.servicifi.gelato.language.cobol.comment.resource.comment" name=".comment File" base-type="org.eclipse.core.runtime.text" file-extensions="comment">
+		</content-type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="comment" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.provider">
+		</provider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.occurences">
+		</type>
+		<type name="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.occurences.declaration" super="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.occurences">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.occurences" label="Occurrences (in .comment files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="comment.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="comment.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="comment.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="comment.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="comment.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="comment.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="comment.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="comment.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="comment.occurrenceTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+		<specification annotationType="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.occurences.declaration" label="Declarations (in .comment files)" textPreferenceKey="comment.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="comment.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="comment.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="comment.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="comment.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="comment.declarationTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.ui.commands">
+		<category description="All commands belonging to Comment" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.command.category" name="Comment">
+		</category>
+		<command categoryId="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.command.category" description="Toggle comment of the selected lines" id="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.command.togglecomment" name="Toggle Comment">
+		</command>
+	</extension>
+	
+	<extension point="org.eclipse.ui.handlers">
+		<handler class="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.CommentToggleCommentHandler" commandId="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.command.togglecomment">
+		</handler>
+	</extension>
+	
+	<extension point="org.eclipse.ui.contexts">
+		<context name="Editing Comment Files" description="Editing Comment Files Context" parentId="org.eclipse.ui.textEditorScope" id="org.servicifi.gelato.language.cobol.comment.resource.comment.EditorScope">
+		</context>
+	</extension>
+	
+	<extension point="org.eclipse.ui.bindings">
+		<key sequence="M1+7" commandId="org.servicifi.gelato.language.cobol.comment.resource.comment.ui.command.togglecomment" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" contextId="org.servicifi.gelato.language.cobol.comment.resource.comment.EditorScope">
+		</key>
+	</extension>
+	
+</plugin>

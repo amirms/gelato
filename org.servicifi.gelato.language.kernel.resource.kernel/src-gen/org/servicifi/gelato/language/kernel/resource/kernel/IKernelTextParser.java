@@ -6,6 +6,9 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel;
 
+import java.util.List;
+import org.eclipse.emf.ecore.EClass;
+
 /**
  * A text parser parses a text into a tree of <code>EObject</code>s. It is
  * associated with a <code>TextResource</code>.
@@ -13,17 +16,22 @@ package org.servicifi.gelato.language.kernel.resource.kernel;
 public interface IKernelTextParser extends org.servicifi.gelato.language.kernel.resource.kernel.IKernelConfigurable {
 	
 	/**
+	 * <p>
 	 * Parses the content given to the parser and create a tree of EObjects. The root
 	 * of this tree is wrapped together with some commands that might be executed
 	 * after parsing into a result object.
+	 * </p>
 	 * 
 	 * @return the result of the parse process
 	 */
 	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelParseResult parse();
 	
 	/**
+	 * <p>
 	 * Parses the document and returns a list of expected elements. Each expected
 	 * element covers a range in the input stream.
+	 * </p>
+	 * <p>
 	 * If the parser implementation can not determine expected elements null can be
 	 * returned. This method is used by the code completion to figure out which
 	 * proposals can be shown to users for a given cursor position. The class
@@ -31,8 +39,9 @@ public interface IKernelTextParser extends org.servicifi.gelato.language.kernel.
 	 * <code>null</code>, the start symbols from the syntax specification are used.
 	 * The <code>cursorPosition</code> is used to discard expected elements, which
 	 * will not be needed.
+	 * </p>
 	 */
-	public java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedTerminal> parseToExpectedElements(org.eclipse.emf.ecore.EClass type, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource dummyResource, int cursorOffset);
+	public List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelExpectedTerminal> parseToExpectedElements(EClass type, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource dummyResource, int cursorOffset);
 	
 	/**
 	 * Signals the parse to terminate parsing as soon as possible. This method must be

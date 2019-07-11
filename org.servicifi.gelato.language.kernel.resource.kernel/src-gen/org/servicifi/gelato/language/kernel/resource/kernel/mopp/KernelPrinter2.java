@@ -6,15 +6,36 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.util.Enumerator;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
+
 public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextPrinter {
 	
 	protected class PrintToken {
 		
 		private String text;
 		private String tokenName;
-		private org.eclipse.emf.ecore.EObject container;
+		private EObject container;
 		
-		public PrintToken(String text, String tokenName, org.eclipse.emf.ecore.EObject container) {
+		public PrintToken(String text, String tokenName, EObject container) {
 			this.text = text;
 			this.tokenName = tokenName;
 			this.container = container;
@@ -28,7 +49,7 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 			return tokenName;
 		}
 		
-		public org.eclipse.emf.ecore.EObject getContainer() {
+		public EObject getContainer() {
 			return container;
 		}
 		
@@ -48,19 +69,19 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	 */
 	protected class PrintCountingMap {
 		
-		private java.util.Map<String, java.util.List<Object>> featureToValuesMap = new java.util.LinkedHashMap<String, java.util.List<Object>>();
-		private java.util.Map<String, java.util.Set<Integer>> featureToPrintedIndicesMap = new java.util.LinkedHashMap<String, java.util.Set<Integer>>();
+		private Map<String, List<Object>> featureToValuesMap = new LinkedHashMap<String, List<Object>>();
+		private Map<String, Set<Integer>> featureToPrintedIndicesMap = new LinkedHashMap<String, Set<Integer>>();
 		
-		public void setFeatureValues(String featureName, java.util.List<Object> values) {
+		public void setFeatureValues(String featureName, List<Object> values) {
 			featureToValuesMap.put(featureName, values);
 			// If the feature does not have values it won't be printed. An entry in
 			// 'featureToPrintedIndicesMap' is therefore not needed in this case.
 			if (values != null) {
-				featureToPrintedIndicesMap.put(featureName, new java.util.LinkedHashSet<Integer>());
+				featureToPrintedIndicesMap.put(featureName, new LinkedHashSet<Integer>());
 			}
 		}
 		
-		public java.util.Set<Integer> getIndicesToPrint(String featureName) {
+		public Set<Integer> getIndicesToPrint(String featureName) {
 			return featureToPrintedIndicesMap.get(featureName);
 		}
 		
@@ -69,19 +90,19 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		}
 		
 		public int getCountLeft(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal terminal) {
-			org.eclipse.emf.ecore.EStructuralFeature feature = terminal.getFeature();
+			EStructuralFeature feature = terminal.getFeature();
 			String featureName = feature.getName();
-			java.util.List<Object> totalValuesToPrint = featureToValuesMap.get(featureName);
-			java.util.Set<Integer> printedIndices = featureToPrintedIndicesMap.get(featureName);
+			List<Object> totalValuesToPrint = featureToValuesMap.get(featureName);
+			Set<Integer> printedIndices = featureToPrintedIndicesMap.get(featureName);
 			if (totalValuesToPrint == null) {
 				return 0;
 			}
-			if (feature instanceof org.eclipse.emf.ecore.EAttribute) {
+			if (feature instanceof EAttribute) {
 				// for attributes we do not need to check the type, since the CS languages does
 				// not allow type restrictions for attributes.
 				return totalValuesToPrint.size() - printedIndices.size();
-			} else if (feature instanceof org.eclipse.emf.ecore.EReference) {
-				org.eclipse.emf.ecore.EReference reference = (org.eclipse.emf.ecore.EReference) feature;
+			} else if (feature instanceof EReference) {
+				EReference reference = (EReference) feature;
 				if (!reference.isContainment()) {
 					// for non-containment references we also do not need to check the type, since the
 					// CS languages does not allow type restrictions for these either.
@@ -90,8 +111,8 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 			}
 			// now we're left with containment references for which we check the type of the
 			// objects to print
-			java.util.List<Class<?>> allowedTypes = getAllowedTypes(terminal);
-			java.util.Set<Integer> indicesWithCorrectType = new java.util.LinkedHashSet<Integer>();
+			List<Class<?>> allowedTypes = getAllowedTypes(terminal);
+			Set<Integer> indicesWithCorrectType = new LinkedHashSet<Integer>();
 			int index = 0;
 			for (Object valueToPrint : totalValuesToPrint) {
 				for (Class<?> allowedType : allowedTypes) {
@@ -122,10 +143,10 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	 */
 	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource;
 	
-	private java.util.Map<?, ?> options;
-	private java.io.OutputStream outputStream;
+	private Map<?, ?> options;
+	private OutputStream outputStream;
 	private String encoding = System.getProperty("file.encoding");
-	protected java.util.List<PrintToken> tokenOutputStream;
+	protected List<PrintToken> tokenOutputStream;
 	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolverFactory tokenResolverFactory = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenResolverFactory();
 	private boolean handleTokenSpaceAutomatically = true;
 	private int tokenSpace = 1;
@@ -157,25 +178,25 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	 */
 	private boolean startedPrintingContainedObject;
 	
-	public KernelPrinter2(java.io.OutputStream outputStream, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource) {
+	public KernelPrinter2(OutputStream outputStream, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource) {
 		super();
 		this.outputStream = outputStream;
 		this.resource = resource;
 	}
 	
-	public void print(org.eclipse.emf.ecore.EObject element) throws java.io.IOException {
-		tokenOutputStream = new java.util.ArrayList<PrintToken>();
+	public void print(EObject element) throws IOException {
+		tokenOutputStream = new ArrayList<PrintToken>();
 		currentTabs = 0;
 		tabsBeforeCurrentObject = 0;
 		startedPrintingObject = true;
 		startedPrintingContainedObject = false;
-		java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement>  formattingElements = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement>();
+		List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement>  formattingElements = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement>();
 		doPrint(element, formattingElements);
 		// print all remaining formatting elements
-		java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations = getCopyOfLayoutInformation(element);
+		List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations = getCopyOfLayoutInformation(element);
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation eofLayoutInformation = getLayoutInformation(layoutInformations, null, null, null);
 		printFormattingElements(element, formattingElements, layoutInformations, eofLayoutInformation);
-		java.io.PrintWriter writer = new java.io.PrintWriter(new java.io.OutputStreamWriter(new java.io.BufferedOutputStream(outputStream), encoding));
+		PrintWriter writer = new PrintWriter(new OutputStreamWriter(new BufferedOutputStream(outputStream), encoding));
 		if (handleTokenSpaceAutomatically) {
 			printSmart(writer);
 		} else {
@@ -184,12 +205,12 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		writer.flush();
 	}
 	
-	protected void doPrint(org.eclipse.emf.ecore.EObject element, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements) {
+	protected void doPrint(EObject element, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements) {
 		if (element == null) {
-			throw new java.lang.IllegalArgumentException("Nothing to write.");
+			throw new IllegalArgumentException("Nothing to write.");
 		}
 		if (outputStream == null) {
-			throw new java.lang.IllegalArgumentException("Nothing to write on.");
+			throw new IllegalArgumentException("Nothing to write on.");
 		}
 		
 		if (element instanceof org.servicifi.gelato.language.kernel.containers.CompilationUnit) {
@@ -260,24 +281,28 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_17, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.references.Argument) {
+		if (element instanceof org.servicifi.gelato.language.kernel.references.ArgumentReference) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_18, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Expression) {
+		if (element instanceof org.servicifi.gelato.language.kernel.references.EmptyArgument) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_19, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Defines) {
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Expression) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_20, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Uses) {
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Defines) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_21, foundFormattingElements);
 			return;
 		}
-		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Affects) {
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Uses) {
 			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_22, foundFormattingElements);
+			return;
+		}
+		if (element instanceof org.servicifi.gelato.language.kernel.expressions.Affects) {
+			printInternal(element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.KERNEL_23, foundFormattingElements);
 			return;
 		}
 		if (element instanceof org.servicifi.gelato.language.kernel.dataitems.DataItem) {
@@ -288,8 +313,8 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		addWarningToResource("The printer can not handle " + element.eClass().getName() + " elements", element);
 	}
 	
-	public void printInternal(org.eclipse.emf.ecore.EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement ruleElement, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements) {
-		java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations = getCopyOfLayoutInformation(eObject);
+	public void printInternal(EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement ruleElement, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements) {
+		List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations = getCopyOfLayoutInformation(eObject);
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator decoratorTree = getDecoratorTree(ruleElement);
 		decorateTree(decoratorTree, eObject);
 		printTree(decoratorTree, eObject, foundFormattingElements, layoutInformations);
@@ -310,9 +335,9 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return decorator;
 	}
 	
-	public void decorateTree(org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator decorator, org.eclipse.emf.ecore.EObject eObject) {
+	public void decorateTree(org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator decorator, EObject eObject) {
 		PrintCountingMap printCountingMap = initializePrintCountingMap(eObject);
-		java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator> keywordsToPrint = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator>();
+		List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator> keywordsToPrint = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator>();
 		decorateTreeBasic(decorator, eObject, printCountingMap, keywordsToPrint);
 		for (org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator keywordToPrint : keywordsToPrint) {
 			// for keywords the concrete index does not matter, but we must add one to
@@ -325,19 +350,19 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	 * Tries to decorate the decorator with an attribute value, or reference held by
 	 * the given EObject. Returns true if an attribute value or reference was found.
 	 */
-	public boolean decorateTreeBasic(org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator decorator, org.eclipse.emf.ecore.EObject eObject, PrintCountingMap printCountingMap, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator> keywordsToPrint) {
+	public boolean decorateTreeBasic(org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator decorator, EObject eObject, PrintCountingMap printCountingMap, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator> keywordsToPrint) {
 		boolean foundFeatureToPrint = false;
 		org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement syntaxElement = decorator.getDecoratedElement();
 		org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality cardinality = syntaxElement.getCardinality();
 		boolean isFirstIteration = true;
 		while (true) {
-			java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator> subKeywordsToPrint = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator>();
+			List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator> subKeywordsToPrint = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator>();
 			boolean keepDecorating = false;
 			if (syntaxElement instanceof org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword) {
 				subKeywordsToPrint.add(decorator);
 			} else if (syntaxElement instanceof org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal) {
 				org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal terminal = (org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal) syntaxElement;
-				org.eclipse.emf.ecore.EStructuralFeature feature = terminal.getFeature();
+				EStructuralFeature feature = terminal.getFeature();
 				if (feature == org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.ANONYMOUS_FEATURE) {
 					return false;
 				}
@@ -405,15 +430,15 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return foundFeatureToPrint;
 	}
 	
-	private int findElementWithCorrectType(org.eclipse.emf.ecore.EObject eObject, org.eclipse.emf.ecore.EStructuralFeature feature, java.util.Set<Integer> indicesToPrint, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment containment) {
+	private int findElementWithCorrectType(EObject eObject, EStructuralFeature feature, Set<Integer> indicesToPrint, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment containment) {
 		// By default the type restrictions that are defined in the CS definition are
 		// considered when printing models. You can change this behavior by setting the
 		// 'ignoreTypeRestrictionsForPrinting' option to true.
 		boolean ignoreTypeRestrictions = false;
-		org.eclipse.emf.ecore.EClass[] allowedTypes = containment.getAllowedTypes();
+		EClass[] allowedTypes = containment.getAllowedTypes();
 		Object value = eObject.eGet(feature);
-		if (value instanceof java.util.List<?>) {
-			java.util.List<?> valueList = (java.util.List<?>) value;
+		if (value instanceof List<?>) {
+			List<?> valueList = (List<?>) value;
 			int listSize = valueList.size();
 			for (int index = 0; index < listSize; index++) {
 				if (indicesToPrint.contains(index)) {
@@ -439,11 +464,11 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	 * multiple choices are available. We pick the choice that prints at least one
 	 * attribute or reference.
 	 */
-	public boolean doesPrintFeature(org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator decorator, org.eclipse.emf.ecore.EObject eObject, PrintCountingMap printCountingMap) {
+	public boolean doesPrintFeature(org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator decorator, EObject eObject, PrintCountingMap printCountingMap) {
 		org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement syntaxElement = decorator.getDecoratedElement();
 		if (syntaxElement instanceof org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal) {
 			org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal terminal = (org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal) syntaxElement;
-			org.eclipse.emf.ecore.EStructuralFeature feature = terminal.getFeature();
+			EStructuralFeature feature = terminal.getFeature();
 			if (feature == org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelGrammarInformationProvider.ANONYMOUS_FEATURE) {
 				return false;
 			}
@@ -461,10 +486,10 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return false;
 	}
 	
-	public boolean printTree(org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator decorator, org.eclipse.emf.ecore.EObject eObject, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
+	public boolean printTree(org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxElementDecorator decorator, EObject eObject, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
 		org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement printElement = decorator.getDecoratedElement();
 		org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality cardinality = printElement.getCardinality();
-		java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> cloned = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement>();
+		List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> cloned = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement>();
 		cloned.addAll(foundFormattingElements);
 		boolean foundSomethingAtAll = false;
 		boolean foundSomethingToPrint;
@@ -524,23 +549,23 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return foundSomethingToPrint;
 	}
 	
-	public void printKeyword(org.eclipse.emf.ecore.EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword keyword, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
+	public void printKeyword(EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelKeyword keyword, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation keywordLayout = getLayoutInformation(layoutInformations, keyword, null, eObject);
 		printFormattingElements(eObject, foundFormattingElements, layoutInformations, keywordLayout);
 		String value = keyword.getValue();
 		tokenOutputStream.add(new PrintToken(value, "'" + org.servicifi.gelato.language.kernel.resource.kernel.util.KernelStringUtil.escapeToANTLRKeyword(value) + "'", eObject));
 	}
 	
-	public void printFeature(org.eclipse.emf.ecore.EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder placeholder, int count, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
-		org.eclipse.emf.ecore.EStructuralFeature feature = placeholder.getFeature();
-		if (feature instanceof org.eclipse.emf.ecore.EAttribute) {
-			printAttribute(eObject, (org.eclipse.emf.ecore.EAttribute) feature, placeholder, count, foundFormattingElements, layoutInformations);
+	public void printFeature(EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder placeholder, int count, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
+		EStructuralFeature feature = placeholder.getFeature();
+		if (feature instanceof EAttribute) {
+			printAttribute(eObject, (EAttribute) feature, placeholder, count, foundFormattingElements, layoutInformations);
 		} else {
-			printReference(eObject, (org.eclipse.emf.ecore.EReference) feature, placeholder, count, foundFormattingElements, layoutInformations);
+			printReference(eObject, (EReference) feature, placeholder, count, foundFormattingElements, layoutInformations);
 		}
 	}
 	
-	public void printAttribute(org.eclipse.emf.ecore.EObject eObject, org.eclipse.emf.ecore.EAttribute attribute, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder placeholder, int index, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
+	public void printAttribute(EObject eObject, EAttribute attribute, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder placeholder, int index, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
 		String result = null;
 		Object attributeValue = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEObjectUtil.getFeatureValue(eObject, attribute, index);
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation attributeLayout = getLayoutInformation(layoutInformations, placeholder, attributeValue, eObject);
@@ -567,8 +592,8 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	}
 	
 	
-	public void printBooleanTerminal(org.eclipse.emf.ecore.EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelBooleanTerminal booleanTerminal, int index, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
-		org.eclipse.emf.ecore.EAttribute attribute = booleanTerminal.getAttribute();
+	public void printBooleanTerminal(EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelBooleanTerminal booleanTerminal, int index, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
+		EAttribute attribute = booleanTerminal.getAttribute();
 		String result = null;
 		Object attributeValue = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEObjectUtil.getFeatureValue(eObject, attribute, index);
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation attributeLayout = getLayoutInformation(layoutInformations, booleanTerminal, attributeValue, eObject);
@@ -596,8 +621,8 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	}
 	
 	
-	public void printEnumerationTerminal(org.eclipse.emf.ecore.EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelEnumerationTerminal enumTerminal, int index, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
-		org.eclipse.emf.ecore.EAttribute attribute = enumTerminal.getAttribute();
+	public void printEnumerationTerminal(EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelEnumerationTerminal enumTerminal, int index, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
+		EAttribute attribute = enumTerminal.getAttribute();
 		String result = null;
 		Object attributeValue = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEObjectUtil.getFeatureValue(eObject, attribute, index);
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation attributeLayout = getLayoutInformation(layoutInformations, enumTerminal, attributeValue, eObject);
@@ -610,8 +635,8 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		if (result == null) {
 			// if no text is available, the enumeration attribute is converted to its textual
 			// representation using the literals of the enumeration terminal
-			assert attributeValue instanceof org.eclipse.emf.common.util.Enumerator;
-			result = enumTerminal.getText(((org.eclipse.emf.common.util.Enumerator) attributeValue).getName());
+			assert attributeValue instanceof Enumerator;
+			result = enumTerminal.getText(((Enumerator) attributeValue).getName());
 		}
 		
 		if (result != null && !"".equals(result)) {
@@ -622,8 +647,8 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	}
 	
 	
-	public void printContainedObject(org.eclipse.emf.ecore.EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment containment, int index, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
-		org.eclipse.emf.ecore.EStructuralFeature reference = containment.getFeature();
+	public void printContainedObject(EObject eObject, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment containment, int index, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
+		EStructuralFeature reference = containment.getFeature();
 		Object o = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEObjectUtil.getFeatureValue(eObject, reference, index);
 		// save current number of tabs to restore them after printing the contained object
 		int oldTabsBeforeCurrentObject = tabsBeforeCurrentObject;
@@ -633,13 +658,13 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		// printed with the old number of tabs.
 		startedPrintingContainedObject = false;
 		currentTabs = 0;
-		doPrint((org.eclipse.emf.ecore.EObject) o, foundFormattingElements);
+		doPrint((EObject) o, foundFormattingElements);
 		// restore number of tabs after printing the contained object
 		tabsBeforeCurrentObject = oldTabsBeforeCurrentObject;
 		currentTabs = oldCurrentTabs;
 	}
 	
-	public void printFormattingElements(org.eclipse.emf.ecore.EObject eObject, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation layoutInformation) {
+	public void printFormattingElements(EObject eObject, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation layoutInformation) {
 		String hiddenTokenText = getHiddenTokenText(layoutInformation);
 		if (hiddenTokenText != null) {
 			// removed used information
@@ -695,8 +720,8 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		startedPrintingContainedObject = true;
 	}
 	
-	@SuppressWarnings("unchecked")	
-	public void printReference(org.eclipse.emf.ecore.EObject eObject, org.eclipse.emf.ecore.EReference reference, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder placeholder, int index, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
+	@SuppressWarnings("unchecked")
+	public void printReference(EObject eObject, EReference reference, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelPlaceholder placeholder, int index, List<org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelFormattingElement> foundFormattingElements, List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations) {
 		String tokenName = placeholder.getTokenName();
 		Object referencedObject = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEObjectUtil.getFeatureValue(eObject, reference, index, false);
 		// first add layout before the reference
@@ -704,10 +729,10 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		printFormattingElements(eObject, foundFormattingElements, layoutInformations, referenceLayout);
 		// proxy objects must be printed differently
 		String deresolvedReference = null;
-		if (referencedObject instanceof org.eclipse.emf.ecore.EObject) {
-			org.eclipse.emf.ecore.EObject eObjectToDeResolve = (org.eclipse.emf.ecore.EObject) referencedObject;
+		if (referencedObject instanceof EObject) {
+			EObject eObjectToDeResolve = (EObject) referencedObject;
 			if (eObjectToDeResolve.eIsProxy()) {
-				deresolvedReference = ((org.eclipse.emf.ecore.InternalEObject) eObjectToDeResolve).eProxyURI().fragment();
+				deresolvedReference = ((InternalEObject) eObjectToDeResolve).eProxyURI().fragment();
 				// If the proxy was created by EMFText, we can try to recover the identifier from
 				// the proxy URI
 				if (deresolvedReference != null && deresolvedReference.startsWith(org.servicifi.gelato.language.kernel.resource.kernel.IKernelContextDependentURIFragment.INTERNAL_URI_FRAGMENT_PREFIX)) {
@@ -720,10 +745,10 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 			// NC-References must always be printed by deresolving the reference. We cannot
 			// use the visible token information, because deresolving usually depends on
 			// attribute values of the referenced object instead of the object itself.
-			@SuppressWarnings("rawtypes")			
+			@SuppressWarnings("rawtypes")
 			org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceResolver referenceResolver = getReferenceResolverSwitch().getResolver(reference);
 			referenceResolver.setOptions(getOptions());
-			deresolvedReference = referenceResolver.deResolve((org.eclipse.emf.ecore.EObject) referencedObject, eObject, reference);
+			deresolvedReference = referenceResolver.deResolve((EObject) referencedObject, eObject, reference);
 		}
 		org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver tokenResolver = tokenResolverFactory.createTokenResolver(tokenName);
 		tokenResolver.setOptions(getOptions());
@@ -732,26 +757,26 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		tokenOutputStream.add(new PrintToken(deresolvedToken, tokenName, eObject));
 	}
 	
-	@SuppressWarnings("unchecked")	
-	public PrintCountingMap initializePrintCountingMap(org.eclipse.emf.ecore.EObject eObject) {
+	@SuppressWarnings("unchecked")
+	public PrintCountingMap initializePrintCountingMap(EObject eObject) {
 		// The PrintCountingMap contains a mapping from feature names to the number of
 		// remaining elements that still need to be printed. The map is initialized with
 		// the number of elements stored in each structural feature. For lists this is the
 		// list size. For non-multiple features it is either 1 (if the feature is set) or
 		// 0 (if the feature is null).
 		PrintCountingMap printCountingMap = new PrintCountingMap();
-		java.util.List<org.eclipse.emf.ecore.EStructuralFeature> features = eObject.eClass().getEAllStructuralFeatures();
-		for (org.eclipse.emf.ecore.EStructuralFeature feature : features) {
+		List<EStructuralFeature> features = eObject.eClass().getEAllStructuralFeatures();
+		for (EStructuralFeature feature : features) {
 			// We get the feature value without resolving it, because resolving is not
 			// required to count the number of elements that are referenced by the feature.
 			// Moreover, triggering reference resolving is not desired here, because we'd also
 			// like to print models that contain unresolved references.
 			Object featureValue = eObject.eGet(feature, false);
 			if (featureValue != null) {
-				if (featureValue instanceof java.util.List<?>) {
-					printCountingMap.setFeatureValues(feature.getName(), (java.util.List<Object>) featureValue);
+				if (featureValue instanceof List<?>) {
+					printCountingMap.setFeatureValues(feature.getName(), (List<Object>) featureValue);
 				} else {
-					printCountingMap.setFeatureValues(feature.getName(), java.util.Collections.singletonList(featureValue));
+					printCountingMap.setFeatureValues(feature.getName(), Collections.singletonList(featureValue));
 				}
 			} else {
 				printCountingMap.setFeatureValues(feature.getName(), null);
@@ -760,11 +785,11 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return printCountingMap;
 	}
 	
-	public java.util.Map<?,?> getOptions() {
+	public Map<?,?> getOptions() {
 		return options;
 	}
 	
-	public void setOptions(java.util.Map<?,?> options) {
+	public void setOptions(Map<?,?> options) {
 		this.options = options;
 	}
 	
@@ -786,7 +811,7 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return (org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelReferenceResolverSwitch) new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelMetaInformation().getReferenceResolverSwitch();
 	}
 	
-	protected void addWarningToResource(final String errorMessage, org.eclipse.emf.ecore.EObject cause) {
+	protected void addWarningToResource(final String errorMessage, EObject cause) {
 		org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource = getResource();
 		if (resource == null) {
 			// the resource can be null if the printer is used stand alone
@@ -795,8 +820,8 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		resource.addProblem(new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelProblem(errorMessage, org.servicifi.gelato.language.kernel.resource.kernel.KernelEProblemType.PRINT_PROBLEM, org.servicifi.gelato.language.kernel.resource.kernel.KernelEProblemSeverity.WARNING), cause);
 	}
 	
-	protected org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter getLayoutInformationAdapter(org.eclipse.emf.ecore.EObject element) {
-		for (org.eclipse.emf.common.notify.Adapter adapter : element.eAdapters()) {
+	protected org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter getLayoutInformationAdapter(EObject element) {
+		for (Adapter adapter : element.eAdapters()) {
 			if (adapter instanceof org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter) {
 				return (org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter) adapter;
 			}
@@ -806,7 +831,7 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return newAdapter;
 	}
 	
-	private org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation getLayoutInformation(java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement syntaxElement, Object object, org.eclipse.emf.ecore.EObject container) {
+	private org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation getLayoutInformation(List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement syntaxElement, Object object, EObject container) {
 		for (org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation layoutInformation : layoutInformations) {
 			if (syntaxElement == layoutInformation.getSyntaxElement()) {
 				if (object == null) {
@@ -816,8 +841,8 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 				// to, if we compare with a non-proxy object. If we're printing a resource that
 				// contains proxy objects, resolving must not be triggered.
 				boolean isNoProxy = true;
-				if (object instanceof org.eclipse.emf.ecore.EObject) {
-					org.eclipse.emf.ecore.EObject eObject = (org.eclipse.emf.ecore.EObject) object;
+				if (object instanceof EObject) {
+					EObject eObject = (EObject) object;
 					isNoProxy = !eObject.eIsProxy();
 				}
 				if (isSame(object, layoutInformation.getObject(container, isNoProxy))) {
@@ -828,12 +853,12 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return null;
 	}
 	
-	public java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> getCopyOfLayoutInformation(org.eclipse.emf.ecore.EObject eObject) {
+	public List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> getCopyOfLayoutInformation(EObject eObject) {
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter layoutInformationAdapter = getLayoutInformationAdapter(eObject);
-		java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> originalLayoutInformations = layoutInformationAdapter.getLayoutInformations();
+		List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> originalLayoutInformations = layoutInformationAdapter.getLayoutInformations();
 		// create a copy of the original list of layout information object in order to be
 		// able to remove used informations during printing
-		java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation>(originalLayoutInformations.size());
+		List<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation> layoutInformations = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformation>(originalLayoutInformations.size());
 		layoutInformations.addAll(originalLayoutInformations);
 		return layoutInformations;
 	}
@@ -877,20 +902,25 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	/**
 	 * Prints the current tokenOutputStream to the given writer (as it is).
 	 */
-	public void printBasic(java.io.PrintWriter writer) throws java.io.IOException {
+	public void printBasic(PrintWriter writer) throws IOException {
 		for (PrintToken nextToken : tokenOutputStream) {
 			writer.write(nextToken.getText());
 		}
 	}
 	
 	/**
+	 * <p>
 	 * Prints the current tokenOutputStream to the given writer.
+	 * </p>
 	 * 
+	 * <p>
 	 * This methods implements smart whitespace printing. It does so by writing output
 	 * to a token stream instead of printing the raw token text to a PrintWriter.
 	 * Tokens in this stream hold both the text and the type of the token (i.e., its
 	 * name).
+	 * </p>
 	 * 
+	 * <p>
 	 * To decide where whitespace is needed, sequences of successive tokens are
 	 * searched that can be printed without separating whitespace. To determine such
 	 * groups we start with two successive non-whitespace tokens, concatenate their
@@ -899,8 +929,9 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 	 * to be printed, no whitespace is needed. The tokens in the sequence are checked
 	 * both regarding their type and their text. If two tokens successfully form a
 	 * group a third one is added and so on.
+	 * </p>
 	 */
-	public void printSmart(java.io.PrintWriter writer) throws java.io.IOException {
+	public void printSmart(PrintWriter writer) throws IOException {
 		// stores the text of the current group of tokens. this text is given to the lexer
 		// to check whether it can be correctly scanned.
 		StringBuilder currentBlock = new StringBuilder();
@@ -930,7 +961,7 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 			org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextScanner scanner = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelMetaInformation().createLexer();
 			scanner.setText(currentBlock.toString());
 			// retrieve all tokens from scanner and add them to list 'tempTokens'
-			java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken> tempTokens = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken>();
+			List<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken> tempTokens = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken>();
 			org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken nextToken = scanner.getNextToken();
 			while (nextToken != null && nextToken.getText() != null) {
 				tempTokens.add(nextToken);
@@ -990,15 +1021,15 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return o1 == o2;
 	}
 	
-	protected java.util.List<Class<?>> getAllowedTypes(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal terminal) {
-		java.util.List<Class<?>> allowedTypes = new java.util.ArrayList<Class<?>>();
+	protected List<Class<?>> getAllowedTypes(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal terminal) {
+		List<Class<?>> allowedTypes = new ArrayList<Class<?>>();
 		allowedTypes.add(terminal.getFeature().getEType().getInstanceClass());
 		if (terminal instanceof org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment) {
 			org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment printingContainment = (org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelContainment) terminal;
-			org.eclipse.emf.ecore.EClass[] typeRestrictions = printingContainment.getAllowedTypes();
+			EClass[] typeRestrictions = printingContainment.getAllowedTypes();
 			if (typeRestrictions != null && typeRestrictions.length > 0) {
 				allowedTypes.clear();
-				for (org.eclipse.emf.ecore.EClass eClass : typeRestrictions) {
+				for (EClass eClass : typeRestrictions) {
 					allowedTypes.add(eClass.getInstanceClass());
 				}
 			}
@@ -1006,15 +1037,21 @@ public class KernelPrinter2 implements org.servicifi.gelato.language.kernel.reso
 		return allowedTypes;
 	}
 	
-	protected PrintToken createSpaceToken(org.eclipse.emf.ecore.EObject container) {
+	protected PrintToken createSpaceToken(EObject container) {
 		return new PrintToken(" ", null, container);
 	}
 	
-	protected PrintToken createTabToken(org.eclipse.emf.ecore.EObject container) {
+	protected PrintToken createTabToken(EObject container) {
 		return new PrintToken("\t", null, container);
 	}
 	
-	protected PrintToken createNewLineToken(org.eclipse.emf.ecore.EObject container) {
+	protected PrintToken createNewLineToken(EObject container) {
+		if (options != null) {
+			Object lineBreaks = options.get(org.servicifi.gelato.language.kernel.resource.kernel.IKernelOptions.LINE_DELIMITER_FOR_PRINTING);
+			if (lineBreaks != null && lineBreaks instanceof String) {
+				return new PrintToken((String) lineBreaks, null, container);
+			}
+		}
 		return new PrintToken(NEW_LINE, null, container);
 	}
 	

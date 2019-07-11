@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+
 public class KernelResourcePostProcessor implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelResourcePostProcessor {
 	
 	public void process(org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource resource) {

@@ -1,16 +1,15 @@
 package org.servicifi.gelato.analysis.framework.sdg;
 
-import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.jgrapht.graph.DefaultDirectedGraph;
-import org.jgrapht.graph.DirectedAcyclicGraph;
 import org.servicifi.gelato.analysis.framework.sdg.slicer.SDGSlicer;
+import org.servicifi.gelato.analysis.framework.sdg.util.GraphExporter;
 
-public class SDG extends DefaultDirectedGraph<Node, Edge> {	
-	
+public class SDG extends DefaultDirectedGraph<Node, Edge> {
+
 	private static final long serialVersionUID = 1L;
 
 	public SDG() {
@@ -28,7 +27,7 @@ public class SDG extends DefaultDirectedGraph<Node, Edge> {
 		}
 		return null;
 	}
-	
+
 	public Set<Edge> outgoingEdgesOf(Node v) {
 		Set<Edge> es = edgeSet().stream().filter(e -> e.getSource() == v).collect(Collectors.toSet());
 		return es;
@@ -53,10 +52,11 @@ public class SDG extends DefaultDirectedGraph<Node, Edge> {
 		return SDGSlicer.forward(this, S);
 	}
 
-	public Node getVertex(long label) {
-		return vertexSet().stream()
-				  .filter(v -> v.getLabel().equals(label+""))
-				  .findAny()
-				  .orElse(null);
+	public Node getVertex(double label) {
+		return vertexSet().stream().filter(v -> v.getLabel().equals(label + "")).findAny().orElse(null);
+	}
+
+	public void exportAsDot(String path, String filename) {
+		GraphExporter.exportAsDot(this, path, filename);
 	}
 }

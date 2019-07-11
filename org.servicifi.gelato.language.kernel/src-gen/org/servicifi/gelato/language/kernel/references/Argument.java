@@ -2,6 +2,7 @@
  */
 package org.servicifi.gelato.language.kernel.references;
 
+import org.eclipse.emf.ecore.EObject;
 import org.servicifi.gelato.language.kernel.parameters.Parameter;
 
 /**
@@ -13,7 +14,7 @@ import org.servicifi.gelato.language.kernel.parameters.Parameter;
  * @see org.servicifi.gelato.language.kernel.references.ReferencesPackage#getArgument()
  * @generated
  */
-public interface Argument extends ElementReference {
+public interface Argument extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <p>

@@ -84,6 +84,7 @@ public class ExitEntryPairImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AnalysisResult> getEntry() {
 		if (entry == null) {
 			entry = new EObjectResolvingEList<AnalysisResult>(AnalysisResult.class, this, AnalysesPackage.EXIT_ENTRY_PAIR__ENTRY);
@@ -96,6 +97,7 @@ public class ExitEntryPairImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<AnalysisResult> getExit() {
 		if (exit == null) {
 			exit = new EObjectResolvingEList<AnalysisResult>(AnalysisResult.class, this, AnalysesPackage.EXIT_ENTRY_PAIR__EXIT);

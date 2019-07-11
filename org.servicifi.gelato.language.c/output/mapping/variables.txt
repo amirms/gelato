@@ -1,0 +1,8 @@
+var2:input
+var1:#return_readEmployeeDetails
+var0:num
+var7:i
+var4:infile
+var3:es
+var5: ACCOUNTS_FILE
+var6: stderr

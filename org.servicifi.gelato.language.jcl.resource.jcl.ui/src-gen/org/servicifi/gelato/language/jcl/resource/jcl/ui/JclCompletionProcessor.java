@@ -6,66 +6,86 @@
  */
 package org.servicifi.gelato.language.jcl.resource.jcl.ui;
 
-public class JclCompletionProcessor implements org.eclipse.jface.text.contentassist.IContentAssistProcessor {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.text.ITextViewer;
+import org.eclipse.jface.text.contentassist.CompletionProposal;
+import org.eclipse.jface.text.contentassist.ContextInformation;
+import org.eclipse.jface.text.contentassist.ICompletionProposal;
+import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
+import org.eclipse.jface.text.contentassist.IContextInformation;
+import org.eclipse.jface.text.contentassist.IContextInformationValidator;
+import org.eclipse.swt.graphics.Image;
+
+public class JclCompletionProcessor implements IContentAssistProcessor {
 	
 	private org.servicifi.gelato.language.jcl.resource.jcl.IJclResourceProvider resourceProvider;
-	private org.servicifi.gelato.language.jcl.resource.jcl.ui.IJclBracketHandlerProvider bracketHandlerProvider;
 	
-	public JclCompletionProcessor(org.servicifi.gelato.language.jcl.resource.jcl.IJclResourceProvider resourceProvider, org.servicifi.gelato.language.jcl.resource.jcl.ui.IJclBracketHandlerProvider bracketHandlerProvider) {
+	public JclCompletionProcessor(org.servicifi.gelato.language.jcl.resource.jcl.IJclResourceProvider resourceProvider) {
+		super();
 		this.resourceProvider = resourceProvider;
-		this.bracketHandlerProvider = bracketHandlerProvider;
 	}
 	
-	public org.eclipse.jface.text.contentassist.ICompletionProposal[] computeCompletionProposals(org.eclipse.jface.text.ITextViewer viewer, int offset) {
+	public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer, int offset) {
 		org.servicifi.gelato.language.jcl.resource.jcl.IJclTextResource textResource = resourceProvider.getResource();
 		if (textResource == null) {
-			return new org.eclipse.jface.text.contentassist.ICompletionProposal[0];
+			return new ICompletionProposal[0];
 		}
 		String content = viewer.getDocument().get();
+		return computeCompletionProposals(textResource, content, offset);
+	}
+	
+	public ICompletionProposal[] computeCompletionProposals(org.servicifi.gelato.language.jcl.resource.jcl.IJclTextResource textResource, String text, int offset) {
 		org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCodeCompletionHelper helper = new org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCodeCompletionHelper();
-		org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal[] computedProposals = helper.computeCompletionProposals(textResource, content, offset);
+		org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal[] computedProposals = helper.computeCompletionProposals(textResource, text, offset);
 		
 		// call completion proposal post processor to allow for customizing the proposals
 		org.servicifi.gelato.language.jcl.resource.jcl.ui.JclProposalPostProcessor proposalPostProcessor = new org.servicifi.gelato.language.jcl.resource.jcl.ui.JclProposalPostProcessor();
-		java.util.List<org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal> computedProposalList = java.util.Arrays.asList(computedProposals);
-		java.util.List<org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal> extendedProposalList = proposalPostProcessor.process(computedProposalList);
+		List<org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal> computedProposalList = Arrays.asList(computedProposals);
+		List<org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal> extendedProposalList = proposalPostProcessor.process(computedProposalList);
 		if (extendedProposalList == null) {
-			extendedProposalList = java.util.Collections.emptyList();
+			extendedProposalList = Collections.emptyList();
 		}
-		java.util.List<org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal> finalProposalList = new java.util.ArrayList<org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal>();
+		List<org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal> finalProposalList = new ArrayList<org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal>();
 		for (org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal proposal : extendedProposalList) {
-			if (proposal.getMatchesPrefix()) {
+			if (proposal.isMatchesPrefix()) {
 				finalProposalList.add(proposal);
 			}
 		}
-		org.eclipse.jface.text.contentassist.ICompletionProposal[] result = new org.eclipse.jface.text.contentassist.ICompletionProposal[finalProposalList.size()];
+		ICompletionProposal[] result = new ICompletionProposal[finalProposalList.size()];
 		int i = 0;
 		for (org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCompletionProposal proposal : finalProposalList) {
 			String proposalString = proposal.getInsertString();
-			String displayString = proposal.getDisplayString();
+			String displayString = (proposal.getDisplayString()==null)?proposalString:proposal.getDisplayString();
 			String prefix = proposal.getPrefix();
-			org.eclipse.swt.graphics.Image image = proposal.getImage();
-			org.eclipse.jface.text.contentassist.IContextInformation info;
-			info = new org.eclipse.jface.text.contentassist.ContextInformation(image, proposalString, proposalString);
+			Image image = proposal.getImage();
+			IContextInformation info;
+			info = new ContextInformation(image, displayString, proposalString);
 			int begin = offset - prefix.length();
 			int replacementLength = prefix.length();
-			// if a closing bracket was automatically inserted right before, we enlarge the
-			// replacement length in order to overwrite the bracket.
-			org.servicifi.gelato.language.jcl.resource.jcl.ui.IJclBracketHandler bracketHandler = bracketHandlerProvider.getBracketHandler();
-			String closingBracket = bracketHandler.getClosingBracket();
-			if (bracketHandler.addedClosingBracket() && proposalString.endsWith(closingBracket)) {
-				replacementLength += closingBracket.length();
-			}
-			result[i++] = new org.eclipse.jface.text.contentassist.CompletionProposal(proposalString, begin, replacementLength, proposalString.length(), image, displayString, info, proposalString);
+			result[i++] = new CompletionProposal(proposalString, begin, replacementLength, proposalString.length(), image, displayString, info, proposalString);
 		}
 		return result;
 	}
 	
-	public org.eclipse.jface.text.contentassist.IContextInformation[] computeContextInformation(org.eclipse.jface.text.ITextViewer viewer, int offset) {
+	public IContextInformation[] computeContextInformation(ITextViewer viewer, int offset) {
 		return null;
 	}
 	
 	public char[] getCompletionProposalAutoActivationCharacters() {
+		IPreferenceStore preferenceStore = org.servicifi.gelato.language.jcl.resource.jcl.ui.JclUIPlugin.getDefault().getPreferenceStore();
+		boolean enabled = preferenceStore.getBoolean(org.servicifi.gelato.language.jcl.resource.jcl.ui.JclPreferenceConstants.EDITOR_CONTENT_ASSIST_ENABLED);
+		String triggerString = preferenceStore.getString(org.servicifi.gelato.language.jcl.resource.jcl.ui.JclPreferenceConstants.EDITOR_CONTENT_ASSIST_TRIGGERS);
+		if(enabled && triggerString != null && triggerString.length() > 0){
+			char[] triggers = new char[triggerString.length()];
+			for (int i = 0; i < triggerString.length(); i++) {
+				triggers[i] = triggerString.charAt(i);
+			}
+			return triggers;
+		}
 		return null;
 	}
 	
@@ -73,7 +93,7 @@ public class JclCompletionProcessor implements org.eclipse.jface.text.contentass
 		return null;
 	}
 	
-	public org.eclipse.jface.text.contentassist.IContextInformationValidator getContextInformationValidator() {
+	public IContextInformationValidator getContextInformationValidator() {
 		return null;
 	}
 	

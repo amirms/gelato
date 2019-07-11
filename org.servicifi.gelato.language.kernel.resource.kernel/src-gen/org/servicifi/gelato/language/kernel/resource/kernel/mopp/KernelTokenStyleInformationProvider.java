@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+
 public class KernelTokenStyleInformationProvider {
 	
 	public static String TASK_ITEM_TOKEN_NAME = "TASK_ITEM";
@@ -84,6 +85,9 @@ public class KernelTokenStyleInformationProvider {
 			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("val".equals(tokenName)) {
+			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
+		}
+		if ("none".equals(tokenName)) {
 			return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyle(new int[] {0x80, 0x00, 0x55}, null, true, false, false, false);
 		}
 		if ("defines".equals(tokenName)) {

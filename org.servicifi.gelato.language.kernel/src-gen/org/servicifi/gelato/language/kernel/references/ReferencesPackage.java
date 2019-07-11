@@ -143,22 +143,61 @@ public interface ReferencesPackage extends EPackage {
 	int ARGUMENT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARGUMENT__TARGET = ELEMENT_REFERENCE__TARGET;
-
-	/**
 	 * The number of structural features of the '<em>Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARGUMENT_FEATURE_COUNT = ELEMENT_REFERENCE_FEATURE_COUNT + 0;
+	int ARGUMENT_FEATURE_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.references.impl.ArgumentReferenceImpl <em>Argument Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.servicifi.gelato.language.kernel.references.impl.ArgumentReferenceImpl
+	 * @see org.servicifi.gelato.language.kernel.references.impl.ReferencesPackageImpl#getArgumentReference()
+	 * @generated
+	 */
+	int ARGUMENT_REFERENCE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT_REFERENCE__TARGET = ARGUMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Argument Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT_REFERENCE_FEATURE_COUNT = ARGUMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.servicifi.gelato.language.kernel.references.impl.EmptyArgumentImpl <em>Empty Argument</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.servicifi.gelato.language.kernel.references.impl.EmptyArgumentImpl
+	 * @see org.servicifi.gelato.language.kernel.references.impl.ReferencesPackageImpl#getEmptyArgument()
+	 * @generated
+	 */
+	int EMPTY_ARGUMENT = 5;
+
+	/**
+	 * The number of structural features of the '<em>Empty Argument</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMPTY_ARGUMENT_FEATURE_COUNT = ARGUMENT_FEATURE_COUNT + 0;
 
 
 	/**
@@ -211,6 +250,26 @@ public interface ReferencesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getArgument();
+
+	/**
+	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.references.ArgumentReference <em>Argument Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Argument Reference</em>'.
+	 * @see org.servicifi.gelato.language.kernel.references.ArgumentReference
+	 * @generated
+	 */
+	EClass getArgumentReference();
+
+	/**
+	 * Returns the meta object for class '{@link org.servicifi.gelato.language.kernel.references.EmptyArgument <em>Empty Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Empty Argument</em>'.
+	 * @see org.servicifi.gelato.language.kernel.references.EmptyArgument
+	 * @generated
+	 */
+	EClass getEmptyArgument();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -281,6 +340,26 @@ public interface ReferencesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ARGUMENT = eINSTANCE.getArgument();
+
+		/**
+		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.references.impl.ArgumentReferenceImpl <em>Argument Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.servicifi.gelato.language.kernel.references.impl.ArgumentReferenceImpl
+		 * @see org.servicifi.gelato.language.kernel.references.impl.ReferencesPackageImpl#getArgumentReference()
+		 * @generated
+		 */
+		EClass ARGUMENT_REFERENCE = eINSTANCE.getArgumentReference();
+
+		/**
+		 * The meta object literal for the '{@link org.servicifi.gelato.language.kernel.references.impl.EmptyArgumentImpl <em>Empty Argument</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.servicifi.gelato.language.kernel.references.impl.EmptyArgumentImpl
+		 * @see org.servicifi.gelato.language.kernel.references.impl.ReferencesPackageImpl#getEmptyArgument()
+		 * @generated
+		 */
+		EClass EMPTY_ARGUMENT = eINSTANCE.getEmptyArgument();
 
 	}
 

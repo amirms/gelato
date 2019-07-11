@@ -6,6 +6,9 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * The KernelTokenResolverFactory class provides access to all generated token
  * resolvers. By giving the name of a defined token, the corresponding resolve can
@@ -16,13 +19,13 @@ package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
  */
 public class KernelTokenResolverFactory implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolverFactory {
 	
-	private java.util.Map<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver> tokenName2TokenResolver;
-	private java.util.Map<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver> featureName2CollectInTokenResolver;
+	private Map<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver> tokenName2TokenResolver;
+	private Map<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver> featureName2CollectInTokenResolver;
 	private static org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver defaultResolver = new org.servicifi.gelato.language.kernel.resource.kernel.analysis.KernelDefaultTokenResolver();
 	
 	public KernelTokenResolverFactory() {
-		tokenName2TokenResolver = new java.util.LinkedHashMap<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver>();
-		featureName2CollectInTokenResolver = new java.util.LinkedHashMap<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver>();
+		tokenName2TokenResolver = new LinkedHashMap<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver>();
+		featureName2CollectInTokenResolver = new LinkedHashMap<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver>();
 		registerTokenResolver("CHARACTER_LITERAL", new org.servicifi.gelato.language.kernel.resource.kernel.analysis.KernelCHARACTER_LITERALTokenResolver());
 		registerTokenResolver("IDENTIFIER", new org.servicifi.gelato.language.kernel.resource.kernel.analysis.KernelIDENTIFIERTokenResolver());
 	}
@@ -47,7 +50,7 @@ public class KernelTokenResolverFactory implements org.servicifi.gelato.language
 		return tokenName2TokenResolver.remove(tokenName);
 	}
 	
-	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver internalCreateResolver(java.util.Map<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver> resolverMap, String key) {
+	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver internalCreateResolver(Map<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver> resolverMap, String key) {
 		if (resolverMap.containsKey(key)){
 			return resolverMap.get(key);
 		} else {
@@ -55,7 +58,7 @@ public class KernelTokenResolverFactory implements org.servicifi.gelato.language
 		}
 	}
 	
-	private boolean internalRegisterTokenResolver(java.util.Map<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver> resolverMap, String key, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver resolver) {
+	private boolean internalRegisterTokenResolver(Map<String, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver> resolverMap, String key, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTokenResolver resolver) {
 		if (!resolverMap.containsKey(key)) {
 			resolverMap.put(key,resolver);
 			return true;

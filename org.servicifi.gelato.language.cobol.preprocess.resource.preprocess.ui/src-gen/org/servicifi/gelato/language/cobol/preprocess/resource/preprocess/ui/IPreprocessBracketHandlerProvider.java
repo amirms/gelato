@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui;
 
+
 /**
  * A provider for BracketHandler objects.
  */

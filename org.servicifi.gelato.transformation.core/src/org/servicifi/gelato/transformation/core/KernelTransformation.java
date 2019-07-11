@@ -13,8 +13,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 
-
-import org.eclipse.m2m.internal.qvt.oml.library.Context.SessionDataImpl;
 import org.servicifi.gelato.language.cobol.CobolClasspath;
 import org.servicifi.gelato.transformation.core.statistics.StatisticsCollector;
 import org.servicifi.gelato.transformation.core.transformation.QVTOTransformationWrapper;

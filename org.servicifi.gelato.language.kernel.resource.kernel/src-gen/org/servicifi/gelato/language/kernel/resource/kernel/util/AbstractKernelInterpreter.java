@@ -6,6 +6,53 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.util;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EmptyStackException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Stack;
+import org.eclipse.emf.ecore.EObject;
+import org.servicifi.gelato.language.kernel.commons.NamedElement;
+import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
+import org.servicifi.gelato.language.kernel.containers.KernelRoot;
+import org.servicifi.gelato.language.kernel.dataitems.DataItem;
+import org.servicifi.gelato.language.kernel.expressions.Affects;
+import org.servicifi.gelato.language.kernel.expressions.Defines;
+import org.servicifi.gelato.language.kernel.expressions.Definition;
+import org.servicifi.gelato.language.kernel.expressions.Expression;
+import org.servicifi.gelato.language.kernel.expressions.SubExpression;
+import org.servicifi.gelato.language.kernel.expressions.Usage;
+import org.servicifi.gelato.language.kernel.expressions.Uses;
+import org.servicifi.gelato.language.kernel.parameters.Parameter;
+import org.servicifi.gelato.language.kernel.procedures.MainProcedure;
+import org.servicifi.gelato.language.kernel.procedures.Procedure;
+import org.servicifi.gelato.language.kernel.references.Argument;
+import org.servicifi.gelato.language.kernel.references.ArgumentReference;
+import org.servicifi.gelato.language.kernel.references.ElementReference;
+import org.servicifi.gelato.language.kernel.references.EmptyArgument;
+import org.servicifi.gelato.language.kernel.references.Reference;
+import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
+import org.servicifi.gelato.language.kernel.statements.Abort;
+import org.servicifi.gelato.language.kernel.statements.Block;
+import org.servicifi.gelato.language.kernel.statements.Condition;
+import org.servicifi.gelato.language.kernel.statements.Conditional;
+import org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement;
+import org.servicifi.gelato.language.kernel.statements.ExpressionStatement;
+import org.servicifi.gelato.language.kernel.statements.Goto;
+import org.servicifi.gelato.language.kernel.statements.Jump;
+import org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock;
+import org.servicifi.gelato.language.kernel.statements.ParallelBlock;
+import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
+import org.servicifi.gelato.language.kernel.statements.Return;
+import org.servicifi.gelato.language.kernel.statements.Skip;
+import org.servicifi.gelato.language.kernel.statements.Statement;
+import org.servicifi.gelato.language.kernel.statements.StatementContainer;
+import org.servicifi.gelato.language.kernel.statements.StatementListContainer;
+import org.servicifi.gelato.language.kernel.statements.StatementWithException;
+import org.servicifi.gelato.language.kernel.statements.WhileLoop;
+
 /**
  * This class provides basic infrastructure to interpret models. To implement
  * concrete interpreters, subclass this abstract interpreter and override the
@@ -20,19 +67,19 @@ package org.servicifi.gelato.language.kernel.resource.kernel.util;
  */
 public class AbstractKernelInterpreter<ResultType, ContextType> {
 	
-	private java.util.Stack<org.eclipse.emf.ecore.EObject> interpretationStack = new java.util.Stack<org.eclipse.emf.ecore.EObject>();
-	private java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.IKernelInterpreterListener> listeners = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelInterpreterListener>();
-	private org.eclipse.emf.ecore.EObject nextObjectToInterprete;
-	private Object currentContext;
+	private Stack<EObject> interpretationStack = new Stack<EObject>();
+	private List<org.servicifi.gelato.language.kernel.resource.kernel.IKernelInterpreterListener> listeners = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelInterpreterListener>();
+	private EObject nextObjectToInterprete;
+	private ContextType currentContext;
 	
 	public ResultType interprete(ContextType context) {
 		ResultType result = null;
-		org.eclipse.emf.ecore.EObject next = null;
+		EObject next = null;
 		currentContext = context;
 		while (!interpretationStack.empty()) {
 			try {
 				next = interpretationStack.pop();
-			} catch (java.util.EmptyStackException ese) {
+			} catch (EmptyStackException ese) {
 				// this can happen when the interpreter was terminated between the call to empty()
 				// and pop()
 				break;
@@ -56,7 +103,7 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		return true;
 	}
 	
-	public ResultType interprete(org.eclipse.emf.ecore.EObject object, ContextType context) {
+	public ResultType interprete(EObject object, ContextType context) {
 		ResultType result = null;
 		if (object instanceof org.servicifi.gelato.language.kernel.dataitems.DataItem) {
 			result = interprete_org_servicifi_gelato_language_kernel_dataitems_DataItem((org.servicifi.gelato.language.kernel.dataitems.DataItem) object, context);
@@ -112,6 +159,12 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.kernel.statements.Skip) {
+			result = interprete_org_servicifi_gelato_language_kernel_statements_Skip((org.servicifi.gelato.language.kernel.statements.Skip) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.kernel.statements.Statement) {
 			result = interprete_org_servicifi_gelato_language_kernel_statements_Statement((org.servicifi.gelato.language.kernel.statements.Statement) object, context);
 		}
@@ -162,12 +215,6 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		}
 		if (object instanceof org.servicifi.gelato.language.kernel.statements.ExpressionStatement) {
 			result = interprete_org_servicifi_gelato_language_kernel_statements_ExpressionStatement((org.servicifi.gelato.language.kernel.statements.ExpressionStatement) object, context);
-		}
-		if (result != null) {
-			return result;
-		}
-		if (object instanceof org.servicifi.gelato.language.kernel.statements.Skip) {
-			result = interprete_org_servicifi_gelato_language_kernel_statements_Skip((org.servicifi.gelato.language.kernel.statements.Skip) object, context);
 		}
 		if (result != null) {
 			return result;
@@ -250,6 +297,12 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.kernel.references.ArgumentReference) {
+			result = interprete_org_servicifi_gelato_language_kernel_references_ArgumentReference((org.servicifi.gelato.language.kernel.references.ArgumentReference) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.kernel.references.ElementReference) {
 			result = interprete_org_servicifi_gelato_language_kernel_references_ElementReference((org.servicifi.gelato.language.kernel.references.ElementReference) object, context);
 		}
@@ -268,6 +321,12 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		if (result != null) {
 			return result;
 		}
+		if (object instanceof org.servicifi.gelato.language.kernel.references.EmptyArgument) {
+			result = interprete_org_servicifi_gelato_language_kernel_references_EmptyArgument((org.servicifi.gelato.language.kernel.references.EmptyArgument) object, context);
+		}
+		if (result != null) {
+			return result;
+		}
 		if (object instanceof org.servicifi.gelato.language.kernel.references.Argument) {
 			result = interprete_org_servicifi_gelato_language_kernel_references_Argument((org.servicifi.gelato.language.kernel.references.Argument) object, context);
 		}
@@ -277,151 +336,159 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		return result;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_commons_NamedElement(org.servicifi.gelato.language.kernel.commons.NamedElement namedElement, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_commons_NamedElement(NamedElement namedElement, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_dataitems_DataItem(org.servicifi.gelato.language.kernel.dataitems.DataItem dataItem, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_dataitems_DataItem(DataItem dataItem, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Statement(org.servicifi.gelato.language.kernel.statements.Statement statement, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Statement(Statement statement, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_StatementListContainer(org.servicifi.gelato.language.kernel.statements.StatementListContainer statementListContainer, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_StatementListContainer(StatementListContainer statementListContainer, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_StatementContainer(org.servicifi.gelato.language.kernel.statements.StatementContainer statementContainer, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_StatementContainer(StatementContainer statementContainer, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Condition(org.servicifi.gelato.language.kernel.statements.Condition condition, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Condition(Condition condition, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_WhileLoop(org.servicifi.gelato.language.kernel.statements.WhileLoop whileLoop, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_WhileLoop(WhileLoop whileLoop, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Block(org.servicifi.gelato.language.kernel.statements.Block block, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Block(Block block, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Jump(org.servicifi.gelato.language.kernel.statements.Jump jump, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Jump(Jump jump, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Goto(org.servicifi.gelato.language.kernel.statements.Goto _goto, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Goto(Goto _goto, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock(org.servicifi.gelato.language.kernel.statements.NonDeterministicBlock nonDeterministicBlock, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_NonDeterministicBlock(NonDeterministicBlock nonDeterministicBlock, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ParallelBlock(org.servicifi.gelato.language.kernel.statements.ParallelBlock parallelBlock, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ParallelBlock(ParallelBlock parallelBlock, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Abort(org.servicifi.gelato.language.kernel.statements.Abort abort, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Abort(Abort abort, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement(org.servicifi.gelato.language.kernel.statements.ExceptionHandlerStatement exceptionHandlerStatement, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ExceptionHandlerStatement(ExceptionHandlerStatement exceptionHandlerStatement, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_StatementWithException(org.servicifi.gelato.language.kernel.statements.StatementWithException statementWithException, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_StatementWithException(StatementWithException statementWithException, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Conditional(org.servicifi.gelato.language.kernel.statements.Conditional conditional, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Conditional(Conditional conditional, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ProcedureCall(org.servicifi.gelato.language.kernel.statements.ProcedureCall procedureCall, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ProcedureCall(ProcedureCall procedureCall, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ExpressionStatement(org.servicifi.gelato.language.kernel.statements.ExpressionStatement expressionStatement, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_ExpressionStatement(ExpressionStatement expressionStatement, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Skip(org.servicifi.gelato.language.kernel.statements.Skip skip, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Skip(Skip skip, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Return(org.servicifi.gelato.language.kernel.statements.Return _return, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_statements_Return(Return _return, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Expression(org.servicifi.gelato.language.kernel.expressions.Expression expression, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Expression(Expression expression, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_SubExpression(org.servicifi.gelato.language.kernel.expressions.SubExpression subExpression, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_SubExpression(SubExpression subExpression, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Defines(org.servicifi.gelato.language.kernel.expressions.Defines defines, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Defines(Defines defines, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Affects(org.servicifi.gelato.language.kernel.expressions.Affects affects, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Affects(Affects affects, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Uses(org.servicifi.gelato.language.kernel.expressions.Uses uses, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Uses(Uses uses, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Definition(org.servicifi.gelato.language.kernel.expressions.Definition definition, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Definition(Definition definition, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Usage(org.servicifi.gelato.language.kernel.expressions.Usage usage, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_expressions_Usage(Usage usage, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_procedures_Procedure(org.servicifi.gelato.language.kernel.procedures.Procedure procedure, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_procedures_Procedure(Procedure procedure, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_procedures_MainProcedure(org.servicifi.gelato.language.kernel.procedures.MainProcedure mainProcedure, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_procedures_MainProcedure(MainProcedure mainProcedure, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_parameters_Parameter(org.servicifi.gelato.language.kernel.parameters.Parameter parameter, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_parameters_Parameter(Parameter parameter, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_containers_KernelRoot(org.servicifi.gelato.language.kernel.containers.KernelRoot kernelRoot, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_containers_KernelRoot(KernelRoot kernelRoot, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_containers_CompilationUnit(org.servicifi.gelato.language.kernel.containers.CompilationUnit compilationUnit, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_containers_CompilationUnit(CompilationUnit compilationUnit, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_references_ElementReference(org.servicifi.gelato.language.kernel.references.ElementReference elementReference, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_references_ElementReference(ElementReference elementReference, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_references_ReferenceableElement(org.servicifi.gelato.language.kernel.references.ReferenceableElement referenceableElement, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_references_ReferenceableElement(ReferenceableElement referenceableElement, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_references_Reference(org.servicifi.gelato.language.kernel.references.Reference reference, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_references_Reference(Reference reference, ContextType context) {
 		return null;
 	}
 	
-	public ResultType interprete_org_servicifi_gelato_language_kernel_references_Argument(org.servicifi.gelato.language.kernel.references.Argument argument, ContextType context) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_references_Argument(Argument argument, ContextType context) {
 		return null;
 	}
 	
-	private void notifyListeners(org.eclipse.emf.ecore.EObject element) {
+	public ResultType interprete_org_servicifi_gelato_language_kernel_references_ArgumentReference(ArgumentReference argumentReference, ContextType context) {
+		return null;
+	}
+	
+	public ResultType interprete_org_servicifi_gelato_language_kernel_references_EmptyArgument(EmptyArgument emptyArgument, ContextType context) {
+		return null;
+	}
+	
+	private void notifyListeners(EObject element) {
 		for (org.servicifi.gelato.language.kernel.resource.kernel.IKernelInterpreterListener listener : listeners) {
 			listener.handleInterpreteObject(element);
 		}
@@ -431,7 +498,7 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 	 * Adds the given object to the interpretation stack. Attention: Objects that are
 	 * added first, are interpret last.
 	 */
-	public void addObjectToInterprete(org.eclipse.emf.ecore.EObject object) {
+	public void addObjectToInterprete(EObject object) {
 		interpretationStack.push(object);
 	}
 	
@@ -439,8 +506,8 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 	 * Adds the given collection of objects to the interpretation stack. Attention:
 	 * Collections that are added first, are interpret last.
 	 */
-	public void addObjectsToInterprete(java.util.Collection<? extends org.eclipse.emf.ecore.EObject> objects) {
-		for (org.eclipse.emf.ecore.EObject object : objects) {
+	public void addObjectsToInterprete(Collection<? extends EObject> objects) {
+		for (EObject object : objects) {
 			addObjectToInterprete(object);
 		}
 	}
@@ -449,10 +516,10 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 	 * Adds the given collection of objects in reverse order to the interpretation
 	 * stack.
 	 */
-	public void addObjectsToInterpreteInReverseOrder(java.util.Collection<? extends org.eclipse.emf.ecore.EObject> objects) {
-		java.util.List<org.eclipse.emf.ecore.EObject> reverse = new java.util.ArrayList<org.eclipse.emf.ecore.EObject>(objects.size());
+	public void addObjectsToInterpreteInReverseOrder(Collection<? extends EObject> objects) {
+		List<EObject> reverse = new ArrayList<EObject>(objects.size());
 		reverse.addAll(objects);
-		java.util.Collections.reverse(reverse);
+		Collections.reverse(reverse);
 		addObjectsToInterprete(reverse);
 	}
 	
@@ -460,12 +527,12 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 	 * Adds the given object and all its children to the interpretation stack such
 	 * that they are interpret in top down order.
 	 */
-	public void addObjectTreeToInterpreteTopDown(org.eclipse.emf.ecore.EObject root) {
-		java.util.List<org.eclipse.emf.ecore.EObject> objects = new java.util.ArrayList<org.eclipse.emf.ecore.EObject>();
+	public void addObjectTreeToInterpreteTopDown(EObject root) {
+		List<EObject> objects = new ArrayList<EObject>();
 		objects.add(root);
-		java.util.Iterator<org.eclipse.emf.ecore.EObject> it = root.eAllContents();
+		Iterator<EObject> it = root.eAllContents();
 		while (it.hasNext()) {
-			org.eclipse.emf.ecore.EObject eObject = (org.eclipse.emf.ecore.EObject) it.next();
+			EObject eObject = (EObject) it.next();
 			objects.add(eObject);
 		}
 		addObjectsToInterpreteInReverseOrder(objects);
@@ -479,11 +546,11 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		return listeners.remove(listener);
 	}
 	
-	public org.eclipse.emf.ecore.EObject getNextObjectToInterprete() {
+	public EObject getNextObjectToInterprete() {
 		return nextObjectToInterprete;
 	}
 	
-	public java.util.Stack<org.eclipse.emf.ecore.EObject> getInterpretationStack() {
+	public Stack<EObject> getInterpretationStack() {
 		return interpretationStack;
 	}
 	
@@ -491,7 +558,7 @@ public class AbstractKernelInterpreter<ResultType, ContextType> {
 		interpretationStack.clear();
 	}
 	
-	public Object getCurrentContext() {
+	public ContextType getCurrentContext() {
 		return currentContext;
 	}
 	

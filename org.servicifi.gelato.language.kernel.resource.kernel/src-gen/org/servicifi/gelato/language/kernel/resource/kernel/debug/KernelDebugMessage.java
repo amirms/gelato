@@ -6,6 +6,9 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.debug;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * DebugMessages are exchanged between the debug server (the Eclipse debug
  * framework) and the debug client (a running process or interpreter). To exchange
@@ -23,7 +26,7 @@ public class KernelDebugMessage {
 		this.arguments = arguments;
 	}
 	
-	public KernelDebugMessage(org.servicifi.gelato.language.kernel.resource.kernel.debug.EKernelDebugMessageTypes messageType, java.util.List<String> arguments) {
+	public KernelDebugMessage(org.servicifi.gelato.language.kernel.resource.kernel.debug.EKernelDebugMessageTypes messageType, List<String> arguments) {
 		super();
 		this.messageType = messageType;
 		this.arguments = new String[arguments.size()];
@@ -41,7 +44,7 @@ public class KernelDebugMessage {
 	}
 	
 	public String serialize() {
-		java.util.List<String> parts = new java.util.ArrayList<String>();
+		List<String> parts = new ArrayList<String>();
 		parts.add(messageType.name());
 		for (String argument : arguments) {
 			parts.add(argument);
@@ -50,7 +53,7 @@ public class KernelDebugMessage {
 	}
 	
 	public static KernelDebugMessage deserialize(String response) {
-		java.util.List<String> parts = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelStringUtil.decode(response, DELIMITER);
+		List<String> parts = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelStringUtil.decode(response, DELIMITER);
 		String messageType = parts.get(0);
 		String[] arguments = new String[parts.size() - 1];
 		for (int i = 1; i < parts.size(); i++) {

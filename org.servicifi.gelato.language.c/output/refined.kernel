@@ -1,0 +1,74 @@
+var var4;
+var var5;
+var var6;
+var var9;
+var var10;
+var var11;
+var var13;
+var var14;
+var var15;
+var var16;
+var var17;
+var var18;
+var var19;
+var var20;
+var var7;
+var var8;
+var var0;
+var var12;
+var var2;
+var var21;
+var var22;
+var var23;
+var var24;
+
+
+2.0:Procedure updateEmployeeDetails(val var2){
+	36.0:36.1:[uses(var7);defines(var11)];
+	37.0:if(38.0:[uses(var11)])then
+		40.0:{
+			43.0:43.1:[];42.0:42.1:[uses(var8)];
+		};
+	46.0:46.1:[];
+	45.0:45.1:[uses(var11)];
+	47.0:while(61.1:[uses(var10);uses(var10);uses(var11)])do 47.1:{
+		48.0:if(51.1:[uses(var10);uses(var2)])then
+			52.0:{
+				55.0:55.1:[];54.0:54.1:[uses(var11);uses(var12)];58.0:58.1:[];57.0:57.1:[uses(var10);uses(var11)];59.0:goto ;
+			};
+	};
+	66.0:66.1:[];
+	65.0:65.1:[uses(var11)];
+	67.0:return;
+}
+
+3.0:Procedure main1(){
+	70.0:70.1:[];
+	69.0:69.1:[];
+	73.0:73.1:[];
+	72.0:72.1:[uses(var15);defines(var15)];
+	75.0:call readEmployeeDetails(var15,var20);
+	76.0:while(164.0:[])do 76.1:{
+		79.0:79.1:[];78.0:78.1:[];82.0:82.1:[];81.0:81.1:[uses(var17);defines(var17)];84.0:84.1:[defines(var16)];139.0:139.1:[defines(var13)];85.0:while(141.0:[uses(var13);uses(var15)])do 85.1:{
+		86.0:if(87.0:[uses(var17);uses(var20);uses(var13)])then
+			90.0:{
+				93.0:94.0:[defines(var21);uses(var20);uses(var13)];97.0:97.1:[];96.0:96.1:[];100.0:100.1:[];99.0:99.1:[uses(var21);defines(var21)];103.0:103.1:[];102.0:102.1:[];106.0:106.1:[];105.0:105.1:[uses(var18);defines(var18)];109.0:109.1:[defines(var21);uses(var21);uses(var18);uses(var21);uses(var21)];110.0:if(111.0:[uses(var21);uses(var22)])then
+				113.0:{
+					116.0:116.1:[defines(var19);uses(var21);uses(var22);uses(var23);uses(var22);uses(var24)];
+				}
+			else
+				117.0:{
+					119.0:119.1:[defines(var19);uses(var21);uses(var24)];
+				};121.0:121.1:[defines(var21);uses(var21);uses(var19);uses(var21)];124.0:124.1:[];123.0:123.1:[uses(var21)];127.0:127.1:[];126.0:126.1:[uses(var17)];130.0:130.1:[];129.0:129.1:[uses(var21)];132.0:call updateEmployeeDetails(var21);135.0:135.1:[];134.0:134.1:[];137.0:137.1:[defines(var16)];138.0:goto ;
+			};143.0:143.1:[uses(var13)];
+	};145.0:if(146.0:[uses(var16)])then
+		148.0:{
+			151.0:151.1:[];150.0:150.1:[];
+		};154.0:154.1:[];153.0:153.1:[];157.0:157.1:[];156.0:156.1:[uses(var14);defines(var14)];158.0:if(159.0:[uses(var14)])then
+		161.0:{
+			162.0:goto ;
+		};
+	};
+	166.0:166.1:[];
+	165.0:return;
+}

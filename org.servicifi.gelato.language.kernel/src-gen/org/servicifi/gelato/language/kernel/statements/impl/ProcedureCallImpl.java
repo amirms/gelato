@@ -26,7 +26,9 @@ import org.servicifi.gelato.analysis.framework.analyses.*;
 import org.servicifi.gelato.analysis.framework.commons.*;
 
 import org.servicifi.gelato.language.kernel.references.Argument;
+import org.servicifi.gelato.language.kernel.references.ArgumentReference;
 import org.servicifi.gelato.language.kernel.references.ElementReference;
+import org.servicifi.gelato.language.kernel.references.EmptyArgument;
 import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
 import org.servicifi.gelato.language.kernel.references.ReferencesPackage;
 
@@ -423,8 +425,15 @@ public class ProcedureCallImpl extends StatementImpl implements ProcedureCall {
 				if (result.getVariable().equals(a)) {
 					// remove analysis result
 					results.remove(j);
-					// get the ith actual parameter
-					Variable v = (Variable) this.getArguments().get(i).getTarget();
+					// get the ith actual parameter (argument)
+					
+					Argument argument = this.getArguments().get(i);
+					
+					if (argument instanceof EmptyArgument) {
+						continue;
+					}
+					
+					Variable v = (Variable) ((ArgumentReference)argument).getTarget();
 					System.out.println(v);
 					results.add(j, AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(v, result.getLabel()));
 				}
@@ -442,7 +451,13 @@ public class ProcedureCallImpl extends StatementImpl implements ProcedureCall {
 		org.servicifi.gelato.language.kernel.procedures.Procedure p = (org.servicifi.gelato.language.kernel.procedures.Procedure) callee;
 
 		for (int i = 0; i < this.getArguments().size(); i++) {
-			Variable a = (Variable) this.getArguments().get(i).getTarget();
+			Argument argument = this.getArguments().get(i);
+			
+			if(argument instanceof EmptyArgument) {
+				continue;
+			}
+			
+			Variable a = (Variable) ((ArgumentReference)argument).getTarget();
 
 			// replace in the x and add to result
 			for (int j = 0; j < results.size(); j++) {

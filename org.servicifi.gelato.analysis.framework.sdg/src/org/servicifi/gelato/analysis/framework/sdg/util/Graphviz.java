@@ -120,7 +120,7 @@ public class Graphviz {
       executable = "/usr/local/bin/dot";
     } else if (Graphviz.osName.equals("Linux")) {
       tempDir = "/tmp";
-      executable = "/usr/bin/dot";
+      executable = "dot";
     }
   }
 

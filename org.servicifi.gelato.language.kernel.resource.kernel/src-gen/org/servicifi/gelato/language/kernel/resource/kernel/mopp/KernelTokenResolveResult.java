@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+
 /**
  * A basic implementation of the ITokenResolveResult interface.
  */

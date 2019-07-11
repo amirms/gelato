@@ -6,10 +6,12 @@
  */
 package org.servicifi.gelato.language.cobol.resource.cobol.ui;
 
+import org.eclipse.jface.action.IAction;
+
 public class CobolOutlinePageExpandAllAction extends org.servicifi.gelato.language.cobol.resource.cobol.ui.AbstractCobolOutlinePageAction {
 	
 	public CobolOutlinePageExpandAllAction(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolOutlinePageTreeViewer treeViewer) {
-		super(treeViewer, "Expand all", org.eclipse.jface.action.IAction.AS_PUSH_BUTTON);
+		super(treeViewer, "Expand all", IAction.AS_PUSH_BUTTON);
 		initialize("icons/expand_all_icon.gif");
 	}
 	

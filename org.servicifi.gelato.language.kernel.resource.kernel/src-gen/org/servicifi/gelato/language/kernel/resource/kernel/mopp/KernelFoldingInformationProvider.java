@@ -6,10 +6,12 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import org.eclipse.emf.ecore.EClass;
+
 public class KernelFoldingInformationProvider {
 	
-	public org.eclipse.emf.ecore.EClass[] getFoldableClasses() {
-		return new org.eclipse.emf.ecore.EClass[] {
+	public EClass[] getFoldableClasses() {
+		return new EClass[] {
 		};
 	}
 	

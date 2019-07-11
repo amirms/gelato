@@ -6,6 +6,10 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel;
 
+import java.util.Collection;
+import java.util.Set;
+import org.eclipse.emf.ecore.EClass;
+
 /**
  * An element that is expected at a given position in a resource stream.
  */
@@ -14,17 +18,17 @@ public interface IKernelExpectedElement {
 	/**
 	 * Returns the names of all tokens that are expected at the given position.
 	 */
-	public java.util.Set<String> getTokenNames();
+	public Set<String> getTokenNames();
 	
 	/**
 	 * Returns the metaclass of the rule that contains the expected element.
 	 */
-	public org.eclipse.emf.ecore.EClass getRuleMetaclass();
+	public EClass getRuleMetaclass();
 	
 	/**
 	 * Returns the syntax element that is expected.
 	 */
-	public org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement getSymtaxElement();
+	public org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement getSyntaxElement();
 	
 	/**
 	 * Adds an element that is a valid follower for this element.
@@ -36,6 +40,6 @@ public interface IKernelExpectedElement {
 	 * pair of an expected elements and the containment trace that leads from the
 	 * current element to the follower.
 	 */
-	public java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[]>> getFollowers();
+	public Collection<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[]>> getFollowers();
 	
 }

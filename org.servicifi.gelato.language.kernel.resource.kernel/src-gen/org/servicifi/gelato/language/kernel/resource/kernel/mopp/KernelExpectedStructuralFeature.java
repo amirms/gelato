@@ -6,6 +6,10 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.util.Collections;
+import java.util.Set;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 /**
  * A representation for a range in a document where a structural feature (e.g., a
  * reference) is expected.
@@ -19,14 +23,14 @@ public class KernelExpectedStructuralFeature extends org.servicifi.gelato.langua
 		this.placeholder = placeholder;
 	}
 	
-	public org.eclipse.emf.ecore.EStructuralFeature getFeature() {
+	public EStructuralFeature getFeature() {
 		return placeholder.getFeature();
 	}
 	
 	/**
 	 * Returns the expected placeholder.
 	 */
-	public org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement getSymtaxElement() {
+	public org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement getSyntaxElement() {
 		return placeholder;
 	}
 	
@@ -34,8 +38,8 @@ public class KernelExpectedStructuralFeature extends org.servicifi.gelato.langua
 		return placeholder.getTokenName();
 	}
 	
-	public java.util.Set<String> getTokenNames() {
-		return java.util.Collections.singleton(getTokenName());
+	public Set<String> getTokenNames() {
+		return Collections.singleton(getTokenName());
 	}
 	
 	public String toString() {
@@ -48,7 +52,7 @@ public class KernelExpectedStructuralFeature extends org.servicifi.gelato.langua
 		}
 		return false;
 	}
-	@Override	
+	@Override
 	public int hashCode() {
 		return getFeature().hashCode();
 	}

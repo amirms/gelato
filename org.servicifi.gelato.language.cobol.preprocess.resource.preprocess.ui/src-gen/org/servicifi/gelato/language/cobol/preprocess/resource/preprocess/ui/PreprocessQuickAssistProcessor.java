@@ -6,7 +6,25 @@
  */
 package org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui;
 
-public class PreprocessQuickAssistProcessor implements org.eclipse.jface.text.quickassist.IQuickAssistProcessor {
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.Position;
+import org.eclipse.jface.text.contentassist.ICompletionProposal;
+import org.eclipse.jface.text.contentassist.IContextInformation;
+import org.eclipse.jface.text.quickassist.IQuickAssistInvocationContext;
+import org.eclipse.jface.text.quickassist.IQuickAssistProcessor;
+import org.eclipse.jface.text.source.Annotation;
+import org.eclipse.jface.text.source.IAnnotationModel;
+import org.eclipse.jface.text.source.ISourceViewer;
+import org.eclipse.jface.text.source.TextInvocationContext;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
+
+public class PreprocessQuickAssistProcessor implements IQuickAssistProcessor {
 	
 	private org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessResourceProvider resourceProvider;
 	private org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.IPreprocessAnnotationModelProvider annotationModelProvider;
@@ -17,40 +35,40 @@ public class PreprocessQuickAssistProcessor implements org.eclipse.jface.text.qu
 		this.annotationModelProvider = annotationModelProvider;
 	}
 	
-	public boolean canAssist(org.eclipse.jface.text.quickassist.IQuickAssistInvocationContext invocationContext) {
+	public boolean canAssist(IQuickAssistInvocationContext invocationContext) {
 		return false;
 	}
 	
-	public boolean canFix(org.eclipse.jface.text.source.Annotation annotation) {
-		java.util.Collection<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> quickFixes = getQuickFixes(annotation);
+	public boolean canFix(Annotation annotation) {
+		Collection<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> quickFixes = getQuickFixes(annotation);
 		return quickFixes.size() > 0;
 	}
 	
-	public org.eclipse.jface.text.contentassist.ICompletionProposal[] computeQuickAssistProposals(org.eclipse.jface.text.quickassist.IQuickAssistInvocationContext invocationContext) {
-		org.eclipse.jface.text.source.ISourceViewer sourceViewer = invocationContext.getSourceViewer();
+	public ICompletionProposal[] computeQuickAssistProposals(IQuickAssistInvocationContext invocationContext) {
+		ISourceViewer sourceViewer = invocationContext.getSourceViewer();
 		int offset = -1;
 		int length = 0;
-		if (invocationContext instanceof org.eclipse.jface.text.source.TextInvocationContext) {
-			org.eclipse.jface.text.source.TextInvocationContext textContext = (org.eclipse.jface.text.source.TextInvocationContext) invocationContext;
+		if (invocationContext instanceof TextInvocationContext) {
+			TextInvocationContext textContext = (TextInvocationContext) invocationContext;
 			offset = textContext.getOffset();
 			length = textContext.getLength();
 		}
-		java.util.List<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> quickFixes = getQuickFixes(sourceViewer, offset, length);
-		org.eclipse.jface.text.contentassist.ICompletionProposal[] proposals = new org.eclipse.jface.text.contentassist.ICompletionProposal[quickFixes.size()];
+		List<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> quickFixes = getQuickFixes(sourceViewer, offset, length);
+		ICompletionProposal[] proposals = new ICompletionProposal[quickFixes.size()];
 		for (int i = 0; i < proposals.length; i++) {
 			proposals[i] = createCompletionProposal(sourceViewer, quickFixes.get(i));
 		}
 		return proposals;
 	}
 	
-	private org.eclipse.jface.text.contentassist.ICompletionProposal createCompletionProposal(final org.eclipse.jface.text.source.ISourceViewer sourceViewer, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix quickFix) {
-		return new org.eclipse.jface.text.contentassist.ICompletionProposal() {
+	private ICompletionProposal createCompletionProposal(final ISourceViewer sourceViewer, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix quickFix) {
+		return new ICompletionProposal() {
 			
-			public org.eclipse.swt.graphics.Point getSelection(org.eclipse.jface.text.IDocument document) {
+			public Point getSelection(IDocument document) {
 				return null;
 			}
 			
-			public org.eclipse.swt.graphics.Image getImage() {
+			public Image getImage() {
 				return new org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessUIMetaInformation().getImageProvider().getImage(quickFix.getImageKey());
 			}
 			
@@ -58,7 +76,7 @@ public class PreprocessQuickAssistProcessor implements org.eclipse.jface.text.qu
 				return quickFix.getDisplayString();
 			}
 			
-			public org.eclipse.jface.text.contentassist.IContextInformation getContextInformation() {
+			public IContextInformation getContextInformation() {
 				return null;
 			}
 			
@@ -66,7 +84,7 @@ public class PreprocessQuickAssistProcessor implements org.eclipse.jface.text.qu
 				return null;
 			}
 			
-			public void apply(org.eclipse.jface.text.IDocument document) {
+			public void apply(IDocument document) {
 				String currentContent = sourceViewer.getDocument().get();
 				String newContent = quickFix.apply(currentContent);
 				if (newContent != null) {
@@ -76,24 +94,24 @@ public class PreprocessQuickAssistProcessor implements org.eclipse.jface.text.qu
 		};
 	}
 	
-	private java.util.List<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> getQuickFixes(org.eclipse.jface.text.source.ISourceViewer sourceViewer, int offset, int length) {
-		java.util.List<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> foundFixes = new java.util.ArrayList<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix>();
-		org.eclipse.jface.text.source.IAnnotationModel model = annotationModelProvider.getAnnotationModel();
+	private List<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> getQuickFixes(ISourceViewer sourceViewer, int offset, int length) {
+		List<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> foundFixes = new ArrayList<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix>();
+		IAnnotationModel model = annotationModelProvider.getAnnotationModel();
 		
 		if (model == null) {
 			return foundFixes;
 		}
 		
-		java.util.Iterator<?> iter = model.getAnnotationIterator();
+		Iterator<?> iter = model.getAnnotationIterator();
 		while (iter.hasNext()) {
-			org.eclipse.jface.text.source.Annotation annotation = (org.eclipse.jface.text.source.Annotation) iter.next();
-			org.eclipse.jface.text.Position position = model.getPosition(annotation);
+			Annotation annotation = (Annotation) iter.next();
+			Position position = model.getPosition(annotation);
 			if (offset >= 0) {
 				if (!position.overlapsWith(offset, length)) {
 					continue;
 				}
 			}
-			java.util.Collection<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> quickFixes = getQuickFixes(annotation);
+			Collection<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> quickFixes = getQuickFixes(annotation);
 			if (quickFixes != null) {
 				foundFixes.addAll(quickFixes);
 			}
@@ -101,16 +119,16 @@ public class PreprocessQuickAssistProcessor implements org.eclipse.jface.text.qu
 		return foundFixes;
 	}
 	
-	private java.util.Collection<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> getQuickFixes(org.eclipse.jface.text.source.Annotation annotation) {
+	private Collection<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> getQuickFixes(Annotation annotation) {
 		
-		java.util.Collection<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> foundQuickFixes = new java.util.ArrayList<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix>();
+		Collection<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix> foundQuickFixes = new ArrayList<org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessQuickFix>();
 		if (annotation.isMarkedDeleted()) {
 			return foundQuickFixes;
 		}
 		
 		if (annotation instanceof org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessMarkerAnnotation) {
 			org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessMarkerAnnotation markerAnnotation = (org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessMarkerAnnotation) annotation;
-			org.eclipse.core.resources.IMarker marker = markerAnnotation.getMarker();
+			IMarker marker = markerAnnotation.getMarker();
 			foundQuickFixes.addAll(new org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessMarkerResolutionGenerator().getQuickFixes(resourceProvider.getResource(), marker));
 		}
 		return foundQuickFixes;

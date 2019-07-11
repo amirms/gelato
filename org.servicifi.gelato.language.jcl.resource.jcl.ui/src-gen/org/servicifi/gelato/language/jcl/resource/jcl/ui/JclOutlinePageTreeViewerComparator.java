@@ -7,13 +7,21 @@
 package org.servicifi.gelato.language.jcl.resource.jcl.ui;
 
 import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerComparator;
 
-public class JclOutlinePageTreeViewerComparator extends org.eclipse.jface.viewers.ViewerComparator {
+public class JclOutlinePageTreeViewerComparator extends ViewerComparator {
 	
-	private static java.util.Map<org.eclipse.emf.ecore.EPackage, Integer> ePackageMap = new java.util.LinkedHashMap<org.eclipse.emf.ecore.EPackage, Integer>();
+	private static Map<EPackage, Integer> ePackageMap = new LinkedHashMap<EPackage, Integer>();
 	private static int nextPackageID;
 	
-	private java.util.Comparator<Object> comparator = new java.util.Comparator<Object>() {
+	private Comparator<Object> comparator = new Comparator<Object>() {
 		
 		public int compare(Object o1, Object o2) {
 			if (!sortLexically) {
@@ -38,15 +46,15 @@ public class JclOutlinePageTreeViewerComparator extends org.eclipse.jface.viewer
 		this.sortLexically = on;
 	}
 	
-	@Override	
+	@Override
 	public int category(Object element) {
 		if (!groupTypes) {
 			return 0;
 		}
-		if (element instanceof org.eclipse.emf.ecore.EObject) {
-			org.eclipse.emf.ecore.EObject eObject = (org.eclipse.emf.ecore.EObject) element;
-			org.eclipse.emf.ecore.EClass eClass = eObject.eClass();
-			org.eclipse.emf.ecore.EPackage ePackage = eClass.getEPackage();
+		if (element instanceof EObject) {
+			EObject eObject = (EObject) element;
+			EClass eClass = eObject.eClass();
+			EPackage ePackage = eClass.getEPackage();
 			int packageID = getEPackageID(ePackage);
 			int classifierID = eClass.getClassifierID();
 			return packageID + classifierID;
@@ -55,7 +63,7 @@ public class JclOutlinePageTreeViewerComparator extends org.eclipse.jface.viewer
 		}
 	}
 	
-	private int getEPackageID(org.eclipse.emf.ecore.EPackage ePackage) {
+	private int getEPackageID(EPackage ePackage) {
 		Integer packageID = ePackageMap.get(ePackage);
 		if (packageID == null) {
 			packageID = nextPackageID;
@@ -70,7 +78,7 @@ public class JclOutlinePageTreeViewerComparator extends org.eclipse.jface.viewer
 		return this.comparator;
 	}
 	
-	public int compare(org.eclipse.jface.viewers.Viewer viewer, Object o1, Object o2) {
+	public int compare(Viewer viewer, Object o1, Object o2) {
 		// first check categories
 		int cat1 = category(o1);
 		int cat2 = category(o2);
@@ -78,12 +86,12 @@ public class JclOutlinePageTreeViewerComparator extends org.eclipse.jface.viewer
 			return cat1 - cat2;
 		}
 		// then try to compare the names
-		if (sortLexically && o1 instanceof org.eclipse.emf.ecore.EObject && o2 instanceof org.eclipse.emf.ecore.EObject) {
-			org.eclipse.emf.ecore.EObject e1 = (org.eclipse.emf.ecore.EObject) o1;
-			org.eclipse.emf.ecore.EObject e2 = (org.eclipse.emf.ecore.EObject) o2;
+		if (sortLexically && o1 instanceof EObject && o2 instanceof EObject) {
+			EObject e1 = (EObject) o1;
+			EObject e2 = (EObject) o2;
 			org.servicifi.gelato.language.jcl.resource.jcl.IJclNameProvider nameProvider = new org.servicifi.gelato.language.jcl.resource.jcl.mopp.JclMetaInformation().createNameProvider();
-			java.util.List<String> names1 = nameProvider.getNames(e1);
-			java.util.List<String> names2 = nameProvider.getNames(e2);
+			List<String> names1 = nameProvider.getNames(e1);
+			List<String> names2 = nameProvider.getNames(e2);
 			if (names1 != null && !names1.isEmpty() && names2 != null && !names2.isEmpty()) {
 				String name1 = names1.get(0);
 				String name2 = names2.get(0);

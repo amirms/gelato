@@ -1,0 +1,3 @@
+TODOs:
+
+Use antlr4-maven-plugin to bundle generated source files for antlr and src directory

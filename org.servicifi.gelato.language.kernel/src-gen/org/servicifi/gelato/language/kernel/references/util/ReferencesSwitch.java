@@ -89,7 +89,21 @@ public class ReferencesSwitch<T> extends Switch<T> {
 			case ReferencesPackage.ARGUMENT: {
 				Argument argument = (Argument)theEObject;
 				T result = caseArgument(argument);
-				if (result == null) result = caseElementReference(argument);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ReferencesPackage.ARGUMENT_REFERENCE: {
+				ArgumentReference argumentReference = (ArgumentReference)theEObject;
+				T result = caseArgumentReference(argumentReference);
+				if (result == null) result = caseArgument(argumentReference);
+				if (result == null) result = caseElementReference(argumentReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ReferencesPackage.EMPTY_ARGUMENT: {
+				EmptyArgument emptyArgument = (EmptyArgument)theEObject;
+				T result = caseEmptyArgument(emptyArgument);
+				if (result == null) result = caseArgument(emptyArgument);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -154,6 +168,36 @@ public class ReferencesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseArgument(Argument object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Argument Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Argument Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArgumentReference(ArgumentReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Empty Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Empty Argument</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEmptyArgument(EmptyArgument object) {
 		return null;
 	}
 

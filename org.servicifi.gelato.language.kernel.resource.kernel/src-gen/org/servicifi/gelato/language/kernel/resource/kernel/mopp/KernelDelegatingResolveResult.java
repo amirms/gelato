@@ -6,10 +6,15 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.util.Collection;
+import org.eclipse.emf.common.util.URI;
+
 /**
+ * <p>
  * An implementation of the ResolveResult interface that delegates all method
  * calls to another ResolveResult. Client may subclass this class to easily create
  * custom ResolveResults.
+ * </p>
  * 
  * @param <ReferenceType> the type of the references that can be contained in this
  * result
@@ -26,7 +31,7 @@ public class KernelDelegatingResolveResult<ReferenceType> implements org.servici
 		return delegate.getErrorMessage();
 	}
 	
-	public java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>> getMappings() {
+	public Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>> getMappings() {
 		return delegate.getMappings();
 	}
 	
@@ -50,7 +55,7 @@ public class KernelDelegatingResolveResult<ReferenceType> implements org.servici
 		delegate.addMapping(identifier, target);
 	}
 	
-	public void addMapping(String identifier, org.eclipse.emf.common.util.URI uri) {
+	public void addMapping(String identifier, URI uri) {
 		delegate.addMapping(identifier, uri);
 	}
 	
@@ -58,11 +63,11 @@ public class KernelDelegatingResolveResult<ReferenceType> implements org.servici
 		delegate.addMapping(identifier, target, warning);
 	}
 	
-	public void addMapping(String identifier, org.eclipse.emf.common.util.URI uri, String warning) {
+	public void addMapping(String identifier, URI uri, String warning) {
 		delegate.addMapping(identifier, uri, warning);
 	}
 	
-	public java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix> getQuickFixes() {
+	public Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix> getQuickFixes() {
 		return delegate.getQuickFixes();
 	}
 	

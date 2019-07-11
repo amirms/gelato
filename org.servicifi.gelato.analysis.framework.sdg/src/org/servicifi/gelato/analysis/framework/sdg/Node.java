@@ -21,13 +21,15 @@ public class Node implements Serializable {
 	private NodeType type;
 	private final transient Set<Node> ins;
 	private final transient Set<Node> outs;
+	
+	private boolean reconstructed;
 
 	private boolean visited;
 	private String fillColor;
 
 	private LabellableElement le;
 
-	private String def;
+	private String def = null;
 
 	private Set<String> usages;
 
@@ -146,5 +148,13 @@ public class Node implements Serializable {
 
 	public Set<Node> getIns() {
 		return ins;
+	}
+
+	public boolean isReconstructed() {
+		return reconstructed;
+	}
+
+	public void setReconstructed(boolean reconstructed) {
+		this.reconstructed = reconstructed;
 	}
 }

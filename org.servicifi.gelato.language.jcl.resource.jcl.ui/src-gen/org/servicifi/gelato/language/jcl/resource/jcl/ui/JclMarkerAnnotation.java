@@ -6,11 +6,16 @@
  */
 package org.servicifi.gelato.language.jcl.resource.jcl.ui;
 
-public class JclMarkerAnnotation extends org.eclipse.ui.texteditor.MarkerAnnotation implements org.eclipse.jface.text.quickassist.IQuickFixableAnnotation {
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.text.quickassist.IQuickFixableAnnotation;
+import org.eclipse.ui.texteditor.MarkerAnnotation;
+
+public class JclMarkerAnnotation extends MarkerAnnotation implements IQuickFixableAnnotation {
 	
 	// private boolean isQuickFixable;
 	
-	public JclMarkerAnnotation(org.eclipse.core.resources.IMarker marker) {
+	public JclMarkerAnnotation(IMarker marker) {
 		super(marker);
 	}
 	
@@ -24,8 +29,8 @@ public class JclMarkerAnnotation extends org.eclipse.ui.texteditor.MarkerAnnotat
 	
 	public boolean isQuickFixable() {
 		try {
-			return getMarker().getAttribute(org.eclipse.core.resources.IMarker.SOURCE_ID) != null;
-		} catch (org.eclipse.core.runtime.CoreException e) {
+			return getMarker().getAttribute(IMarker.SOURCE_ID) != null;
+		} catch (CoreException e) {
 			// ignore
 		}
 		return false;

@@ -6,6 +6,9 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class KernelSyntaxElementDecorator {
 	
 	/**
@@ -22,7 +25,7 @@ public class KernelSyntaxElementDecorator {
 	/**
 	 * a list of the indices that must be printed
 	 */
-	private java.util.List<Integer> indicesToPrint = new java.util.ArrayList<Integer>();
+	private List<Integer> indicesToPrint = new ArrayList<Integer>();
 	
 	public KernelSyntaxElementDecorator(org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement decoratedElement, KernelSyntaxElementDecorator[] childDecorators) {
 		super();

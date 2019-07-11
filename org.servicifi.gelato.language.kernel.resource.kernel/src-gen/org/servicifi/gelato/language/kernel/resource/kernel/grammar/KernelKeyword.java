@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.grammar;
 
+
 /**
  * A class to represent a keyword in the grammar.
  */
@@ -23,7 +24,7 @@ public class KernelKeyword extends org.servicifi.gelato.language.kernel.resource
 	}
 	
 	public String toString() {
-		return value;
+		return "\"" + value + "\"";
 	}
 	
 }

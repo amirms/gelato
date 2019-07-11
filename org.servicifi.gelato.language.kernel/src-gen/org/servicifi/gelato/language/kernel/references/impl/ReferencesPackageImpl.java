@@ -46,7 +46,9 @@ import org.servicifi.gelato.language.kernel.procedures.ProceduresPackage;
 import org.servicifi.gelato.language.kernel.procedures.impl.ProceduresPackageImpl;
 
 import org.servicifi.gelato.language.kernel.references.Argument;
+import org.servicifi.gelato.language.kernel.references.ArgumentReference;
 import org.servicifi.gelato.language.kernel.references.ElementReference;
+import org.servicifi.gelato.language.kernel.references.EmptyArgument;
 import org.servicifi.gelato.language.kernel.references.Reference;
 import org.servicifi.gelato.language.kernel.references.ReferenceableElement;
 import org.servicifi.gelato.language.kernel.references.ReferencesFactory;
@@ -90,6 +92,20 @@ public class ReferencesPackageImpl extends EPackageImpl implements ReferencesPac
 	 * @generated
 	 */
 	private EClass argumentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass argumentReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass emptyArgumentEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -246,6 +262,24 @@ public class ReferencesPackageImpl extends EPackageImpl implements ReferencesPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getArgumentReference() {
+		return argumentReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEmptyArgument() {
+		return emptyArgumentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ReferencesFactory getReferencesFactory() {
 		return (ReferencesFactory)getEFactoryInstance();
 	}
@@ -277,6 +311,10 @@ public class ReferencesPackageImpl extends EPackageImpl implements ReferencesPac
 		referenceEClass = createEClass(REFERENCE);
 
 		argumentEClass = createEClass(ARGUMENT);
+
+		argumentReferenceEClass = createEClass(ARGUMENT_REFERENCE);
+
+		emptyArgumentEClass = createEClass(EMPTY_ARGUMENT);
 	}
 
 	/**
@@ -312,7 +350,9 @@ public class ReferencesPackageImpl extends EPackageImpl implements ReferencesPac
 
 		// Add supertypes to classes
 		referenceableElementEClass.getESuperTypes().add(theCommonsPackage_1.getNamedElement());
-		argumentEClass.getESuperTypes().add(this.getElementReference());
+		argumentReferenceEClass.getESuperTypes().add(this.getArgument());
+		argumentReferenceEClass.getESuperTypes().add(this.getElementReference());
+		emptyArgumentEClass.getESuperTypes().add(this.getArgument());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(elementReferenceEClass, ElementReference.class, "ElementReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -322,9 +362,13 @@ public class ReferencesPackageImpl extends EPackageImpl implements ReferencesPac
 
 		initEClass(referenceEClass, Reference.class, "Reference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(argumentEClass, Argument.class, "Argument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(argumentEClass, Argument.class, "Argument", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(argumentEClass, theParametersPackage.getParameter(), "getCorrespondingParameter", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(argumentReferenceEClass, ArgumentReference.class, "ArgumentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(emptyArgumentEClass, EmptyArgument.class, "EmptyArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //ReferencesPackageImpl

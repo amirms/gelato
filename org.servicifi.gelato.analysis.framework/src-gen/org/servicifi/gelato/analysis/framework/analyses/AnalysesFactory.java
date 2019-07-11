@@ -81,7 +81,7 @@ public interface AnalysesFactory extends EFactory {
 	AnalysesPackage getAnalysesPackage();
 
 
-	AnalysisResult createReachingDefinitionsResult(Variable v, long i);
+	AnalysisResult createReachingDefinitionsResult(Variable v, double i);
 	
 	ExitEntryPair createExitEntryPair(EList<AnalysisResult> exit,
 			EList<AnalysisResult> entry);

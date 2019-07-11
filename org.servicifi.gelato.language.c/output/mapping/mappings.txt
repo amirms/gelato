@@ -1,0 +1,12 @@
+Mappings for procedure readEmployeeDetails
+input: var2
+#return_readEmployeeDetails: var1
+num: var0
+i: var7
+infile: var4
+es: var3
+-----------------------------
+Mappings for GLOBAL
+ACCOUNTS_FILE: var5
+stderr: var6
+-----------------------------

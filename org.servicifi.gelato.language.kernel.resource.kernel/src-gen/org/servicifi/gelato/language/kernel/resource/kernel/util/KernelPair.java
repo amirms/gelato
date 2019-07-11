@@ -6,8 +6,11 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.util;
 
+
 /**
+ * <p>
  * A typed pair of objects.
+ * </p>
  * 
  * @param <T1> the type of the first (left) object
  * @param <T2> the type of the second (right) object
@@ -30,7 +33,7 @@ public class KernelPair<T1, T2> {
 		return right;
 	}
 	
-	@Override	
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -39,7 +42,7 @@ public class KernelPair<T1, T2> {
 		return result;
 	}
 	
-	@Override	
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;

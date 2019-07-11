@@ -25,6 +25,8 @@
 		</page>
 		<page name="Brackets" id="org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolBracketPreferencePage" class="org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolBracketPreferencePage" category="org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferencePage">
 		</page>
+		<page name="Content Assist" id="org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolContentAssistPreferencePage" class="org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolContentAssistPreferencePage" category="org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferencePage">
+		</page>
 	</extension>
 	
 	<extension point="org.eclipse.ui.newWizards">
@@ -70,6 +72,28 @@
 		</specification>
 		<specification annotationType="org.servicifi.gelato.language.cobol.resource.cobol.ui.occurences.declaration" label="Declarations (in .cobol files)" textPreferenceKey="cobol.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="cobol.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="cobol.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="cobol.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="cobol.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="cobol.declarationTextStyle" textStylePreferenceValue="NONE">
 		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.ui.commands">
+		<category description="All commands belonging to Cobol" id="org.servicifi.gelato.language.cobol.resource.cobol.ui.command.category" name="Cobol">
+		</category>
+		<command categoryId="org.servicifi.gelato.language.cobol.resource.cobol.ui.command.category" description="Toggle comment of the selected lines" id="org.servicifi.gelato.language.cobol.resource.cobol.ui.command.togglecomment" name="Toggle Comment">
+		</command>
+	</extension>
+	
+	<extension point="org.eclipse.ui.handlers">
+		<handler class="org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolToggleCommentHandler" commandId="org.servicifi.gelato.language.cobol.resource.cobol.ui.command.togglecomment">
+		</handler>
+	</extension>
+	
+	<extension point="org.eclipse.ui.contexts">
+		<context name="Editing Cobol Files" description="Editing Cobol Files Context" parentId="org.eclipse.ui.textEditorScope" id="org.servicifi.gelato.language.cobol.resource.cobol.EditorScope">
+		</context>
+	</extension>
+	
+	<extension point="org.eclipse.ui.bindings">
+		<key sequence="M1+7" commandId="org.servicifi.gelato.language.cobol.resource.cobol.ui.command.togglecomment" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" contextId="org.servicifi.gelato.language.cobol.resource.cobol.EditorScope">
+		</key>
 	</extension>
 	
 </plugin>

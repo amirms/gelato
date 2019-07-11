@@ -6,9 +6,15 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
-public class KernelResourceFactoryDelegator implements org.eclipse.emf.ecore.resource.Resource.Factory {
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource.Factory;
+
+public class KernelResourceFactoryDelegator implements Factory {
 	
-	protected java.util.Map<String, org.eclipse.emf.ecore.resource.Resource.Factory> factories = null;
+	protected Map<String, Factory> factories = null;
 	
 	public KernelResourceFactoryDelegator() {
 		init();
@@ -16,7 +22,7 @@ public class KernelResourceFactoryDelegator implements org.eclipse.emf.ecore.res
 	
 	protected void init() {
 		if (factories == null) {
-			factories = new java.util.LinkedHashMap<String, org.eclipse.emf.ecore.resource.Resource.Factory>();
+			factories = new LinkedHashMap<String, Factory>();
 		}
 		if (new org.servicifi.gelato.language.kernel.resource.kernel.util.KernelRuntimeUtil().isEclipsePlatformAvailable()) {
 			new org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEclipseProxy().getResourceFactoryExtensions(factories);
@@ -26,21 +32,21 @@ public class KernelResourceFactoryDelegator implements org.eclipse.emf.ecore.res
 		}
 	}
 	
-	public java.util.Map<String, org.eclipse.emf.ecore.resource.Resource.Factory> getResourceFactoriesMap() {
+	public Map<String, Factory> getResourceFactoriesMap() {
 		return factories;
 	}
 	
-	public org.eclipse.emf.ecore.resource.Resource.Factory getFactoryForURI(org.eclipse.emf.common.util.URI uri) {
-		org.eclipse.emf.common.util.URI trimmedURI = uri.trimFileExtension();
+	public Factory getFactoryForURI(URI uri) {
+		URI trimmedURI = uri.trimFileExtension();
 		String secondaryFileExtension = trimmedURI.fileExtension();
-		org.eclipse.emf.ecore.resource.Resource.Factory factory = factories.get(secondaryFileExtension);
+		Factory factory = factories.get(secondaryFileExtension);
 		if (factory == null) {
 			factory = factories.get("");
 		}
 		return factory;
 	}
 	
-	public org.eclipse.emf.ecore.resource.Resource createResource(org.eclipse.emf.common.util.URI uri) {
+	public Resource createResource(URI uri) {
 		return getFactoryForURI(uri).createResource(uri);
 	}
 	

@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui;
 
+
 public class PreprocessSyntaxColoringHelper {
 	
 	public static enum StyleProperty {

@@ -6,6 +6,9 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.grammar;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 /**
  * A class to represent boolean terminals in a grammar.
  */
@@ -14,9 +17,9 @@ public class KernelBooleanTerminal extends org.servicifi.gelato.language.kernel.
 	private String trueLiteral;
 	private String falseLiteral;
 	
-	public KernelBooleanTerminal(org.eclipse.emf.ecore.EStructuralFeature attribute, String trueLiteral, String falseLiteral, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality cardinality, int mandatoryOccurrencesAfter) {
+	public KernelBooleanTerminal(EStructuralFeature attribute, String trueLiteral, String falseLiteral, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality cardinality, int mandatoryOccurrencesAfter) {
 		super(attribute, cardinality, mandatoryOccurrencesAfter);
-		assert attribute instanceof org.eclipse.emf.ecore.EAttribute;
+		assert attribute instanceof EAttribute;
 		this.trueLiteral = trueLiteral;
 		this.falseLiteral = falseLiteral;
 	}
@@ -29,8 +32,8 @@ public class KernelBooleanTerminal extends org.servicifi.gelato.language.kernel.
 		return falseLiteral;
 	}
 	
-	public org.eclipse.emf.ecore.EAttribute getAttribute() {
-		return (org.eclipse.emf.ecore.EAttribute) getFeature();
+	public EAttribute getAttribute() {
+		return (EAttribute) getFeature();
 	}
 	
 }

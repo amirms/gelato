@@ -1,0 +1,14 @@
+
+1.0:Procedure _main (ref var0){
+	4.0:4.1:[defines(var6)];
+	6.0:6.1:[defines(var0)];
+	5.0:return;
+}
+
+2.0:Procedure xxx(val var3,val var4,ref var5){
+	9.0:9.1:[uses(var1);defines(var5)];
+	8.0:return;
+}
+0.0:Procedure main(){
+	0.1:call _main ();
+}

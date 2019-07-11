@@ -6,6 +6,14 @@
  */
 package org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui;
 
+import java.io.ByteArrayInputStream;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.jface.text.DocumentEvent;
+import org.eclipse.jface.text.IDocument;
+
 /**
  * A background parsing strategy that starts parsing after a amount of time after
  * the last key stroke. If keys are pressed within the delay interval, the delay
@@ -29,14 +37,14 @@ public class PreprocessBackgroundParsingStrategy {
 	/**
 	 * Schedules a task for background parsing that will be started after a delay.
 	 */
-	public void parse(org.eclipse.jface.text.DocumentEvent event, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessTextResource resource, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessEditor editor) {
+	public void parse(DocumentEvent event, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessTextResource resource, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessEditor editor) {
 		parse(event.getDocument(), resource, editor, DELAY);
 	}
 	
 	/**
 	 * Schedules a task for background parsing that will be started after a delay.
 	 */
-	public void parse(org.eclipse.jface.text.IDocument document, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessTextResource resource, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessEditor editor, long delay) {
+	public void parse(IDocument document, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessTextResource resource, final org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessEditor editor, long delay) {
 		parse(document.get(), resource, editor, delay);
 	}
 	
@@ -56,7 +64,7 @@ public class PreprocessBackgroundParsingStrategy {
 		// multiple threads. the creation of multiple tasks would imply that multiple
 		// background parsing threads for one editor are created, which is not desired.
 		synchronized (lock) {
-			if (job == null || job.getState() != org.eclipse.core.runtime.jobs.Job.RUNNING) {
+			if (job == null || job.getState() != Job.RUNNING) {
 				// schedule new task
 				job = new ParsingJob();
 				job.resource = resource;
@@ -69,7 +77,7 @@ public class PreprocessBackgroundParsingStrategy {
 		}
 	}
 	
-	private class ParsingJob extends org.eclipse.core.runtime.jobs.Job {
+	private class ParsingJob extends Job {
 		private org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessEditor editor;
 		private org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.IPreprocessTextResource resource;
 		
@@ -79,7 +87,7 @@ public class PreprocessBackgroundParsingStrategy {
 		
 		private String newContents = null;
 		
-		protected org.eclipse.core.runtime.IStatus run(org.eclipse.core.runtime.IProgressMonitor monitor) {
+		protected IStatus run(IProgressMonitor monitor) {
 			while (newContents != null ) {
 				while (newContents != null) {
 					try {
@@ -96,7 +104,7 @@ public class PreprocessBackgroundParsingStrategy {
 						} else {
 							bytes = currentContent.getBytes();
 						}
-						resource.reload(new java.io.ByteArrayInputStream(bytes), null);
+						resource.reload(new ByteArrayInputStream(bytes), null);
 						if (newContents != null) {
 							Thread.sleep(DELAY);
 						}
@@ -106,7 +114,7 @@ public class PreprocessBackgroundParsingStrategy {
 				}
 				editor.notifyBackgroundParsingFinished();
 			}
-			return org.eclipse.core.runtime.Status.OK_STATUS;
+			return Status.OK_STATUS;
 		}
 	};
 	

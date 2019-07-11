@@ -6,47 +6,52 @@
  */
 package org.servicifi.gelato.language.cobol.resource.cobol.ui;
 
+import java.util.Collection;
+import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
+import org.eclipse.jface.preference.IPreferenceStore;
+
 /**
- * A class used to initialize default preference values.
+ * This class can be used to initialize default preference values.
  */
-public class CobolPreferenceInitializer extends org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer {
+public class CobolPreferenceInitializer extends AbstractPreferenceInitializer {
 	
 	public void initializeDefaultPreferences() {
 		
 		initializeDefaultSyntaxHighlighting();
 		initializeDefaultBrackets();
+		initializeDefaultsContentAssist();
 		
-		org.eclipse.jface.preference.IPreferenceStore store = org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolUIPlugin.getDefault().getPreferenceStore();
+		IPreferenceStore store = org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolUIPlugin.getDefault().getPreferenceStore();
 		// Set default value for matching brackets
 		store.setDefault(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_MATCHING_BRACKETS_COLOR, "192,192,192");
 		store.setDefault(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_MATCHING_BRACKETS_CHECKBOX, true);
 		
 	}
 	
-	private void initializeDefaultBrackets() {
-		org.eclipse.jface.preference.IPreferenceStore store = org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolUIPlugin.getDefault().getPreferenceStore();
+	protected void initializeDefaultBrackets() {
+		IPreferenceStore store = org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolUIPlugin.getDefault().getPreferenceStore();
 		initializeDefaultBrackets(store, new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolMetaInformation());
 	}
 	
+	protected void initializeDefaultBrackets(IPreferenceStore store, org.servicifi.gelato.language.cobol.resource.cobol.ICobolMetaInformation metaInformation) {
+		String languageId = metaInformation.getSyntaxName();
+		// set default brackets
+		org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolBracketSet bracketSet = new org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolBracketSet();
+		final Collection<org.servicifi.gelato.language.cobol.resource.cobol.ICobolBracketPair> bracketPairs = metaInformation.getBracketPairs();
+		if (bracketPairs != null) {
+			for (org.servicifi.gelato.language.cobol.resource.cobol.ICobolBracketPair bracketPair : bracketPairs) {
+				bracketSet.addBracketPair(bracketPair.getOpeningBracket(), bracketPair.getClosingBracket(), bracketPair.isClosingEnabledInside(), bracketPair.isCloseAfterEnter());
+			}
+		}
+		store.setDefault(languageId + org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_BRACKETS_SUFFIX, bracketSet.serialize());
+	}
+	
 	public void initializeDefaultSyntaxHighlighting() {
-		org.eclipse.jface.preference.IPreferenceStore store = org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolUIPlugin.getDefault().getPreferenceStore();
+		IPreferenceStore store = org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolUIPlugin.getDefault().getPreferenceStore();
 		initializeDefaultSyntaxHighlighting(store, new org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolMetaInformation());
 	}
 	
-	private void initializeDefaultBrackets(org.eclipse.jface.preference.IPreferenceStore store, org.servicifi.gelato.language.cobol.resource.cobol.ICobolMetaInformation metaInformation) {
-		String languageId = metaInformation.getSyntaxName();
-		// set default brackets for ITextResource bracket set
-		org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolBracketSet bracketSet = new org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolBracketSet(null, null);
-		final java.util.Collection<org.servicifi.gelato.language.cobol.resource.cobol.ICobolBracketPair> bracketPairs = metaInformation.getBracketPairs();
-		if (bracketPairs != null) {
-			for (org.servicifi.gelato.language.cobol.resource.cobol.ICobolBracketPair bracketPair : bracketPairs) {
-				bracketSet.addBracketPair(bracketPair.getOpeningBracket(), bracketPair.getClosingBracket(), bracketPair.isClosingEnabledInside());
-			}
-		}
-		store.setDefault(languageId + org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_BRACKETS_SUFFIX, bracketSet.getBracketString());
-	}
-	
-	private void initializeDefaultSyntaxHighlighting(org.eclipse.jface.preference.IPreferenceStore store, org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolMetaInformation metaInformation) {
+	protected void initializeDefaultSyntaxHighlighting(IPreferenceStore store, org.servicifi.gelato.language.cobol.resource.cobol.mopp.CobolMetaInformation metaInformation) {
 		String languageId = metaInformation.getSyntaxName();
 		String[] tokenNames = metaInformation.getSyntaxHighlightableTokenNames();
 		if (tokenNames == null) {
@@ -64,7 +69,14 @@ public class CobolPreferenceInitializer extends org.eclipse.core.runtime.prefere
 		}
 	}
 	
-	private void setProperties(org.eclipse.jface.preference.IPreferenceStore store, String languageID, String tokenName, String color, boolean bold, boolean enable, boolean italic, boolean strikethrough, boolean underline) {
+	private void initializeDefaultsContentAssist() {
+		IPreferenceStore store = org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolUIPlugin.getDefault().getPreferenceStore();
+		store.setDefault(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_CONTENT_ASSIST_ENABLED, org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_CONTENT_ASSIST_ENABLED_DEFAULT);
+		store.setDefault(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_CONTENT_ASSIST_DELAY, org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_CONTENT_ASSIST_DELAY_DEFAULT);
+		store.setDefault(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_CONTENT_ASSIST_TRIGGERS, org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolPreferenceConstants.EDITOR_CONTENT_ASSIST_TRIGGERS_DEFAULT);
+	}
+	
+	protected void setProperties(IPreferenceStore store, String languageID, String tokenName, String color, boolean bold, boolean enable, boolean italic, boolean strikethrough, boolean underline) {
 		store.setDefault(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolSyntaxColoringHelper.getPreferenceKey(languageID, tokenName, org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolSyntaxColoringHelper.StyleProperty.BOLD), bold);
 		store.setDefault(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolSyntaxColoringHelper.getPreferenceKey(languageID, tokenName, org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolSyntaxColoringHelper.StyleProperty.COLOR), color);
 		store.setDefault(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolSyntaxColoringHelper.getPreferenceKey(languageID, tokenName, org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolSyntaxColoringHelper.StyleProperty.ENABLE), enable);
@@ -73,7 +85,7 @@ public class CobolPreferenceInitializer extends org.eclipse.core.runtime.prefere
 		store.setDefault(org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolSyntaxColoringHelper.getPreferenceKey(languageID, tokenName, org.servicifi.gelato.language.cobol.resource.cobol.ui.CobolSyntaxColoringHelper.StyleProperty.UNDERLINE), underline);
 	}
 	
-	private String getColorString(int[] colorAsRGB) {
+	protected String getColorString(int[] colorAsRGB) {
 		if (colorAsRGB == null) {
 			return "0,0,0";
 		}
@@ -82,4 +94,6 @@ public class CobolPreferenceInitializer extends org.eclipse.core.runtime.prefere
 		}
 		return colorAsRGB[0] + "," +colorAsRGB[1] + ","+ colorAsRGB[2];
 	}
+	
 }
+

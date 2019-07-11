@@ -6,10 +6,12 @@
  */
 package org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui;
 
+import org.eclipse.jface.action.IAction;
+
 public class PreprocessOutlinePageCollapseAllAction extends org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.AbstractPreprocessOutlinePageAction {
 	
 	public PreprocessOutlinePageCollapseAllAction(org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessOutlinePageTreeViewer treeViewer) {
-		super(treeViewer, "Collapse all", org.eclipse.jface.action.IAction.AS_PUSH_BUTTON);
+		super(treeViewer, "Collapse all", IAction.AS_PUSH_BUTTON);
 		initialize("icons/collapse_all_icon.gif");
 	}
 	

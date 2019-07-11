@@ -6,6 +6,10 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * A representation for a range in a document where an enumeration literal (i.e.,
  * a set of static strings) is expected.
@@ -19,11 +23,11 @@ public class KernelExpectedEnumerationTerminal extends org.servicifi.gelato.lang
 		this.enumerationTerminal = enumerationTerminal;
 	}
 	
-	public java.util.Set<String> getTokenNames() {
+	public Set<String> getTokenNames() {
 		// EnumerationTerminals are associated with multiple tokens, one for each literal
 		// that was mapped to a string
-		java.util.Set<String> tokenNames = new java.util.LinkedHashSet<String>();
-		java.util.Map<String, String> mapping = enumerationTerminal.getLiteralMapping();
+		Set<String> tokenNames = new LinkedHashSet<String>();
+		Map<String, String> mapping = enumerationTerminal.getLiteralMapping();
 		for (String literalName : mapping.keySet()) {
 			String text = mapping.get(literalName);
 			if (text != null && !"".equals(text)) {
@@ -40,7 +44,7 @@ public class KernelExpectedEnumerationTerminal extends org.servicifi.gelato.lang
 	/**
 	 * Returns the expected enumeration terminal.
 	 */
-	public org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement getSymtaxElement() {
+	public org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement getSyntaxElement() {
 		return enumerationTerminal;
 	}
 	

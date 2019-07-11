@@ -195,6 +195,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAnalysis() {
 		return analysisEClass;
 	}
@@ -204,6 +205,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAnalysis_Direction() {
 		return (EAttribute)analysisEClass.getEStructuralFeatures().get(0);
 	}
@@ -213,6 +215,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAnalysis_Cfg() {
 		return (EReference)analysisEClass.getEStructuralFeatures().get(1);
 	}
@@ -222,6 +225,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAnalysis_Result() {
 		return (EAttribute)analysisEClass.getEStructuralFeatures().get(2);
 	}
@@ -231,6 +235,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAnalysis_ExitTable() {
 		return (EAttribute)analysisEClass.getEStructuralFeatures().get(3);
 	}
@@ -240,6 +245,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAnalysis_EntryTable() {
 		return (EAttribute)analysisEClass.getEStructuralFeatures().get(4);
 	}
@@ -249,6 +255,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getAnalysis_Configuration() {
 		return (EReference)analysisEClass.getEStructuralFeatures().get(5);
 	}
@@ -258,6 +265,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAnalysis__Entry__LabellableElement() {
 		return analysisEClass.getEOperations().get(0);
 	}
@@ -267,6 +275,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAnalysis__Exit__LabellableElement() {
 		return analysisEClass.getEOperations().get(1);
 	}
@@ -276,6 +285,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAnalysis__PerformAnalysis() {
 		return analysisEClass.getEOperations().get(2);
 	}
@@ -285,6 +295,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAnalysis__GetAllNodesWithDirection__LabellableElement_AnalysisDirection_Class() {
 		return analysisEClass.getEOperations().get(3);
 	}
@@ -294,6 +305,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAnalysis__Meet__EList() {
 		return analysisEClass.getEOperations().get(4);
 	}
@@ -303,6 +315,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getAnalysis__GetAllEdgesWithDirection__LabellableElement_AnalysisDirection_Class() {
 		return analysisEClass.getEOperations().get(5);
 	}
@@ -312,6 +325,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAnalysisResult() {
 		return analysisResultEClass;
 	}
@@ -321,6 +335,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAnalysisResult_Label() {
 		return (EAttribute)analysisResultEClass.getEStructuralFeatures().get(0);
 	}
@@ -330,6 +345,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExitEntryPair() {
 		return exitEntryPairEClass;
 	}
@@ -339,6 +355,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExitEntryPair_Entry() {
 		return (EReference)exitEntryPairEClass.getEStructuralFeatures().get(0);
 	}
@@ -348,6 +365,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExitEntryPair_Exit() {
 		return (EReference)exitEntryPairEClass.getEStructuralFeatures().get(1);
 	}
@@ -357,6 +375,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getComparable() {
 		return comparableEClass;
 	}
@@ -366,6 +385,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAnalysisConfiguration() {
 		return analysisConfigurationEClass;
 	}
@@ -375,6 +395,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAnalysisConfiguration_Direction() {
 		return (EAttribute)analysisConfigurationEClass.getEStructuralFeatures().get(0);
 	}
@@ -384,6 +405,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getAnalysisConfiguration_AnalysisType() {
 		return (EAttribute)analysisConfigurationEClass.getEStructuralFeatures().get(1);
 	}
@@ -393,6 +415,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getIntraproceduralAnalysis() {
 		return intraproceduralAnalysisEClass;
 	}
@@ -402,6 +425,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getIntraproceduralAnalysis__Entry__LabellableElement() {
 		return intraproceduralAnalysisEClass.getEOperations().get(0);
 	}
@@ -411,6 +435,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getIntraproceduralAnalysis__Exit__LabellableElement() {
 		return intraproceduralAnalysisEClass.getEOperations().get(1);
 	}
@@ -420,6 +445,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInterproceduralAnalysis() {
 		return interproceduralAnalysisEClass;
 	}
@@ -429,6 +455,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReachingDefinitionsAnalysisConfiguration() {
 		return reachingDefinitionsAnalysisConfigurationEClass;
 	}
@@ -438,6 +465,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getReachingDefinitionsAnalysisConfiguration_Assignments() {
 		return (EAttribute)reachingDefinitionsAnalysisConfigurationEClass.getEStructuralFeatures().get(0);
 	}
@@ -447,6 +475,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReachingDefinitionsAnalysisResult() {
 		return reachingDefinitionsAnalysisResultEClass;
 	}
@@ -456,6 +485,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getReachingDefinitionsAnalysisResult_Variable() {
 		return (EReference)reachingDefinitionsAnalysisResultEClass.getEStructuralFeatures().get(0);
 	}
@@ -465,6 +495,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getAnalysisDirection() {
 		return analysisDirectionEEnum;
 	}
@@ -474,6 +505,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getAnalysisType() {
 		return analysisTypeEEnum;
 	}
@@ -483,6 +515,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AnalysesFactory getAnalysesFactory() {
 		return (AnalysesFactory)getEFactoryInstance();
 	}
@@ -593,7 +626,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		initEAttribute(getAnalysis_Direction(), this.getAnalysisDirection(), "direction", "FORWARDS", 0, 1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysis_Cfg(), theGraphsPackage.getFlow(), null, "cfg", null, 1, -1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getELongObject());
+		EGenericType g2 = createEGenericType(ecorePackage.getEDoubleObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(this.getExitEntryPair());
 		g1.getETypeArguments().add(g2);
@@ -624,7 +657,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 
 		op = initEOperation(getAnalysis__PerformAnalysis(), null, "performAnalysis", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getELongObject());
+		g2 = createEGenericType(ecorePackage.getEDoubleObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(this.getExitEntryPair());
 		g1.getETypeArguments().add(g2);
@@ -657,7 +690,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		addEParameter(op, g1, "flowType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(analysisResultEClass, AnalysisResult.class, "AnalysisResult", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAnalysisResult_Label(), ecorePackage.getELong(), "label", null, 1, 1, AnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysisResult_Label(), ecorePackage.getEDouble(), "label", null, 1, 1, AnalysisResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(exitEntryPairEClass, ExitEntryPair.class, "ExitEntryPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExitEntryPair_Entry(), this.getAnalysisResult(), null, "entry", null, 0, -1, ExitEntryPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -685,7 +718,7 @@ public class AnalysesPackageImpl extends EPackageImpl implements AnalysesPackage
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEEList());
 		g1.getETypeArguments().add(g2);
-		g3 = createEGenericType(ecorePackage.getELongObject());
+		g3 = createEGenericType(ecorePackage.getEDoubleObject());
 		g2.getETypeArguments().add(g3);
 		initEAttribute(getReachingDefinitionsAnalysisConfiguration_Assignments(), g1, "assignments", null, 1, 1, ReachingDefinitionsAnalysisConfiguration.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

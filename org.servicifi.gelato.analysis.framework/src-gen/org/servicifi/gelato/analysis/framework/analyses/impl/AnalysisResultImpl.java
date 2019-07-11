@@ -34,7 +34,7 @@ public abstract class AnalysisResultImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long LABEL_EDEFAULT = 0L;
+	protected static final double LABEL_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
@@ -44,7 +44,7 @@ public abstract class AnalysisResultImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 * @ordered
 	 */
-	protected long label = LABEL_EDEFAULT;
+	protected double label = LABEL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,7 +59,7 @@ public abstract class AnalysisResultImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	protected AnalysisResultImpl(long label) {
+	protected AnalysisResultImpl(double label) {
 		super();
 		setLabel(label);
 	}
@@ -79,7 +79,8 @@ public abstract class AnalysisResultImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getLabel() {
+	@Override
+	public double getLabel() {
 		return label;
 	}
 
@@ -88,8 +89,9 @@ public abstract class AnalysisResultImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabel(long newLabel) {
-		long oldLabel = label;
+	@Override
+	public void setLabel(double newLabel) {
+		double oldLabel = label;
 		label = newLabel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AnalysesPackage.ANALYSIS_RESULT__LABEL, oldLabel, label));
@@ -118,7 +120,7 @@ public abstract class AnalysisResultImpl extends MinimalEObjectImpl.Container im
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AnalysesPackage.ANALYSIS_RESULT__LABEL:
-				setLabel((Long)newValue);
+				setLabel((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

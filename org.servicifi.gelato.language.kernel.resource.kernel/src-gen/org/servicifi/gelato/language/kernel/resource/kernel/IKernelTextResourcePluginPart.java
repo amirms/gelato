@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel;
 
+
 /**
  * This interface is extended by some other generated classes. It provides access
  * to the plug-in meta information.

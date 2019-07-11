@@ -6,24 +6,39 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import org.eclipse.emf.ecore.EObject;
+
 public class KernelParseResult implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelParseResult {
 	
-	private org.eclipse.emf.ecore.EObject root;
-	private java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource>> commands = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource>>();
+	private EObject root;
+	
+	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelLocationMap locationMap;
+	
+	private Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource>> commands = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource>>();
 	
 	public KernelParseResult() {
 		super();
 	}
 	
-	public void setRoot(org.eclipse.emf.ecore.EObject root) {
-		this.root = root;
-	}
-	
-	public org.eclipse.emf.ecore.EObject getRoot() {
+	public EObject getRoot() {
 		return root;
 	}
 	
-	public java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource>> getPostParseCommands() {
+	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelLocationMap getLocationMap() {
+		return locationMap;
+	}
+	
+	public void setRoot(EObject root) {
+		this.root = root;
+	}
+	
+	public void setLocationMap(org.servicifi.gelato.language.kernel.resource.kernel.IKernelLocationMap locationMap) {
+		this.locationMap = locationMap;
+	}
+	
+	public Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource>> getPostParseCommands() {
 		return commands;
 	}
 	

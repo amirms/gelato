@@ -13,11 +13,14 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.util.Collections;
+import java.util.Map;
+
 public class KernelOptionProvider implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelOptionProvider {
 	
-	public java.util.Map<?,?> getOptions() {
+	public Map<?,?> getOptions() {
 		// create a map with static option providers here
-		return java.util.Collections.emptyMap();
+		return Collections.emptyMap();
 	}
 	
 }

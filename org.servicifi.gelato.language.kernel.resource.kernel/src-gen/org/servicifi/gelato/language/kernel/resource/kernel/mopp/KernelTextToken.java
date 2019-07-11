@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+
 public class KernelTextToken implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextToken {
 	
 	private String name;

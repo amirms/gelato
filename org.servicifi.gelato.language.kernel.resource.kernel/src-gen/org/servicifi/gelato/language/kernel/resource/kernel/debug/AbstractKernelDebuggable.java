@@ -6,15 +6,26 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.debug;
 
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.common.util.URI;
+
 public abstract class AbstractKernelDebuggable {
 	
 	/**
 	 * The list of breakpoints, where each breakpoint is represented by its location
 	 * (a string) and the line number
 	 */
-	private java.util.List<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<String, Integer>> lineBreakpoints = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<String, Integer>>();
-	private java.io.PrintStream outputStream;
-	private java.net.ServerSocket server;
+	private List<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<String, Integer>> lineBreakpoints = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<String, Integer>>();
+	private PrintStream outputStream;
+	private ServerSocket server;
 	private boolean debugMode;
 	private boolean suspend;
 	
@@ -23,10 +34,10 @@ public abstract class AbstractKernelDebuggable {
 	public void startEventSocket(int eventPort) {
 		try {
 			// starting event server socket (waiting for connection)...
-			server = new java.net.ServerSocket(eventPort);
-			java.net.Socket accept = server.accept();
+			server = new ServerSocket(eventPort);
+			Socket accept = server.accept();
 			// starting event server socket done (connection established).
-			outputStream = new java.io.PrintStream(accept.getOutputStream());
+			outputStream = new PrintStream(accept.getOutputStream());
 		} catch (Exception e) {
 			new org.servicifi.gelato.language.kernel.resource.kernel.util.KernelRuntimeUtil().logError("Can't create socket connection while launching.", e);
 		}
@@ -35,7 +46,7 @@ public abstract class AbstractKernelDebuggable {
 	public void stopEventSocket() {
 		try {
 			server.close();
-		} catch (java.io.IOException e) {
+		} catch (IOException e) {
 			new org.servicifi.gelato.language.kernel.resource.kernel.util.KernelRuntimeUtil().logError("Exception while closing socket.", e);
 		}
 	}
@@ -47,10 +58,10 @@ public abstract class AbstractKernelDebuggable {
 		}
 	}
 	
-	public void evaluateLineBreakpoint(org.eclipse.emf.common.util.URI uri, int currentLine) {
+	public void evaluateLineBreakpoint(URI uri, int currentLine) {
 		if (isDebugMode()) {
 			String platformString = uri.toPlatformString(true);
-			org.eclipse.core.resources.IResource member = org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot().findMember(platformString);
+			IResource member = ResourcesPlugin.getWorkspace().getRoot().findMember(platformString);
 			if (member == null) {
 				return;
 			}
@@ -141,5 +152,5 @@ public abstract class AbstractKernelDebuggable {
 	public abstract void stepInto();
 	public abstract void stepReturn();
 	public abstract String[] getStack();
-	public abstract java.util.Map<String, Object> getFrameVariables(String stackFrame);
+	public abstract Map<String, Object> getFrameVariables(String stackFrame);
 }

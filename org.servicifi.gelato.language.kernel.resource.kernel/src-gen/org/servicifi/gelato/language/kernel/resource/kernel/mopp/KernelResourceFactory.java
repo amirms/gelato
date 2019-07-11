@@ -6,13 +6,16 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
-public class KernelResourceFactory implements org.eclipse.emf.ecore.resource.Resource.Factory {
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+
+public class KernelResourceFactory implements Resource.Factory {
 	
 	public KernelResourceFactory() {
 		super();
 	}
 	
-	public org.eclipse.emf.ecore.resource.Resource createResource(org.eclipse.emf.common.util.URI uri) {
+	public Resource createResource(URI uri) {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource(uri);
 	}
 	

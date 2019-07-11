@@ -6,10 +6,12 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import org.eclipse.emf.ecore.EClass;
+
 public class KernelSyntaxCoverageInformationProvider {
 	
-	public org.eclipse.emf.ecore.EClass[] getClassesWithSyntax() {
-		return new org.eclipse.emf.ecore.EClass[] {
+	public EClass[] getClassesWithSyntax() {
+		return new EClass[] {
 			org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit(),
 			org.servicifi.gelato.language.kernel.dataitems.DataitemsPackage.eINSTANCE.getDataItem(),
 			org.servicifi.gelato.language.kernel.procedures.ProceduresPackage.eINSTANCE.getProcedure(),
@@ -28,7 +30,8 @@ public class KernelSyntaxCoverageInformationProvider {
 			org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getReturn(),
 			org.servicifi.gelato.language.kernel.statements.StatementsPackage.eINSTANCE.getProcedureCall(),
 			org.servicifi.gelato.language.kernel.parameters.ParametersPackage.eINSTANCE.getParameter(),
-			org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgument(),
+			org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getArgumentReference(),
+			org.servicifi.gelato.language.kernel.references.ReferencesPackage.eINSTANCE.getEmptyArgument(),
 			org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getExpression(),
 			org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getDefines(),
 			org.servicifi.gelato.language.kernel.expressions.ExpressionsPackage.eINSTANCE.getUses(),
@@ -36,8 +39,8 @@ public class KernelSyntaxCoverageInformationProvider {
 		};
 	}
 	
-	public org.eclipse.emf.ecore.EClass[] getStartSymbols() {
-		return new org.eclipse.emf.ecore.EClass[] {
+	public EClass[] getStartSymbols() {
+		return new EClass[] {
 			org.servicifi.gelato.language.kernel.containers.ContainersPackage.eINSTANCE.getCompilationUnit(),
 		};
 	}

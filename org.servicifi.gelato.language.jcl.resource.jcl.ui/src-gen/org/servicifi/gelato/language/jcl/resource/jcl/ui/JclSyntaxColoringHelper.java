@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.jcl.resource.jcl.ui;
 
+
 public class JclSyntaxColoringHelper {
 	
 	public static enum StyleProperty {

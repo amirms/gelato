@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.ui;
 
+
 public class KernelSyntaxColoringHelper {
 	
 	public static enum StyleProperty {

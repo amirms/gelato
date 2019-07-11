@@ -149,6 +149,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFlow() {
 		return flowEClass;
 	}
@@ -158,6 +159,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFlow_To() {
 		return (EReference)flowEClass.getEStructuralFeatures().get(0);
 	}
@@ -167,6 +169,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFlow_From() {
 		return (EReference)flowEClass.getEStructuralFeatures().get(1);
 	}
@@ -176,6 +179,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getFlow__Reverse() {
 		return flowEClass.getEOperations().get(0);
 	}
@@ -185,6 +189,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRegularFlow() {
 		return regularFlowEClass;
 	}
@@ -194,6 +199,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProcedureFlow() {
 		return procedureFlowEClass;
 	}
@@ -203,6 +209,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNode() {
 		return nodeEClass;
 	}
@@ -212,6 +219,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getNode_Predecessors() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(0);
 	}
@@ -221,6 +229,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getNode_Successors() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(1);
 	}
@@ -230,6 +239,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSummaryFlow() {
 		return summaryFlowEClass;
 	}
@@ -239,6 +249,7 @@ public class GraphsPackageImpl extends EPackageImpl implements GraphsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GraphsFactory getGraphsFactory() {
 		return (GraphsFactory)getEFactoryInstance();
 	}

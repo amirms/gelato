@@ -1,0 +1,78 @@
+var9;var2->var10;var11
+CTRL: strcmp(input.empId,e.empId)->NORMAL: fseek(outfile,-sizeof(struct employee),SEEK_CUR)
+-----------------------
+->
+ENTRY Node: main()->NORMAL: 0
+-----------------------
+var16:var16
+NORMAL: scanf("%d", &empId)
+-----------------------
+
+NORMAL: printf("Do You Want To Continue(1/0):")
+-----------------------
+->
+CTRL: break;->NORMAL: 0
+-----------------------
+
+NORMAL: printf("Enter employee ID to calculate new payslip:")
+-----------------------
+
+
+-----------------------
+var6->
+CTRL: infile == NULL->
+-----------------------
+->var10
+ENTRY Node: updateEmployeeDetails(struct employee e)->NORMAL: rewind(outfile)
+-----------------------
+
+
+-----------------------
+var6
+NORMAL: fclose(infile)
+-----------------------
+var2:var2_in
+FORMAL_IN: struct employee e
+-----------------------
+->->
+CALL: ->ENTRY Node: main()->NORMAL: printf("Enter the number of employees:")
+-----------------------
+var8:var8;var5;var4
+NORMAL: es[i++] = input;
+-----------------------
+
+NORMAL: 0
+-----------------------
+
+NORMAL: printf("Employee details updated.")
+-----------------------
+var10
+NORMAL: fclose(outfile)
+-----------------------
+->var16:var16
+CTRL: 1->NORMAL: scanf("%d", &empId)
+-----------------------
+var10;var11
+NORMAL: fseek(outfile,-sizeof(struct employee),SEEK_CUR)
+-----------------------
+var15:
+NORMAL: flag = 0;
+-----------------------
+var1_out:var1
+FORMAL_OUT: 
+-----------------------
+var0
+NORMAL: malloc(sizeof(struct employee) * num)
+-----------------------
+var10->var7
+CTRL: outfile == NULL->NORMAL: fprintf(stderr, "\nError opening accounts.dat\n\n")
+-----------------------
+->var10
+CTRL: break;->NORMAL: fclose(outfile)
+-----------------------
+var16;var19;var12->var20;var21->var18:var23;var21;var22
+CTRL: empId == emps[i].empId->CTRL: e.basic > SALARY_TAX_THRESHOLD->NORMAL: taxes = (e.gross - SALARY_TAX_THRESHOLD) * HIGH_RATE + SALARY_TAX_THRESHOLD * LOW_RATE ;
+-----------------------
+var6;var4->var8:var8;var5;var4
+CTRL: fread (&input, sizeof(struct employee), 1, infile)->NORMAL: es[i++] = input;
+-----------------------

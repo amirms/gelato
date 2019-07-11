@@ -30,60 +30,51 @@ import org.servicifi.gelato.transformation.core.util.JclUtil;
 public class JclSourceFileLoader {
 	private String filename;
 	private JclResource jclRes;
-	
-	public JclSourceFileLoader(String filename){
-		
+
+	public JclSourceFileLoader(String filename) {
+
 		this.filename = filename;
 		this.jclRes = null;
 	}
-	
+
 	public JclResource getResource() throws IOException {
-		
+
 		if (jclRes != null)
 			return jclRes;
-		
+
 		JclUtil.initialize();
-		
+
 		File file = new File(filename);
-		URI uri = URI.createFileURI(file.getAbsolutePath());				
-		
-		jclRes = ( JclResource) parseResource(file, uri);
-		
+		URI uri = URI.createFileURI(file.getAbsolutePath());
+
+		jclRes = (JclResource) parseResource(file, uri);
+
 		return jclRes;
-		
 	}
-	
-	
+
 	public List<String> extractProgramCalls() throws IOException {
-		
+
 		List<String> res = new ArrayList<String>();
-		jclRes  = getResource();
-		
+		jclRes = getResource();
+
 		JCLRoot root = (JCLRoot) jclRes.getContents().get(0);
-		
-		 if (root instanceof JobUnit) {
-			 
-			 JobUnit unit = (JobUnit) root;
-			 
-			 Iterator<ExecuteProgram> executesIterator = unit.getExecutes().iterator();
-			 
-			 while(executesIterator.hasNext()) {
-				 ExecuteProgram execute = executesIterator.next();
-				 
-				 
-				 res.add(execute.getProgramName());
-				 
-				 
-			 }
 
-			 
-		 }
-		 
-		 return res;
-		
+		if (root instanceof JobUnit) {
+
+			JobUnit unit = (JobUnit) root;
+
+			Iterator<ExecuteProgram> executesIterator = unit.getExecutes().iterator();
+
+			while (executesIterator.hasNext()) {
+				ExecuteProgram execute = executesIterator.next();
+
+				res.add(execute.getProgramName());
+			}
+		}
+
+		return res;
+
 	}
-	
-
 
 	private Resource parseResource(File file, URI uri) throws IOException {
 		// TODO Auto-generated method stub
@@ -91,13 +82,12 @@ public class JclSourceFileLoader {
 
 		if (resource == null)
 			return null;
-		
+
 		return resource;
 	}
-	
-	protected Resource loadResource(
-			URI uri) throws IOException {
-		
+
+	protected Resource loadResource(URI uri) throws IOException {
+
 		boolean errorfound = false;
 		boolean firsterror = true;
 		ResourceSet rs = getResourceSet();
@@ -105,25 +95,22 @@ public class JclSourceFileLoader {
 		EcoreUtil.resolveAll(resource);
 		List<Diagnostic> errors = resource.getErrors();
 		for (Diagnostic error : errors) {
-			if (error instanceof Diagnostic){
+			if (error instanceof Diagnostic) {
 				IJclTextDiagnostic diagnostic = (IJclTextDiagnostic) error;
-				
+
 				IJclProblem problem = diagnostic.getProblem();
-				
+
 				if (!problem.getType().equals(JclEProblemType.UNRESOLVED_REFERENCE))
 					System.out.println("Found error in " + uri.toString() + ": " + error);
 			}
 		}
-		
-			
+
 		if (errorfound)
 			return null;
-		
+
 		return resource;
 	}
-	
-	
-	
+
 	protected ResourceSet getResourceSet() {
 		ResourceSet rs = new ResourceSetImpl();
 		return rs;

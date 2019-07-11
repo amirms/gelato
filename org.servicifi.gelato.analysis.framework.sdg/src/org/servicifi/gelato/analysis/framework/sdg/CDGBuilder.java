@@ -21,9 +21,12 @@ import org.servicifi.gelato.language.kernel.parameters.Parameter;
 import org.servicifi.gelato.language.kernel.procedures.MainProcedure;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
 import org.servicifi.gelato.language.kernel.references.Argument;
+import org.servicifi.gelato.language.kernel.references.ArgumentReference;
+import org.servicifi.gelato.language.kernel.statements.Abort;
 import org.servicifi.gelato.language.kernel.statements.Block;
 import org.servicifi.gelato.language.kernel.statements.Condition;
 import org.servicifi.gelato.language.kernel.statements.ExpressionStatement;
+import org.servicifi.gelato.language.kernel.statements.Goto;
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 import org.servicifi.gelato.language.kernel.statements.Return;
 import org.servicifi.gelato.language.kernel.statements.Statement;
@@ -41,6 +44,7 @@ public class CDGBuilder {
 	// TODO I can just find it in cdg.vertexset()
 	private Map<String, Node> procedure2nodes;
 	private Map<String, Node> call2nodes;
+	private Map<String, Node> goto2nodes;
 	private Map<String, Node> argument2nodes;
 	private Map<String, Node> parameter2nodes;
 
@@ -69,6 +73,7 @@ public class CDGBuilder {
 		procedureParams = new HashMap<>();
 		calls = new HashMap<>();
 		procedure2nodes = new HashMap<>();
+		goto2nodes = new HashMap<>();
 		call2nodes = new HashMap<>();
 		argument2nodes = new HashMap<>();
 		parameter2nodes = new HashMap<>();
@@ -87,6 +92,40 @@ public class CDGBuilder {
 		reportUnmatched();
 
 		connectProcedures();
+
+		connectGotos();
+	}
+
+	private void connectGotos() {
+		TreeIterator<EObject> iterator = this.cu.eAllContents();
+
+		while (iterator.hasNext()) {
+			EObject element = iterator.next();
+
+			if (element instanceof Goto) {
+				Goto gotoStatement = (Goto) element;
+
+				LabellableElement targetElement = gotoStatement.getTarget();
+				if (targetElement == null) {
+					throw new Error("Goto statement does not have a target label");
+				}
+
+				Node source = cdg.getVertex(gotoStatement.getLabel());
+
+				if (source == null) {
+					throw new Error("Source goto statement cannot be found");
+				}
+
+				Node target = cdg.getVertex(targetElement.getLabel());
+
+				if (target == null) {
+					throw new Error(
+							"Target of goto statement with label(" + targetElement.getLabel() + ") cannot be found");
+				}
+
+				addEdge(EdgeType.CTRL_TRUE, source, target);
+			}
+		}
 	}
 
 	private void connectProcedures() {
@@ -113,19 +152,23 @@ public class CDGBuilder {
 				cdg.addEdge(caller, callee, new Edge(caller, callee, EdgeType.CALL));
 				for (int i = 0; i < procedureCall.getArguments().size(); i++) {
 					Argument argument = procedureCall.getArguments().get(i);
-					final Node callArg = getArgumentNode(argument);
 
-					Parameter correspondingParameter = procedure.getParameters().get(i);
-					final Node defParam = getParameterNode(correspondingParameter);
+					if (argument instanceof ArgumentReference) {
+						ArgumentReference argReference = (ArgumentReference) argument;
+						final Node callArg = getArgumentNode(argReference);
 
-					cdg.addEdge(callArg, defParam, new Edge(callArg, defParam, EdgeType.PARAM_IN));
+						Parameter correspondingParameter = procedure.getParameters().get(i);
+						final Node defParam = getParameterNode(correspondingParameter);
 
-					if (correspondingParameter.isByReference()) {
-						final Node actualOut = actualOuts.get(argument);
+						cdg.addEdge(callArg, defParam, new Edge(callArg, defParam, EdgeType.PARAM_IN));
 
-						final Node formalOut = formalOuts.get(correspondingParameter);
+						if (correspondingParameter.isByReference()) {
+							final Node actualOut = actualOuts.get(argument);
 
-						cdg.addEdge(formalOut, actualOut, new Edge(formalOut, actualOut, EdgeType.PARAM_OUT));
+							final Node formalOut = formalOuts.get(correspondingParameter);
+
+							cdg.addEdge(formalOut, actualOut, new Edge(formalOut, actualOut, EdgeType.PARAM_OUT));
+						}
 					}
 
 				}
@@ -138,7 +181,7 @@ public class CDGBuilder {
 		return parameter2nodes.get(NodeFactory.getParameterLabel(parameter));
 	}
 
-	private Node getArgumentNode(Argument argument) {
+	private Node getArgumentNode(ArgumentReference argument) {
 		return argument2nodes.get(NodeFactory.getArgumentLabel(argument));
 	}
 
@@ -176,9 +219,25 @@ public class CDGBuilder {
 			blockStatement((Block) statement);
 		} else if (statement instanceof Return) {
 			returnStatement((Return) statement);
+		} else if (statement instanceof Goto) {
+			gotoStatement((Goto) statement);
+		} else if (statement instanceof Abort) {
+			abortStatement((Abort) statement);
 		} else {
 			logUnmatched(statement);
 		}
+	}
+
+	private void abortStatement(Abort statement) {
+		final Node v = nodeCreator.abortStmt(statement);
+		cdg.addVertex(v);
+		inScope.add(v);
+	}
+
+	private void gotoStatement(Goto statement) {
+		final Node v = nodeCreator.gotoStmt(statement);
+		cdg.addVertex(v);
+		inScope.add(v);
 	}
 
 	private void logUnmatched(LabellableElement element) {
@@ -374,17 +433,21 @@ public class CDGBuilder {
 		// , final Expression, scope) {
 		final List<Node> paramVtcs = new ArrayList<>();
 		for (final Argument argument : call.getArguments()) {
-			final Node actualIn = actualIn(argument);
-			addEdge(EdgeType.CTRL_TRUE, v, actualIn);
-			paramVtcs.add(actualIn);
+			if (argument instanceof ArgumentReference) {
+				ArgumentReference argReference = (ArgumentReference) argument;
 
-			Parameter correspondingParameter = argument.getCorrespondingParameter();
-			if (correspondingParameter.isByReference()) {
-				final Node actualOut = actualOut(v, argument, call);
-				actualOuts.put(argument, actualOut);
-				
-				addEdge(EdgeType.CTRL_TRUE, v, actualOut);
+				final Node actualIn = actualIn(argReference);
+				addEdge(EdgeType.CTRL_TRUE, v, actualIn);
 				paramVtcs.add(actualIn);
+
+				Parameter correspondingParameter = argument.getCorrespondingParameter();
+				if (correspondingParameter.isByReference()) {
+					final Node actualOut = actualOut(v, argument, call);
+					actualOuts.put(argument, actualOut);
+
+					addEdge(EdgeType.CTRL_TRUE, v, actualOut);
+					paramVtcs.add(actualIn);
+				}
 			}
 		}
 		// final String methodName = callName(name, scope);
@@ -393,7 +456,7 @@ public class CDGBuilder {
 		// return cfgBuilder.seq(result);// , n.o().orElse(null));
 	}
 
-	private Node actualIn(Argument argument) {
+	private Node actualIn(ArgumentReference argument) {
 		final Node v = nodeCreator.argument(argument);
 		argument2nodes.put(v.getLabel(), v);
 		cdg.addVertex(v);

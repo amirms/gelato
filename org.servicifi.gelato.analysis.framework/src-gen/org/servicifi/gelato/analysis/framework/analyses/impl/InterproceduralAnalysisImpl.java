@@ -41,7 +41,7 @@ public class InterproceduralAnalysisImpl extends AnalysisImpl implements Interpr
 	}
 
 	@Override
-	public Map<Long, ExitEntryPair> performAnalysis() {
+	public Map<Double, ExitEntryPair> performAnalysis() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -156,8 +156,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="ReferenceableElement" abstract="true"
         eSuperTypes="#//commons/NamedElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Reference" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="#//references/ElementReference">
+    <eClassifiers xsi:type="ecore:EClass" name="Argument" abstract="true">
       <eOperations name="getCorrespondingParameter" lowerBound="1" eType="#//parameters/Parameter"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArgumentReference" eSuperTypes="#//references/Argument #//references/ElementReference"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EmptyArgument" eSuperTypes="#//references/Argument"/>
   </eSubpackages>
 </ecore:EPackage>

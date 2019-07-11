@@ -6,13 +6,18 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.ui;
 
-public class KernelAnnotationModel extends org.eclipse.ui.texteditor.ResourceMarkerAnnotationModel {
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.ui.texteditor.MarkerAnnotation;
+import org.eclipse.ui.texteditor.ResourceMarkerAnnotationModel;
+
+public class KernelAnnotationModel extends ResourceMarkerAnnotationModel {
 	
-	public KernelAnnotationModel(org.eclipse.core.resources.IResource resource) {
+	public KernelAnnotationModel(IResource resource) {
 		super(resource);
 	}
 	
-	protected org.eclipse.ui.texteditor.MarkerAnnotation createMarkerAnnotation(org.eclipse.core.resources.IMarker marker) {
+	protected MarkerAnnotation createMarkerAnnotation(IMarker marker) {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelMarkerAnnotation(marker);
 	}
 	

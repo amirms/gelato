@@ -6,20 +6,29 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import org.eclipse.emf.common.util.URI;
+
 /**
+ * <p>
  * A basic implementation of the
  * org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceResolveResu
  * lt interface that collects mappings in a list.
+ * </p>
  * 
  * @param <ReferenceType> the type of the references that can be contained in this
  * result
  */
 public class KernelReferenceResolveResult<ReferenceType> implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceResolveResult<ReferenceType> {
 	
-	private java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>> mappings;
+	private Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>> mappings;
 	private String errorMessage;
 	private boolean resolveFuzzy;
-	private java.util.Set<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix> quickFixes;
+	private Set<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix> quickFixes;
 	
 	public KernelReferenceResolveResult(boolean resolveFuzzy) {
 		super();
@@ -30,21 +39,21 @@ public class KernelReferenceResolveResult<ReferenceType> implements org.servicif
 		return errorMessage;
 	}
 	
-	public java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix> getQuickFixes() {
+	public Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix> getQuickFixes() {
 		if (quickFixes == null) {
-			quickFixes = new java.util.LinkedHashSet<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix>();
+			quickFixes = new LinkedHashSet<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix>();
 		}
-		return java.util.Collections.unmodifiableSet(quickFixes);
+		return Collections.unmodifiableSet(quickFixes);
 	}
 	
 	public void addQuickFix(org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix quickFix) {
 		if (quickFixes == null) {
-			quickFixes = new java.util.LinkedHashSet<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix>();
+			quickFixes = new LinkedHashSet<org.servicifi.gelato.language.kernel.resource.kernel.IKernelQuickFix>();
 		}
 		quickFixes.add(quickFix);
 	}
 	
-	public java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>> getMappings() {
+	public Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>> getMappings() {
 		return mappings;
 	}
 	
@@ -73,19 +82,19 @@ public class KernelReferenceResolveResult<ReferenceType> implements org.servicif
 	
 	public void addMapping(String identifier, ReferenceType target, String warning) {
 		if (mappings == null) {
-			mappings = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>>(1);
+			mappings = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>>(1);
 		}
 		mappings.add(new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelElementMapping<ReferenceType>(identifier, target, warning));
 		errorMessage = null;
 	}
 	
-	public void addMapping(String identifier, org.eclipse.emf.common.util.URI uri) {
+	public void addMapping(String identifier, URI uri) {
 		addMapping(identifier, uri, null);
 	}
 	
-	public void addMapping(String identifier, org.eclipse.emf.common.util.URI uri, String warning) {
+	public void addMapping(String identifier, URI uri, String warning) {
 		if (mappings == null) {
-			mappings = new java.util.ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>>(1);
+			mappings = new ArrayList<org.servicifi.gelato.language.kernel.resource.kernel.IKernelReferenceMapping<ReferenceType>>(1);
 		}
 		mappings.add(new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelURIMapping<ReferenceType>(identifier, uri, warning));
 	}

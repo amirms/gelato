@@ -6,6 +6,8 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.ui;
 
+import org.eclipse.core.resources.IResource;
+
 public class KernelUIMetaInformation extends org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelMetaInformation {
 	
 	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelHoverTextProvider getHoverTextProvider() {
@@ -28,15 +30,20 @@ public class KernelUIMetaInformation extends org.servicifi.gelato.language.kerne
 	 * instead.
 	 */
 	public org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelTokenScanner createTokenScanner(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelColorManager colorManager) {
-		return createTokenScanner(null, colorManager);
+		return (org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelTokenScanner) createTokenScanner(null, colorManager);
 	}
 	
-	public org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelTokenScanner createTokenScanner(org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelColorManager colorManager) {
+	public org.servicifi.gelato.language.kernel.resource.kernel.ui.IKernelTokenScanner createTokenScanner(org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource, org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelColorManager colorManager) {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelTokenScanner(resource, colorManager);
 	}
 	
 	public org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelCodeCompletionHelper createCodeCompletionHelper() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelCodeCompletionHelper();
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public Object createResourceAdapter(Object adaptableObject, Class adapterType, IResource resource) {
+		return new org.servicifi.gelato.language.kernel.resource.kernel.ui.debug.KernelLineBreakpointAdapter();
 	}
 	
 }

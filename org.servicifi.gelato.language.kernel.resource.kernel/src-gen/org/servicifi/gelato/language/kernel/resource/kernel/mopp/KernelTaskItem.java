@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+
 public class KernelTaskItem {
 	
 	private String keyword;

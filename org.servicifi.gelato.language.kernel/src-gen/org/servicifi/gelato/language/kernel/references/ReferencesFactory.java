@@ -22,13 +22,22 @@ public interface ReferencesFactory extends EFactory {
 	ReferencesFactory eINSTANCE = org.servicifi.gelato.language.kernel.references.impl.ReferencesFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Argument</em>'.
+	 * Returns a new object of class '<em>Argument Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Argument</em>'.
+	 * @return a new object of class '<em>Argument Reference</em>'.
 	 * @generated
 	 */
-	Argument createArgument();
+	ArgumentReference createArgumentReference();
+
+	/**
+	 * Returns a new object of class '<em>Empty Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Empty Argument</em>'.
+	 * @generated
+	 */
+	EmptyArgument createEmptyArgument();
 
 	/**
 	 * Returns the package supported by this factory.

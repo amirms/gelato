@@ -25,6 +25,8 @@
 		</page>
 		<page name="Brackets" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelBracketPreferencePage" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelBracketPreferencePage" category="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelPreferencePage">
 		</page>
+		<page name="Content Assist" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelContentAssistPreferencePage" class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelContentAssistPreferencePage" category="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelPreferencePage">
+		</page>
 	</extension>
 	
 	<extension point="org.eclipse.ui.newWizards">
@@ -72,6 +74,28 @@
 		</specification>
 	</extension>
 	
+	<extension point="org.eclipse.ui.commands">
+		<category description="All commands belonging to Kernel" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.command.category" name="Kernel">
+		</category>
+		<command categoryId="org.servicifi.gelato.language.kernel.resource.kernel.ui.command.category" description="Toggle comment of the selected lines" id="org.servicifi.gelato.language.kernel.resource.kernel.ui.command.togglecomment" name="Toggle Comment">
+		</command>
+	</extension>
+	
+	<extension point="org.eclipse.ui.handlers">
+		<handler class="org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelToggleCommentHandler" commandId="org.servicifi.gelato.language.kernel.resource.kernel.ui.command.togglecomment">
+		</handler>
+	</extension>
+	
+	<extension point="org.eclipse.ui.contexts">
+		<context name="Editing Kernel Files" description="Editing Kernel Files Context" parentId="org.eclipse.ui.textEditorScope" id="org.servicifi.gelato.language.kernel.resource.kernel.EditorScope">
+		</context>
+	</extension>
+	
+	<extension point="org.eclipse.ui.bindings">
+		<key sequence="M1+7" commandId="org.servicifi.gelato.language.kernel.resource.kernel.ui.command.togglecomment" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" contextId="org.servicifi.gelato.language.kernel.resource.kernel.EditorScope">
+		</key>
+	</extension>
+	
 	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
 		<launchConfigurationTypeImage icon="/icons/launch_type_icon.gif" configTypeID="org.servicifi.gelato.language.kernel.resource.kernel.ui.launchConfigurationType" id="org.servicifi.gelato.language.kernel.launchImage">
 		</launchConfigurationTypeImage>
@@ -98,8 +122,10 @@
 						<count value="1">
 						</count>
 						<iterate>
-							<test property="org.servicifi.gelato.language.kernel.isLaunchable">
-							</test>
+							<adapt type="org.eclipse.core.resources.IResource">
+								<test property="org.eclipse.core.resources.extension" value="kernel">
+								</test>
+							</adapt>
 						</iterate>
 					</with>
 				</enablement>

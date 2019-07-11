@@ -134,6 +134,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getReturnSite() {
 		return returnSiteEClass;
 	}
@@ -143,6 +144,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProcedure() {
 		return procedureEClass;
 	}
@@ -152,6 +154,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getProcedureCall() {
 		return procedureCallEClass;
 	}
@@ -161,6 +164,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getProcedureCall__AlphaConvert__EList() {
 		return procedureCallEClass.getEOperations().get(0);
 	}
@@ -170,6 +174,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getProcedureCall__TranslateActualToFormalParameters__EList_Procedure() {
 		return procedureCallEClass.getEOperations().get(1);
 	}
@@ -179,6 +184,7 @@ public class ProceduresPackageImpl extends EPackageImpl implements ProceduresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProceduresFactory getProceduresFactory() {
 		return (ProceduresFactory)getEFactoryInstance();
 	}

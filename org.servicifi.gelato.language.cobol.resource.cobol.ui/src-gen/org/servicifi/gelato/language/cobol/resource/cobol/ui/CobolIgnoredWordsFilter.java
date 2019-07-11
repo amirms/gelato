@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.cobol.resource.cobol.ui;
 
+
 /**
  * The IgnoredWordsFilter can be customized to add additional words that must not
  * be marked as misspelled. To customize this class, set option

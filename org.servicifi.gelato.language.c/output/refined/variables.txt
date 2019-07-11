@@ -1,0 +1,24 @@
+var4:input
+var1:#return_readEmployeeDetails
+var0:num
+var9:i
+var6:infile
+var5:es
+var10:input
+var2:e
+var11:outfile
+var17:empId
+var16:flag
+var20:emps
+var14:ch
+var21:e
+var15:num
+var13:i
+var19:taxes
+var18:byPercent
+var7: ACCOUNTS_FILE
+var23: HIGH_RATE
+var12: SEEK_CUR
+var24: LOW_RATE
+var8: stderr
+var22: SALARY_TAX_THRESHOLD

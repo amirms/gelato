@@ -36,12 +36,12 @@ public interface LabellableElement extends Node {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
-	 * @see #setLabel(long)
+	 * @see #setLabel(double)
 	 * @see org.servicifi.gelato.analysis.framework.commons.CommonsPackage#getLabellableElement_Label()
 	 * @model required="true"
 	 * @generated
 	 */
-	long getLabel();
+	double getLabel();
 
 	/**
 	 * Sets the value of the '{@link org.servicifi.gelato.analysis.framework.commons.LabellableElement#getLabel <em>Label</em>}' attribute.
@@ -51,7 +51,7 @@ public interface LabellableElement extends Node {
 	 * @see #getLabel()
 	 * @generated
 	 */
-	void setLabel(long value);
+	void setLabel(double value);
 
 	/**
 	 * <!-- begin-user-doc -->

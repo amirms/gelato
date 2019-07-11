@@ -6,8 +6,17 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.debug;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+
 /**
+ * <p>
  * A DebuggableInterpreter is a facade for interpreters that adds debug support.
+ * </p>
  * 
  * @param <ResultType> the result type of the actual interpreter
  * @param <ContextType> the context type of the actual interpreter
@@ -23,7 +32,7 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 	 * To check whether we must stop the execution after step over/into/return, we use
 	 * a closure
 	 */
-	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.eclipse.emf.ecore.EObject> stopCondition;
+	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<EObject> stopCondition;
 	
 	/**
 	 * The port of the socket that is used to send debug events to the Eclipse
@@ -34,7 +43,7 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 	/**
 	 * This map is used to remember the IDs of stack frame elements
 	 */
-	java.util.Map<Integer, org.eclipse.emf.ecore.EObject> stackFrameMap = new java.util.LinkedHashMap<Integer, org.eclipse.emf.ecore.EObject>();
+	Map<Integer, EObject> stackFrameMap = new LinkedHashMap<Integer, EObject>();
 	
 	/**
 	 * The ID of the last stack frame element
@@ -46,7 +55,7 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 		this.interpreterDelegate = interpreterDelegate;
 		this.interpreterDelegate.addListener(new org.servicifi.gelato.language.kernel.resource.kernel.IKernelInterpreterListener() {
 			
-			public void handleInterpreteObject(org.eclipse.emf.ecore.EObject element) {
+			public void handleInterpreteObject(EObject element) {
 				// check whether we have hit an element after a step over/into/return
 				evaluateStep(element);
 				// if we are stepping we do ignore breakpoints
@@ -55,7 +64,7 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 				}
 				// check whether we have hit a line breakpoint
 				int line = getLine(element);
-				org.eclipse.emf.ecore.EObject parent = element.eContainer();
+				EObject parent = element.eContainer();
 				if (parent != null) {
 					int parentLine = getLine(parent);
 					if (line == parentLine) {
@@ -86,16 +95,16 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 	}
 	
 	public String[] getStack() {
-		org.eclipse.emf.ecore.EObject next = interpreterDelegate.getNextObjectToInterprete();
-		java.util.List<org.eclipse.emf.ecore.EObject> parents = new java.util.ArrayList<org.eclipse.emf.ecore.EObject>();
-		org.eclipse.emf.ecore.EObject current = next;
+		EObject next = interpreterDelegate.getNextObjectToInterprete();
+		List<EObject> parents = new ArrayList<EObject>();
+		EObject current = next;
 		while (current != null) {
 			parents.add(current);
 			current = current.eContainer();
 		}
 		String[] stack = new String[parents.size()];
 		int i = parents.size();
-		for (org.eclipse.emf.ecore.EObject parent : parents) {
+		for (EObject parent : parents) {
 			String serializedStackElement = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelStringUtil.encode(',', new String[] {parent.eClass().getName(), Integer.toString(stackFrameID), parent.eResource().getURI().toString(), Integer.toString(getLine(parent)), Integer.toString(getCharStart(parent)), Integer.toString(getCharEnd(parent))});
 			stack[--i] = serializedStackElement;
 			stackFrameMap.put(stackFrameID++, parent);
@@ -107,7 +116,7 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 		return interpreterDelegate;
 	}
 	
-	private int getLine(org.eclipse.emf.ecore.EObject element) {
+	private int getLine(EObject element) {
 		int line = -1;
 		org.servicifi.gelato.language.kernel.resource.kernel.IKernelLocationMap locationMap = getLocationMap(element);
 		if (locationMap != null) {
@@ -116,7 +125,7 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 		return line;
 	}
 	
-	private int getCharStart(org.eclipse.emf.ecore.EObject element) {
+	private int getCharStart(EObject element) {
 		org.servicifi.gelato.language.kernel.resource.kernel.IKernelLocationMap locationMap = getLocationMap(element);
 		if (locationMap != null) {
 			return locationMap.getCharStart(element);
@@ -124,7 +133,7 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 		return -1;
 	}
 	
-	private int getCharEnd(org.eclipse.emf.ecore.EObject element) {
+	private int getCharEnd(EObject element) {
 		org.servicifi.gelato.language.kernel.resource.kernel.IKernelLocationMap locationMap = getLocationMap(element);
 		if (locationMap != null) {
 			return locationMap.getCharEnd(element) + 1;
@@ -132,8 +141,8 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 		return -1;
 	}
 	
-	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelLocationMap getLocationMap(org.eclipse.emf.ecore.EObject element) {
-		org.eclipse.emf.ecore.resource.Resource resource = element.eResource();
+	private org.servicifi.gelato.language.kernel.resource.kernel.IKernelLocationMap getLocationMap(EObject element) {
+		Resource resource = element.eResource();
 		if (resource instanceof org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource) {
 			org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource textResource = (org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource) resource;
 			org.servicifi.gelato.language.kernel.resource.kernel.IKernelLocationMap locationMap = textResource.getLocationMap();
@@ -142,9 +151,9 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 		return null;
 	}
 	
-	private void evaluateStep(org.eclipse.emf.ecore.EObject element) {
+	private void evaluateStep(EObject element) {
 		// create local copy to avoid race conditions
-		org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.eclipse.emf.ecore.EObject> stopCheck = stopCondition;
+		org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<EObject> stopCheck = stopCondition;
 		if (stopCheck != null && stopCheck.execute(element)) {
 			stopCondition = null;
 			// suspending after step...
@@ -161,10 +170,10 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 	}
 	
 	public void stepOver() {
-		final org.eclipse.emf.ecore.EObject current = interpreterDelegate.getNextObjectToInterprete();
+		final EObject current = interpreterDelegate.getNextObjectToInterprete();
 		final int currentLevel = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEObjectUtil.getDepth(current);
-		stopCondition = new org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.eclipse.emf.ecore.EObject>() {
-			public boolean execute(org.eclipse.emf.ecore.EObject element) {
+		stopCondition = new org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<EObject>() {
+			public boolean execute(EObject element) {
 				// For step over, we stop at the next object that is at the same level or higher
 				int depth = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEObjectUtil.getDepth(element);
 				boolean sameOrHigher = depth <= currentLevel;
@@ -176,8 +185,8 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 	}
 	
 	public void stepInto() {
-		stopCondition = new org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.eclipse.emf.ecore.EObject>() {
-			public boolean execute(org.eclipse.emf.ecore.EObject element) {
+		stopCondition = new org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<EObject>() {
+			public boolean execute(EObject element) {
 				// For step into, we stop at the next object
 				return true;
 			}
@@ -186,10 +195,10 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 	}
 	
 	public void stepReturn() {
-		org.eclipse.emf.ecore.EObject current = interpreterDelegate.getNextObjectToInterprete();
+		EObject current = interpreterDelegate.getNextObjectToInterprete();
 		final int parentLevel = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEObjectUtil.getDepth(current) - 1;
-		stopCondition = new org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.eclipse.emf.ecore.EObject>() {
-			public boolean execute(org.eclipse.emf.ecore.EObject element) {
+		stopCondition = new org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<EObject>() {
+			public boolean execute(EObject element) {
 				// For step return, we stop at the next object that is at least one level higher
 				int depth = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEObjectUtil.getDepth(element);
 				return depth <= parentLevel;
@@ -198,9 +207,9 @@ public class KernelDebuggableInterpreter<ResultType, ContextType> extends org.se
 		resume();
 	}
 	
-	public java.util.Map<String, Object> getFrameVariables(String stackFrame) {
+	public Map<String, Object> getFrameVariables(String stackFrame) {
 		int stackFrameID = Integer.parseInt(stackFrame);
-		java.util.Map<String, Object> frameVariables = new java.util.LinkedHashMap<String, Object>();
+		Map<String, Object> frameVariables = new LinkedHashMap<String, Object>();
 		frameVariables.put("this", stackFrameMap.get(stackFrameID));
 		frameVariables.put("context", getInterpreterDelegate().getCurrentContext());
 		return frameVariables;

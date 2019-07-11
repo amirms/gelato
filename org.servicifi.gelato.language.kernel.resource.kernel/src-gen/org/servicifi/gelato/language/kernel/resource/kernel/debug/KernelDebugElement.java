@@ -6,12 +6,17 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.debug;
 
-public abstract class KernelDebugElement extends org.eclipse.debug.core.model.DebugElement {
+import org.eclipse.debug.core.DebugPlugin;
+import org.eclipse.debug.core.IBreakpointManager;
+import org.eclipse.debug.core.model.DebugElement;
+import org.eclipse.debug.core.model.IDebugTarget;
+
+public abstract class KernelDebugElement extends DebugElement {
 	
 	/**
 	 * Constructs a new debug element in the given target.
 	 */
-	public KernelDebugElement(org.eclipse.debug.core.model.IDebugTarget target) {
+	public KernelDebugElement(IDebugTarget target) {
 		super(target);
 	}
 	
@@ -20,12 +25,14 @@ public abstract class KernelDebugElement extends org.eclipse.debug.core.model.De
 	}
 	
 	/**
+	 * <p>
 	 * Returns the breakpoint manager.
+	 * </p>
 	 * 
 	 * @return the breakpoint manager
 	 */
-	protected org.eclipse.debug.core.IBreakpointManager getBreakpointManager() {
-		return org.eclipse.debug.core.DebugPlugin.getDefault().getBreakpointManager();
+	protected IBreakpointManager getBreakpointManager() {
+		return DebugPlugin.getDefault().getBreakpointManager();
 	}
 	
 }

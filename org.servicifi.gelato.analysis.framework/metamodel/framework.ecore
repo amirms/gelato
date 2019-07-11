@@ -31,7 +31,7 @@
       </eOperations>
       <eOperations name="performAnalysis" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
           <eTypeArguments eClassifier="#//analyses/ExitEntryPair"/>
         </eGenericType>
       </eOperations>
@@ -73,7 +73,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" lowerBound="1"
           transient="true">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
           <eTypeArguments eClassifier="#//analyses/ExitEntryPair"/>
         </eGenericType>
       </eStructuralFeatures>
@@ -104,7 +104,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AnalysisResult" abstract="true" eSuperTypes="#//analyses/Comparable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExitEntryPair">
       <eStructuralFeatures xsi:type="ecore:EReference" name="entry" upperBound="-1"
@@ -136,7 +136,7 @@
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
           <eTypeArguments eClassifier="#//commons/Variable"/>
           <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
           </eTypeArguments>
         </eGenericType>
       </eStructuralFeatures>
@@ -164,7 +164,7 @@
         <eParameters name="configuration" eType="#//analyses/AnalysisConfiguration"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Variable" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//commons/LabellableElement"/>

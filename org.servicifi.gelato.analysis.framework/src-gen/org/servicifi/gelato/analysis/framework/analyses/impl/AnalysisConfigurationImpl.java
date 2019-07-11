@@ -92,6 +92,7 @@ public abstract class AnalysisConfigurationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AnalysisDirection getDirection() {
 		return direction;
 	}
@@ -101,6 +102,7 @@ public abstract class AnalysisConfigurationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDirection(AnalysisDirection newDirection) {
 		AnalysisDirection oldDirection = direction;
 		direction = newDirection == null ? DIRECTION_EDEFAULT : newDirection;
@@ -113,6 +115,7 @@ public abstract class AnalysisConfigurationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AnalysisType getAnalysisType() {
 		return analysisType;
 	}
@@ -122,6 +125,7 @@ public abstract class AnalysisConfigurationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAnalysisType(AnalysisType newAnalysisType) {
 		AnalysisType oldAnalysisType = analysisType;
 		analysisType = newAnalysisType == null ? ANALYSIS_TYPE_EDEFAULT : newAnalysisType;

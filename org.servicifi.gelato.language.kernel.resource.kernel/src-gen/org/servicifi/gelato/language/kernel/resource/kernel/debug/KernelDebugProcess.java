@@ -6,13 +6,18 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.debug;
 
-public class KernelDebugProcess extends org.servicifi.gelato.language.kernel.resource.kernel.debug.KernelDebugElement implements org.eclipse.debug.core.model.IProcess, org.servicifi.gelato.language.kernel.resource.kernel.debug.IKernelDebugEventListener {
+import org.eclipse.debug.core.DebugException;
+import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.core.model.IProcess;
+import org.eclipse.debug.core.model.IStreamsProxy;
+
+public class KernelDebugProcess extends org.servicifi.gelato.language.kernel.resource.kernel.debug.KernelDebugElement implements IProcess, org.servicifi.gelato.language.kernel.resource.kernel.debug.IKernelDebugEventListener {
 	
-	private org.eclipse.debug.core.ILaunch launch;
+	private ILaunch launch;
 	
 	private boolean terminated = false;
 	
-	public KernelDebugProcess(org.eclipse.debug.core.ILaunch launch) {
+	public KernelDebugProcess(ILaunch launch) {
 		super(launch.getDebugTarget());
 		this.launch = launch;
 	}
@@ -25,7 +30,7 @@ public class KernelDebugProcess extends org.servicifi.gelato.language.kernel.res
 		return terminated;
 	}
 	
-	public void terminate() throws org.eclipse.debug.core.DebugException {
+	public void terminate() throws DebugException {
 		terminated = true;
 	}
 	
@@ -33,11 +38,11 @@ public class KernelDebugProcess extends org.servicifi.gelato.language.kernel.res
 		return null;
 	}
 	
-	public org.eclipse.debug.core.ILaunch getLaunch() {
+	public ILaunch getLaunch() {
 		return launch;
 	}
 	
-	public org.eclipse.debug.core.model.IStreamsProxy getStreamsProxy() {
+	public IStreamsProxy getStreamsProxy() {
 		return null;
 	}
 	
@@ -48,7 +53,7 @@ public class KernelDebugProcess extends org.servicifi.gelato.language.kernel.res
 		return null;
 	}
 	
-	public int getExitValue() throws org.eclipse.debug.core.DebugException {
+	public int getExitValue() throws DebugException {
 		return 0;
 	}
 	

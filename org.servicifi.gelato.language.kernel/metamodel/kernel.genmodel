@@ -135,6 +135,8 @@
       <genClasses ecoreClass="kernel.ecore#//references/Argument">
         <genOperations ecoreOperation="kernel.ecore#//references/Argument/getCorrespondingParameter"/>
       </genClasses>
+      <genClasses ecoreClass="kernel.ecore#//references/ArgumentReference"/>
+      <genClasses ecoreClass="kernel.ecore#//references/EmptyArgument"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

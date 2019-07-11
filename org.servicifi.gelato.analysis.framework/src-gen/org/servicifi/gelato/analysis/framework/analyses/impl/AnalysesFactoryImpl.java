@@ -119,6 +119,7 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExitEntryPair createExitEntryPair() {
 		ExitEntryPairImpl exitEntryPair = new ExitEntryPairImpl();
 		return exitEntryPair;
@@ -129,6 +130,7 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IntraproceduralAnalysis createIntraproceduralAnalysis() {
 		IntraproceduralAnalysisImpl intraproceduralAnalysis = new IntraproceduralAnalysisImpl();
 		return intraproceduralAnalysis;
@@ -144,6 +146,7 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InterproceduralAnalysis createInterproceduralAnalysis() {
 		InterproceduralAnalysisImpl interproceduralAnalysis = new InterproceduralAnalysisImpl();
 		return interproceduralAnalysis;
@@ -154,6 +157,7 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ReachingDefinitionsAnalysisConfiguration createReachingDefinitionsAnalysisConfiguration() {
 		ReachingDefinitionsAnalysisConfigurationImpl reachingDefinitionsAnalysisConfiguration = new ReachingDefinitionsAnalysisConfigurationImpl();
 		return reachingDefinitionsAnalysisConfiguration;
@@ -164,6 +168,7 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ReachingDefinitionsAnalysisResult createReachingDefinitionsAnalysisResult() {
 		ReachingDefinitionsAnalysisResultImpl reachingDefinitionsAnalysisResult = new ReachingDefinitionsAnalysisResultImpl();
 		return reachingDefinitionsAnalysisResult;
@@ -214,6 +219,7 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AnalysesPackage getAnalysesPackage() {
 		return (AnalysesPackage)getEPackage();
 	}
@@ -236,7 +242,7 @@ public class AnalysesFactoryImpl extends EFactoryImpl implements AnalysesFactory
 //	}
 
 	@Override
-	public AnalysisResult createReachingDefinitionsResult(Variable v, long i) {
+	public AnalysisResult createReachingDefinitionsResult(Variable v, double i) {
 		ReachingDefinitionsAnalysisResultImpl reachingDefinitionsAnalysisResult = 
 				new ReachingDefinitionsAnalysisResultImpl(v,i);
 		return reachingDefinitionsAnalysisResult;

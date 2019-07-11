@@ -223,7 +223,7 @@ public class ExpressionImpl extends LabellableElementImpl implements Expression 
 
 		if (configuration instanceof ReachingDefinitionsAnalysisConfiguration) {
 			ReachingDefinitionsAnalysisConfiguration rdConfig = (ReachingDefinitionsAnalysisConfiguration) configuration;
-			Map<Variable, EList<Long>> assignments = rdConfig.getAssignments();
+			Map<Variable, EList<Double>> assignments = rdConfig.getAssignments();
 
 			// TODO: at entry, may be initialize variables with ?
 //			EList<DataItem> usages = getUsedVariables();
@@ -237,7 +237,7 @@ public class ExpressionImpl extends LabellableElementImpl implements Expression 
 				if (assignments.containsKey(item)) {
 					assignments.get(item).add(getLabel());
 				} else {
-					EList<Long> i = new BasicEList<>(1);
+					EList<Double> i = new BasicEList<>(1);
 					i.add(getLabel());
 					assignments.put(item, i);
 				}
@@ -253,7 +253,7 @@ public class ExpressionImpl extends LabellableElementImpl implements Expression 
 
 		if (configuration instanceof ReachingDefinitionsAnalysisConfiguration) {
 			ReachingDefinitionsAnalysisConfiguration rdConfig = (ReachingDefinitionsAnalysisConfiguration) configuration;
-			Map<Variable, EList<Long>> assignments = rdConfig.getAssignments();
+			Map<Variable, EList<Double>> assignments = rdConfig.getAssignments();
 
 			// Order matters
 			EList<DataItem> items = getDefinedVariables();
@@ -261,7 +261,7 @@ public class ExpressionImpl extends LabellableElementImpl implements Expression 
 			for (DataItem item : items) {
 				res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(item, -1));
 				if (assignments.containsKey(item)) {
-					for (Long i : assignments.get(item)) {
+					for (Double i : assignments.get(item)) {
 						res.add(AnalysesFactory.eINSTANCE.createReachingDefinitionsResult(item, i));
 					}
 				}

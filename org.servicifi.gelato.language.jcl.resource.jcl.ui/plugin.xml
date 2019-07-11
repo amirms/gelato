@@ -25,6 +25,8 @@
 		</page>
 		<page name="Brackets" id="org.servicifi.gelato.language.jcl.resource.jcl.ui.JclBracketPreferencePage" class="org.servicifi.gelato.language.jcl.resource.jcl.ui.JclBracketPreferencePage" category="org.servicifi.gelato.language.jcl.resource.jcl.ui.JclPreferencePage">
 		</page>
+		<page name="Content Assist" id="org.servicifi.gelato.language.jcl.resource.jcl.ui.JclContentAssistPreferencePage" class="org.servicifi.gelato.language.jcl.resource.jcl.ui.JclContentAssistPreferencePage" category="org.servicifi.gelato.language.jcl.resource.jcl.ui.JclPreferencePage">
+		</page>
 	</extension>
 	
 	<extension point="org.eclipse.ui.newWizards">
@@ -70,6 +72,28 @@
 		</specification>
 		<specification annotationType="org.servicifi.gelato.language.jcl.resource.jcl.ui.occurences.declaration" label="Declarations (in .jcl files)" textPreferenceKey="jcl.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="jcl.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="jcl.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="jcl.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="jcl.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="jcl.declarationTextStyle" textStylePreferenceValue="NONE">
 		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.ui.commands">
+		<category description="All commands belonging to Jcl" id="org.servicifi.gelato.language.jcl.resource.jcl.ui.command.category" name="Jcl">
+		</category>
+		<command categoryId="org.servicifi.gelato.language.jcl.resource.jcl.ui.command.category" description="Toggle comment of the selected lines" id="org.servicifi.gelato.language.jcl.resource.jcl.ui.command.togglecomment" name="Toggle Comment">
+		</command>
+	</extension>
+	
+	<extension point="org.eclipse.ui.handlers">
+		<handler class="org.servicifi.gelato.language.jcl.resource.jcl.ui.JclToggleCommentHandler" commandId="org.servicifi.gelato.language.jcl.resource.jcl.ui.command.togglecomment">
+		</handler>
+	</extension>
+	
+	<extension point="org.eclipse.ui.contexts">
+		<context name="Editing Jcl Files" description="Editing Jcl Files Context" parentId="org.eclipse.ui.textEditorScope" id="org.servicifi.gelato.language.jcl.resource.jcl.EditorScope">
+		</context>
+	</extension>
+	
+	<extension point="org.eclipse.ui.bindings">
+		<key sequence="M1+7" commandId="org.servicifi.gelato.language.jcl.resource.jcl.ui.command.togglecomment" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" contextId="org.servicifi.gelato.language.jcl.resource.jcl.EditorScope">
+		</key>
 	</extension>
 	
 </plugin>

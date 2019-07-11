@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.servicifi.gelato.language.kernel.parameters.Parameter;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
 import org.servicifi.gelato.language.kernel.references.Argument;
@@ -22,10 +23,9 @@ import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
  *
  * @generated
  */
-public class ArgumentImpl extends ElementReferenceImpl implements Argument {
+public abstract class ArgumentImpl extends EObjectImpl implements Argument {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ArgumentImpl() {
@@ -34,7 +34,6 @@ public class ArgumentImpl extends ElementReferenceImpl implements Argument {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -66,7 +65,7 @@ public class ArgumentImpl extends ElementReferenceImpl implements Argument {
 		Procedure callee = (Procedure) caller.getTarget();
 		
 		if (callee.getParameters().size() != caller.getArguments().size()) {
-			throw new Error("Procedure does not have as many parameters as arguments of the procedure call");
+			throw new Error("Procedure " + callee.getName() + " does not have as many parameters as arguments of the procedure call");
 		}
 		
 		return callee.getParameters().get(index);

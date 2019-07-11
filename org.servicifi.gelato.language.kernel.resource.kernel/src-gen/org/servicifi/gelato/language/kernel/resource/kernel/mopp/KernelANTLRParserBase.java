@@ -6,7 +6,28 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
-public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parser implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextParser {
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import org.antlr.runtime3_4_0.CommonToken;
+import org.antlr.runtime3_4_0.Parser;
+import org.antlr.runtime3_4_0.RecognizerSharedState;
+import org.antlr.runtime3_4_0.Token;
+import org.antlr.runtime3_4_0.TokenStream;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.util.EMap;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+public abstract class KernelANTLRParserBase extends Parser implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextParser {
 	
 	/**
 	 * The index of the last token that was handled by retrieveLayoutInformation().
@@ -16,20 +37,20 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 	/**
 	 * A collection to store all anonymous tokens.
 	 */
-	protected java.util.List<org.antlr.runtime3_4_0.CommonToken> anonymousTokens = new java.util.ArrayList<org.antlr.runtime3_4_0.CommonToken>();
+	protected List<CommonToken> anonymousTokens = new ArrayList<CommonToken>();
 	
 	/**
 	 * A collection that is filled with commands to be executed after parsing. This
 	 * collection is cleared before parsing starts and returned as part of the parse
 	 * result object.
 	 */
-	protected java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource>> postParseCommands;
+	protected Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelCommand<org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource>> postParseCommands;
 	
 	/**
 	 * A copy of the options that were used to load the text resource. This map is
 	 * filled when the parser is created.
 	 */
-	private java.util.Map<?, ?> options;
+	private Map<?, ?> options;
 	
 	/**
 	 * A flag that indicates whether this parser runs in a special mode where the
@@ -64,15 +85,15 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 	
 	protected org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelMetaInformation metaInformation = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelMetaInformation();
 	
-	public KernelANTLRParserBase(org.antlr.runtime3_4_0.TokenStream input) {
+	public KernelANTLRParserBase(TokenStream input) {
 		super(input);
 	}
 	
-	public KernelANTLRParserBase(org.antlr.runtime3_4_0.TokenStream input, org.antlr.runtime3_4_0.RecognizerSharedState state) {
+	public KernelANTLRParserBase(TokenStream input, RecognizerSharedState state) {
 		super(input, state);
 	}
 	
-	protected void retrieveLayoutInformation(org.eclipse.emf.ecore.EObject element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement syntaxElement, Object object, boolean ignoreTokensAfterLastVisibleToken) {
+	protected void retrieveLayoutInformation(EObject element, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement syntaxElement, Object object, boolean ignoreTokensAfterLastVisibleToken) {
 		if (disableLayoutRecording || element == null) {
 			return;
 		}
@@ -89,7 +110,7 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 		}
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter layoutInformationAdapter = getLayoutInformationAdapter(element);
 		StringBuilder anonymousText = new StringBuilder();
-		for (org.antlr.runtime3_4_0.CommonToken anonymousToken : anonymousTokens) {
+		for (CommonToken anonymousToken : anonymousTokens) {
 			anonymousText.append(anonymousToken.getText());
 		}
 		int currentPos = getTokenStream().index();
@@ -99,7 +120,7 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 		int endPos = currentPos - 1;
 		if (ignoreTokensAfterLastVisibleToken) {
 			for (; endPos >= this.lastPosition2; endPos--) {
-				org.antlr.runtime3_4_0.Token token = getTokenStream().get(endPos);
+				Token token = getTokenStream().get(endPos);
 				int _channel = token.getChannel();
 				if (_channel != 99) {
 					break;
@@ -109,11 +130,11 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 		StringBuilder hiddenTokenText = new StringBuilder();
 		hiddenTokenText.append(anonymousText);
 		StringBuilder visibleTokenText = new StringBuilder();
-		org.antlr.runtime3_4_0.CommonToken firstToken = null;
+		CommonToken firstToken = null;
 		for (int pos = this.lastPosition2; pos <= endPos; pos++) {
-			org.antlr.runtime3_4_0.Token token = getTokenStream().get(pos);
+			Token token = getTokenStream().get(pos);
 			if (firstToken == null) {
-				firstToken = (org.antlr.runtime3_4_0.CommonToken) token;
+				firstToken = (CommonToken) token;
 			}
 			if (anonymousTokens.contains(token)) {
 				continue;
@@ -134,8 +155,8 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 		anonymousTokens.clear();
 	}
 	
-	protected org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter getLayoutInformationAdapter(org.eclipse.emf.ecore.EObject element) {
-		for (org.eclipse.emf.common.notify.Adapter adapter : element.eAdapters()) {
+	protected org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter getLayoutInformationAdapter(EObject element) {
+		for (Adapter adapter : element.eAdapters()) {
 			if (adapter instanceof org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter) {
 				return (org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLayoutInformationAdapter) adapter;
 			}
@@ -145,10 +166,10 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 		return newAdapter;
 	}
 	
-	protected <ContainerType extends org.eclipse.emf.ecore.EObject, ReferenceType extends org.eclipse.emf.ecore.EObject> void registerContextDependentProxy(final org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContextDependentURIFragmentFactory<ContainerType, ReferenceType> factory, final ContainerType container, final org.eclipse.emf.ecore.EReference reference, final String id, final org.eclipse.emf.ecore.EObject proxy) {
+	protected <ContainerType extends EObject, ReferenceType extends EObject> void registerContextDependentProxy(final org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContextDependentURIFragmentFactory<ContainerType, ReferenceType> factory, final ContainerType container, final EReference reference, final String id, final EObject proxy) {
 		final int position;
 		if (reference.isMany()) {
-			position = ((java.util.List<?>) container.eGet(reference)).size();
+			position = ((List<?>) container.eGet(reference)).size();
 		} else {
 			position = -1;
 		}
@@ -165,50 +186,29 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 		});
 	}
 	
-	protected String formatTokenName(int tokenType)  {
-		String tokenName = "<unknown>";
-		if (tokenType < 0) {
-			tokenName = "EOF";
-		} else {
-			if (tokenType < 0) {
-				return tokenName;
-			}
-			tokenName = getTokenNames()[tokenType];
-			tokenName = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelStringUtil.formatTokenName(tokenName);
-		}
-		return tokenName;
-	}
-	
-	protected java.util.Map<?,?> getOptions() {
+	protected Map<?,?> getOptions() {
 		return options;
 	}
 	
-	public void setOptions(java.util.Map<?,?> options) {
+	public void setOptions(Map<?,?> options) {
 		this.options = options;
-		if (this.options == null) {
-			return;
-		}
-		if (this.options.containsKey(org.servicifi.gelato.language.kernel.resource.kernel.IKernelOptions.DISABLE_LOCATION_MAP)) {
-			this.disableLocationMap = true;
-		}
-		if (this.options.containsKey(org.servicifi.gelato.language.kernel.resource.kernel.IKernelOptions.DISABLE_LAYOUT_INFORMATION_RECORDING)) {
-			this.disableLayoutRecording = true;
-		}
+		this.disableLocationMap = !isLocationMapEnabled();
+		this.disableLayoutRecording = !isLayoutInformationRecordingEnabled();
 	}
 	
 	/**
 	 * Creates a dynamic Java proxy that mimics the interface of the given class.
 	 */
-	@SuppressWarnings("unchecked")	
+	@SuppressWarnings("unchecked")
 	public <T> T createDynamicProxy(Class<T> clazz) {
-		Object proxy = java.lang.reflect.Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class<?>[]{clazz, org.eclipse.emf.ecore.EObject.class, org.eclipse.emf.ecore.InternalEObject.class}, new java.lang.reflect.InvocationHandler() {
+		Object proxy = Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class<?>[]{clazz, EObject.class, InternalEObject.class}, new InvocationHandler() {
 			
-			private org.eclipse.emf.ecore.EObject dummyObject = new org.eclipse.emf.ecore.impl.EObjectImpl() {};
+			private EObject dummyObject = new EObjectImpl() {};
 			
-			public Object invoke(Object object, java.lang.reflect.Method method, Object[] args) throws Throwable {
+			public Object invoke(Object object, Method method, Object[] args) throws Throwable {
 				// search in dummyObject for the requested method
-				java.lang.reflect.Method[] methodsInDummy = dummyObject.getClass().getMethods();
-				for (java.lang.reflect.Method methodInDummy : methodsInDummy) {
+				Method[] methodsInDummy = dummyObject.getClass().getMethods();
+				for (Method methodInDummy : methodsInDummy) {
 					boolean matches = true;
 					if (methodInDummy.getName().equals(method.getName())) {
 						Class<?>[] parameterTypes = method.getParameterTypes();
@@ -241,34 +241,38 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 		terminateParsing = true;
 	}
 	
-	protected void addMapEntry(org.eclipse.emf.ecore.EObject element, org.eclipse.emf.ecore.EStructuralFeature structuralFeature, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelDummyEObject dummy) {
+	protected void addMapEntry(EObject element, EStructuralFeature structuralFeature, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelDummyEObject dummy) {
 		Object value = element.eGet(structuralFeature);
 		Object mapKey = dummy.getValueByName("key");
 		Object mapValue = dummy.getValueByName("value");
-		if (value instanceof org.eclipse.emf.common.util.EMap<?, ?>) {
-			org.eclipse.emf.common.util.EMap<Object, Object> valueMap = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelMapUtil.castToEMap(value);
+		if (value instanceof EMap<?, ?>) {
+			EMap<Object, Object> valueMap = org.servicifi.gelato.language.kernel.resource.kernel.util.KernelMapUtil.castToEMap(value);
 			if (mapKey != null && mapValue != null) {
 				valueMap.put(mapKey, mapValue);
 			}
 		}
 	}
 	
-	@SuppressWarnings("unchecked")	
-	public boolean addObjectToList(org.eclipse.emf.ecore.EObject container, int featureID, Object object) {
-		return ((java.util.List<Object>) container.eGet(container.eClass().getEStructuralFeature(featureID))).add(object);
+	@SuppressWarnings("unchecked")
+	public boolean addObjectToList(EObject container, int featureID, Object object) {
+		EClass eClass = container.eClass();
+		EStructuralFeature eStructuralFeature = eClass.getEStructuralFeature(featureID);
+		Object value = container.eGet(eStructuralFeature);
+		return ((List<Object>) value).add(object);
 	}
 	
-	@SuppressWarnings("unchecked")	
-	public boolean addObjectToList(org.eclipse.emf.ecore.EObject container, org.eclipse.emf.ecore.EStructuralFeature feature, Object object) {
-		return ((java.util.List<Object>) container.eGet(feature)).add(object);
+	@SuppressWarnings("unchecked")
+	public boolean addObjectToList(EObject container, EStructuralFeature feature, Object object) {
+		Object value = container.eGet(feature);
+		return ((List<Object>) value).add(object);
 	}
 	
-	protected org.eclipse.emf.ecore.EObject apply(org.eclipse.emf.ecore.EObject target, java.util.List<org.eclipse.emf.ecore.EObject> dummyEObjects) {
-		org.eclipse.emf.ecore.EObject currentTarget = target;
-		for (org.eclipse.emf.ecore.EObject object : dummyEObjects) {
+	protected EObject apply(EObject target, List<EObject> dummyEObjects) {
+		EObject currentTarget = target;
+		for (EObject object : dummyEObjects) {
 			assert(object instanceof org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelDummyEObject);
 			org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelDummyEObject dummy = (org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelDummyEObject) object;
-			org.eclipse.emf.ecore.EObject newEObject = dummy.applyTo(currentTarget);
+			EObject newEObject = dummy.applyTo(currentTarget);
 			currentTarget = newEObject;
 		}
 		return currentTarget;
@@ -283,6 +287,22 @@ public abstract class KernelANTLRParserBase extends org.antlr.runtime3_4_0.Parse
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelReferenceResolverSwitch resolverSwitch = (org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelReferenceResolverSwitch) metaInformation.getReferenceResolverSwitch();
 		resolverSwitch.setOptions(options);
 		return resolverSwitch;
+	}
+	
+	public boolean isLayoutInformationRecordingEnabled() {
+		if (options == null) {
+			return true;
+		}
+		Object value = options.get(org.servicifi.gelato.language.kernel.resource.kernel.IKernelOptions.DISABLE_LAYOUT_INFORMATION_RECORDING);
+		return value == null || Boolean.FALSE.equals(value);
+	}
+	
+	public boolean isLocationMapEnabled() {
+		if (options == null) {
+			return true;
+		}
+		Object value = options.get(org.servicifi.gelato.language.kernel.resource.kernel.IKernelOptions.DISABLE_LOCATION_MAP);
+		return value == null || Boolean.FALSE.equals(value);
 	}
 	
 }

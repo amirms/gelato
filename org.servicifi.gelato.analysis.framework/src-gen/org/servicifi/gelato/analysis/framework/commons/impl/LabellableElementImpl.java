@@ -39,7 +39,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long LABEL_EDEFAULT = 0L;
+	protected static final double LABEL_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!--
@@ -49,7 +49,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	 * @generated
 	 * @ordered
 	 */
-	protected long label = LABEL_EDEFAULT;
+	protected double label = LABEL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -72,27 +72,30 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getLabel() {
+	@Override
+	public double getLabel() {
 		return label;
 	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLabel(long newLabel) {
-		long oldLabel = label;
-		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.LABELLABLE_ELEMENT__LABEL, oldLabel, label));
-	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public void setLabel(double newLabel) {
+		double oldLabel = label;
+		label = newLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonsPackage.LABELLABLE_ELEMENT__LABEL, oldLabel, label));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public LabellableElement first() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -104,6 +107,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<LabellableElement> last() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -115,6 +119,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Flow> internalFlow() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -238,7 +243,7 @@ public abstract class LabellableElementImpl extends NodeImpl implements Labellab
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CommonsPackage.LABELLABLE_ELEMENT__LABEL:
-				setLabel((Long)newValue);
+				setLabel((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

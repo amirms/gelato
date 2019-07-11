@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.ui;
 
+
 /**
  * A provider for BracketHandler objects.
  */

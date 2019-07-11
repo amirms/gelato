@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.cobol.resource.cobol.ui;
 
+
 public class CobolSyntaxColoringHelper {
 	
 	public static enum StyleProperty {

@@ -7,8 +7,11 @@ import org.servicifi.gelato.language.kernel.parameters.Parameter;
 import org.servicifi.gelato.language.kernel.procedures.MainProcedure;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
 import org.servicifi.gelato.language.kernel.references.Argument;
+import org.servicifi.gelato.language.kernel.references.ArgumentReference;
+import org.servicifi.gelato.language.kernel.statements.Abort;
 import org.servicifi.gelato.language.kernel.statements.Condition;
 import org.servicifi.gelato.language.kernel.statements.ExpressionStatement;
+import org.servicifi.gelato.language.kernel.statements.Goto;
 import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 import org.servicifi.gelato.language.kernel.statements.Return;
 import org.servicifi.gelato.language.kernel.statements.WhileLoop;
@@ -69,7 +72,7 @@ public class NodeFactory {
 		EList<Parameter> parameters = procedure.getParameters();
 		for (int i = 0; i < parameters.size(); i++) {
 			if (parameters.get(i).equals(parameter)) {
-				return procedure.getLabel() + "." + (i + 1);
+				return procedure.getLabel() + Double.parseDouble(".0" + (i + 1)) + "";
 			}
 		}
 
@@ -92,7 +95,9 @@ public class NodeFactory {
 
 		// formal out: parameter name + "_out"
 		result.addUsage(argument.getCorrespondingParameter().getName() + OUT_POSTFIX);
-		result.setDef(argument.getTarget().getName());
+		if (argument instanceof ArgumentReference) {
+			result.setDef(((ArgumentReference) argument).getTarget().getName());
+		}
 		return result;
 	}
 
@@ -112,8 +117,8 @@ public class NodeFactory {
 	}
 
 	private void setRefs(Expression cond, Node result) {
-		// TODO Auto-generated method stub
-
+		EList<DataItem> usedVariables = cond.getUsedVariables();
+		usedVariables.stream().forEach(uv -> result.addUsage(uv.getName()));
 	}
 
 	public Node procedureCall(ProcedureCall statement) {
@@ -126,14 +131,9 @@ public class NodeFactory {
 	}
 
 	public Node assignExpr(ExpressionStatement n) {
-//		setId(result);
-//	    setLine(result, n);
-//	    setDef(n.getTarget(), result);
-//	    setRefs(n.getValue(), result);
-//	    setSubtypes(result, n);
 		final Expression value = n.getExpression();
 
-		final String label = value.getLabel() + "";
+		final String label = n.getLabel() + "";
 		final Node result = new Node(label, NodeType.NORMAL, n);
 
 		EList<DataItem> definedVariables = value.getDefinedVariables();
@@ -164,19 +164,18 @@ public class NodeFactory {
 		return result;
 	}
 
-	public Node argument(Argument argument) {
+	public Node argument(ArgumentReference argument) {
 		final String label = getArgumentLabel(argument);
 		final Node result = new Node(label, NodeType.ACTUAL_IN, (ProcedureCall) argument.eContainer());
 
 		result.addUsage(argument.getTarget().getName());
+
 		result.setDef(argument.getCorrespondingParameter().getName() + IN_POSTFIX);
 		return result;
 	}
 
 	// here how to map nodes from control dependencies
-
 	// may be build control dependencies first.
-
 	public static String getArgumentLabel(Argument argument) {
 		ProcedureCall pc = (ProcedureCall) argument.eContainer();
 		if (pc == null) {
@@ -186,10 +185,23 @@ public class NodeFactory {
 		EList<Argument> arguments = pc.getArguments();
 		for (int i = 0; i < arguments.size(); i++) {
 			if (arguments.get(i).equals(argument)) {
-				return pc.getLabel() + "." + (i + 1);
+				return pc.getLabel() + Double.parseDouble(".0" + (i + 1)) + "";
 			}
 		}
 
 		throw new Error("Argument " + argument + " could not be found");
+	}
+
+	public Node gotoStmt(Goto statement) {
+		final String label = statement.getLabel() + "";
+		// XXX goto is a pseudo-control
+		final Node result = new Node(label, NodeType.CTRL, statement);
+		return result;
+	}
+
+	public Node abortStmt(Abort statement) {
+		final String label = statement.getLabel() + "";
+		final Node result = new Node(label, NodeType.CTRL, statement);
+		return result;
 	}
 }

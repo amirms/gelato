@@ -6,16 +6,21 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.grammar;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 /**
  * A class to represent an enumeration terminal in the grammar.
  */
 public class KernelEnumerationTerminal extends org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelTerminal {
 	
-	private java.util.Map<String, String> mapping = new java.util.LinkedHashMap<String, String>();
+	private Map<String, String> mapping = new LinkedHashMap<String, String>();
 	
-	public KernelEnumerationTerminal(org.eclipse.emf.ecore.EStructuralFeature attribute, String[] literalMappings, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality cardinality, int mandatoryOccurrencesAfter) {
+	public KernelEnumerationTerminal(EStructuralFeature attribute, String[] literalMappings, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality cardinality, int mandatoryOccurrencesAfter) {
 		super(attribute, cardinality, mandatoryOccurrencesAfter);
-		assert attribute instanceof org.eclipse.emf.ecore.EAttribute;
+		assert attribute instanceof EAttribute;
 		assert literalMappings.length % 2 == 0;
 		for (int i = 0; i < literalMappings.length; i += 2) {
 			String literalName = literalMappings[i];
@@ -24,12 +29,12 @@ public class KernelEnumerationTerminal extends org.servicifi.gelato.language.ker
 		}
 	}
 	
-	public java.util.Map<String, String> getLiteralMapping() {
+	public Map<String, String> getLiteralMapping() {
 		return this.mapping;
 	}
 	
-	public org.eclipse.emf.ecore.EAttribute getAttribute() {
-		return (org.eclipse.emf.ecore.EAttribute) getFeature();
+	public EAttribute getAttribute() {
+		return (EAttribute) getFeature();
 	}
 	
 	public String getText(String literalName) {

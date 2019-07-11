@@ -1,0 +1,20 @@
+CTRL: infile == NULL->NORMAL: fprintf(stderr, "\nError opening accounts.dat\n\n");
+ACTUAL_IN: num->FORMAL_IN: int num
+CTRL: empId == emps[i].empId->NORMAL: e.net = e.gross - taxes + e.travel;
+ACTUAL_IN: ->FORMAL_IN: 
+CTRL: i < num->NORMAL: i++
+CTRL: strcmp(input.empId,e.empId)->NORMAL: fseek(outfile,-sizeof(struct employee),SEEK_CUR);
+CTRL: i < num->CTRL: empId == emps[i].empId->NORMAL: printf("Enter salary raise for the employee (in percentage):")
+CTRL: !ch->CTRL: break;->NORMAL: 0
+CTRL: empId == emps[i].empId->NORMAL: printf("Employee ID: %d\n", empId)
+CTRL: !flag->NORMAL: printf("No Record Found!!\n")
+CTRL: strcmp(input.empId,e.empId)->NORMAL: fwrite(input,sizeof(struct employee),1,outfile)
+CTRL: fread (input, sizeof(struct employee), 1, infile)->NORMAL: 
+CTRL: outfile == NULL->NORMAL: fprintf(stderr, "\nError opening accounts.dat\n\n");
+CTRL: e.basic > SALARY_TAX_THRESHOLD->NORMAL: taxes = (e.gross - SALARY_TAX_THRESHOLD) * HIGH_RATE + SALARY_TAX_THRESHOLD * LOW_RATE ;
+CTRL: outfile == NULL->NORMAL: fprintf(stderr, "\nError opening accounts.dat\n\n")
+ACTUAL_IN: e->FORMAL_IN: struct employee e
+CTRL: fread(input,sizeof(input),1,outfile)->CTRL: strcmp(input.empId,e.empId)->NORMAL: fwrite(input,sizeof(struct employee),1,outfile);
+CTRL: infile == NULL->
+CTRL: e.basic > SALARY_TAX_THRESHOLD->NORMAL: taxes = e.gross * LOW_RATE;
+CTRL: fread(input,sizeof(input),1,outfile)->CTRL: strcmp(input.empId,e.empId)->NORMAL: fwrite(input,sizeof(struct employee),1,outfile)

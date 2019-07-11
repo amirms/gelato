@@ -6,10 +6,13 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+
 /**
+ * <p>
  * A basic implementation of the
  * org.servicifi.gelato.language.kernel.resource.kernel.IKernelElementMapping
  * interface.
+ * </p>
  * 
  * @param <ReferenceType> the type of the reference that can be mapped to
  */

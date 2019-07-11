@@ -39,7 +39,7 @@ public interface ReachingDefinitionsAnalysisConfiguration extends AnalysisConfig
 	 * @model required="true" transient="true"
 	 * @generated
 	 */
-	Map<Variable, EList<Long>> getAssignments();
+	Map<Variable, EList<Double>> getAssignments();
 
 	/**
 	 * Sets the value of the '{@link org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration#getAssignments <em>Assignments</em>}' attribute.
@@ -49,5 +49,5 @@ public interface ReachingDefinitionsAnalysisConfiguration extends AnalysisConfig
 	 * @see #getAssignments()
 	 * @generated
 	 */
-	void setAssignments(Map<Variable, EList<Long>> value);
+	void setAssignments(Map<Variable, EList<Double>> value);
 } // ReachingDefinitionsAnalysisConfiguration

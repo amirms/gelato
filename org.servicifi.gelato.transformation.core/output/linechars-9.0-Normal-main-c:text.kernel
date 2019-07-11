@@ -1,0 +1,9 @@
+var text;
+var lines;
+var chars;
+var c;
+
+1:Procedure main(){
+	2:;
+	8:;
+}

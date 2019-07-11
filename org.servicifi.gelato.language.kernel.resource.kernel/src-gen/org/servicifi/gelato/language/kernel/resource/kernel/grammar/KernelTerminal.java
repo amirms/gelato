@@ -6,18 +6,20 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.grammar;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 public class KernelTerminal extends org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement {
 	
-	private final org.eclipse.emf.ecore.EStructuralFeature feature;
+	private final EStructuralFeature feature;
 	private final int mandatoryOccurencesAfter;
 	
-	public KernelTerminal(org.eclipse.emf.ecore.EStructuralFeature feature, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality cardinality, int mandatoryOccurencesAfter) {
+	public KernelTerminal(EStructuralFeature feature, org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality cardinality, int mandatoryOccurencesAfter) {
 		super(cardinality, null);
 		this.feature = feature;
 		this.mandatoryOccurencesAfter = mandatoryOccurencesAfter;
 	}
 	
-	public org.eclipse.emf.ecore.EStructuralFeature getFeature() {
+	public EStructuralFeature getFeature() {
 		return feature;
 	}
 	

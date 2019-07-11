@@ -44,11 +44,11 @@ public class ReachingDefinitionsAnalysisResultImpl extends AnalysisResultImpl
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	protected ReachingDefinitionsAnalysisResultImpl(long label) {
+	protected ReachingDefinitionsAnalysisResultImpl(double label) {
 		super(label);
 	}
 
-	public ReachingDefinitionsAnalysisResultImpl(Variable variable, long label) {
+	public ReachingDefinitionsAnalysisResultImpl(Variable variable, double label) {
 		super(label);
 		setVariable(variable);
 	}
@@ -66,6 +66,7 @@ public class ReachingDefinitionsAnalysisResultImpl extends AnalysisResultImpl
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Variable getVariable() {
 		if (variable != null && variable.eIsProxy()) {
 			InternalEObject oldVariable = (InternalEObject)variable;
@@ -90,6 +91,7 @@ public class ReachingDefinitionsAnalysisResultImpl extends AnalysisResultImpl
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVariable(Variable newVariable) {
 		Variable oldVariable = variable;
 		variable = newVariable;

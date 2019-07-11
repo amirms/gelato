@@ -6,6 +6,14 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.resource.Resource.Factory;
+
 public class KernelMetaInformation implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelMetaInformation {
 	
 	public String getSyntaxName() {
@@ -20,19 +28,19 @@ public class KernelMetaInformation implements org.servicifi.gelato.language.kern
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelAntlrScanner(new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelLexer());
 	}
 	
-	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextParser createParser(java.io.InputStream inputStream, String encoding) {
+	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextParser createParser(InputStream inputStream, String encoding) {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelParser().createInstance(inputStream, encoding);
 	}
 	
-	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextPrinter createPrinter(java.io.OutputStream outputStream, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource) {
+	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextPrinter createPrinter(OutputStream outputStream, org.servicifi.gelato.language.kernel.resource.kernel.IKernelTextResource resource) {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPrinter2(outputStream, resource);
 	}
 	
-	public org.eclipse.emf.ecore.EClass[] getClassesWithSyntax() {
+	public EClass[] getClassesWithSyntax() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxCoverageInformationProvider().getClassesWithSyntax();
 	}
 	
-	public org.eclipse.emf.ecore.EClass[] getStartSymbols() {
+	public EClass[] getStartSymbols() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelSyntaxCoverageInformationProvider().getStartSymbols();
 	}
 	
@@ -56,15 +64,15 @@ public class KernelMetaInformation implements org.servicifi.gelato.language.kern
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelTokenStyleInformationProvider().getDefaultTokenStyle(tokenName);
 	}
 	
-	public java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelBracketPair> getBracketPairs() {
+	public Collection<org.servicifi.gelato.language.kernel.resource.kernel.IKernelBracketPair> getBracketPairs() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelBracketInformationProvider().getBracketPairs();
 	}
 	
-	public org.eclipse.emf.ecore.EClass[] getFoldableClasses() {
+	public EClass[] getFoldableClasses() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelFoldingInformationProvider().getFoldableClasses();
 	}
 	
-	public org.eclipse.emf.ecore.resource.Resource.Factory createResourceFactory() {
+	public Factory createResourceFactory() {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResourceFactory();
 	}
 	
@@ -73,7 +81,10 @@ public class KernelMetaInformation implements org.servicifi.gelato.language.kern
 	}
 	
 	public void registerResourceFactory() {
-		org.eclipse.emf.ecore.resource.Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(getSyntaxName(), new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResourceFactory());
+		// if no resource factory registered, register delegator
+		if (Factory.Registry.INSTANCE.getExtensionToFactoryMap().get(getSyntaxName()) == null) {
+			Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(getSyntaxName(), new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResourceFactoryDelegator());
+		}
 	}
 	
 	/**
@@ -106,7 +117,7 @@ public class KernelMetaInformation implements org.servicifi.gelato.language.kern
 	
 	public String[] getSyntaxHighlightableTokenNames() {
 		org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelAntlrTokenHelper tokenHelper = new org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelAntlrTokenHelper();
-		java.util.List<String> highlightableTokens = new java.util.ArrayList<String>();
+		List<String> highlightableTokens = new ArrayList<String>();
 		String[] parserTokenNames = getTokenNames();
 		for (int i = 0; i < parserTokenNames.length; i++) {
 			// If ANTLR is used we need to normalize the token names

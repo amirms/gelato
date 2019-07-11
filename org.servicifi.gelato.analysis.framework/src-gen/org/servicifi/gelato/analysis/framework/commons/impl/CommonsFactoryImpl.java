@@ -68,6 +68,7 @@ public class CommonsFactoryImpl extends EFactoryImpl implements CommonsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Start createStart() {
 		StartImpl start = new StartImpl();
 		return start;
@@ -78,6 +79,7 @@ public class CommonsFactoryImpl extends EFactoryImpl implements CommonsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public End createEnd() {
 		EndImpl end = new EndImpl();
 		return end;
@@ -88,6 +90,7 @@ public class CommonsFactoryImpl extends EFactoryImpl implements CommonsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommonsPackage getCommonsPackage() {
 		return (CommonsPackage)getEPackage();
 	}

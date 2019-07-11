@@ -2,24 +2,37 @@ package org.servicifi.gelato.analysis.framework.sdg;
 
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
+import org.servicifi.gelato.analysis.framework.analyses.AnalysesFactory;
 import org.servicifi.gelato.analysis.framework.analyses.AnalysisResult;
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
+import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
+import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisResult;
 import org.servicifi.gelato.analysis.framework.commons.Variable;
+import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
 import org.servicifi.gelato.language.kernel.dataitems.DataItem;
 
 public final class SDGFactory {
-	public static SDG createSDG(CompilationUnit cu, Map<Long, ExitEntryPair> label2Maps) {
+	public static SDG createSDG(CompilationUnit cu) {
 		SDG sdg = build(cu);
+
+		EList<Flow> cfg = cu.internalFlow();
+
+		ReachingDefinitionsAnalysisConfiguration configuration = AnalysesFactory.eINSTANCE
+				.createReachingDefinitionsAnalysisConfiguration();
+		IntraproceduralAnalysis analysis = AnalysesFactory.eINSTANCE.createIntraproceduralAnalysis(cfg,
+				configuration);
+		Map<Double, ExitEntryPair> label2Maps = analysis.performAnalysis();
 
 		addDataDependencies(sdg, label2Maps);
 
 		return sdg;
 	}
 
-	private static void addDataDependencies(SDG sdg, Map<Long, ExitEntryPair> label2Maps) {
-		for (long label : label2Maps.keySet()) {
+	private static void addDataDependencies(SDG sdg, Map<Double, ExitEntryPair> label2Maps) {
+		for (double label : label2Maps.keySet()) {
 			Node node = sdg.getVertex(label);
 			
 			if(node == null) {
@@ -45,7 +58,7 @@ public final class SDGFactory {
 			ReachingDefinitionsAnalysisResult result = (ReachingDefinitionsAnalysisResult) entry;
 
 			vertex.getUsages().stream().forEach(usage -> {
-				Long label = getDataDefinitionLabel(usage, result);
+				Double label = getDataDefinitionLabel(usage, result);
 
 				if (label == null) {
 					return;
@@ -64,7 +77,7 @@ public final class SDGFactory {
 
 	}
 
-	private static Long getDataDefinitionLabel(String usage, ReachingDefinitionsAnalysisResult result) {
+	private static Double getDataDefinitionLabel(String usage, ReachingDefinitionsAnalysisResult result) {
 		// TODO why is there no name on variable?
 		Variable variable = result.getVariable();
 
@@ -73,11 +86,6 @@ public final class SDGFactory {
 		}
 
 		DataItem di = (DataItem) variable;
-
-//		boolean f = true;
-//		if(f) {
-//			throw new Error("Usage is "+ usage + ", but di name is "+ di.getName());
-//		}
 
 		if (usage == di.getName()) {
 			return result.getLabel();

@@ -6,6 +6,8 @@
  */
 package org.servicifi.gelato.language.jcl.resource.jcl.ui;
 
+import org.eclipse.core.resources.IResource;
+
 public class JclUIMetaInformation extends org.servicifi.gelato.language.jcl.resource.jcl.mopp.JclMetaInformation {
 	
 	public org.servicifi.gelato.language.jcl.resource.jcl.IJclHoverTextProvider getHoverTextProvider() {
@@ -26,15 +28,20 @@ public class JclUIMetaInformation extends org.servicifi.gelato.language.jcl.reso
 	 * ce, org.servicifi.gelato.language.jcl.resource.jcl.ui.JclColorManager) instead.
 	 */
 	public org.servicifi.gelato.language.jcl.resource.jcl.ui.JclTokenScanner createTokenScanner(org.servicifi.gelato.language.jcl.resource.jcl.ui.JclColorManager colorManager) {
-		return createTokenScanner(null, colorManager);
+		return (org.servicifi.gelato.language.jcl.resource.jcl.ui.JclTokenScanner) createTokenScanner(null, colorManager);
 	}
 	
-	public org.servicifi.gelato.language.jcl.resource.jcl.ui.JclTokenScanner createTokenScanner(org.servicifi.gelato.language.jcl.resource.jcl.IJclTextResource resource, org.servicifi.gelato.language.jcl.resource.jcl.ui.JclColorManager colorManager) {
+	public org.servicifi.gelato.language.jcl.resource.jcl.ui.IJclTokenScanner createTokenScanner(org.servicifi.gelato.language.jcl.resource.jcl.IJclTextResource resource, org.servicifi.gelato.language.jcl.resource.jcl.ui.JclColorManager colorManager) {
 		return new org.servicifi.gelato.language.jcl.resource.jcl.ui.JclTokenScanner(resource, colorManager);
 	}
 	
 	public org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCodeCompletionHelper createCodeCompletionHelper() {
 		return new org.servicifi.gelato.language.jcl.resource.jcl.ui.JclCodeCompletionHelper();
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public Object createResourceAdapter(Object adaptableObject, Class adapterType, IResource resource) {
+		return new org.servicifi.gelato.language.jcl.resource.jcl.ui.debug.JclLineBreakpointAdapter();
 	}
 	
 }

@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel;
 
+
 /**
  * A simple interface for generic functions with one argument.
  */

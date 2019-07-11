@@ -74,6 +74,7 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Node> getPredecessors() {
 		if (predecessors == null) {
 			predecessors = new EObjectResolvingEList<Node>(Node.class, this, GraphsPackage.NODE__PREDECESSORS);
@@ -86,6 +87,7 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements N
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Node> getSuccessors() {
 		if (successors == null) {
 			successors = new EObjectResolvingEList<Node>(Node.class, this, GraphsPackage.NODE__SUCCESSORS);

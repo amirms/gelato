@@ -25,6 +25,8 @@
 		</page>
 		<page name="Brackets" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessBracketPreferencePage" class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessBracketPreferencePage" category="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessPreferencePage">
 		</page>
+		<page name="Content Assist" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessContentAssistPreferencePage" class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessContentAssistPreferencePage" category="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessPreferencePage">
+		</page>
 	</extension>
 	
 	<extension point="org.eclipse.ui.newWizards">
@@ -70,6 +72,28 @@
 		</specification>
 		<specification annotationType="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.occurences.declaration" label="Declarations (in .preprocess files)" textPreferenceKey="preprocess.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="preprocess.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="preprocess.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="preprocess.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="preprocess.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="preprocess.declarationTextStyle" textStylePreferenceValue="NONE">
 		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.ui.commands">
+		<category description="All commands belonging to Preprocess" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.command.category" name="Preprocess">
+		</category>
+		<command categoryId="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.command.category" description="Toggle comment of the selected lines" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.command.togglecomment" name="Toggle Comment">
+		</command>
+	</extension>
+	
+	<extension point="org.eclipse.ui.handlers">
+		<handler class="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.PreprocessToggleCommentHandler" commandId="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.command.togglecomment">
+		</handler>
+	</extension>
+	
+	<extension point="org.eclipse.ui.contexts">
+		<context name="Editing Preprocess Files" description="Editing Preprocess Files Context" parentId="org.eclipse.ui.textEditorScope" id="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.EditorScope">
+		</context>
+	</extension>
+	
+	<extension point="org.eclipse.ui.bindings">
+		<key sequence="M1+7" commandId="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.ui.command.togglecomment" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" contextId="org.servicifi.gelato.language.cobol.preprocess.resource.preprocess.EditorScope">
+		</key>
 	</extension>
 	
 </plugin>

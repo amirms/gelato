@@ -37,7 +37,6 @@ import org.servicifi.gelato.analysis.framework.procedures.ProcedureCall;
 public class IntraproceduralAnalysisImpl extends AnalysisImpl implements IntraproceduralAnalysis {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected IntraproceduralAnalysisImpl() {
@@ -50,7 +49,6 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -63,9 +61,9 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 	 * 
 	 * @generated NOT
 	 */
-	public Map<Long, ExitEntryPair> performAnalysis() {
+	public Map<Double, ExitEntryPair> performAnalysis() {
 
-		Map<Long, ExitEntryPair> map = new HashMap<Long, ExitEntryPair>();
+		Map<Double, ExitEntryPair> map = new HashMap<Double, ExitEntryPair>();
 		Queue<LabellableElement> worklist = new LinkedList<>();
 
 		// for every node in cfg, insert in the worklist
@@ -122,8 +120,8 @@ public class IntraproceduralAnalysisImpl extends AnalysisImpl implements Intrapr
 		}
 
 		// FIXME remove all start and end nodes
-		map.remove(new Long(0)); // the label for the start node
-		map.remove(new Long(Long.MAX_VALUE)); // the label for the start node
+		map.remove(new Double(0)); // the label for the start node
+		map.remove(new Double(Double.MAX_VALUE)); // the label for the start node
 		result = map;
 		return map;
 	}

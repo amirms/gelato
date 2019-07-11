@@ -6,6 +6,11 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.util;
 
+import java.io.File;
+import java.util.Map;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.util.URI;
+
 /**
  * Class KernelTextResourceUtil can be used to perform common tasks on text
  * resources, such as loading and saving resources, as well as, checking them for
@@ -19,8 +24,8 @@ public class KernelTextResourceUtil {
 	 * org.servicifi.gelato.language.kernel.resource.kernel.util.KernelResourceUtil.get
 	 * Resource() instead.
 	 */
-	@Deprecated	
-	public static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource getResource(org.eclipse.core.resources.IFile file) {
+	@Deprecated
+	public static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource getResource(IFile file) {
 		return new org.servicifi.gelato.language.kernel.resource.kernel.util.KernelEclipseProxy().getResource(file);
 	}
 	
@@ -29,8 +34,8 @@ public class KernelTextResourceUtil {
 	 * org.servicifi.gelato.language.kernel.resource.kernel.util.KernelResourceUtil.get
 	 * Resource() instead.
 	 */
-	@Deprecated	
-	public static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource getResource(java.io.File file, java.util.Map<?,?> options) {
+	@Deprecated
+	public static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource getResource(File file, Map<?,?> options) {
 		return org.servicifi.gelato.language.kernel.resource.kernel.util.KernelResourceUtil.getResource(file, options);
 	}
 	
@@ -39,8 +44,8 @@ public class KernelTextResourceUtil {
 	 * org.servicifi.gelato.language.kernel.resource.kernel.util.KernelResourceUtil.get
 	 * Resource() instead.
 	 */
-	@Deprecated	
-	public static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource getResource(org.eclipse.emf.common.util.URI uri) {
+	@Deprecated
+	public static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource getResource(URI uri) {
 		return org.servicifi.gelato.language.kernel.resource.kernel.util.KernelResourceUtil.getResource(uri);
 	}
 	
@@ -49,8 +54,8 @@ public class KernelTextResourceUtil {
 	 * org.servicifi.gelato.language.kernel.resource.kernel.util.KernelResourceUtil.get
 	 * Resource() instead.
 	 */
-	@Deprecated	
-	public static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource getResource(org.eclipse.emf.common.util.URI uri, java.util.Map<?,?> options) {
+	@Deprecated
+	public static org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelResource getResource(URI uri, Map<?,?> options) {
 		return org.servicifi.gelato.language.kernel.resource.kernel.util.KernelResourceUtil.getResource(uri, options);
 	}
 	

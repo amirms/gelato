@@ -56,7 +56,8 @@ public class ReferencesFactoryImpl extends EFactoryImpl implements ReferencesFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ReferencesPackage.ARGUMENT: return createArgument();
+			case ReferencesPackage.ARGUMENT_REFERENCE: return createArgumentReference();
+			case ReferencesPackage.EMPTY_ARGUMENT: return createEmptyArgument();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -67,9 +68,19 @@ public class ReferencesFactoryImpl extends EFactoryImpl implements ReferencesFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Argument createArgument() {
-		ArgumentImpl argument = new ArgumentImpl();
-		return argument;
+	public ArgumentReference createArgumentReference() {
+		ArgumentReferenceImpl argumentReference = new ArgumentReferenceImpl();
+		return argumentReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EmptyArgument createEmptyArgument() {
+		EmptyArgumentImpl emptyArgument = new EmptyArgumentImpl();
+		return emptyArgument;
 	}
 
 	/**

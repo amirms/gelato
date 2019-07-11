@@ -6,6 +6,18 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.launch;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchManager;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * A class that provides common methods that are required by launch configuration
  * delegates.
@@ -14,8 +26,8 @@ public class KernelLaunchConfigurationHelper {
 	
 	public static class SystemOutInterpreter extends org.servicifi.gelato.language.kernel.resource.kernel.util.AbstractKernelInterpreter<Void,Void> {
 		
-		@Override		
-		public Void interprete(org.eclipse.emf.ecore.EObject object, Void context) {
+		@Override
+		public Void interprete(EObject object, Void context) {
 			System.out.println("Found " + object + ", but don't know what to do with it.");
 			return null;
 		}
@@ -24,16 +36,16 @@ public class KernelLaunchConfigurationHelper {
 	/**
 	 * Launch an example interpreter that prints object to System.out.
 	 */
-	public void launch(org.eclipse.debug.core.ILaunchConfiguration configuration, String mode, org.eclipse.debug.core.ILaunch launch, org.eclipse.core.runtime.IProgressMonitor monitor) throws org.eclipse.core.runtime.CoreException {
-		org.eclipse.emf.ecore.EObject root = getModelRoot(configuration);
+	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) throws CoreException {
+		EObject root = getModelRoot(configuration);
 		// replace this delegate with your actual interpreter
 		SystemOutInterpreter delegate = new SystemOutInterpreter();
 		delegate.addObjectTreeToInterpreteTopDown(root);
 		launchInterpreter(configuration, mode, launch, monitor, delegate, null);
 	}
 	
-	public <ResultType, ContextType> void launchInterpreter(org.eclipse.debug.core.ILaunchConfiguration configuration, String mode, org.eclipse.debug.core.ILaunch launch, org.eclipse.core.runtime.IProgressMonitor monitor, org.servicifi.gelato.language.kernel.resource.kernel.util.AbstractKernelInterpreter<ResultType, ContextType> delegate, final ContextType context) throws org.eclipse.core.runtime.CoreException {
-		final boolean enableDebugger = mode.equals(org.eclipse.debug.core.ILaunchManager.DEBUG_MODE);
+	public <ResultType, ContextType> void launchInterpreter(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor, org.servicifi.gelato.language.kernel.resource.kernel.util.AbstractKernelInterpreter<ResultType, ContextType> delegate, final ContextType context) throws CoreException {
+		final boolean enableDebugger = mode.equals(ILaunchManager.DEBUG_MODE);
 		// step 1: find two free ports we can use to communicate between the Eclipse and
 		// the interpreter
 		int requestPort = findFreePort();
@@ -65,11 +77,11 @@ public class KernelLaunchConfigurationHelper {
 		launch.addDebugTarget(new org.servicifi.gelato.language.kernel.resource.kernel.debug.KernelDebugTarget(process, launch, requestPort, eventPort));
 	}
 	
-	public org.eclipse.emf.common.util.URI getURI(org.eclipse.debug.core.ILaunchConfiguration configuration) throws org.eclipse.core.runtime.CoreException {
-		return org.eclipse.emf.common.util.URI.createURI(configuration.getAttribute(org.servicifi.gelato.language.kernel.resource.kernel.launch.KernelLaunchConfigurationDelegate.ATTR_RESOURCE_URI, (String) null));
+	public URI getURI(ILaunchConfiguration configuration) throws CoreException {
+		return URI.createURI(configuration.getAttribute(org.servicifi.gelato.language.kernel.resource.kernel.launch.KernelLaunchConfigurationDelegate.ATTR_RESOURCE_URI, (String) null));
 	}
 	
-	public org.eclipse.emf.ecore.EObject getModelRoot(org.eclipse.debug.core.ILaunchConfiguration configuration) throws org.eclipse.core.runtime.CoreException {
+	public EObject getModelRoot(ILaunchConfiguration configuration) throws CoreException {
 		return org.servicifi.gelato.language.kernel.resource.kernel.util.KernelResourceUtil.getResourceContent(getURI(configuration));
 	}
 	
@@ -77,31 +89,33 @@ public class KernelLaunchConfigurationHelper {
 	 * Returns a free port number on localhost, or -1 if unable to find a free port.
 	 */
 	protected int findFreePort() {
-		java.net.ServerSocket socket = null;
+		ServerSocket socket = null;
 		try {
-			socket = new java.net.ServerSocket(0);
+			socket = new ServerSocket(0);
 			return socket.getLocalPort();
-		} catch (java.io.IOException e) {
+		} catch (IOException e) {
 		} finally {
 			if (socket != null) {
 				try {
 					socket.close();
-				} catch (java.io.IOException e) {
+				} catch (IOException e) {
 				}
 			}
 		}
 		return -1;
 	}
 	/**
+	 * <p>
 	 * Throws an exception with a new status containing the given message and optional
 	 * exception.
+	 * </p>
 	 * 
 	 * @param message error message
 	 * @param e underlying exception
 	 * 
 	 * @throws CoreException
 	 */
-	protected void abort(String message, Throwable e) throws org.eclipse.core.runtime.CoreException {
-		throw new org.eclipse.core.runtime.CoreException(new org.eclipse.core.runtime.Status(org.eclipse.core.runtime.IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.DEBUG_MODEL_ID, 0, message, e));
+	protected void abort(String message, Throwable e) throws CoreException {
+		throw new CoreException(new Status(IStatus.ERROR, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelPlugin.DEBUG_MODEL_ID, 0, message, e));
 	}
 }

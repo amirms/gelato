@@ -34,7 +34,7 @@ TOKENS {
 	DEFINE FRAGMENT DIGIT $('0'..'9')$;
 	
 	// character literal
-	DEFINE CHARACTER_LITERAL $($ + DIGIT + $)+$;
+	DEFINE CHARACTER_LITERAL $('0'..'9')+('.'('0'..'9')+)?$;
 	
 	// composed token
 	DEFINE IDENTIFIER CHAR + $($ + CHAR + $|$ + DIGIT + $)*$;
@@ -57,7 +57,7 @@ RULES {
 
 	//statements
 	
-	containers.CompilationUnit ::= (declarations:dataitems.DataItem )* 				
+	containers.CompilationUnit ::= (declarations:dataitems.DataItem )* !0			
 									(declarations:procedures.Procedure !0)*
 									mainProcedure
 									 ;
@@ -87,7 +87,7 @@ RULES {
 	statements.Condition ::= label[] ":" "if" "(" condition ")" "then" !1 statement 
 		(!0 "else" !1 elseStatement )? ";";
 	
-	statements.Goto ::= label[] ":" "goto" target[IDENTIFIER] ";";
+	statements.Goto ::= label[] ":" "goto" target[] ";";
 	
 	statements.Block ::= label[] ":" "{"!1 statements* !0 "}";
 	
@@ -122,7 +122,9 @@ RULES {
 	parameters.Parameter ::= byReference["ref" : "val"] name[IDENTIFIER];
 	
 	//references
-	references.Argument ::= target[IDENTIFIER];
+	references.ArgumentReference ::= target[IDENTIFIER];
+	
+	references.EmptyArgument ::= "none";
 	
 	//expressions
 	

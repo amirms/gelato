@@ -85,6 +85,14 @@ public class ReferencesAdapterFactory extends AdapterFactoryImpl {
 				return createArgumentAdapter();
 			}
 			@Override
+			public Adapter caseArgumentReference(ArgumentReference object) {
+				return createArgumentReferenceAdapter();
+			}
+			@Override
+			public Adapter caseEmptyArgument(EmptyArgument object) {
+				return createEmptyArgumentAdapter();
+			}
+			@Override
 			public Adapter caseNamedElement(NamedElement object) {
 				return createNamedElementAdapter();
 			}
@@ -161,6 +169,34 @@ public class ReferencesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArgumentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.references.ArgumentReference <em>Argument Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.language.kernel.references.ArgumentReference
+	 * @generated
+	 */
+	public Adapter createArgumentReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.servicifi.gelato.language.kernel.references.EmptyArgument <em>Empty Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.servicifi.gelato.language.kernel.references.EmptyArgument
+	 * @generated
+	 */
+	public Adapter createEmptyArgumentAdapter() {
 		return null;
 	}
 

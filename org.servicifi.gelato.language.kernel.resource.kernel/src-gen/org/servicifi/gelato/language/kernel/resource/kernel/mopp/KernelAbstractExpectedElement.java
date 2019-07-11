@@ -6,22 +6,27 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.mopp;
 
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import org.eclipse.emf.ecore.EClass;
+
 /**
  * Abstract super class for all expected elements. Provides methods to add
  * followers.
  */
 public abstract class KernelAbstractExpectedElement implements org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement {
 	
-	private org.eclipse.emf.ecore.EClass ruleMetaclass;
+	private EClass ruleMetaclass;
 	
-	private java.util.Set<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[]>> followers = new java.util.LinkedHashSet<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[]>>();
+	private Set<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[]>> followers = new LinkedHashSet<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[]>>();
 	
-	public KernelAbstractExpectedElement(org.eclipse.emf.ecore.EClass ruleMetaclass) {
+	public KernelAbstractExpectedElement(EClass ruleMetaclass) {
 		super();
 		this.ruleMetaclass = ruleMetaclass;
 	}
 	
-	public org.eclipse.emf.ecore.EClass getRuleMetaclass() {
+	public EClass getRuleMetaclass() {
 		return ruleMetaclass;
 	}
 	
@@ -29,7 +34,7 @@ public abstract class KernelAbstractExpectedElement implements org.servicifi.gel
 		followers.add(new org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[]>(follower, path));
 	}
 	
-	public java.util.Collection<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[]>> getFollowers() {
+	public Collection<org.servicifi.gelato.language.kernel.resource.kernel.util.KernelPair<org.servicifi.gelato.language.kernel.resource.kernel.IKernelExpectedElement, org.servicifi.gelato.language.kernel.resource.kernel.mopp.KernelContainedFeature[]>> getFollowers() {
 		return followers;
 	}
 	

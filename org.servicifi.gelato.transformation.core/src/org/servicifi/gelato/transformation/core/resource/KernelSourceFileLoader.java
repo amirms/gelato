@@ -115,10 +115,7 @@ public class KernelSourceFileLoader {
 
 	}
 
-	public SDG parse() throws IOException {
-
-		Map<Long, ExitEntryPair> res = new HashMap<Long, ExitEntryPair>();
-
+	public CompilationUnit parse() throws IOException {
 		kernelRes = getResource();
 
 		KernelRoot root = (KernelRoot) kernelRes.getContents().get(0);
@@ -128,46 +125,10 @@ public class KernelSourceFileLoader {
 
 			populateArg2Params(program);
 
-			EList<Flow> cfg = program.internalFlow();
-
-//	    	System.out.println(cfg);
-
-			for (Flow f : cfg) {
-				if ((f.getTo() == null) || (f.getFrom() == null))
-					System.out.println(f);
-
-			}
-
-			ReachingDefinitionsAnalysisConfiguration configuration = AnalysesFactory.eINSTANCE
-					.createReachingDefinitionsAnalysisConfiguration();
-			IntraproceduralAnalysis analysis = AnalysesFactory.eINSTANCE.createIntraproceduralAnalysis(cfg,
-					configuration);
-			res.putAll(analysis.performAnalysis());
-			
-			SDG sdg = SDGFactory.createSDG(program, res);
-			GraphExporter.exportAsDot(sdg, "/Users/asa/Desktop", "sdg");
-
-//			Map<Variable, EList<Long>> assignments = configuration.getAssignments();
-//
-//			for (Variable var : assignments.keySet()) {
-//				System.out.println("variable: " + var + ", " + assignments.get(var));
-//			}
-			
-			Map<Node, List<Node>> paths = RandomPathGenerator.generate(sdg, 0.4);
-			
-			for(List<Node> path : paths.values()) {
-				for (Node node : path) {
-					System.out.print(node.toDefUse() + "->");
-				}
-				System.out.println();
-			}
-			
-			return sdg;
+			return program;
 		}
 
 		return null;
-
-
 	}
 
 //	public static void main(String[] args) {

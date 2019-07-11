@@ -6,6 +6,8 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.grammar;
 
+import org.eclipse.emf.ecore.EClass;
+
 /**
  * The abstract super class for all elements of a grammar. This class provides
  * methods to traverse the grammar rules.
@@ -43,6 +45,17 @@ public abstract class KernelSyntaxElement {
 		return parent;
 	}
 	
+	/**
+	 * Returns the rule of this syntax element. The rule is determined by the
+	 * containment hierarchy in the CS model.
+	 */
+	public org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule getRule() {
+		if (this instanceof org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule) {
+			return (org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelRule) this;
+		}
+		return parent.getRule();
+	}
+	
 	public KernelSyntaxElement[] getChildren() {
 		if (children == null) {
 			return new KernelSyntaxElement[0];
@@ -50,12 +63,22 @@ public abstract class KernelSyntaxElement {
 		return children;
 	}
 	
-	public org.eclipse.emf.ecore.EClass getMetaclass() {
+	public EClass getMetaclass() {
 		return parent.getMetaclass();
 	}
 	
 	public org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelCardinality getCardinality() {
 		return cardinality;
+	}
+	
+	public boolean hasContainment(EClass metaclass) {
+		org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement[] children = getChildren();
+		for (org.servicifi.gelato.language.kernel.resource.kernel.grammar.KernelSyntaxElement child : children) {
+			if (child.hasContainment(metaclass)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

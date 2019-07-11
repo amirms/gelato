@@ -102,6 +102,9 @@ public class GraphExporter {
 		try {
 			final String filePath = path + "/" + fileName + ".dot";
 			final File dotFile = new File(filePath);
+			
+			System.out.println("outfile for dot "+dotFile);
+
 			exporter.exportGraph(graph, dotFile);
 
 			final Graphviz gv = new Graphviz();
@@ -110,6 +113,8 @@ public class GraphExporter {
 			final String type = "png";
 			final String repesentationType = "dot";
 			final File out = new File(path + "/" + fileName + "." + type);
+			
+			System.out.println("outfile for png "+out);
 			gv.writeGraphToFile(gv.getGraph(gv.getDotSource(), type, repesentationType), out);
 
 			dotFile.delete();

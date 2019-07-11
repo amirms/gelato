@@ -6,21 +6,28 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+
 /**
+ * <p>
  * An interface for factories to create instances of
  * org.servicifi.gelato.language.kernel.resource.kernel.IKernelContextDependentURIF
  * ragment.
+ * </p>
  * 
  * @param <ContainerType> the type of the class containing the reference to be
  * resolved
  * @param <ReferenceType> the type of the reference to be resolved
  */
-public interface IKernelContextDependentURIFragmentFactory<ContainerType extends org.eclipse.emf.ecore.EObject, ReferenceType extends org.eclipse.emf.ecore.EObject> {
+public interface IKernelContextDependentURIFragmentFactory<ContainerType extends EObject, ReferenceType extends EObject> {
 	
 	/**
+	 * <p>
 	 * Create a new instance of the
 	 * org.servicifi.gelato.language.kernel.resource.kernel.IKernelContextDependentURIF
 	 * ragment interface.
+	 * </p>
 	 * 
 	 * @param identifier the identifier that references an Object
 	 * @param container the object that contains the reference
@@ -33,5 +40,5 @@ public interface IKernelContextDependentURIFragmentFactory<ContainerType extends
 	 * org.servicifi.gelato.language.kernel.resource.kernel.IKernelContextDependentURIF
 	 * ragment
 	 */
-	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelContextDependentURIFragment<?> create(String identifier, ContainerType container, org.eclipse.emf.ecore.EReference reference, int positionInReference, org.eclipse.emf.ecore.EObject proxy);
+	public org.servicifi.gelato.language.kernel.resource.kernel.IKernelContextDependentURIFragment<?> create(String identifier, ContainerType container, EReference reference, int positionInReference, EObject proxy);
 }

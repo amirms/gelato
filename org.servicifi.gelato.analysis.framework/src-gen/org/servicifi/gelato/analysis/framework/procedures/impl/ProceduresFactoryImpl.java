@@ -67,6 +67,7 @@ public class ProceduresFactoryImpl extends EFactoryImpl implements ProceduresFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ReturnSite createReturnSite() {
 		ReturnSiteImpl returnSite = new ReturnSiteImpl();
 		return returnSite;
@@ -77,6 +78,7 @@ public class ProceduresFactoryImpl extends EFactoryImpl implements ProceduresFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ProceduresPackage getProceduresPackage() {
 		return (ProceduresPackage)getEPackage();
 	}

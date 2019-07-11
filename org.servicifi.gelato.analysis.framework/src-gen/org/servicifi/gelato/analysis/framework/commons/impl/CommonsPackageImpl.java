@@ -141,6 +141,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLabellableElement() {
 		return labellableElementEClass;
 	}
@@ -150,6 +151,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLabellableElement_Label() {
 		return (EAttribute)labellableElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -159,6 +161,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getLabellableElement__First() {
 		return labellableElementEClass.getEOperations().get(0);
 	}
@@ -168,6 +171,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getLabellableElement__Last() {
 		return labellableElementEClass.getEOperations().get(1);
 	}
@@ -177,6 +181,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getLabellableElement__InternalFlow() {
 		return labellableElementEClass.getEOperations().get(2);
 	}
@@ -186,6 +191,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getLabellableElement__Gen__AnalysisConfiguration() {
 		return labellableElementEClass.getEOperations().get(3);
 	}
@@ -195,6 +201,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getLabellableElement__Kill__AnalysisConfiguration() {
 		return labellableElementEClass.getEOperations().get(4);
 	}
@@ -204,6 +211,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVariable() {
 		return variableEClass;
 	}
@@ -213,6 +221,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStart() {
 		return startEClass;
 	}
@@ -222,6 +231,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEnd() {
 		return endEClass;
 	}
@@ -231,6 +241,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommonsFactory getCommonsFactory() {
 		return (CommonsFactory)getEFactoryInstance();
 	}
@@ -307,7 +318,7 @@ public class CommonsPackageImpl extends EPackageImpl implements CommonsPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(labellableElementEClass, LabellableElement.class, "LabellableElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLabellableElement_Label(), ecorePackage.getELong(), "label", null, 1, 1, LabellableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLabellableElement_Label(), ecorePackage.getEDouble(), "label", null, 1, 1, LabellableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getLabellableElement__First(), this.getLabellableElement(), "first", 1, 1, IS_UNIQUE, IS_ORDERED);
 

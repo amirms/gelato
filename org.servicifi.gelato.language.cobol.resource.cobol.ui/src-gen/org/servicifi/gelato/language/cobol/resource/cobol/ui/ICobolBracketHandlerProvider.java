@@ -6,6 +6,7 @@
  */
 package org.servicifi.gelato.language.cobol.resource.cobol.ui;
 
+
 /**
  * A provider for BracketHandler objects.
  */

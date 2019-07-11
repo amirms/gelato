@@ -6,10 +6,12 @@
  */
 package org.servicifi.gelato.language.kernel.resource.kernel.ui;
 
+import org.eclipse.jface.action.IAction;
+
 public class KernelOutlinePageExpandAllAction extends org.servicifi.gelato.language.kernel.resource.kernel.ui.AbstractKernelOutlinePageAction {
 	
 	public KernelOutlinePageExpandAllAction(org.servicifi.gelato.language.kernel.resource.kernel.ui.KernelOutlinePageTreeViewer treeViewer) {
-		super(treeViewer, "Expand all", org.eclipse.jface.action.IAction.AS_PUSH_BUTTON);
+		super(treeViewer, "Expand all", IAction.AS_PUSH_BUTTON);
 		initialize("icons/expand_all_icon.gif");
 	}
 	

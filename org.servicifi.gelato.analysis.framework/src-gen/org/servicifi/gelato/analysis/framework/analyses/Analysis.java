@@ -94,7 +94,7 @@ public interface Analysis extends EObject {
 	 * @model required="true" transient="true"
 	 * @generated
 	 */
-	Map<Long, ExitEntryPair> getResult();
+	Map<Double, ExitEntryPair> getResult();
 
 	/**
 	 * Sets the value of the '{@link org.servicifi.gelato.analysis.framework.analyses.Analysis#getResult <em>Result</em>}' attribute.
@@ -104,7 +104,7 @@ public interface Analysis extends EObject {
 	 * @see #getResult()
 	 * @generated
 	 */
-	void setResult(Map<Long, ExitEntryPair> value);
+	void setResult(Map<Double, ExitEntryPair> value);
 
 	/**
 	 * Returns the value of the '<em><b>Exit Table</b></em>' attribute.
@@ -206,7 +206,7 @@ public interface Analysis extends EObject {
 	 * @model required="true"
 	 * @generated
 	 */
-	Map<Long, ExitEntryPair> performAnalysis();
+	Map<Double, ExitEntryPair> performAnalysis();
 
 	/**
 	 * <!-- begin-user-doc -->

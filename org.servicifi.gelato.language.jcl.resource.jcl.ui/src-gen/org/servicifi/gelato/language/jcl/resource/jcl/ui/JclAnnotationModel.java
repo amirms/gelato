@@ -6,13 +6,18 @@
  */
 package org.servicifi.gelato.language.jcl.resource.jcl.ui;
 
-public class JclAnnotationModel extends org.eclipse.ui.texteditor.ResourceMarkerAnnotationModel {
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.ui.texteditor.MarkerAnnotation;
+import org.eclipse.ui.texteditor.ResourceMarkerAnnotationModel;
+
+public class JclAnnotationModel extends ResourceMarkerAnnotationModel {
 	
-	public JclAnnotationModel(org.eclipse.core.resources.IResource resource) {
+	public JclAnnotationModel(IResource resource) {
 		super(resource);
 	}
 	
-	protected org.eclipse.ui.texteditor.MarkerAnnotation createMarkerAnnotation(org.eclipse.core.resources.IMarker marker) {
+	protected MarkerAnnotation createMarkerAnnotation(IMarker marker) {
 		return new org.servicifi.gelato.language.jcl.resource.jcl.ui.JclMarkerAnnotation(marker);
 	}
 	
