@@ -1023,7 +1023,7 @@ public class Rewrite2Kernel extends CBaseVisitor<List<? extends Object>> {
 	public List<ExpressionStatement> visitExpressionStatement(CParser.ExpressionStatementContext ctx) {
 		List children = visitChildren(ctx);
 
-		if (children.size() == 1 && children.get(0) instanceof ProcedureCall) {
+		if (children.size() == 1 && children.get(0) instanceof Statement) {
 			return children;
 		}
 		
@@ -1091,6 +1091,8 @@ public class Rewrite2Kernel extends CBaseVisitor<List<? extends Object>> {
 
 			// usages
 			List<SubExpression> rightSubExpression = visitAssignmentExpression(ctx.assignmentExpression());
+			
+
 
 			if (rightSubExpression.size() == 1 && rightSubExpression.get(0) instanceof ExpressionStatement) {
 				ExpressionStatement st = (ExpressionStatement) rightSubExpression.get(0);
@@ -1110,6 +1112,7 @@ public class Rewrite2Kernel extends CBaseVisitor<List<? extends Object>> {
 			expr.setLabel(store.getLabel(ctx.conditionalExpression()));
 
 			List<SubExpression> usages = visitConditionalExpression(ctx.conditionalExpression());
+			
 
 			result.addAll(usages);
 
@@ -1302,11 +1305,6 @@ public class Rewrite2Kernel extends CBaseVisitor<List<? extends Object>> {
 
 		List children = visitArgumentExpressionList(ctx.argumentExpressionList());
 		
-		boolean f = true;
-		if (f) {
-			throw new Error();
-		}
-
 		for (int i = 0; i < children.size(); i++) {
 			Object child = children.get(i);
 

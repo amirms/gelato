@@ -12,6 +12,7 @@ import java.util.Set;
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.io.Attribute;
+import org.jgrapht.io.AttributeType;
 import org.jgrapht.io.ComponentAttributeProvider;
 import org.jgrapht.io.ComponentNameProvider;
 import org.jgrapht.io.DOTExporter;
@@ -21,6 +22,7 @@ import org.jgrapht.io.IntegerComponentNameProvider;
 
 import org.servicifi.gelato.analysis.framework.sdg.Edge;
 import org.servicifi.gelato.analysis.framework.sdg.Node;
+import org.servicifi.gelato.analysis.framework.sdg.NodeType;
 import org.servicifi.gelato.analysis.framework.sdg.SDG;
 
 public class GraphExporter {
@@ -56,11 +58,25 @@ public class GraphExporter {
 				result.put("style", DefaultAttribute.createAttribute("filled"));
 				result.put("fillcolor", fillColorAttr);
 			}
+			result.put("fontname", DefaultAttribute.createAttribute("helvetica"));
+			result.put("fontsize", DefaultAttribute.createAttribute(20));
+
+			result.put("shape", DefaultAttribute.createAttribute("oval"));
+			
+			result.put("label", new DefaultAttribute(component.toString(), AttributeType.HTML));
+			
 			if (component.getType() != null) {
 				switch (component.getType()) {
-				default:
-					result.put("fontname", DefaultAttribute.createAttribute("helvetica"));
-					result.put("shape", DefaultAttribute.createAttribute("oval"));
+				case ACTUAL_IN: 
+				case FORMAL_IN:
+				result.put("style", DefaultAttribute.createAttribute("dashed"));
+					break;
+				case ACTUAL_OUT:
+				case FORMAL_OUT:
+				result.put("style", DefaultAttribute.createAttribute("dotted"));
+					break;
+				case ENTRY:
+					result.put("style", DefaultAttribute.createAttribute("bold"));
 					break;
 				}
 			}
@@ -73,6 +89,7 @@ public class GraphExporter {
 		@Override
 		public Map<String, Attribute> getComponentAttributes(final Edge component) {
 			final Map<String, Attribute> result = new HashMap<>();
+						
 			if (component.getType() != null) {
 				switch (component.getType()) {
 				case CTRL_TRUE:
@@ -96,15 +113,22 @@ public class GraphExporter {
 	};
 
 	private static final DOTExporter<Node, Edge> exporter = new DOTExporter<>(new IntegerComponentNameProvider<>(),
-			NodeLabelProvider, null, NodeAttrProvider, edgeAttrProvider);
+			null, null, NodeAttrProvider, edgeAttrProvider);
 
 	public static void exportAsDot(final Graph<Node, Edge> graph, final String path, final String fileName) {
 		try {
 			final String filePath = path + "/" + fileName + ".dot";
 			final File dotFile = new File(filePath);
-			
-			System.out.println("outfile for dot "+dotFile);
 
+			System.out.println("outfile for dot " + dotFile);
+
+//		    graph [pad="0.5", nodesep="1", ranksep="2"];
+
+			exporter.putGraphAttribute("nodesep", "0.1");
+			exporter.putGraphAttribute("ranksep", "2");
+			exporter.putGraphAttribute("pad", "0.25");
+			exporter.putGraphAttribute("overlap", "false");
+			
 			exporter.exportGraph(graph, dotFile);
 
 			final Graphviz gv = new Graphviz();
@@ -113,11 +137,11 @@ public class GraphExporter {
 			final String type = "png";
 			final String repesentationType = "dot";
 			final File out = new File(path + "/" + fileName + "." + type);
-			
-			System.out.println("outfile for png "+out);
+
+			System.out.println("outfile for png " + out);
 			gv.writeGraphToFile(gv.getGraph(gv.getDotSource(), type, repesentationType), out);
 
-			dotFile.delete();
+//			dotFile.delete();
 		} catch (final ExportException e) {
 			e.printStackTrace();
 		}
@@ -127,7 +151,7 @@ public class GraphExporter {
 			final String fileName) {
 		try {
 			final DOTExporter<Node, DefaultEdge> exporter = new DOTExporter<>(new IntegerComponentNameProvider<>(),
-					NodeLabelProvider, null, NodeAttrProvider, null);
+					null, null, NodeAttrProvider, null);
 			final String filePath = path + "/" + fileName + ".dot";
 			final File dotFile = new File(filePath);
 			exporter.exportGraph(graph, dotFile);

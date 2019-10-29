@@ -25,9 +25,9 @@ import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnaly
 import org.servicifi.gelato.analysis.framework.commons.Variable;
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.analysis.framework.sdg.Node;
-import org.servicifi.gelato.analysis.framework.sdg.RandomPathGenerator;
 import org.servicifi.gelato.analysis.framework.sdg.SDG;
 import org.servicifi.gelato.analysis.framework.sdg.SDGFactory;
+import org.servicifi.gelato.analysis.framework.sdg.paths.RandomValidPathGenerator;
 import org.servicifi.gelato.analysis.framework.sdg.util.GraphExporter;
 import org.servicifi.gelato.language.kernel.KernelPackage;
 import org.servicifi.gelato.language.kernel.containers.CompilationUnit;

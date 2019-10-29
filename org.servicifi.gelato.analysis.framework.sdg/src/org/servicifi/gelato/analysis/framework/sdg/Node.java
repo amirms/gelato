@@ -9,6 +9,7 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
 import org.servicifi.gelato.language.kernel.procedures.Procedure;
+import org.servicifi.gelato.language.kernel.statements.ProcedureCall;
 import org.servicifi.gelato.language.kernel.procedures.MainProcedure;
 
 public class Node implements Serializable {
@@ -21,7 +22,7 @@ public class Node implements Serializable {
 	private NodeType type;
 	private final transient Set<Node> ins;
 	private final transient Set<Node> outs;
-	
+
 	private boolean reconstructed;
 
 	private boolean visited;
@@ -37,7 +38,7 @@ public class Node implements Serializable {
 		this.label = label;
 		this.type = type;
 		this.fillColor = null;
-		
+
 		ins = new HashSet<>();
 		outs = new HashSet<>();
 
@@ -82,12 +83,54 @@ public class Node implements Serializable {
 		return ((Procedure) container).getName();
 	}
 
-	@Override
+//	@Override
+//	public String toString() {
+//		String result = label + "-" + type + "-" + getContainerName() + "-" + toDefUse();
+//		return result;
+//	}
+
 	public String toString() {
-		String result = label + "-" + type + "-" + getContainerName() + "-" + toDefUse();
-		return result;
+		switch (type) {
+		case ENTRY:
+			return "ENTRY " + "<I>" + this.getContainerName() + "</I>";
+		case CALL:
+			return (int)Double.parseDouble(label) + ":" + "<B>call</B>" + " " + "<I>"
+					+ ((ProcedureCall) this.getLabellableElement()).getTarget().getName() + "</I>";
+		case ACTUAL_IN:
+		case ACTUAL_OUT:
+		case FORMAL_IN:
+		case FORMAL_OUT:
+			return "[" + toDefUseDOTCaption() + "]";
+		default:
+			return (int)Double.parseDouble(label) + ":" + " [" + toDefUseDOTCaption() + "]";
+		}
 	}
-	
+
+	public String toDefUseDOTCaption() {
+		List<String> usagesList = getUsages();
+		String defuse = "";
+		if (getDef() != null) {
+			defuse = "<B>def</B> " + getDef();
+
+			if (!usagesList.isEmpty()) {
+				defuse += " ";
+			}
+		}
+
+		if (!usagesList.isEmpty()) {
+			defuse += "<B>uses</B> " + usagesList.get(0);
+
+			for (int i = 1; i < usagesList.size(); i++)
+				defuse += "," + usagesList.get(i);
+		}
+
+		// replace _in and _out with <SUB>in|out</SUB>
+		defuse = defuse.replace("_in", "<SUB>in</SUB>");
+		defuse = defuse.replace("_out", "<SUB>out</SUB>");
+
+		return defuse;
+	}
+
 	public String toDefUse() {
 		String defuse = "";
 		if (getDef() != null) {
@@ -98,7 +141,7 @@ public class Node implements Serializable {
 		if (!usagesList.isEmpty()) {
 			defuse += usagesList.get(0);
 
-			for (int i =1; i< usagesList.size(); i++)
+			for (int i = 1; i < usagesList.size(); i++)
 				defuse += ";" + usagesList.get(i);
 		}
 

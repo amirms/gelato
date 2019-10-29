@@ -170,9 +170,7 @@ public class CDGBuilder {
 							cdg.addEdge(formalOut, actualOut, new Edge(formalOut, actualOut, EdgeType.PARAM_OUT));
 						}
 					}
-
 				}
-
 			}
 		}
 	}

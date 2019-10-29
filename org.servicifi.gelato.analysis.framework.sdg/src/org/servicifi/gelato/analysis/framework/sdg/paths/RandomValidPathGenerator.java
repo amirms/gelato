@@ -1,4 +1,4 @@
-package org.servicifi.gelato.analysis.framework.sdg;
+package org.servicifi.gelato.analysis.framework.sdg.paths;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -14,6 +14,9 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
+import org.servicifi.gelato.analysis.framework.sdg.Node;
+import org.servicifi.gelato.analysis.framework.sdg.NodeType;
+import org.servicifi.gelato.analysis.framework.sdg.SDG;
 
 /**
  * .idea For path generation, use a better technique: 1) use nodes which have
@@ -23,80 +26,10 @@ import org.servicifi.gelato.analysis.framework.commons.LabellableElement;
  * 3) Must remove duplicate paths.
  */
 
-public class RandomPathGenerator {
-	public static Set<List<Node>> generateRandomly(SDG sdg, double samplePercent) {
-
-		Set<List<Node>> paths = new HashSet<>();
-
-		// take a sample of nodes
-		List<Node> nodes = new ArrayList(sdg.vertexSet());
-
-		int numberOfSamples = (int) Math.ceil(nodes.size() * samplePercent);
-
-		Collections.shuffle(nodes);
-
-		// find nodes that
-
-		for (int i = 0; i < numberOfSamples; i++) {
-			Node currentNode = nodes.get(i);
-			List<Node> path = generate(currentNode);
-
-			// do not add single node path
-			if (path.size() < 2) {
-				continue;
-			}
-
-			// XXX also check if path at some point contains a single use or def variable
-
-			paths.add(path);
-		}
-
-		return paths;
-	}
-
-	public static Set<List<Node>> generateForUseDefNodes(SDG sdg, double count) {
-
-		Map<Node, Set<List<Node>>> paths = new HashMap<>();
-
-		// take a sample of nodes
-		List<Node> nodes = new ArrayList();
-		for (Node v : sdg.vertexSet()) {
-			if (v.getUsages().size() > 0 || v.getDef() != null) {
-				nodes.add(v);
-			}
-		}
-
-		// find nodes thatco
-
-		for (Node currentNode : nodes) {
-			Set<List<Node>> nodePaths = new HashSet<>();
-			for (int i = 0; i < count; i++) {
-				List<Node> path = generate(currentNode);
-
-				if (path.size() < 2) {
-					continue;
-				}
-
-				nodePaths.add(path);
-			}
-
-			paths.put(currentNode, nodePaths);
-		}
-
-		Set<List<Node>> result = new HashSet<>();
-
-		for (Node n : paths.keySet()) {
-			Set<List<Node>> ps = paths.get(n);
-
-			for (List<Node> p : ps) {
-				result.add(p);
-			}
-		}
-
-		return result;
-	}
-
-	private static List<Node> generate(Node currentNode) {
+public class RandomValidPathGenerator extends RandomGenerator {
+	
+	@Override
+	protected List<Node> generate(Node currentNode) {
 
 		Set<Node> visitedNodes = new HashSet<>();
 		Deque<String> clsStack = new ArrayDeque<>();
@@ -107,7 +40,7 @@ public class RandomPathGenerator {
 
 		Random rand = new Random();
 
-		List<Node> currentOuts = new ArrayList(currentNode.getOuts());
+		List<Node> currentOuts = new ArrayList<>(currentNode.getOuts());
 
 		// while(currentOuts.length > 0)
 		// get a node: is it in the same call and
@@ -142,7 +75,7 @@ public class RandomPathGenerator {
 			path.add(nextNode);
 
 			currentNode = nextNode;
-			currentOuts = new ArrayList(currentNode.getOuts());
+			currentOuts = new ArrayList<>(currentNode.getOuts());
 		}
 
 		return path;

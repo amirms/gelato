@@ -1,0 +1,42 @@
+66.02> 
+1.02> 
+128.0> !flag
+132.0> printf("No Record Found!!\n")
+76.0> empId == emps[i].empId
+89.0> printf("Enter salary raise for the employee (in percentage):")
+66.01> num
+1.01> int num
+119.0> break;
+138.0> !ch
+141.0> break;
+145.0> 0
+53.0> break;
+59.0> fclose(outfile)
+143.0> 1
+71.0> scanf("%d", &empId)
+0.1> 
+3.0> main()
+64.0> scanf("%d", &num)
+47.1> strcmp(input.empId,e.empId)
+50.0> fseek(outfile,-sizeof(struct employee),SEEK_CUR)
+7.0> infile == NULL
+11.0> fprintf(stderr, "\nError opening accounts.dat\n\n")
+114.01> e
+2.01> struct employee e
+1.0> readEmployeeDetails(int num)
+18.0> i=0
+26.1> fread (input, sizeof(struct employee), 1, infile)
+24.0> es[i++] = input;
+55.1> fread(input,sizeof(input),1,outfile)
+96.0> e.basic > SALARY_TAX_THRESHOLD
+101.0> taxes = (e.gross - SALARY_TAX_THRESHOLD) * HIGH_RATE + SALARY_TAX_THRESHOLD * LOW_RATE ;
+36.0> outfile == NULL
+40.0> fprintf(stderr, "\nError opening accounts.dat\n\n")
+66.0> readEmployeeDetails
+FO1.02> 
+AO66.02> 
+2.0> updateEmployeeDetails(struct employee e)
+0.0> 
+122.0> i < num
+124.0> i++
+114.0> updateEmployeeDetails

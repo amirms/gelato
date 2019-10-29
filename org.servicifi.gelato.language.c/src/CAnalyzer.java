@@ -2,10 +2,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -18,9 +20,11 @@ import org.servicifi.gelato.analysis.framework.analyses.IntraproceduralAnalysis;
 import org.servicifi.gelato.analysis.framework.analyses.ReachingDefinitionsAnalysisConfiguration;
 import org.servicifi.gelato.analysis.framework.graphs.Flow;
 import org.servicifi.gelato.analysis.framework.sdg.Node;
-import org.servicifi.gelato.analysis.framework.sdg.RandomPathGenerator;
 import org.servicifi.gelato.analysis.framework.sdg.SDG;
 import org.servicifi.gelato.analysis.framework.sdg.SDGFactory;
+import org.servicifi.gelato.analysis.framework.sdg.paths.RandomValidPathGenerator;
+import org.servicifi.gelato.analysis.framework.sdg.paths.RandomVertexSequenceGenerator;
+import org.servicifi.gelato.analysis.framework.sdg.paths.VertexSequenceType;
 import org.servicifi.gelato.analysis.framework.sdg.util.GraphExporter;
 import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
 import org.servicifi.gelato.language.kernel.containers.KernelRoot;
@@ -54,7 +58,7 @@ public class CAnalyzer {
 			// perform post-processing
 			new ExtraKernelResourcePostProcessor().process(rs);
 
-			File file = new File(OUTPUT_DIR + filename + ".kernel");
+			File file = new File(OUTPUT_DIR + filename + "/" + filename + ".kernel");
 			KernelResourceUtil.saveResource(file, rs);
 
 			KernelResourceUtil.resolveAll(rs);
@@ -69,11 +73,17 @@ public class CAnalyzer {
 				// populateArg2Params(program);
 
 				SDG sdg = SDGFactory.createSDG(program);
-				sdg.exportAsDot(OUTPUT_DIR+ filename, filename);
+				sdg.exportAsDot(OUTPUT_DIR + filename, filename);
 
-				Set<List<Node>> paths = RandomPathGenerator.generateForUseDefNodes(sdg, 2);
+				// generate both random valid walk and paths of SDG
+				for (VertexSequenceType seqType : VertexSequenceType.values()) {
+//					Set<List<Node>> vertexSeqs = RandomVertexSequenceGenerator.generateForUseDefNodes(sdg, 2, seqType);
+					Set<List<Node>> vertexSeqs = RandomVertexSequenceGenerator.generateRandomly(sdg, 1, seqType);
 
-				outputPaths(paths, store, OUTPUT_DIR+ filename, filename);
+					outputNodeSequences(vertexSeqs, store, OUTPUT_DIR + filename, seqType);
+					outputNodes(vertexSeqs, store, OUTPUT_DIR + filename, seqType);
+				}
+
 			}
 
 		} catch (Exception e) {
@@ -167,54 +177,77 @@ public class CAnalyzer {
 		}
 	}
 
-	private static void outputPaths(Set<List<Node>> paths, MappingStore store, String outputDir,
-			String filename) {
+	private static void outputNodeSequences(Set<List<Node>> vertexSequences, MappingStore store, String outputDir,
+			VertexSequenceType seqType) {
+		String type = seqType == VertexSequenceType.PATH ? "paths" : "walks";
 
 		try {
-			new File(outputDir + filename).mkdir();
+			File sdgSeqsfile = new File(outputDir + "/" + type + ".txt");
+			FileWriter sdgSeqsfw = new FileWriter(sdgSeqsfile);
 
-			File sdgPathsfile = new File(outputDir + "/paths.txt");
-			FileWriter sdgPathsfw = new FileWriter(sdgPathsfile);
+			File cSeqsfile = new File(outputDir + "/original-" + type + ".txt");
+			FileWriter cSeqsfw = new FileWriter(cSeqsfile);
 
-			File cPathsfile = new File(outputDir + "/original-paths.txt");
-			FileWriter cPathsfw = new FileWriter(cPathsfile);
+			String sdgSeqsText = "";
+			String cSeqsText = "";
 
-			String sdgPathsText = "";
-			String cPathsText = "";
+			for (List<Node> sequence : vertexSequences) {
+				List<String> originalPath = sequence.stream().map(node -> getNodeRule(node, store))
+						.collect(Collectors.toList());
 
-			for (List<Node> path : paths) {
-				for (int i = 0; i < path.size(); i++) {
-					Node node = path.get(i);
-					sdgPathsText += node.toDefUse();
-
-					if (i < path.size() - 1) {
-						sdgPathsText += "->";
-					}
+				// remove paths that have an empty original path
+				if (!originalPath.stream().anyMatch(n -> !n.isEmpty())) {
+					continue;
 				}
-				sdgPathsText += "\n";
 
-				for (int i = 0; i < path.size(); i++) {
-					Node node = path.get(i);
-					String ruleText = getNodeRule(node, store);
-					cPathsText += ruleText;
+				cSeqsText += originalPath.stream().collect(Collectors.joining("->")) + "\n";
 
-					if (i < path.size() - 1) {
-						cPathsText += "->";
-					}
-				}
-				cPathsText += "\n";
+				sdgSeqsText += sequence.stream().map(node -> node.toDefUse()).collect(Collectors.joining("->")) + "\n";
 			}
 
-			sdgPathsfw.write(sdgPathsText);
-			System.out.println("SDG Paths");
-			System.out.print(sdgPathsText);
+			sdgSeqsfw.write(sdgSeqsText);
+			System.out.println("SDG " + type);
+			System.out.print(sdgSeqsText);
 
-			cPathsfw.write(cPathsText);
-			System.out.println("C Paths");
-			System.out.print(cPathsText);
+			cSeqsfw.write(cSeqsText);
+			System.out.println("C " + type);
+			System.out.print(cSeqsText);
 
-			sdgPathsfw.close();
-			cPathsfw.close();
+			sdgSeqsfw.close();
+			cSeqsfw.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	private static void outputNodes(Set<List<Node>> vertexSequences, MappingStore store, String outputDir,
+			VertexSequenceType seqType) {
+		String type = seqType == VertexSequenceType.PATH ? "paths" : "walks";
+
+		try {
+			File sdgSeqsfile = new File(outputDir + "/labels-" + type + ".txt");
+			FileWriter sdgSeqsfw = new FileWriter(sdgSeqsfile);
+
+			File cSeqsfile = new File(outputDir + "/original-labels-" + type + ".txt");
+			FileWriter cSeqsfw = new FileWriter(cSeqsfile);
+
+			Set<String> allLabels = new HashSet<>();
+
+			for (List<Node> sequences : vertexSequences) {
+				for (Node node : sequences) {
+					String label = node.getLabel();
+					if (allLabels.contains(label)) {
+						continue;
+					}
+
+					sdgSeqsfw.write(label + "> " + node.toDefUse() + "\n");
+					cSeqsfw.write(label + "> " + getNodeRule(node, store) + "\n");
+					allLabels.add(label);
+				}
+			}
+
+			sdgSeqsfw.close();
+			cSeqsfw.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -225,39 +258,23 @@ public class CAnalyzer {
 
 		switch (node.getType()) {
 		case ENTRY:
-			// do nothing
-			// XXX think about it
-			return "ENTRY Node: " + getRuleText(nodeLabel, store);
-
+			return getRuleText(nodeLabel, store);
 		case FORMAL_IN:
-			return "FORMAL_IN: " + getFormalInAndOutParameterRule(nodeLabel, store);
-
+			return getFormalInAndOutParameterRule(nodeLabel, store);
 		case FORMAL_OUT:
-			nodeLabel = nodeLabel.substring(2);
-			return "FORMAL_OUT: " + getFormalInAndOutParameterRule(nodeLabel, store);
-
+			return getFormalInAndOutParameterRule(nodeLabel.substring(2), store);
 		case ACTUAL_IN:
-			return "ACTUAL_IN: " + getActuallInAndOutArgumentRule(nodeLabel, store);
-
+			return getActuallInAndOutArgumentRule(nodeLabel, store);
 		case ACTUAL_OUT:
-			nodeLabel = nodeLabel.substring(2);
-			return "ACTUAL_OUT: " + getActuallInAndOutArgumentRule(nodeLabel, store);
-
-		// do nothing
+			return getActuallInAndOutArgumentRule(nodeLabel.substring(2), store);
 		case NORMAL:
-			return "NORMAL: " + getRuleText(nodeLabel, store);
-
+			return getRuleText(nodeLabel, store);
 		case CTRL:
-			return "CTRL: " + getRuleText(nodeLabel, store);
-
+			return getRuleText(nodeLabel, store);
 		case CALL:
-			return "CALL: " + getCallRuleText(nodeLabel, store);
-
+			return getCallRuleText(nodeLabel, store);
 		case RETURN:
-			// TODO not sure
-			// return "RETURN: " + node.getLabel();
-			return "";
-
+			return getRuleText(nodeLabel, store);
 		default:
 			throw new Error("node type not found: " + node);
 		}
@@ -309,6 +326,9 @@ public class CAnalyzer {
 
 		ParserRuleContext ruleContext = getRuleContext(nodeLabel, store);
 
+		String text = ruleContext.getText();
+		System.out.println("ruleContext: " + text);
+
 		// C-specific
 //		System.out.println(ruleContext.getClass() + " : " + ruleContext.getText());
 
@@ -328,14 +348,13 @@ public class CAnalyzer {
 //			System.out.println(p.getText());
 //		}
 //
-//		boolean g = true;
-//		if (g) {
-//			throw new Error("argumentIndex: " + argumentIndex);
-//		}
 
 		if (argumentRules.size() <= argumentIndex) {
 			return "";
 		}
+
+		String argumentText = argumentRules.get(argumentIndex).getText();
+		String fullText = Utils.getFullText(argumentRules.get(argumentIndex));
 
 		return Utils.getFullText(argumentRules.get(argumentIndex));
 	}
@@ -380,6 +399,9 @@ public class CAnalyzer {
 
 		ParserRuleContext ruleContext = getRuleContext(nodeLabel, store);
 
+		String text = ruleContext.getText();
+		System.out.println("ruleContext: " + text);
+
 		// C-specific
 		if (!(ruleContext instanceof CParser.DirectDeclaratorContext)) {
 			throw new Error("The corresponding formal in/out does not belong to a procedure.");
@@ -402,11 +424,13 @@ public class CAnalyzer {
 //
 //		return parameterDescription;
 
-		return Utils.getFullText(parameterRules.get(parameterIndex));
+		String x = Utils.getFullText(parameterRules.get(parameterIndex));
+
+		return x;
 	}
 
 	public static void main(String[] args) {
-		analyze("./input/", "mapping");
+		analyze("./input/", "refined");
 	}
 
 }

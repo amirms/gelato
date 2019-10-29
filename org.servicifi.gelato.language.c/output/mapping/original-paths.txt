@@ -1,4 +1,0 @@
-CTRL: fread (input, sizeof(struct employee), 1, infile)->NORMAL: es[i++] = input;
-CTRL: fread (input, sizeof(struct employee), 1, infile)->NORMAL: 
-CTRL: infile == NULL->
-CTRL: infile == NULL->NORMAL: fprintf(stderr, "\nError opening accounts.dat\n\n");

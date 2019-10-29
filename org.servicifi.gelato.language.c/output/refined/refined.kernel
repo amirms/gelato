@@ -1,0 +1,87 @@
+var var4;
+var var5;
+var var6;
+var var9;
+var var10;
+var var11;
+var var13;
+var var14;
+var var15;
+var var16;
+var var17;
+var var18;
+var var19;
+var var20;
+var var7;
+var var8;
+var var0;
+var var12;
+var var2;
+var var21;
+var var22;
+var var23;
+var var24;
+1.0:Procedure readEmployeeDetails(val var0,ref var1){
+	5.0:5.1:[uses(var7);defines(var6)];
+	6.0:if(7.0:[uses(var6)])then
+		9.0:{
+			11.0:11.1:[uses(var8)];13.0:13.1:[defines(var1)];12.0:return;
+		};
+	16.0:16.1:[uses(var0);defines(var5)];
+	18.0:19.0:[defines(var9)];
+	20.0:while(26.1:[uses(var4);uses(var6)])do 20.1:{
+		24.0:24.1:[defines(var5);uses(var9);uses(var4)];22.0:22.1:[defines(var9)];
+	};
+	29.0:29.1:[uses(var6)];
+	31.0:31.1:[uses(var5);defines(var1)];
+	30.0:return;
+}
+
+2.0:Procedure updateEmployeeDetails(val var2){
+	34.0:34.1:[uses(var7);defines(var11)];
+	35.0:if(36.0:[uses(var11)])then
+		38.0:{
+			40.0:40.1:[uses(var8)];
+		};
+	42.0:42.1:[uses(var11)];
+	43.0:while(55.1:[uses(var10);uses(var10);uses(var11)])do 43.1:{
+		44.0:if(47.1:[uses(var10);uses(var2)])then
+			48.0:{
+				50.0:50.1:[uses(var11);uses(var12)];52.0:52.1:[uses(var10);uses(var11)];53.0:goto 59.0;
+			};
+	};
+	59.0:59.1:[uses(var11)];
+	60.0:return;
+}
+
+3.0:Procedure main1(){
+	62.0:62.1:[];
+	64.0:64.1:[uses(var15);defines(var15)];
+	66.0:call readEmployeeDetails(var15,var20);
+	67.0:while(143.0:[])do 67.1:{
+		69.0:69.1:[];71.0:71.1:[uses(var17);defines(var17)];73.0:73.1:[defines(var16)];120.0:120.1:[defines(var13)];74.0:while(122.0:[uses(var13);uses(var15)])do 74.1:{
+		75.0:if(76.0:[uses(var17);uses(var20);uses(var13)])then
+			79.0:{
+				82.0:83.0:[defines(var21);uses(var20);uses(var13)];85.0:85.1:[];87.0:87.1:[uses(var21);defines(var21)];89.0:89.1:[];91.0:91.1:[uses(var18);defines(var18)];94.0:94.1:[defines(var21);uses(var21);uses(var18);uses(var21);uses(var21)];95.0:if(96.0:[uses(var21);uses(var22)])then
+				98.0:{
+					101.0:101.1:[defines(var19);uses(var21);uses(var22);uses(var23);uses(var22);uses(var24)];
+				}
+			else
+				102.0:{
+					104.0:104.1:[defines(var19);uses(var21);uses(var24)];
+				};106.0:106.1:[defines(var21);uses(var21);uses(var19);uses(var21)];108.0:108.1:[uses(var21)];110.0:110.1:[uses(var17)];112.0:112.1:[uses(var21)];114.0:call updateEmployeeDetails(var21);116.0:116.1:[];118.0:118.1:[defines(var16)];119.0:goto 128.0;
+			};124.0:124.1:[uses(var13)];
+	};127.0:if(128.0:[uses(var16)])then
+		130.0:{
+			132.0:132.1:[];
+		};134.0:134.1:[];136.0:136.1:[uses(var14);defines(var14)];137.0:if(138.0:[uses(var14)])then
+		140.0:{
+			141.0:goto 145.0;
+		};
+	};
+	145.0:145.1:[];
+	144.0:return;
+}
+0.0:Procedure main(){
+	0.1:call main1();
+}

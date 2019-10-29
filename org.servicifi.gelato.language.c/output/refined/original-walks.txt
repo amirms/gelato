@@ -1,0 +1,19 @@
+e.basic > SALARY_TAX_THRESHOLD->taxes = e.gross * LOW_RATE;
+!flag->printf("No Record Found!!\n")
+num->int num
+updateEmployeeDetails->updateEmployeeDetails(struct employee e)->outfile == NULL->fprintf(stderr, "\nError opening accounts.dat\n\n")
+break;->!flag->printf("No Record Found!!\n")
+readEmployeeDetails(int num)->es
+readEmployeeDetails->readEmployeeDetails(int num)->es
+infile == NULL->NULL
+break;->fclose(outfile)
+!ch->break;->0
+->main()->scanf("%d", &num)
+strcmp(input.empId,e.empId)->fseek(outfile,-sizeof(struct employee),SEEK_CUR)
+e->struct employee e
+empId == emps[i].empId->scanf("%lf", &byPercent)
+fread (input, sizeof(struct employee), 1, infile)->es[i++] = input;
+fread(input,sizeof(input),1,outfile)->strcmp(input.empId,e.empId)->fseek(outfile,-sizeof(struct employee),SEEK_CUR)
+outfile == NULL->fprintf(stderr, "\nError opening accounts.dat\n\n")
+updateEmployeeDetails(struct employee e)->outfile == NULL->fprintf(stderr, "\nError opening accounts.dat\n\n")
+i < num->i++

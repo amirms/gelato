@@ -195,11 +195,6 @@ public class KernelResource extends ResourceImpl implements org.servicifi.gelato
 	}
 	
 	protected void doLoad(InputStream inputStream, Map<?,?> options) throws IOException {
-		boolean f =true;
-		if(f) {
-			throw new Error();
-		}
-		
 		synchronized (loadingLock) {
 			if (processTerminationRequested()) {
 				return;

@@ -4,15 +4,16 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.servicifi.gelato.analysis.framework.analyses.ExitEntryPair;
 import org.servicifi.gelato.analysis.framework.sdg.Node;
-import org.servicifi.gelato.analysis.framework.sdg.RandomPathGenerator;
 import org.servicifi.gelato.analysis.framework.sdg.SDG;
 import org.servicifi.gelato.analysis.framework.sdg.SDGFactory;
+import org.servicifi.gelato.analysis.framework.sdg.paths.RandomValidPathGenerator;
 import org.servicifi.gelato.language.kernel.containers.CompilationUnit;
 import org.servicifi.gelato.language.kernel.statements.ExpressionStatement;
 import org.servicifi.gelato.transformation.core.resource.KernelSourceFileLoader;
@@ -34,9 +35,9 @@ public class AnalysisEvaluation {
 			sdg.exportAsDot("./output", "sdg");
 
 
-			Map<Node, List<Node>> paths = RandomPathGenerator.generateRandomly(sdg, 0.4);
+			Set<List<Node>> paths = RandomValidPathGenerator.generateForUseDefNodes(sdg, 3);
 
-			for (List<Node> path : paths.values()) {
+			for (List<Node> path : paths) {
 				for (Node node : path) {
 					System.out.print(node.toDefUse() + "->");
 				}
