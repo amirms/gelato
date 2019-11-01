@@ -21,6 +21,5 @@ Export-Package: org.servicifi.gelato.analysis.framework.analyses,
  org.servicifi.gelato.analysis.framework.procedures.impl,
  org.servicifi.gelato.analysis.framework.procedures.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.emfstore.common
+ org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
