@@ -7,10 +7,9 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="/home/asa/lib/antlr/antlr-4.7.2-complete.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.servicifi.gelato.language.kernel"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.servicifi.gelato.analysis.framework"/>
-	<classpathentry kind="lib" path="/home/asa/ide/eclipse-modeling-2019-03-R-linux-gtk-x86_64/eclipse/plugins/org.eclipse.emf.common_2.15.0.v20181220-0846.jar" sourcepath="/home/asa/ide/eclipse-modeling-2019-03-R-linux-gtk-x86_64/eclipse/plugins/org.eclipse.emf.common.source_2.15.0.v20181220-0846.jar">
+	<classpathentry kind="lib" path="/home/amir/ide/eclipse-dsl-2019-09-R-linux-gtk-x86_64-gelato/eclipse/plugins/org.eclipse.emf.common_2.16.0.v20190625-1131.jar" sourcepath="/home/asa/ide/eclipse-modeling-2019-03-R-linux-gtk-x86_64/eclipse/plugins/org.eclipse.emf.common.source_2.15.0.v20181220-0846.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/common/*"/>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/common/archive/*"/>
@@ -22,7 +21,7 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.servicifi.gelato.language.kernel.resource.kernel"/>
-	<classpathentry kind="lib" path="/home/asa/ide/eclipse-modeling-2019-03-R-linux-gtk-x86_64/eclipse/plugins/org.eclipse.emf.ecore_2.17.0.v20190116-0940.jar" sourcepath="/home/asa/ide/eclipse-modeling-2019-03-R-linux-gtk-x86_64/eclipse/plugins/org.eclipse.emf.ecore.source_2.17.0.v20190116-0940.jar">
+	<classpathentry kind="lib" path="/home/amir/ide/eclipse-dsl-2019-09-R-linux-gtk-x86_64-gelato/eclipse/plugins/org.eclipse.emf.ecore_2.19.0.v20190822-1451.jar" sourcepath="/home/asa/ide/eclipse-modeling-2019-03-R-linux-gtk-x86_64/eclipse/plugins/org.eclipse.emf.ecore.source_2.17.0.v20190116-0940.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/ecore/*"/>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/ecore/impl/*"/>
@@ -41,7 +40,6 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="src" path="/org.servicifi.gelato.analysis.framework.sdg"/>
-	<classpathentry kind="lib" path="/org.servicifi.gelato.analysis.framework.sdg/lib/jgrapht-core-1.3.0.jar"/>
-	<classpathentry kind="lib" path="/org.servicifi.gelato.analysis.framework.sdg/lib/jgrapht-io-1.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/antlr-4.7.2-complete.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

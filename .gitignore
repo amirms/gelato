@@ -15,6 +15,9 @@ local.properties
 .loadpath
 *.trace
 
+# Ignore build output directory
+build
+
 # Maven
 */target/*
 target/*
@@ -31,7 +34,7 @@ dependency-reduced-pom.xml
 # we shouldn't have .jar files in our repository, 
 # apart from these 5 jars which are vital for our build process
 *.jar
-!/projectName/bundle/**/*.jar
+!/**/lib/**/*.jar
 
 # For Unix editors 
 # sometimes make file copies ending
